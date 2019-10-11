@@ -1,22 +1,19 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "extends": ["google"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "indent": "off",
-    "no-unused-vars": "off",
-    "generator-star-spacing": "off"
-  }
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+    }
 }
