@@ -1,0 +1,80 @@
+:root {
+  --current-background: url("../img/bg/main-menu.png");
+  --main-font: 'Roboto', sans-serif
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
+}
+#main {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  background-image: var(--current-background);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+#menu-container {
+  font-size: 2rem;
+  margin-left: 1rem;
+  color: #fff;
+}
+.vertical-menu {
+  margin-left: 0;
+}
+.vertical-menu li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin-bottom: .5em;
+  border-left-color: #fff;
+  border-left-style: solid;
+  border-left-width: 0em;
+  margin-left: 0;
+  transition: font-size .1s, border-left-width .1s;
+  cursor: pointer;
+}
+@keyframes bob {
+  from {padding-left: .15em}
+  to {padding-left: .35em}
+}
+.vertical-menu li.selected {
+  font-weight: 300;
+  font-size: 2em;
+  border-left-width: .05em;
+  padding-left: .25em;
+  animation-name: bob;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#logo-container {
+  max-width: 15em;
+  padding: 1em;
+}
+#button-hint-container {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  height: 2em;
+  transition: transform .05s;
+}
+#button-hint-container.hidden {
+  transform: scaleY(0); 
+}
+#button-hint-container * {
+  color: #fff;
+  margin-left: .3em;
+  display: inline;
+}
+#button-hint-container img {
+  height: 100%;
+}
+#button-hint-container p {
+  font-size: 2em;
+  height: 100%;
+  vertical-align: top;
+}
