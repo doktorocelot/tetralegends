@@ -1,11 +1,18 @@
 :root {
   --current-background: url("../img/bg/main-menu.png");
-  --main-font: 'Roboto', sans-serif
+  --main-font: 'Roboto', sans-serif;
+  
+}
+@media only screen and (max-width: 600px) {
+  :root {
+    font-size: .7em;
+  }
 }
 body {
   margin: 0;
   padding: 0;
   font-family: var(--main-font);
+  background-color: #000;
 }
 #main {
   position: fixed;
@@ -18,30 +25,44 @@ body {
   width: 100%;
   height: 100%;
 }
+#description-text {
+  font-size: 1.5rem;
+}
 #menu-container {
   font-size: 2rem;
   margin-left: 1rem;
   color: #fff;
 }
-.vertical-menu {
-  margin-left: 0;
+#menu-container.hidden {
+  display: none;
 }
-.vertical-menu li {
+#vertical-menu {
+  margin-left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: transform .5s;
+}
+#vertical-menu.hidden {
+  transform: translateX(-8em);
+}
+#vertical-menu li {
   list-style-type: none;
   list-style-position: inside;
-  margin-bottom: .5em;
+  margin-top: .25em;
+  margin-bottom: .25em;
   border-left-color: #fff;
   border-left-style: solid;
   border-left-width: 0em;
   margin-left: 0;
   transition: font-size .1s, border-left-width .1s;
-  cursor: pointer;
+  cursor: pointer;  
 }
 @keyframes bob {
   from {padding-left: .15em}
   to {padding-left: .35em}
 }
-.vertical-menu li.selected {
+#vertical-menu li.selected {
+  
   font-weight: 300;
   font-size: 2em;
   border-left-width: .05em;
@@ -67,8 +88,11 @@ body {
 }
 #button-hint-container * {
   color: #fff;
-  margin-left: .3em;
+  margin-left: .1em;
   display: inline;
+}
+#button-hint-container span {
+  margin-left: 1em;
 }
 #button-hint-container img {
   height: 100%;
@@ -77,4 +101,12 @@ body {
   font-size: 2em;
   height: 100%;
   vertical-align: top;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
 }

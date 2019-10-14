@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "parent": "root",
+    "return": "Development"
+  },
+  "data": [
+    {
+      "label": "Discord",
+      "default": true,
+      "description": "Discuss the game and share ideas",
+      "action": "none"
+    },
+    {
+      "label": "Trello",
+      "description": "View progress on the game",
+      "action": "none"
+    }
+  ]
+}

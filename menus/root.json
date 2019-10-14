@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "parent": null
+  },
+  "data": [
+    {
+      "label": "Quick Play",
+      "default": true,
+      "description": "Jump right into a game",
+      "action": "none"
+    },
+    {
+      "label": "Modes",
+      "description": "Select from a variety of game modes",
+      "action": "submenu",
+      "submenu": "modes"
+    },
+    {
+      "label": "Settings",
+      "description": "Configure many options to suit your style",
+      "action": "submenu",
+      "submenu": "settings"
+    },
+    {
+      "label": "Development",
+      "description": "Contribute to and view development of the game",
+      "action": "submenu",
+      "submenu": "development/root"
+    },
+    {
+      "label": "Extras",
+      "description": "Some extra stuff, such as music",
+      "action": "submenu",
+      "submenu": "extras"
+    }
+  ]
+}
