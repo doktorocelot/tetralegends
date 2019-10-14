@@ -1,39 +1,40 @@
 export default class Input {
   constructor() {
-    this.menu = {};
-    for (const name of [
-      'menuUp',
-      'menuDown',
-      'menuOk',
-      'menuBack',
-    ]) {
-      this.menu[name] = new Event(name);
+    const keys = {
+      menuUp: 'ArrowUp',
+      menuDown: 'ArrowDown',
+      menuOk: 'Enter',
+      menuBack: 'Backspace',
+    };
+    this.events = {};
+    for (const name of Object.keys(keys)) {
+      this.events[name] = new Event(name);
     }
     let mouseLimit = 0;
     document.addEventListener('keydown', (event) => {
       document.body.requestPointerLock();
       mouseLimit = 0;
-      // showHints();
-      // changeHints('keyboard');
-      if (event.keyCode === 38) {
-        document.dispatchEvent(this.menu.menuUp);
-      }
-      if (event.keyCode === 40) {
-        document.dispatchEvent(this.menu.menuDown);
-      }
-      if (event.keyCode === 13) {
-        document.dispatchEvent(this.menu.menuOk);
-      }
-      if (event.keyCode === 8) {
-        document.dispatchEvent(this.menu.menuBack);
+      for (const name of Object.keys(keys)) {
+        if (event.key === keys[name]) {
+          document.dispatchEvent(this.events[name]);
+        }
       }
     });
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (event) => {
       mouseLimit++;
-
       if (mouseLimit > 3) {
         document.exitPointerLock();
       }
     });
+  }
+  add(event, func) {
+    document.addEventListener(event, func);
+  }
+  addMany(eventArr, funcArr) {
+    for (let i = 0; i < funcArr.length; i++) {
+      const event = eventArr[i];
+      const func = funcArr[i];
+      this.add(event, func);
+    }
   }
 }
