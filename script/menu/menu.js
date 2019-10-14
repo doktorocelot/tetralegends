@@ -9,6 +9,7 @@ export default class Menu {
       properties: null,
     };
     this.enabled = false;
+    this.lock = false;
   }
   get selected() {
     return parseInt($('li.selected').id.substring(7));
@@ -20,6 +21,7 @@ export default class Menu {
     return $('#vertical-menu li').length;
   }
   load(name, selection = 'default') {
+    this.lock = true;
     this.hideMenu();
     loadMenu(name)
         .then((menu) => {
@@ -29,6 +31,7 @@ export default class Menu {
           this.current.properties = menu.properties;
           this.draw();
           this.showMenu();
+          this.lock = false;
         });
   }
   show() {
@@ -91,13 +94,19 @@ export default class Menu {
     }
   }
   ok() {
-    if (this.selectedData.action === 'submenu') {
-      this.load(this.selectedData.submenu);
+    if (!this.lock) {
+      switch (this.selectedData.action) {
+        case 'submenu':
+          this.load(this.selectedData.submenu);
+          break;
+      }
     }
   }
   back() {
-    if (this.current.properties.parent !== null) {
-      this.load(this.current.properties.parent);
+    if (!this.lock) {
+      if (this.current.properties.parent !== null) {
+        this.load(this.current.properties.parent);
+      }
     }
   }
 }

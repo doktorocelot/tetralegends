@@ -1,3 +1,4 @@
+import buttonHints from './menu/button-hints.js';
 export default class Input {
   constructor() {
     const keys = {
@@ -6,13 +7,20 @@ export default class Input {
       menuOk: 'Enter',
       menuBack: 'Backspace',
     };
+
     this.events = {};
     for (const name of Object.keys(keys)) {
       this.events[name] = new Event(name);
     }
+
     let mouseLimit = 0;
+
     document.addEventListener('keydown', (event) => {
-      document.body.requestPointerLock();
+      if (event.key !== 'Escape') {
+        buttonHints.change('keyboard');
+        buttonHints.show();
+        document.body.requestPointerLock();
+      }
       mouseLimit = 0;
       for (const name of Object.keys(keys)) {
         if (event.key === keys[name]) {
@@ -23,6 +31,7 @@ export default class Input {
     document.addEventListener('mousemove', (event) => {
       mouseLimit++;
       if (mouseLimit > 3) {
+        buttonHints.hide();
         document.exitPointerLock();
       }
     });

@@ -40,10 +40,11 @@ body {
   margin-left: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transition: transform .5s;
+  transition: transform .5s, opacity .5s;
 }
 #vertical-menu.hidden {
   transform: translateX(-8em);
+  opacity: 0;
 }
 #vertical-menu li {
   list-style-type: none;

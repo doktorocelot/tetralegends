@@ -37,6 +37,31 @@
   <!-- <script type="module" src="locale.js"></script> -->
   <script src="lib/gamepad.min.js"></script>
   <script type="module" src="app.js"></script>
+  <script>
+    //code to stop backspace from FUCKING everything up
+    document.onkeydown = function (event) {
+
+      if (!event) { /* This will happen in IE */
+        event = window.event;
+      }
+
+      var keyCode = event.keyCode;
+
+      if (keyCode == 8 &&
+        ((event.target || event.srcElement).tagName != "TEXTAREA") &&
+        ((event.target || event.srcElement).tagName != "INPUT")) {
+
+        if (navigator.userAgent.toLowerCase().indexOf("msie") == -1) {
+          event.stopPropagation();
+        } else {
+          alert("prevented");
+          event.returnValue = false;
+        }
+
+        return false;
+      }
+    };	
+  </script>
 </body>
 
 </html>

@@ -12,13 +12,13 @@
     {
       "label": "Modes",
       "description": "Select from a variety of game modes",
-      "action": "submenu",
+      "action": "none",
       "submenu": "modes"
     },
     {
       "label": "Settings",
       "description": "Configure many options to suit your style",
-      "action": "submenu",
+      "action": "none",
       "submenu": "settings"
     },
     {
@@ -30,7 +30,7 @@
     {
       "label": "Extras",
       "description": "Some extra stuff, such as music",
-      "action": "submenu",
+      "action": "none",
       "submenu": "extras"
     }
   ]

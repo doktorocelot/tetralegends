@@ -94,6 +94,12 @@ gamepad.bind(Gamepad.Event.BUTTON_DOWN, (e) => {
   if (e.control === 'DPAD_DOWN') {
     menu.down();
   }
+  if (e.control === 'FACE_1') {
+    menu.ok();
+  }
+  if (e.control === 'FACE_2') {
+    menu.back();
+  }
 });
 if (!gamepad.init()) {
   // Your browser does not support gamepads, get the latest Google Chrome or Firefox
