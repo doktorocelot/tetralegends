@@ -1,8 +1,19 @@
-import Menu from './script/menu.js';
+import Menu from './script/menu/menu.js';
 import Input from './script/input.js';
 
 const menu = new Menu();
 const input = new Input();
+input.addMany([
+  'menuUp',
+  'menuDown',
+  'menuOk',
+  'menuBack',
+], [
+  () => {menu.up();},
+  () => {menu.down();},
+  () => {menu.ok();},
+  () => {menu.back();},
+]);
 document.addEventListener('DOMContentLoaded', () => {
   menu.load('root');
   menu.show();
@@ -41,7 +52,7 @@ function changeHints(type) {
     }
   }
 }
-let mouseLimit = 0;
+/*
 document.addEventListener('keydown', (event) => {
   document.body.requestPointerLock();
   mouseLimit = 0;
@@ -60,7 +71,8 @@ document.addEventListener('keydown', (event) => {
     menu.back();
   }
 });
-
+*/
+/*
 document.addEventListener('mousemove', (e) => {
   mouseLimit++;
 
@@ -69,6 +81,7 @@ document.addEventListener('mousemove', (e) => {
     hideHints();
   }
 });
+*/
 const gamepad = new Gamepad();
 gamepad.bind(Gamepad.Event.BUTTON_DOWN, (e) => {
   // e.control of gamepad e.gamepad pressed down

@@ -16,6 +16,8 @@
   },
   "rules": {
     "max-len": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "no-unused-vars": "off",
+    "brace-style": "off"
   }
 }

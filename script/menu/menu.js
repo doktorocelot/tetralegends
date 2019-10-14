@@ -1,5 +1,5 @@
-import {loadMenu} from './loaders.js';
-import $ from './shortcuts.js';
+import {loadMenu} from '../loaders.js';
+import $ from '../shortcuts.js';
 
 export default class Menu {
   constructor() {
