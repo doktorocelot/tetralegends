@@ -10,91 +10,33 @@
 
 <body>
   <div id="main">
-    <div id="menu-container">
+    <div id="menu-container" class="hidden">
       <div id="logo-container">
         <img alt="Tetra Legends Logo" id="#logo" src="img/brand/logo-monochrome.svg">
       </div>
-      <ul class="vertical-menu">
-        <li id="option-1" class="selected" onmouseover="select(1)">Quick Play</li>
-        <li id="option-2" onmouseover="select(2)">Modes</li>
-        <li id="option-3" onmouseover="select(3)">Settings</li>
-        <li id="option-4" onmouseover="select(4)">Development</li>
+      <div id="description-text"></div>
+      <ul id="vertical-menu">
       </ul>
+
     </div>
     <div id="button-hint-container">
       <span>
-        <img alt="" src="img/buttons/keyboard-arrows.svg">
+        <img alt="" id="select-button" src="img/buttons/general-dpad.svg">
         <p>Select</p>
       </span>
       <span>
-        <img alt="" src="img/buttons/keyboard-enter.svg">
+        <img alt="" id="confirm-button" src="img/buttons/general-a.svg">
         <p>OK</p>
+      </span>
+      <span>
+        <img alt="" id="back-button" src="img/buttons/general-b.svg">
+        <p>Back</p>
       </span>
     </div>
   </div>
   <!-- <script type="module" src="locale.js"></script> -->
+  <script src="lib/gamepad.min.js"></script>
   <script type="module" src="app.js"></script>
-  <script>
-    function $(selector) {
-      let selection = document.querySelectorAll(selector);
-      switch (selection.length) {
-        case 0:
-          return undefined;
-          break;
-        case 1:
-          return selection[0];
-          break;
-        default:
-          return selection;
-      }
-    }
-    function menuLength() {
-      return $('.vertical-menu li').length;
-    }
-    function select(number) {
-      for (const element of $('.vertical-menu li')) {
-        element.classList.remove('selected')
-      }
-      $(`#option-${number}`).classList.add('selected');
-    }
-    function selectUp() {
-      const current = parseInt($('li.selected').id.substring(7));
-      if (current === 1) {
-        select(menuLength());
-      } else {
-        select(current - 1)
-      }
-    }
-    function selectDown() {
-      const current = parseInt($('li.selected').id.substring(7));
-      if (current === menuLength()) {
-        select(1);
-      } else {
-        select(current + 1)
-      }
-    }
-    function hideHints() {
-      $('#button-hint-container').classList.add('hidden');
-    }
-    function showHints() {
-      $('#button-hint-container').classList.remove('hidden');
-    }
-    console.log($('#option-1'))
-
-    document.addEventListener("keydown", function (event) {
-      showHints();
-      if (event.keyCode == 38) {
-        selectUp();
-      }
-      if (event.keyCode == 40) {
-        selectDown();
-      }
-    })
-
-    document.addEventListener('mousemove', e => {
-      hideHints();
-    });
-  </script>
 </body>
 
 </html>
