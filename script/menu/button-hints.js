@@ -2,6 +2,7 @@ import $ from '../shortcuts.js';
 class ButtonHints {
   constructor() {}
   change(type) {
+    /*
     switch (type) {
       case 'keyboard':
         $('#select-button').src = 'img/buttons/keyboard-arrows.svg';
@@ -14,9 +15,10 @@ class ButtonHints {
         $('#back-button').src = 'img/buttons/general-b.svg';
       }
     }
+    */
   }
   hide() {
-    $('#button-hint-container').classList.add('hidden');
+    // $('#button-hint-container').classList.add('hidden');
   }
   show() {
     $('#button-hint-container').classList.remove('hidden');

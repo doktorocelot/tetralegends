@@ -7,19 +7,19 @@
       "label": "Quick Play",
       "default": true,
       "description": "Jump right into a game",
-      "action": "none"
+      "action": "quick"
     },
     {
       "label": "Modes",
       "description": "Select from a variety of game modes",
-      "action": "none",
-      "submenu": "modes"
+      "action": "submenu",
+      "submenu": "modes/root"
     },
     {
       "label": "Settings",
       "description": "Configure many options to suit your style",
-      "action": "none",
-      "submenu": "settings"
+      "action": "submenu",
+      "submenu": "settings/root"
     },
     {
       "label": "Development",

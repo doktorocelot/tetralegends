@@ -1,6 +1,9 @@
 :root {
-  --current-background: url("../img/bg/main-menu.png");
+  /* --current-background: url("../img/bg/main-menu.png"); */
+  --current-background: url("https://wallpaperaccess.com/full/28488.jpg");
   --main-font: 'Roboto', sans-serif;
+  --cell-size: (2em);
+
   
 }
 @media only screen and (max-width: 600px) {
@@ -63,7 +66,6 @@ body {
   to {padding-left: .35em}
 }
 #vertical-menu li.selected {
-  
   font-weight: 300;
   font-size: 2em;
   border-left-width: .05em;
@@ -81,27 +83,47 @@ body {
   position: absolute;
   bottom: 1em;
   right: 1em;
-  height: 2em;
   transition: transform .05s;
 }
-#button-hint-container.hidden {
-  transform: scaleY(0); 
-}
-#button-hint-container * {
-  color: #fff;
-  margin-left: .1em;
-  display: inline;
-}
-#button-hint-container span {
+#button-hint-container table {
+  font-size: .9em;
+  height: 2em;
+  display: inline-block;
   margin-left: 1em;
 }
-#button-hint-container img {
-  height: 100%;
-}
-#button-hint-container p {
+#button-hint-container table .label {
+  color: #fff;
   font-size: 2em;
-  height: 100%;
-  vertical-align: top;
+  padding-left: .2em;
+}
+#button-hint-container table .key {
+  color: #111;
+  background-color: #fff;
+  width: 1.6em;
+  text-align: center;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+#button-hint-container table .key.multi {
+  font-size: 1em;
+  font-weight: 700;
+  width: 2.4em;
+}
+#button-hint-container table .key.big {
+  width: 3.6em;
+  
+}
+#button-hint-container table .key.controller {
+  border-radius: 100%;
+}
+#button-hint-container table .key.dpad {
+  font-size: 2em;
+  background-color: transparent;
+  color: white;
+  width: 0;
+}
+#button-hint-container table .icon {
+  font-family: 'Material Icons';
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -110,4 +132,129 @@ body {
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
+}
+#game-container {
+  --peek-zone: .5;
+  --matrix-width: 10;
+  --matrix-height-base: 20;
+  --matrix-height: calc(var(--matrix-height-base) + var(--peek-zone));
+  font-size: calc(var(--cell-size)/2);
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+}
+.sprite-canvas {
+  background-color: red;
+}
+.game {
+  display: inline-block;
+  padding: 2em;
+  overflow: auto;
+  margin: auto;
+  
+}
+.game div {
+  float: left;
+}
+.game div div {
+  box-sizing: border-box;
+  float: none;
+}
+.game-left,
+.game-right {
+  margin-top: -.5em;
+}
+.game-center {
+  position: relative;
+  -webkit-backdrop-filter: blur(5em);
+  backdrop-filter: blur(5em);
+  width: calc(var(--matrix-width) * var(--cell-size));
+  height: calc(var(--matrix-height) * var(--cell-size));
+  background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
+  background-color: #0005;
+  background-image: url(../img/tetrion/grid-bg-cross.svg);
+  background-position: left bottom;
+}
+.game-right {
+  text-align: left;
+
+}
+.game-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.stack-canvas {
+
+  outline-color: #fff;
+  outline-style: solid;
+  outline-width: .5em;
+}
+.hold-container,
+.main-next-container {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.hold-canvas,
+.main-next-canvas {
+  width: calc(4 * var(--cell-size));
+  height: calc(4 * var(--cell-size));
+
+}
+
+.sub-next-container {
+  --next-count: 6;
+  display: inline-block;
+  margin-left: 1em;
+  padding: 0;
+}
+.sub-next-canvas {
+  margin: 0;
+  padding: 0;
+  width: calc(4 * var(--cell-size) * .62);
+  height: calc(4 * var(--cell-size) * var(--next-count) * .62);
+}
+
+.next-label,
+.hold-label {
+  color: #fff;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: .3em;
+}
+.next-label {
+  text-align: left;
+}
+.hold-label {
+  text-align: right;
+  margin-right: -.3em;
+}
+.lockdown-meter {
+  position: absolute;
+  width: 105%;
+  left: -.5em;
+  bottom: -2em;
+}
+progress[value]  {
+  -webkit-appearance: none;
+  background-color: #000a;
+  border: none;
+  height: .5em;;
+}
+ 
+/* Chrome */
+progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+}
+ 
+progress[value]::-webkit-progress-value {
+  background-color: #fff;
+}
+ 
+/* Firefox */
+progress[value]::-moz-progress-bar {
+  background-color: #fff;
 }
