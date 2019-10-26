@@ -11,6 +11,14 @@
     font-size: .7em;
   }
 }
+@keyframes pulse-darkness {
+  from {filter: brightness(1)}
+  to {filter: brightness(0)}
+}
+@keyframes pulse {
+  from {filter: brightness(1.1)}
+  to {filter: brightness(0.9)}
+}
 body {
   margin: 0;
   padding: 0;
@@ -64,6 +72,13 @@ body {
 @keyframes bob {
   from {padding-left: .15em}
   to {padding-left: .35em}
+}
+.pulse {
+  animation-name: pulse;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 #vertical-menu li.selected {
   font-weight: 300;
@@ -232,6 +247,24 @@ body {
   text-align: right;
   margin-right: -.3em;
 }
+.manip-grid {
+  position: absolute;
+  display: grid;
+  width: 105%;
+  left: -.5em;
+  bottom: -1.25em;
+  justify-content: space-between;
+}
+.manip-pip {
+  grid-row: 1;
+  background-color: white;
+  width: .5em;
+  height: .5em;
+  border-radius: 100%;
+}
+.manip-pip.disabled {
+  background-color: #000a;
+}
 .lockdown-meter {
   position: absolute;
   width: 105%;
@@ -242,17 +275,27 @@ progress[value]  {
   -webkit-appearance: none;
   background-color: #000a;
   border: none;
-  height: .5em;;
+  height: .5em;
+  
 }
- 
+progress[value="0"] {
+  animation-name: pulse-darkness;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 /* Chrome */
 progress[value]::-webkit-progress-bar {
   background-color: transparent;
 }
- 
+progress[value="0"]::-webkit-progress-bar {
+  background-color: #f00;
+}
 progress[value]::-webkit-progress-value {
   background-color: #fff;
 }
+
  
 /* Firefox */
 progress[value]::-moz-progress-bar {

@@ -226,4 +226,14 @@ export const KICK_TABLES = {
     S: KICK_TEMPLATES.srs.x,
   },
 };
-
+export const PIECE_COLORS = {
+  srs: {
+    I: 'lightBlue',
+    L: 'orange',
+    O: 'yellow',
+    Z: 'red',
+    T: 'purple',
+    J: 'blue',
+    S: 'green',
+  }
+}

@@ -1,8 +1,9 @@
 import GameModule from './game-module.js';
-import {PIECES, SPAWN_OFFSETS, KICK_TABLES} from '../consts.js';
+import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS} from '../consts.js';
 import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
 import settings from '../settings.js';
 import {gen} from '../../app.js';
+import gameHandler from './game-handler.js';
 export default class Piece extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -10,6 +11,7 @@ export default class Piece extends GameModule {
     this.lastX;
     this.y;
     this.lastY;
+    this.lowestY;
     this.name;
     this.piece;
     this.shape;
@@ -23,14 +25,19 @@ export default class Piece extends GameModule {
     this.kicks;
     this.shiftDir = 'none';
     this.das = 0;
-    this.dasLimit = framesToMs(12);
+    this.dasLimit = settings.settings.DAS;
     this.shiftReleased = false;
     this.didInitialMove = false;
     this.arr = 0;
-    this.arrLimit = hzToMs(30);
+    this.arrLimit = settings.settings.ARR;
+    this.manipulations = 0;
+    this.manipulationLimit = 15;
+    this.mustLock = false;
+    this.color = 'white';
   }
   new(name) {
     name = gen.next().value;
+    this.mustLock = false;
     this.lockDelay = 0;
     this.name = name;
     this.orientation = 0;
@@ -38,15 +45,17 @@ export default class Piece extends GameModule {
     this.shape = this.piece[this.orientation];
     this.x = 0 + SPAWN_OFFSETS.srs[name][0];
     this.y = 0 + SPAWN_OFFSETS.srs[name][1];
+    this.lowestY = this.y;
     this.kicks = KICK_TABLES.srs[name];
     this.shiftDown();
+    this.manipulations = 0;
     if (this.gravity <= framesToMs(1 / 20)) {
       this.sonicDrop();
     }
     if (this.isStuck) {
-      this.parent.stack.new();
-      this.parent.stack.draw();
+      gameHandler.reset();
     }
+    this.color = PIECE_COLORS.srs[this.name];
   }
   get yFloor() {
     return Math.floor(this.y);
@@ -60,10 +69,10 @@ export default class Piece extends GameModule {
     let img;
     switch (type) {
       case 'ghost':
-        img = document.getElementById('ghost-white');
+        img = document.getElementById(`ghost-${this.color}`);
         break;
       case 'piece':
-        img = document.getElementById('mino-white');
+        img = document.getElementById(`mino-${this.color}`);
       default:
         break;
     }
@@ -72,9 +81,14 @@ export default class Piece extends GameModule {
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
 
     ctx.globalCompositeOperation = 'source-at';
-    const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 150)).toString(16)).slice(-2);
-    ctx.fillStyle = `#000000${darkness}`;
-    ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize);
+    const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 255)).toString(16)).slice(-2);
+    if (type === 'piece' && this.isLanded) {
+      ctx.globalCompositeOperation = 'saturation';
+
+      ctx.fillStyle = `#000000${darkness}`;
+      ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize);
+    }
+
     // ctx.fillRect(x * cellSize, y * cellSize + cellSize * buffer, cellSize, cellSize);
   }
   drawPiece(shape, offsetX = 0, offsetY = 0, type) {
@@ -148,11 +162,12 @@ export default class Piece extends GameModule {
   }
   hardDrop() {
     this.sonicDrop();
-    this.lockDelay = this.lockDelayLimit;
+    this.mustLock = true;
   }
   shift(direction, amount, condition) {
     if (condition) {
       this[direction] += amount;
+      this.manipulations++;
     }
   }
   shiftLeft() {
@@ -168,7 +183,11 @@ export default class Piece extends GameModule {
     const newOrientation = (this.orientation + amount) % 4;
     const rotatedShape = this.piece[newOrientation];
     const kickTable = this.kicks[direction][this.orientation];
-    for (let i = 0; i < kickTable.length; i++) {
+    for (let i = 0; i <= kickTable.length; i++) {
+      if (i === kickTable.length) {
+        // Rotation Failed
+        break;
+      }
       const kickX = kickTable[i][0];
       const kickY = kickTable[i][1];
       if (this.moveValid(kickX, kickY, rotatedShape)) {
@@ -176,6 +195,7 @@ export default class Piece extends GameModule {
         this.y += kickY;
         this.orientation = newOrientation;
         this.shape = rotatedShape;
+        this.manipulations++;
         break;
       }
     }
