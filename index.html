@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tetra Legends</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
   <div id="main">
     <div id="menu-container" class="hidden">
       <div id="logo-container">
@@ -19,26 +22,73 @@
       </ul>
 
     </div>
-    <div id="button-hint-container">
-      <span>
-        <img alt="" id="select-button" src="img/buttons/general-dpad.svg">
-        <p>Select</p>
-      </span>
-      <span>
-        <img alt="" id="confirm-button" src="img/buttons/general-a.svg">
-        <p>OK</p>
-      </span>
-      <span>
-        <img alt="" id="back-button" src="img/buttons/general-b.svg">
-        <p>Back</p>
-      </span>
+    <div id="game-container">
+      <div id="game" class="game">
+        <div class="game-left">
+          <div class="hold-container">
+            <p class="hold-label">HOLD</p>
+            <canvas id="hold" class="hold-canvas"></canvas>
+          </div>
+        </div>
+        <div class="game-center">
+          <canvas id="piece" class="game-canvas"></canvas>
+          <canvas id="stack" class="stack-canvas game-canvas"></canvas>
+          <progress max="1" value="1" id='lockdown' class='lockdown-meter'></progress>
+
+        </div>
+        <div class="game-right">
+          <div class="main-next-container">
+            <p class="next-label">NEXT</p>
+            <canvas id="next-main" class="main-next-canvas"></canvas>
+          </div>
+          <div class="sub-next-container">
+            <canvas id="next-sub" class="sub-next-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display: none">
+          <img id="mino-red" src="img/skin/mino/standard/red.svg">
+          <img id="mino-orange" src="img/skin/mino/standard/orange.svg">
+          <img id="mino-yellow" src="img/skin/mino/standard/yellow.svg">
+          <img id="mino-green" src="img/skin/mino/standard/green.svg">
+          <img id="mino-lightBlue" src="img/skin/mino/standard/lightBlue.svg">
+          <img id="mino-blue" src="img/skin/mino/standard/blue.svg">
+          <img id="mino-purple" src="img/skin/mino/standard/purple.svg">
+          <img id="mino-white" src="img/skin/mino/standard/white.svg">
+          <img id="mino-black" src="img/skin/mino/standard/black.svg">
+
+          <img id="ghost-red" src="img/skin/ghost/standard/red.svg">
+          <img id="ghost-orange" src="img/skin/ghost/standard/orange.svg">
+          <img id="ghost-yellow" src="img/skin/ghost/standard/yellow.svg">
+          <img id="ghost-green" src="img/skin/ghost/standard/green.svg">
+          <img id="ghost-lightBlue" src="img/skin/ghost/standard/lightBlue.svg">
+          <img id="ghost-blue" src="img/skin/ghost/standard/blue.svg">
+          <img id="ghost-purple" src="img/skin/ghost/standard/purple.svg">
+          <img id="ghost-white" src="img/skin/ghost/standard/white.svg">
+          <img id="ghost-black" src="img/skin/ghost/standard/black.svg">
+        </div>
+      </div>
+    </div>
+
+    <div id="button-hint-container" class="">
+      <!-- <kbd class="key">Z</kbd> -->
+      <!-- <label>OK</label> -->
+      <table>
+        <td class="key ">R</td>
+        <td class="label">Retry</td>
+      </table>
+      <table>
+        <td class="key multi">Esc</td>
+        <td class="label">PAUSE Menu</td>
+      </table>
     </div>
   </div>
   <!-- <script type="module" src="locale.js"></script> -->
   <script src="lib/gamepad.min.js"></script>
   <script type="module" src="app.js"></script>
   <script>
-    //code to stop backspace from FUCKING everything up
+    // code I found to stop backspace from FUCKING everything up
     document.onkeydown = function (event) {
 
       if (!event) { /* This will happen in IE */

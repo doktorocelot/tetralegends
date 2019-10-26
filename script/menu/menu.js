@@ -1,15 +1,16 @@
 import {loadMenu} from '../loaders.js';
 import $ from '../shortcuts.js';
+import gameHandler from '../game/game-handler.js';
 
-export default class Menu {
+class Menu {
   constructor() {
     this.current = {
       name: null,
       data: null,
       properties: null,
     };
-    this.enabled = false;
-    this.lock = false;
+    this.isEnabled = false;
+    this.isLocked = false;
   }
   get selected() {
     return parseInt($('li.selected').id.substring(7));
@@ -21,7 +22,7 @@ export default class Menu {
     return $('#vertical-menu li').length;
   }
   load(name, selection = 'default') {
-    this.lock = true;
+    this.isLocked = true;
     this.hideMenu();
     loadMenu(name)
         .then((menu) => {
@@ -31,8 +32,17 @@ export default class Menu {
           this.current.properties = menu.properties;
           this.draw();
           this.showMenu();
-          this.lock = false;
+          this.isLocked = false;
+          this.isEnabled = true;
+        })
+        .catch((error) => {
+        // TODO error handling
         });
+  }
+  close() {
+    this.isLocked = true;
+    this.isEnabled = false;
+    this.hide();
   }
   show() {
     $('#menu-container').classList.remove('hidden');
@@ -80,34 +90,47 @@ export default class Menu {
     $('#description-text').textContent = this.current.data[number].description;
   }
   up() {
-    if (this.selected === 0) {
-      this.select(this.length - 1);
-    } else {
-      this.select(this.selected - 1);
+    if (!this.isLocked) {
+      if (this.selected === 0) {
+        this.select(this.length - 1);
+      } else {
+        this.select(this.selected - 1);
+      }
     }
   }
   down() {
-    if (this.selected === this.length - 1) {
-      this.select(0);
-    } else {
-      this.select(this.selected + 1);
+    if (!this.isLocked) {
+      if (this.selected === this.length - 1) {
+        this.select(0);
+      } else {
+        this.select(this.selected + 1);
+      }
     }
   }
   ok() {
-    if (!this.lock) {
+    if (!this.isLocked) {
       switch (this.selectedData.action) {
         case 'submenu':
           this.load(this.selectedData.submenu);
           break;
+        case 'back':
+          this.back();
+          break;
+        case 'quick':
+          gameHandler.newGame('marathon');
+          break;
+        case 'default':
+        // TODO wtf error
       }
     }
   }
   back() {
-    if (!this.lock) {
+    if (!this.isLocked) {
       if (this.current.properties.parent !== null) {
         this.load(this.current.properties.parent);
       }
     }
   }
 }
-
+const menu = new Menu();
+export default menu;
