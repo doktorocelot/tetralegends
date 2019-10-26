@@ -73,7 +73,6 @@ export default class Piece extends GameModule {
 
     ctx.globalCompositeOperation = 'source-at';
     const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 150)).toString(16)).slice(-2);
-    console.log(darkness);
     ctx.fillStyle = `#000000${darkness}`;
     ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize);
     // ctx.fillRect(x * cellSize, y * cellSize + cellSize * buffer, cellSize, cellSize);
