@@ -1,9 +1,10 @@
+const SETTINGS_VERSION = 1;
 class Settings {
   constructor() {
     this.defaultSettings = {
       // Tuning
-      DAS: 12,
-      ARR: 2,
+      DAS: 170,
+      ARR: 30,
       IRS: 'tap',
       IHS: 'tap',
       rotationSystem: 'auto',
@@ -130,7 +131,7 @@ class Settings {
   load() {
     for (const index of ['Settings', 'Controls', 'Game']) {
       const loaded = JSON.parse(localStorage.getItem(`tetra${index}`));
-      if (loaded === null) {
+      if (loaded === null || parseInt(localStorage.getItem('tetraVersion')) !== SETTINGS_VERSION) {
         this[`reset${index}`]();
       } else {
         this[index.toLowerCase()] = loaded;
@@ -148,10 +149,14 @@ class Settings {
   saveGame() {
     localStorage.setItem('tetraGame', JSON.stringify(this.game));
   }
+  saveVersion() {
+    localStorage.setItem('tetraVersion', SETTINGS_VERSION);
+  }
   saveAll() {
     this.saveSettings();
     this.saveControls();
     this.saveGame();
+    this.saveVersion();
   }
   resetGameSpecific(mode) {
     this.game[mode] = this.defaultGame[mode];

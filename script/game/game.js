@@ -10,6 +10,7 @@ import gameHandler from './game-handler.js';
 export default class Game {
   constructor(gametype) {
     const modules = ['stack'];
+    this.type = gametype;
     this.pieceCanvas = $('#piece');
     this.stackCanvas = $('#stack');
     this.bufferPeek = .5;
@@ -28,6 +29,7 @@ export default class Game {
 
           menu.close();
           this.resize();
+          this.makeSprite();
           this.loop = loops[gametype].update;
           this.piece.new('T');
           this.piece.draw();
@@ -53,15 +55,29 @@ export default class Game {
   }
   gameLoop() {
     const game = gameHandler.game;
-    game.now = game.timestamp();
-    game.deltaTime = (game.now - game.last) / 1000;
-    game.loop({
-      ms: game.deltaTime * 1000,
-      piece: game.piece,
-      stack: game.stack,
-    });
-    game.piece.draw();
-    game.last = game.now;
-    requestAnimationFrame(game.gameLoop);
+    if (typeof game.loop === 'function') {
+      game.now = game.timestamp();
+      game.deltaTime = (game.now - game.last) / 1000;
+      game.loop({
+        ms: game.deltaTime * 1000,
+        piece: game.piece,
+        stack: game.stack,
+      });
+      game.piece.draw();
+      game.last = game.now;
+      requestAnimationFrame(game.gameLoop);
+    }
+  }
+  makeSprite() {
+    const types = ['mino', 'ghost', 'stack'];
+    const colors = ['red', 'orange', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'white', 'black'];
+    for (const type of types) {
+      for (const color of colors) {
+        const img = document.createElement('img');
+        img.src = `img/skin/standard/${type}-${color}.svg`;
+        img.id = `${type}-${color}`;
+        $('#sprite').appendChild(img);
+      }
+    }
   }
 }
