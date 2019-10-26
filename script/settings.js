@@ -118,11 +118,20 @@ class Settings {
     this.controls = {};
     this.game = {};
   }
+  resetSettings() {
+    this.settings = {...this.defaultSettings};
+  }
+  resetControls() {
+    this.controls = {...this.defaultControls};
+  }
+  resetGame() {
+    this.game = {...this.defaultGame};
+  }
   load() {
     for (const index of ['Settings', 'Controls', 'Game']) {
       const loaded = JSON.parse(localStorage.getItem(`tetra${index}`));
       if (loaded === null) {
-        this[`reset${index}()`];
+        this[`reset${index}`]();
       } else {
         this[index.toLowerCase()] = loaded;
         this[index.toLowerCase()] = {...this[`default${index}`], ...this[index.toLowerCase()]};
@@ -143,15 +152,6 @@ class Settings {
     this.saveSettings();
     this.saveControls();
     this.saveGame();
-  }
-  resetSettings() {
-    this.settings = this.defaultSettings;
-  }
-  resetControls() {
-    this.controls = this.defaultControls;
-  }
-  resetGame() {
-    this.game = this.defaultGame;
   }
   resetGameSpecific(mode) {
     this.game[mode] = this.defaultGame[mode];
