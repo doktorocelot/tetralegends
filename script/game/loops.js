@@ -12,12 +12,12 @@ import updateLasts from './loop-modules/update-lasts.js';
 export const loops = {
   marathon: {
     update: (arg) => {
-      extendedLockdown(arg);
       gravity(arg);
       shifting(arg);
       softDrop(arg);
       rotate(arg);
       rotate180(arg);
+      extendedLockdown(arg);
       hardDrop(arg);
       updateKeys();
       updateLasts(arg);
