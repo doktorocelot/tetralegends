@@ -106,6 +106,18 @@ export default class Piece extends GameModule {
     clearCtx(ctx);
     this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
     this.drawPiece(this.shape, 0, 0, 'piece');
+    if (this.manipulations >= this.manipulationLimit) {
+      const cellSize = this.parent.cellSize;
+      ctx.beginPath();
+      const y = cellSize * Math.floor(this.lowestY) + cellSize * this.parent.bufferPeek + this.shape.length * cellSize;
+      ctx.moveTo(0, y);
+      ctx.lineTo(this.parent.settings.width * cellSize, y);
+      ctx.lineWidth = cellSize / 20;
+      ctx.strokeStyle = '#f00';
+      ctx.stroke();
+      ctx.fillStyle = '#f008';
+      ctx.fillRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
+    }
   }
   moveValid(passedX, passedY, shape) {
     passedX += this.x;
