@@ -1,4 +1,4 @@
-const SETTINGS_VERSION = 1;
+const SETTINGS_VERSION = 2;
 class Settings {
   constructor() {
     this.defaultSettings = {
@@ -24,6 +24,7 @@ class Settings {
       },
       outline: 'on',
       ghost: 'color',
+      backgroundOpacity: 30,
       grid: true,
       actionText: true,
       matrixSway: true,
