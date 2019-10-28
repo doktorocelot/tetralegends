@@ -78,9 +78,10 @@ export default class Piece extends GameModule {
     }
     img.height = cellSize;
     // ctx.clearRect(xPos, yPos, cellSize, cellSize);
+    ctx.globalCompositeOperation = 'source-over';
+
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
 
-    ctx.globalCompositeOperation = 'source-at';
     const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 255)).toString(16)).slice(-2);
     if (type === 'piece' && this.isLanded) {
       ctx.globalCompositeOperation = 'saturation';
@@ -115,8 +116,7 @@ export default class Piece extends GameModule {
       ctx.lineWidth = cellSize / 20;
       ctx.strokeStyle = '#f00';
       ctx.stroke();
-      ctx.fillStyle = '#f008';
-      ctx.fillRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
+      ctx.strokeRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
     }
   }
   moveValid(passedX, passedY, shape) {

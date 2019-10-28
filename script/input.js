@@ -1,5 +1,7 @@
 import buttonHints from './menu/button-hints.js';
 import settings from './settings.js';
+import menu from './menu/menu.js';
+
 class Input {
   constructor() {
     const keys = {
@@ -8,6 +10,19 @@ class Input {
       menuOk: 'Enter',
       menuBack: 'Backspace',
     };
+    this.controller = {
+      moveLeft: ['DPAD_LEFT'],
+      moveRight: ['DPAD_RIGHT'],
+      hardDrop: ['DPAD_UP'],
+      softDrop: ['DPAD_DOWN'],
+      rotateLeft: ['FACE_1'],
+      rotateRight: ['FACE_2'],
+      rotate180: ['FACE_4'],
+      hold: ['LEFT_TOP_SHOULDER', 'RIGHT_TOP_SHOULDER'],
+      retry: ['SELECT_BACK'],
+      pause: ['START_FORWARD'],
+    };
+
 
     this.events = {};
     for (const name of Object.keys(keys)) {
@@ -56,10 +71,9 @@ class Input {
       }
     });
 
-    const gamepad = new Gamepad();
-    gamepad.bind(Gamepad.Event.BUTTON_DOWN, (e) => {
+    this.gamepad = new Gamepad();
+    this.gamepad.bind(Gamepad.Event.BUTTON_DOWN, (e) => {
       // e.control of gamepad e.gamepad pressed down
-      console.log(e.control);
       buttonHints.change('controller');
       buttonHints.show();
 
@@ -76,7 +90,7 @@ class Input {
         menu.back();
       }
     });
-    if (!gamepad.init()) {
+    if (!this.gamepad.init()) {
       // Your browser does not support gamepads, get the latest Google Chrome or Firefox
     }
   }
