@@ -1,6 +1,7 @@
 import buttonHints from './menu/button-hints.js';
 import settings from './settings.js';
 import menu from './menu/menu.js';
+import gameHandler from './game/game-handler.js';
 
 class Input {
   constructor() {
@@ -42,7 +43,6 @@ class Input {
       if (event.key !== 'Escape') {
         buttonHints.change('keyboard');
         buttonHints.show();
-        document.body.requestPointerLock();
       }
       mouseLimit = 0;
       for (const name of Object.keys(keys)) {
@@ -67,7 +67,6 @@ class Input {
       mouseLimit++;
       if (mouseLimit > 3) {
         buttonHints.hide();
-        document.exitPointerLock();
       }
     });
 

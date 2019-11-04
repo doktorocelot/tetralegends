@@ -2,7 +2,6 @@ import GameModule from './game-module.js';
 import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS} from '../consts.js';
 import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
 import settings from '../settings.js';
-import {gen} from '../../app.js';
 import gameHandler from './game-handler.js';
 export default class Piece extends GameModule {
   constructor(parent, ctx) {
@@ -15,13 +14,13 @@ export default class Piece extends GameModule {
     this.name;
     this.piece;
     this.shape;
-    this.gravity = framesToMs(1 / 0.01667);
+    this.gravity = 1000;
     this.gravityMultiplier = 1;
     this.ctx = ctx;
     this.orientation = 0;
     this.lastOrientation;
     this.lockDelay = 0;
-    this.lockDelayLimit = framesToMs(30);
+    this.lockDelayLimit = 500;
     this.kicks;
     this.shiftDir = 'none';
     this.das = 0;
@@ -34,13 +33,25 @@ export default class Piece extends GameModule {
     this.manipulationLimit = 15;
     this.mustLock = false;
     this.color = 'white';
+    this.are = 0;
+    this.areLimit = framesToMs(6);
+    this.areLineLimit = framesToMs(10);
+    this.areLimitLineModifier = framesToMs(4);
+    this.isDead = false;
+    this.ire = 0;
+    this.hasIas = false;
   }
-  new(name) {
-    name = gen.next().value;
+  new(name = this.parent.next.next()) {
+    this.parent.onPieceSpawn(this.parent);
+    $('#delay').innerHTML = `${this.lockDelayLimit} <b>ms</b>`;
+    this.isDead = false;
+    this.are = this.areLimit;
     this.mustLock = false;
     this.lockDelay = 0;
     this.name = name;
     this.orientation = 0;
+    this.orientation = (this.orientation + this.ire) % 4;
+    this.ire = 0;
     this.piece = PIECES[name].shape;
     this.shape = this.piece[this.orientation];
     this.x = 0 + SPAWN_OFFSETS.srs[name][0];
@@ -55,7 +66,11 @@ export default class Piece extends GameModule {
     if (this.isStuck) {
       gameHandler.reset();
     }
-    this.color = PIECE_COLORS.srs[this.name];
+    this.color = this.parent.colors[this.name];
+  }
+  die() {
+    this.isDead = true;
+    this.are = 0;
   }
   get yFloor() {
     return Math.floor(this.y);
@@ -105,6 +120,9 @@ export default class Piece extends GameModule {
   draw() {
     const ctx = this.ctx;
     clearCtx(ctx);
+    if (this.isDead) {
+      return;
+    }
     this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
     this.drawPiece(this.shape, 0, 0, 'piece');
     if (this.manipulations >= this.manipulationLimit) {
@@ -120,6 +138,9 @@ export default class Piece extends GameModule {
     }
   }
   moveValid(passedX, passedY, shape) {
+    if (this.isDead) {
+      return false;
+    }
     passedX += this.x;
     passedY += this.yFloor;
     for (let y = 0; y < shape.length; y++) {
@@ -167,10 +188,12 @@ export default class Piece extends GameModule {
     if (this.getDrop(distance) === Math.floor(distance)) {
       return true;
     }
+
     return false;
   }
   sonicDrop() {
     this.y += this.getDrop();
+    this.isDirty = true;
   }
   hardDrop() {
     this.sonicDrop();
@@ -180,6 +203,9 @@ export default class Piece extends GameModule {
     if (condition) {
       this[direction] += amount;
       this.manipulations++;
+      this.isDirty = true;
+      if (direction === 'x') {
+      }
     }
   }
   shiftLeft() {
@@ -208,6 +234,7 @@ export default class Piece extends GameModule {
         this.orientation = newOrientation;
         this.shape = rotatedShape;
         this.manipulations++;
+        this.isDirty = true;
         break;
       }
     }
@@ -220,5 +247,13 @@ export default class Piece extends GameModule {
   }
   rotate180() {
     this.rotate(2, 'double');
+  }
+  get inAre() {
+    let areMod = 0;
+    if (this.parent.stack.lineClear !== 0) {
+      areMod += this.areLineLimit;
+      areMod += this.areLimitLineModifier;
+    }
+    return this.are < this.areLimit + areMod;
   }
 }

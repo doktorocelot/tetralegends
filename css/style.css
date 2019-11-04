@@ -1,10 +1,11 @@
 :root {
-  /* --current-background: url("../img/bg/main-menu.png"); */
-  --current-background: url("https://wallpaperaccess.com/full/28488.jpg");
+  --current-background: url("../img/bg/main-menu.png");
+  /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
   --main-font: 'Roboto', sans-serif;
   --cell-size: (2em);
-
-  
+    --peek-zone: .5;
+  --matrix-width: 10;
+  --matrix-height-base: 20;
 }
 @media only screen and (max-width: 600px) {
   :root {
@@ -149,9 +150,6 @@ body {
   height: 0;
 }
 #game-container {
-  --peek-zone: .5;
-  --matrix-width: 10;
-  --matrix-height-base: 20;
   --matrix-height: calc(var(--matrix-height-base) + var(--peek-zone));
   font-size: calc(var(--cell-size)/2);
   text-align: center;
@@ -168,12 +166,49 @@ body {
   margin: auto;
   
 }
+.game.paused canvas {
+  opacity: 0;
+}
 .game div {
   float: left;
 }
 .game div div {
   box-sizing: border-box;
   float: none;
+}
+.stats {
+  height: 31em;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.stats div.stat-group {
+  text-align: right;
+  margin-right: .45em;
+}
+.stats div.stat-group div {
+  color: #fff;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  padding-right: .5em;
+}
+.stats div.stat-group div.big {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 200;
+  margin-bottom: .4em;
+  padding-right: .2em;
+
+}
+.stats label {
+  display: inline-block;
+  background-color: #fff;
+  font-weight: bold;;
+  font-size: 1.2em;
+  padding: .2em 1em;
+  margin-bottom: .4em;
+  color: #111;
+  text-transform: uppercase;
 }
 .game-left,
 .game-right {
@@ -186,9 +221,12 @@ body {
   width: calc(var(--matrix-width) * var(--cell-size));
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
-  background-color: #0005;
+  background-color: #0008;
   background-image: url(../img/tetrion/grid-bg-cross.svg);
   background-position: left bottom;
+  outline-color: #fff;
+  outline-style: solid;
+  outline-width: .5em;
 }
 .game-right {
   text-align: left;
@@ -201,12 +239,7 @@ body {
   top: 0;
   left: 0;
 }
-.stack-canvas {
 
-  outline-color: #fff;
-  outline-style: solid;
-  outline-width: .5em;
-}
 .hold-container,
 .main-next-container {
   padding-left: 1em;
@@ -246,6 +279,14 @@ body {
 .hold-label {
   text-align: right;
   margin-right: -.3em;
+}
+.delay-time {
+  position: absolute;
+  color: white;
+  text-align: right;
+  width: 6em;
+  bottom: -2.3em;
+  left: -7em;
 }
 .manip-grid {
   position: absolute;
@@ -301,3 +342,16 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
   background-color: #fff;
 }
+.game .pause {
+  display: none;
+}
+.game.paused .pause {
+  display: block;
+  color: white;
+  font-size: 3em;
+  font-weight: 300;
+  position: absolute;
+  top: 2em;
+  width: 100%;
+}
+
