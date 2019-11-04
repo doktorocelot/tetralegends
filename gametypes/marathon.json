@@ -5,6 +5,14 @@
     "hiddenHeight": 20,
     "pieces": "standard",
     "unfavored": "standardUnfavored",
-    "randomizer": "bag"
-  }
+    "randomizer": "bag",
+    "rotationSystem": "srs"
+  },
+  "stats": [
+    "score",
+    "level",
+    "fallspeed",
+    "line",
+    "piece"
+  ]
 }

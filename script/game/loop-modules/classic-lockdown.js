@@ -1,13 +1,13 @@
 import $ from '../../shortcuts.js';
 
-export default function extendedLockdown(arg) {
+export default function classicLockdown(arg) {
   const piece = arg.piece;
   if (piece.isDead) {
     $('#lockdown').value = 0;
     return;
   }
+  piece.manipulations = 0;
   if (piece.yFloor > Math.floor(piece.lowestY)) {
-    piece.manipulations = 0;
     piece.lockDelay = 0;
   }
   if (
@@ -19,29 +19,10 @@ export default function extendedLockdown(arg) {
     piece.die();
   }
   if (piece.isLanded) {
-    if (
-      piece.lastX !== piece.x ||
-      piece.lastY !== piece.y ||
-      piece.lastOrientation !== piece.orientation
-    ) {
-      piece.lockDelay = 0;
-    }
     piece.lockDelay += arg.ms;
     piece.isDirty = true;
-  } else {
-    piece.lockDelay = 0;
-  }
-
-  if (piece.manipulations >= piece.manipulationLimit) {
-    piece.lockDelay = piece.lockDelayLimit;
   }
   $('#lockdown').max = piece.lockDelayLimit;
   $('#lockdown').value = piece.lockDelayLimit - piece.lockDelay;
   piece.lowestY = Math.max(piece.y, piece.lowestY);
-  for (let i = 1; i <= piece.manipulationLimit; i++) {
-    $(`#pip-${i}`).classList.remove('disabled');
-  }
-  for (let i = 1; i <= Math.min(piece.manipulations, piece.manipulationLimit); i++) {
-    $(`#pip-${i}`).classList.add('disabled');
-  }
 }

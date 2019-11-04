@@ -27,25 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
   gameHandler.newGame('marathon');
 });
 
-const gen = randomizer.bag(PIECE_SETS.standard, PIECE_SETS.standardUnfavored);
-const piecez = {};
-export {gen};
-for (const index of PIECE_SETS.standard) {
-  piecez[index] = 0;
-}
-let generated = '';
-for (let i = 0; i < 140; i++) {
-  const piece = gen.next().value;
-  piecez[piece]++;
-  generated += `${piece} `;
-  if (i % 7 === 6) {
-    generated += '\n';
-  }
-}
-// console.log(generated);
-// console.log(piecez);
-//
-// const c = $('#sprite');
-// const ctx = c.getContext('2d');
-// ctx.fillRect(0, 0, 50, 50);
 

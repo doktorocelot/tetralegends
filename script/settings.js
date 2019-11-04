@@ -1,4 +1,4 @@
-const SETTINGS_VERSION = 2;
+const SETTINGS_VERSION = 3;
 class Settings {
   constructor() {
     this.defaultSettings = {
@@ -7,6 +7,7 @@ class Settings {
       ARR: 30,
       IRS: 'tap',
       IHS: 'tap',
+      IAS: true,
       rotationSystem: 'auto',
       // Graphics
       size: 100,

@@ -11,10 +11,15 @@ export default class Stack extends GameModule {
     this.flashTime = 0;
     this.flashLimit = 400;
     this.new();
-    // Object.seal(this.grid);
+    this.toCollapse = [];
     this.ctx = ctx;
+    this.lineClear = 0;
   }
   add(passedX, passedY, shape, color) {
+    this.parent.stat.piece++;
+    this.parent.updateStats();
+    this.lineClear = 0;
+    this.parent.hold.isLocked = false;
     this.flashX = [];
     this.flashY = [];
     this.flashTime = 0;
@@ -41,18 +46,12 @@ export default class Stack extends GameModule {
               i--;
             }
           }
-          for (let i = 0; i < this.flashY.length; i++) {
-            if (this.flashY[i] < y) {
-              this.flashY[i]++;
-            }
-          }
-          for (let x = 0; x < this.grid.length; x++) {
-            // this.grid[x].splice(y);
 
-            for (let shiftY = y; shiftY >= 0; shiftY--) {
-              this.grid[x][shiftY] = this.grid[x][shiftY - 1];
-            }
+          for (let x = 0; x < this.grid.length; x++) {
+            delete this.grid[x][y];
           }
+          this.lineClear++;
+          this.toCollapse.push(y);
           break;
         }
         if (this.grid[x][y] == null) {
@@ -60,6 +59,28 @@ export default class Stack extends GameModule {
         }
       }
     }
+
+    if (this.parent.piece.areLineLimit === 0) {
+      this.collapse();
+    }
+  }
+  collapse() {
+    for (const y of this.toCollapse) {
+      for (let x = 0; x < this.grid.length; x++) {
+        for (let shiftY = y; shiftY >= 0; shiftY--) {
+          this.grid[x][shiftY] = this.grid[x][shiftY - 1];
+        }
+      }
+      for (let i = 0; i < this.flashY.length; i++) {
+        if (this.flashY[i] < y) {
+          this.flashY[i]++;
+        }
+      }
+    }
+    this.parent.stat.line += this.lineClear;
+    this.parent.updateStats();
+    this.toCollapse = [];
+    this.lineClear = 0;
   }
   new() {
     const cells = new Array(this.width);
@@ -67,6 +88,19 @@ export default class Stack extends GameModule {
       cells[i] = new Array(this.height + this.hiddenHeight);
     }
     this.grid = cells;
+  }
+  get highest() {
+    let highest = 0;
+    for (const currentY of this.grid) {
+      for (let i = 0; i < currentY.length; i++) {
+        if (currentY[i] != null) {
+          const iReverse = currentY.length - i;
+          highest = Math.max(highest, iReverse);
+          break;
+        }
+      }
+    }
+    return highest;
   }
   draw() {
     const cellSize = this.parent.cellSize;
@@ -126,6 +160,14 @@ export default class Stack extends GameModule {
           ctx.globalCompositeOperation = 'source-over';
           ctx.fillRect(x, y, cellSize, cellSize);
         }
+      }
+    }
+    if (this.toCollapse.length > 0) {
+      const brightness = Math.max(0, 1 - this.parent.piece.are / (this.parent.piece.areLimit + this.parent.piece.areLimitLineModifier));
+      const brightnessHex = ('0' + Math.round(brightness * 255).toString(16)).slice(-2);
+      ctx.fillStyle = `#ffffff${brightnessHex}`;
+      for (let i = 0; i < this.toCollapse.length; i++) {
+        ctx.fillRect(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize);
       }
     }
   }
