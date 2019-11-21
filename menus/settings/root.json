@@ -30,7 +30,7 @@
     {
       "label": "Controls",
       "description": "Change the way the game controls",
-      "action": "none",
+      "action": "controls",
       "submenu": ""
     }
   ]

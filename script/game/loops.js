@@ -19,12 +19,21 @@ import updateLasts from './loop-modules/update-lasts.js';
 import infiniteLockdown from './loop-modules/infinite-lockdown.js';
 import collapse from './loop-modules/collapse.js';
 import {framesToMs} from '../shortcuts.js';
-
+import {KICK_TABLES, PIECE_COLORS} from '../consts.js';
+import sound from '../sound.js';
+import softDropHandheld from './loop-modules/soft-drop-handheld.js';
+import classicGravity from './loop-modules/classic-gravity.js';
+import retroLockdown from './loop-modules/retro-lockdown.js';
+import shiftingHandheld from './loop-modules/shifting-handheld.js';
+import handheldDasAre from './loop-modules/handheld-das-are.js';
+import gameHandler from './game-handler.js';
+import softDropRetro from './loop-modules/soft-drop-retro.js';
+import shiftingRetro from './loop-modules/shifting-retro.js';
+let lastLevel = 0;
 export const loops = {
   marathon: {
     update: (arg) => {
       // arg.ms = 1 / 60 * 1000;
-      reset();
       if (arg.piece.inAre) {
         initialDas(arg);
         initialRotation(arg);
@@ -33,17 +42,17 @@ export const loops = {
         arg.piece.are += arg.ms;
       }
       else {
-        hold(arg);
         shifting(arg);
+        rotate(arg);
+        rotate180(arg);
       }
-      rotate(arg);
-      rotate180(arg);
       gravity(arg);
       softDrop(arg);
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
+        hold(arg);
       }
       lockFlash(arg);
       updateLasts(arg);
@@ -69,7 +78,116 @@ export const loops = {
         game.piece.lockDelayLimit = 500;
       }
       game.stat.fallspeed = gravityVisual();
-      game.updateStats();
+      if (game.stat.level !== lastLevel) {
+        sound.add('levelup');
+      }
+      lastLevel = game.stat.level;
+    },
+    onInit: (game) => {
+      game.stat.level = 1;
+      lastLevel = 1;
+    },
+  },
+  handheld: {
+    update: (arg) => {
+      // arg.ms = 1 / 60 * 1000;
+      if (arg.piece.inAre) {
+        handheldDasAre(arg);
+        collapse(arg);
+        arg.piece.are += arg.ms;
+      }
+      else {
+        shiftingHandheld(arg);
+        rotate(arg);
+      }
+      classicGravity(arg);
+      softDropHandheld(arg);
+      retroLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10);
+      const SPEED_TABLE = [53, 49, 45, 41, 37, 33, 28, 22, 17, 11, 10, 9, 8, 7, 6, 6, 5, 5, 4, 4, 3];
+      let levelAdd = 0;
+      if (game.appends.level === '♥') {
+        levelAdd = 10;
+      }
+      game.piece.gravity = framesToMs(SPEED_TABLE[Math.min(20, game.stat.level + levelAdd)]);
+      if (game.stat.level !== lastLevel) {
+        sound.add('levelup');
+      }
+      lastLevel = game.stat.level;
+    },
+    onInit: (game) => {
+      game.stat.level = 0;
+      // game.appends.level = '♥';
+      lastLevel = 0;
+      gameHandler.game.makeSprite(
+          [
+            'i', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+            'l', 'o',
+            'z', 't', 'j',
+            's', 'white', 'black',
+          ],
+          ['mino'],
+          'handheld-special'
+      );
+      gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
+    },
+  },
+  retro: {
+    update: (arg) => {
+      // arg.ms = 1 / 60 * 1000;
+      if (arg.piece.inAre) {
+        handheldDasAre(arg);
+        collapse(arg);
+        arg.piece.are += arg.ms;
+      }
+      else {
+        shiftingRetro(arg);
+        rotate(arg);
+      }
+      classicGravity(arg);
+      softDropRetro(arg);
+      retroLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10);
+      const SPEED_TABLE = [53, 49, 45, 41, 37, 33, 28, 22, 17, 11, 10, 9, 8, 7, 6, 6, 5, 5, 4, 4, 3];
+      let levelAdd = 0;
+      if (game.appends.level === '♥') {
+        levelAdd = 10;
+      }
+      game.piece.gravity = framesToMs(SPEED_TABLE[Math.min(20, game.stat.level + levelAdd)]);
+      if (game.stat.level !== lastLevel) {
+        sound.add('levelup');
+      }
+      lastLevel = game.stat.level;
+    },
+    onInit: (game) => {
+      game.stat.level = 0;
+      // game.appends.level = '♥';
+      lastLevel = 0;
+      gameHandler.game.makeSprite(
+          [
+            'i', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+            'l', 'o',
+            'z', 't', 'j',
+            's', 'white', 'black',
+          ],
+          ['mino'],
+          'handheld-special'
+      );
+      gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
     },
   },
 };

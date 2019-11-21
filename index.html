@@ -22,7 +22,7 @@
       </ul>
 
     </div>
-    <div id="game-container">
+    <div id="game-container" class="hidden">
       <div id="game" class="game">
         <div class="game-left">
           <div class="hold-container">
@@ -59,6 +59,9 @@
           <progress max="1" value="1" id="lockdown" class="lockdown-meter"></progress>
           <div class="pause">
             PAUSE
+          </div>
+          <div class="main-message" id="message">
+            READY
           </div>
         </div>
         <div class="game-right">
@@ -100,6 +103,10 @@
       <!-- <kbd class="key">Z</kbd> -->
       <!-- <label>OK</label> -->
       <table>
+        <td class="key big icon">keyboard_backspace</td>
+        <td class="label">Main Menu</td>
+      </table>
+      <table>
         <td class="key ">R</td>
         <td class="label">Retry</td>
       </table>
@@ -112,6 +119,7 @@
   </div>
   <!-- <script type="module" src="locale.js"></script> -->
   <script src="lib/gamepad.min.js"></script>
+  <script src="lib/howler.min.js"></script>
   <script type="module" src="app.js"></script>
   <script>
     // code I found to stop backspace from FUCKING everything up

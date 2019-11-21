@@ -3,7 +3,7 @@
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
   --main-font: 'Roboto', sans-serif;
   --cell-size: (2em);
-    --peek-zone: .5;
+  --peek-zone: .25;
   --matrix-width: 10;
   --matrix-height-base: 20;
 }
@@ -19,6 +19,14 @@
 @keyframes pulse {
   from {filter: brightness(1.1)}
   to {filter: brightness(0.9)}
+}
+@keyframes pulse-opacity {
+  from {opacity: 1}
+  to {opacity: 0.25}
+}
+@keyframes bob {
+  from {padding-left: .15em}
+  to {padding-left: .35em}
 }
 body {
   margin: 0;
@@ -45,8 +53,14 @@ body {
   margin-left: 1rem;
   color: #fff;
 }
-#menu-container.hidden {
+#menu-container.hidden,
+#game-container.hidden
+{
   display: none;
+}
+#game-container.faded
+{
+  opacity: 0.1;
 }
 #vertical-menu {
   margin-left: 0;
@@ -70,16 +84,20 @@ body {
   transition: font-size .1s, border-left-width .1s;
   cursor: pointer;  
 }
-@keyframes bob {
-  from {padding-left: .15em}
-  to {padding-left: .35em}
-}
+
 .pulse {
   animation-name: pulse;
   animation-duration: .5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+}
+#vertical-menu li.control-name {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: .2em;
+  cursor: auto;
 }
 #vertical-menu li.selected {
   font-weight: 300;
@@ -162,7 +180,6 @@ body {
 .game {
   display: inline-block;
   padding: 2em;
-  overflow: auto;
   margin: auto;
   
 }
@@ -177,7 +194,7 @@ body {
   float: none;
 }
 .stats {
-  height: 31em;
+  height: calc(--matrix-height-base * 1.55);
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -221,7 +238,7 @@ body {
   width: calc(var(--matrix-width) * var(--cell-size));
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
-  background-color: #0008;
+  background-color: #000a;
   background-image: url(../img/tetrion/grid-bg-cross.svg);
   background-position: left bottom;
   outline-color: #fff;
@@ -346,6 +363,10 @@ progress[value]::-moz-progress-bar {
   display: none;
 }
 .game.paused .pause {
+  animation-name: pulse-opacity;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
   display: block;
   color: white;
   font-size: 3em;
@@ -354,4 +375,27 @@ progress[value]::-moz-progress-bar {
   top: 2em;
   width: 100%;
 }
-
+.game .main-message {
+  animation-name: pulse-opacity;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  display: block;
+  color: white;
+  font-size: 3em;
+  font-weight: 300;
+  position: absolute;
+  top: 6em;
+  width: 100%;
+}
+.game .main-message.dissolve {
+  animation-name: dissolve;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes dissolve {
+  0% {transform: scale(1);}
+  20% {opacity: 1;}
+  100% {opacity: 0; transform: scale(5); display: none;}
+}

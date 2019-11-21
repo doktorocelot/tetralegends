@@ -1,0 +1,25 @@
+{
+  "files": [
+    "bravo",
+    "collapse",
+    "erase1",
+    "erase2",
+    "erase3",
+    "erase4",
+    "garbage",
+    "go",
+    "harddrop",
+    "hold",
+    "ko",
+    "levelup",
+    "lock",
+    "move",
+    "pause",
+    "ready",
+    "rotate",
+    "start",
+    "step",
+    "tspin",
+    "victory"
+  ]
+}

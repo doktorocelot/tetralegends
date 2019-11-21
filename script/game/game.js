@@ -1,5 +1,5 @@
 import {loadGameType} from '../loaders.js';
-import {PIECE_SETS, PIECE_COLORS, NEXT_OFFSETS} from '../consts.js';
+import {PIECE_SETS, PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
@@ -11,6 +11,7 @@ import settings from '../settings.js';
 import updateKeys from './loop-modules/update-keys.js';
 import input from '../input.js';
 import Hold from './hold.js';
+import sound from '../sound.js';
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
@@ -21,7 +22,7 @@ export default class Game {
     this.nextCanvas = $('#next-main');
     this.nextSubCanvas = $('#next-sub');
     this.holdCanvas = $('#hold');
-    this.bufferPeek = .5;
+    this.bufferPeek = .25;
     this.loop;
     this.now;
     this.deltaTime;
@@ -31,37 +32,80 @@ export default class Game {
     this.isDead = false;
     this.isPaused = false;
     this.isDirty = true;
+    this.isVisible = false;
+    this.background = '';
     this.stat = {
       level: 0,
       score: 0,
       line: 0,
       piece: 0,
     };
+    this.appends = {};
     this.smallStats = {
       score: true,
       fallspeed: true,
     };
     loadGameType(gametype)
         .then((gameData) => {
+          this.show();
+          menu.close();
+
           this.settings = gameData.settings;
           this.stats = gameData.stats;
+          this.background = this.settings.background;
+          sound.load(this.settings.soundbank);
+          // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
           this.piece = new Piece(this, toCtx(this.pieceCanvas));
           this.next = new Next(this, toCtx(this.nextCanvas), toCtx(this.nextSubCanvas));
           this.hold = new Hold(this, toCtx(this.holdCanvas));
+          // SET UP SETTINGS
+          this.makeSprite();
           this.rotationSystem = this.settings.rotationSystem;
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
-          menu.close();
           this.resize();
-          this.makeSprite();
           this.loop = loops[gametype].update;
           this.onPieceSpawn = loops[gametype].onPieceSpawn;
-          this.piece.new();
-          this.piece.draw();
+          for (const element of ['piece', 'stack', 'next']) {
+            if (gameData[element] != null) {
+              for (const property of Object.keys(gameData[element])) {
+                this[element][property] = gameData[element][property];
+              }
+            }
+          }
+          loops[gametype].onInit(this);
+          sound.killBgm();
+          sound.loadBgm(this.settings.music, gametype);
+          sound.add('ready');
+          $('#message').textContent = 'READY';
+          $('#message').classList.remove('dissolve');
+          this.onPieceSpawn(this);
           window.onresize = this.resize;
+          $('.game').classList.remove('paused');
           this.request = requestAnimationFrame(this.gameLoop);
         });
+  }
+  unpause() {
+    if (!this.isPaused) {return;}
+    sound.add('pause');
+    this.isDirty = true;
+    this.isPaused = false;
+    $('.game').classList.remove('paused');
+  }
+  pause() {
+    if (this.isPaused) {return;}
+    sound.add('pause');
+    this.isPaused = true;
+    $('.game').classList.add('paused');
+  }
+  hide() {
+    $('#game-container').classList.add('hidden');
+    this.isVisible = false;
+  }
+  show() {
+    $('#game-container').classList.remove('hidden');
+    this.isVisible = true;
   }
   timestamp() {
     return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
@@ -76,17 +120,12 @@ export default class Game {
     root.style.setProperty('--cell-size', `${game.cellSize}px`);
     root.style.setProperty('--matrix-width', game.settings.width);
     root.style.setProperty('--matrix-height-base', game.settings.height);
-    // TODO Really?!
-    game.pieceCanvas.width = game.pieceCanvas.clientWidth;
-    game.pieceCanvas.height = game.pieceCanvas.clientHeight;
-    game.stackCanvas.width = game.pieceCanvas.width;
-    game.stackCanvas.height = game.pieceCanvas.height;
-    game.nextCanvas.width = game.nextCanvas.clientWidth;
-    game.nextCanvas.height = game.nextCanvas.clientHeight;
-    game.nextSubCanvas.width = game.nextSubCanvas.clientWidth;
-    game.nextSubCanvas.height = game.nextSubCanvas.clientHeight;
-    game.holdCanvas.width = game.holdCanvas.clientWidth;
-    game.holdCanvas.height = game.holdCanvas.clientHeight;
+    root.style.setProperty('--matrix-width', `url("../img/bg/${this.background}");`);
+    // console.log(`url("../img/bg/${this.background}");`);
+    for (const element of ['pieceCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas']) {
+      game[element].width = game[element].clientWidth;
+      game[element].height = game[element].clientHeight;
+    }
     game.isDirty = true;
     $('#stats').innerHTML = '';
     for (const statName of game.stats) {
@@ -107,7 +146,11 @@ export default class Game {
   }
   updateStats() {
     for (const statName of this.stats) {
-      $(`#stat-${statName}`).innerHTML = this.stat[statName];
+      let append = '';
+      if (this.appends[statName]) {
+        append = this.appends[statName];
+      }
+      $(`#stat-${statName}`).innerHTML = `${this.stat[statName]}${append}`;
     }
   }
   get cellSize() {
@@ -122,6 +165,9 @@ export default class Game {
         game.now = game.timestamp();
         game.deltaTime = (game.now - game.last) / 1000;
         if (!game.isPaused) {
+          if (game.piece.startingAre < game.piece.startingAreLimit) {
+            game.piece.startingAre += game.deltaTime * 1000;
+          }
           game.loop({
             ms: game.deltaTime * 1000,
             piece: game.piece,
@@ -140,15 +186,20 @@ export default class Game {
         }
         if (input.getGamePress('pause')) {
           if (game.isPaused) {
-            game.isPaused = false;
-            $('.game').classList.remove('paused');
+            game.unpause();
           } else {
-            game.isPaused = true;
-            $('.game').classList.add('paused');
+            game.pause();
           }
-        } else {
+          if (!game.isVisible) {
+            game.show();
+            menu.close();
+            game.unpause();
+          }
+        } else {}
+        if (input.getGamePress('retry')) {
+          game.mustReset = true;
         }
-
+        sound.playSeQueue();
         updateKeys();
         if (game.mustReset) {
           game.isDead = true;
@@ -161,16 +212,20 @@ export default class Game {
       }
     }
   }
-  makeSprite(colors = [
-    'red', 'orange', 'yellow',
-    'green', 'lightBlue', 'blue',
-    'purple', 'white', 'black',
-  ]) {
-    const types = ['mino', 'ghost', 'stack'];
+  makeSprite(
+      colors = [
+        'red', 'orange', 'yellow',
+        'green', 'lightBlue', 'blue',
+        'purple', 'white', 'black',
+      ],
+      types = ['mino', 'ghost', 'stack'],
+      skin = this.settings.skin
+  ) {
+    $('#sprite').innerHTML = '';
     for (const type of types) {
       for (const color of colors) {
         const img = document.createElement('img');
-        img.src = `img/skin/standard/${type}-${color}.svg`;
+        img.src = `img/skin/${skin}/${type}-${color}.svg`;
         img.id = `${type}-${color}`;
         $('#sprite').appendChild(img);
         const loaded = () => {
@@ -186,6 +241,17 @@ export default class Game {
           });
         }
       }
+    }
+  }
+  addScore(name, multiplier = 1) {
+    const scoreTable = SCORE_TABLES[this.settings.scoreTable];
+    let score = scoreTable[name];
+    score *= multiplier;
+    if (score != null) {
+      if (scoreTable.levelMultiplied.indexOf(name) !== -1) {
+        score *= this.stat.level + scoreTable.levelAdditive;
+      }
+      this.stat.score += score;
     }
   }
 }

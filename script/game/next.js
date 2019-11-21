@@ -1,7 +1,7 @@
 import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
-import {PIECE_SETS, PIECES} from '../consts.js';
+import {PIECE_SETS, PIECES, INITIAL_ORIENTATION} from '../consts.js';
 
 export default class Next extends GameModule {
   constructor(parent, ctx, ctxSub) {
@@ -11,12 +11,16 @@ export default class Next extends GameModule {
     this.subCtx = ctxSub;
     this.nextLength = this.parent.userSettings.nextLength;
     this.queue = [];
-    for (let i = 0; i < this.nextLength; i++) {
+    this.stats = {};
+    for (const piece of Object.keys(PIECES)) {
+      this.stats[piece] = 0;
+    }
+    for (let i = 0; i < 9; i++) {
       this.generate();
     }
   }
   reset() {
-    this.gen = randomizer.bag(PIECE_SETS.standard, PIECE_SETS.standardUnfavored);
+    this.gen = randomizer[this.parent.settings.randomizer](PIECE_SETS[this.parent.settings.pieces], PIECE_SETS[this.parent.settings.unfavored]);
   }
   next() {
     this.generate();
@@ -24,7 +28,9 @@ export default class Next extends GameModule {
     return this.queue.shift();
   }
   generate() {
-    this.queue.push(this.gen.next().value);
+    const generated = this.gen.next().value;
+    this.queue.push(generated);
+    this.stats[generated]++;
   }
   drawMino(x, y) {
     const cellSize = this.parent.cellSize;
@@ -39,7 +45,7 @@ export default class Next extends GameModule {
   }
   draw() {
     const piece = this.queue[0];
-    const shape = PIECES[piece].shape[0];
+    const shape = PIECES[piece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][piece]];
     let cellSize = this.parent.cellSize;
     const offset = this.parent.nextOffsets[piece];
     let ctx = this.ctx;
@@ -48,7 +54,11 @@ export default class Next extends GameModule {
     for (let y = 0; y < shape.length; y++) {
       for (let x = 0; x < shape[y].length; x++) {
         const color = this.parent.colors[piece];
-        const img = document.getElementById(`mino-${color}`);
+        let suffix = '';
+        if (this.parent.piece.useSpecialI && piece === 'I') {
+          suffix = shape[y][x];
+        }
+        const img = document.getElementById(`mino-${color}${suffix}`);
         const isFilled = shape[y][x];
         if (isFilled) {
           const xPos = x * cellSize + offset[0] * cellSize;
@@ -64,7 +74,7 @@ export default class Next extends GameModule {
     const multiplier = 3;
     for (let nextSpace = 0; nextSpace < nextCount; nextSpace++) {
       const piece = this.queue[nextSpace + 1];
-      const shape = PIECES[piece].shape[0];
+      const shape = PIECES[piece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][piece]];
       const offset = this.parent.nextOffsets[piece];
       for (let y = 0; y < shape.length; y++) {
         for (let x = 0; x < shape[y].length; x++) {

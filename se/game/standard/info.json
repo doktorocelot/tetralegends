@@ -1,0 +1,30 @@
+{
+  "files": [
+    "b2b",
+    "bravo",
+    "collapse",
+    "erase1",
+    "erase2",
+    "erase3",
+    "erase4",
+    "garbage",
+    "go",
+    "harddrop",
+    "hold",
+    "initialhold",
+    "initialrotate",
+    "levelup",
+    "locknohd",
+    "move",
+    "pause",
+    "prespin",
+    "ready",
+    "rotate",
+    "start",
+    "step",
+    "tspin0",
+    "tspin1",
+    "tspin2",
+    "tspin3"
+  ]
+}

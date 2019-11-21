@@ -6,7 +6,17 @@
     "pieces": "standard",
     "unfavored": "standardUnfavored",
     "randomizer": "bag",
-    "rotationSystem": "srs"
+    "rotationSystem": "srs",
+    "skin": "standard",
+    "soundbank": "standard",
+    "music": "marathon",
+    "scoreTable": "guideline",
+    "background": "marathon.jpg"
+  },
+  "piece": {
+    "areLimit": 100,
+    "areLineLimit": 166.666666667,
+    "areLimitLineModifier": 166.666666667
   },
   "stats": [
     "score",

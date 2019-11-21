@@ -24,7 +24,7 @@
     {
       "label": "Development",
       "description": "Contribute to and view development of the game",
-      "action": "submenu",
+      "action": "none",
       "submenu": "development/root"
     },
     {
