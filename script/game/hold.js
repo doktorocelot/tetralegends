@@ -2,6 +2,7 @@ import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
 import {PIECE_SETS, PIECES} from '../consts.js';
+import sound from '../sound.js';
 
 export default class Hold extends GameModule {
   constructor(parent, ctx) {
@@ -12,10 +13,15 @@ export default class Hold extends GameModule {
     this.ihs = false;
   }
   hold() {
-    this.ihs = false;
     if (this.isLocked) {
       return;
     }
+    if (this.ihs) {
+      sound.add('initialhold');
+    } else {
+      sound.add('hold');
+    }
+    this.ihs = false;
     const swapPiece = this.pieceName;
     this.pieceName = this.parent.piece.name;
     if (swapPiece == null) {

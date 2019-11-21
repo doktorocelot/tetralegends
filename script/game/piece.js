@@ -1,8 +1,9 @@
 import GameModule from './game-module.js';
-import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS} from '../consts.js';
+import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS, INITIAL_ORIENTATION, PIECE_OFFSETS} from '../consts.js';
 import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
 import settings from '../settings.js';
 import gameHandler from './game-handler.js';
+import sound from '../sound.js';
 export default class Piece extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -16,11 +17,13 @@ export default class Piece extends GameModule {
     this.shape;
     this.gravity = 1000;
     this.gravityMultiplier = 1;
+    this.gravityOverride = 0;
     this.ctx = ctx;
     this.orientation = 0;
     this.lastOrientation;
     this.lockDelay = 0;
     this.lockDelayLimit = 500;
+    this.last = '';
     this.kicks;
     this.shiftDir = 'none';
     this.das = 0;
@@ -34,36 +37,59 @@ export default class Piece extends GameModule {
     this.mustLock = false;
     this.color = 'white';
     this.are = 0;
-    this.areLimit = framesToMs(6);
-    this.areLineLimit = framesToMs(10);
-    this.areLimitLineModifier = framesToMs(4);
-    this.isDead = false;
+    this.areLimit = 0;
+    this.areLineLimit = 0;
+    this.areLimitLineModifier = 0;
+    this.isDead = true;
     this.ire = 0;
     this.hasIas = false;
+    this.hasLineDelay = false;
+    this.hasHardDropped = false;
+    this.startingAre = 0;
+    this.startingAreLimit = 1500;
+    this.ghostIsVisible = true;
+    this.softDropIsLocked = false;
+    this.useSpecialI = false;
   }
   new(name = this.parent.next.next()) {
+    const rotSys = this.parent.rotationSystem;
+    if (this.parent.stat.piece === 0) {
+      sound.add('start');
+      $('#message').textContent = 'START';
+      $('#message').classList.add('dissolve');
+      sound.playBgm(this.parent.settings.music, this.parent.type);
+    }
     this.parent.onPieceSpawn(this.parent);
+    this.parent.updateStats();
     $('#delay').innerHTML = `${this.lockDelayLimit} <b>ms</b>`;
+    this.hasLineDelay = false;
     this.isDead = false;
     this.are = this.areLimit;
     this.mustLock = false;
+    this.hasHardDropped = false;
     this.lockDelay = 0;
     this.name = name;
-    this.orientation = 0;
+    this.orientation = INITIAL_ORIENTATION[rotSys][name];
+    if (this.ire !== 0) {
+      sound.add('initialrotate');
+    }
     this.orientation = (this.orientation + this.ire) % 4;
     this.ire = 0;
     this.piece = PIECES[name].shape;
     this.shape = this.piece[this.orientation];
-    this.x = 0 + SPAWN_OFFSETS.srs[name][0];
-    this.y = 0 + SPAWN_OFFSETS.srs[name][1];
+    this.x = 0 + SPAWN_OFFSETS[rotSys][name][0] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
+    this.y = 0 + SPAWN_OFFSETS[rotSys][name][1] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
     this.lowestY = this.y;
-    this.kicks = KICK_TABLES.srs[name];
-    this.shiftDown();
+    this.kicks = KICK_TABLES[rotSys][name];
+    for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
+      this.shiftDown();
+    }
     this.manipulations = 0;
     if (this.gravity <= framesToMs(1 / 20)) {
       this.sonicDrop();
     }
     if (this.isStuck) {
+      sound.add('ko');
       gameHandler.reset();
     }
     this.color = this.parent.colors[this.name];
@@ -75,7 +101,7 @@ export default class Piece extends GameModule {
   get yFloor() {
     return Math.floor(this.y);
   }
-  drawMino(x, y, buffer, type) {
+  drawMino(x, y, buffer, type, number) {
     const cellSize = this.parent.cellSize;
     const ctx = this.ctx;
     const xPos = x * cellSize;
@@ -87,7 +113,11 @@ export default class Piece extends GameModule {
         img = document.getElementById(`ghost-${this.color}`);
         break;
       case 'piece':
-        img = document.getElementById(`mino-${this.color}`);
+        let suffix = '';
+        if (this.useSpecialI && this.name === 'I') {
+          suffix = number;
+        }
+        img = document.getElementById(`mino-${this.color}${suffix}`);
       default:
         break;
     }
@@ -112,7 +142,7 @@ export default class Piece extends GameModule {
       for (let x = 0; x < shape[y].length; x++) {
         const isFilled = shape[y][x];
         if (isFilled) {
-          this.drawMino(this.x + x + offsetX, this.yFloor + y + offsetY, this.parent.bufferPeek, type);
+          this.drawMino(this.x + x + offsetX, this.yFloor + y + offsetY, this.parent.bufferPeek, type, shape[y][x]);
         }
       }
     }
@@ -123,9 +153,11 @@ export default class Piece extends GameModule {
     if (this.isDead) {
       return;
     }
-    this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
+    if (this.ghostIsVisible) {
+      this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
+    }
     this.drawPiece(this.shape, 0, 0, 'piece');
-    if (this.manipulations >= this.manipulationLimit) {
+    if (this.manipulations >= this.manipulationLimit && false) {
       const cellSize = this.parent.cellSize;
       ctx.beginPath();
       const y = cellSize * Math.floor(this.lowestY) + cellSize * this.parent.bufferPeek + this.shape.length * cellSize;
@@ -196,8 +228,14 @@ export default class Piece extends GameModule {
     this.isDirty = true;
   }
   hardDrop() {
+    const score = this.getDrop();
     this.sonicDrop();
+    this.hasHardDropped = true;
     this.mustLock = true;
+    if (!this.inAre) {
+      this.parent.addScore('hardDrop', score);
+      sound.add('harddrop');
+    }
   }
   shift(direction, amount, condition) {
     if (condition) {
@@ -205,6 +243,7 @@ export default class Piece extends GameModule {
       this.manipulations++;
       this.isDirty = true;
       if (direction === 'x') {
+        sound.add('move');
       }
     }
   }
@@ -226,8 +265,9 @@ export default class Piece extends GameModule {
         // Rotation Failed
         break;
       }
-      const kickX = kickTable[i][0];
-      const kickY = kickTable[i][1];
+      const offset = PIECE_OFFSETS[this.parent.rotationSystem][this.name];
+      const kickX = kickTable[i][0] + offset[newOrientation][0] - offset[this.orientation][0];
+      const kickY = kickTable[i][1] + offset[newOrientation][1] - offset[this.orientation][1];
       if (this.moveValid(kickX, kickY, rotatedShape)) {
         this.x += kickX;
         this.y += kickY;
@@ -235,6 +275,7 @@ export default class Piece extends GameModule {
         this.shape = rotatedShape;
         this.manipulations++;
         this.isDirty = true;
+        sound.add('rotate');
         break;
       }
     }
@@ -250,10 +291,10 @@ export default class Piece extends GameModule {
   }
   get inAre() {
     let areMod = 0;
-    if (this.parent.stack.lineClear !== 0) {
+    if (this.hasLineDelay) {
       areMod += this.areLineLimit;
       areMod += this.areLimitLineModifier;
     }
-    return this.are < this.areLimit + areMod;
+    return (this.are < this.areLimit + areMod) || this.startingAre < this.startingAreLimit;
   }
 }

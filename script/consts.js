@@ -1,25 +1,26 @@
+
 export const PIECES = {
   I: {
     shape: [[
       [0, 0, 0, 0],
-      [1, 1, 1, 1],
+      [1, 2, 2, 3],
       [0, 0, 0, 0],
       [0, 0, 0, 0],
     ], [
-      [0, 0, 1, 0],
-      [0, 0, 1, 0],
-      [0, 0, 1, 0],
-      [0, 0, 1, 0],
+      [0, 0, 4, 0],
+      [0, 0, 5, 0],
+      [0, 0, 5, 0],
+      [0, 0, 6, 0],
     ], [
       [0, 0, 0, 0],
       [0, 0, 0, 0],
-      [1, 1, 1, 1],
+      [1, 2, 2, 3],
       [0, 0, 0, 0],
     ], [
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
+      [0, 4, 0, 0],
+      [0, 5, 0, 0],
+      [0, 5, 0, 0],
+      [0, 6, 0, 0],
     ]],
   },
   L: {
@@ -139,6 +140,7 @@ export const PIECE_SETS = {
 };
 export const SPAWN_OFFSETS = {
   srs: {
+    downShift: 1,
     I: [3, -2],
     L: [3, -2],
     O: [4, -2],
@@ -147,7 +149,48 @@ export const SPAWN_OFFSETS = {
     J: [3, -2],
     S: [3, -2],
   },
+  retro: {
+    downShift: 0,
+    I: [3, -1],
+    L: [4, -1],
+    O: [4, 0],
+    Z: [4, 0],
+    T: [4, -1],
+    J: [4, -1],
+    S: [4, 0],
+  },
+  handheld: {
+    downShift: 0,
+    I: [3, 0],
+    L: [3, 0],
+    O: [4, 1],
+    Z: [3, 1],
+    T: [3, 0],
+    J: [3, 0],
+    S: [3, 1],
+  },
 };
+export const INITIAL_ORIENTATION = {
+  srs: {
+    I: 0,
+    L: 0,
+    O: 0,
+    Z: 0,
+    T: 0,
+    J: 0,
+    S: 0,
+  },
+  retro: {
+    I: 0,
+    L: 2,
+    O: 0,
+    Z: 0,
+    T: 2,
+    J: 2,
+    S: 0,
+  },
+};
+INITIAL_ORIENTATION.handheld = INITIAL_ORIENTATION.retro;
 const KICK_TEMPLATES = {
   srs: {
     x: {
@@ -225,7 +268,18 @@ export const KICK_TABLES = {
     J: KICK_TEMPLATES.srs.x,
     S: KICK_TEMPLATES.srs.x,
   },
+  retro: {
+    I: KICK_TEMPLATES.none.all,
+    L: KICK_TEMPLATES.none.all,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.none.all,
+    T: KICK_TEMPLATES.none.all,
+    J: KICK_TEMPLATES.none.all,
+    S: KICK_TEMPLATES.none.all,
+  },
 };
+KICK_TABLES.handheld = KICK_TABLES.retro;
+
 export const PIECE_COLORS = {
   srs: {
     I: 'lightBlue',
@@ -236,7 +290,27 @@ export const PIECE_COLORS = {
     J: 'blue',
     S: 'green',
   },
+  retro: {
+    I: 'white',
+    L: 'red',
+    O: 'white',
+    Z: 'blue',
+    T: 'white',
+    J: 'blue',
+    S: 'red',
+  },
+  handheldSpecial: {
+    I: 'i',
+    L: 'l',
+    O: 'o',
+    Z: 'z',
+    T: 't',
+    J: 'j',
+    S: 's',
+  },
 };
+PIECE_COLORS.handheld = PIECE_COLORS.retro;
+
 export const NEXT_OFFSETS = {
   srs: {
     I: [0, 0],
@@ -247,4 +321,79 @@ export const NEXT_OFFSETS = {
     J: [0.5, 0.5],
     S: [0.5, 0.5],
   },
+  retro: {
+    I: [0, 0],
+    L: [0.5, -0.5],
+    O: [1, 0.5],
+    Z: [0.5, 0.5],
+    T: [0.5, -0.5],
+    J: [0.5, -0.5],
+    S: [0.5, 0.5],
+  },
 };
+NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
+
+export const PIECE_OFFSETS = {
+  srs: {
+    I: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    L: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    O: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    Z: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    T: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    J: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    S: [[0, 0], [0, 0], [0, 0], [0, 0]],
+  },
+  retro: {
+    I: [[0, 1], [0, 0], [0, 0], [1, 0]],
+    L: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    O: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    Z: [[0, 1], [0, 0], [0, 0], [1, 0]],
+    T: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    J: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    S: [[0, 1], [0, 0], [0, 0], [1, 0]],
+  },
+  handheld: {
+    I: [[0, 1], [-1, 0], [0, 0], [0, 0]],
+    L: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    O: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    Z: [[0, 1], [-1, 0], [0, 0], [0, 0]],
+    T: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    J: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    S: [[0, 1], [-1, 0], [0, 0], [0, 0]],
+  },
+};
+export const PIECE_BINARIES = {
+  L: 0b000,
+  J: 0b001,
+  I: 0b010,
+  O: 0b011,
+  Z: 0b100,
+  S: 0b101,
+  T: 0b110,
+};
+export const SCORE_TABLES = {
+  guideline: {
+    erase1: 100,
+    erase2: 300,
+    erase3: 500,
+    erase4: 800,
+    softDrop: 1,
+    hardDrop: 2,
+    updateSoftDropImmediately: true,
+    levelAdditive: 0,
+    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
+    b2bMultiplier: 1,
+  },
+  retro: {
+    erase1: 40,
+    erase2: 100,
+    erase3: 300,
+    erase4: 1200,
+    softDrop: 1,
+    updateSoftDropImmediately: false,
+    levelAdditive: 1,
+    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
+    b2bMultiplier: 1,
+  },
+};
+

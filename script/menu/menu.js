@@ -21,7 +21,7 @@ class Menu {
   get length() {
     return $('#vertical-menu li').length;
   }
-  load(name, selection = 'default') {
+  load(name, type = 'default') {
     this.isLocked = true;
     this.hideMenu();
     loadMenu(name)
@@ -30,7 +30,14 @@ class Menu {
           this.current.name = name;
           this.current.data = menu.data;
           this.current.properties = menu.properties;
-          this.draw();
+          switch (type) {
+            case 'controls':
+              this.drawControls();
+              break;
+            default:
+              this.draw();
+              break;
+          }
           this.showMenu();
           this.isLocked = false;
           this.isEnabled = true;
@@ -43,6 +50,11 @@ class Menu {
     this.isLocked = true;
     this.isEnabled = false;
     this.hide();
+  }
+  open() {
+    this.isLocked = false;
+    this.isEnabled = true;
+    this.show();
   }
   show() {
     $('#menu-container').classList.remove('hidden');
@@ -82,6 +94,25 @@ class Menu {
     const spaceRemianing = window.innerHeight - $('#vertical-menu').getBoundingClientRect().y;
     $('#vertical-menu').style.height = `${spaceRemianing - 80}px`;
   }
+  drawControls() {
+    for (let i = 0; i < this.current.data.length; i++) {
+      const currentData = this.current.data[i];
+      const element = document.createElement('li');
+      // element.id = `option-${i}`;
+      element.classList.add('control-name');
+      element.textContent = currentData.label;
+      // element.onmouseenter = () => {
+      //   this.select(i);
+      // };
+      // element.onclick = () => {
+      //   this.ok();
+      // };
+      $('#vertical-menu').appendChild(element);
+    }
+    const spaceRemianing = window.innerHeight - $('#vertical-menu').getBoundingClientRect().y;
+    $('#vertical-menu').style.height = `${spaceRemianing - 80}px`;
+    // this.select(0);
+  }
   select(number) {
     for (const element of $('#vertical-menu li')) {
       element.classList.remove('selected');
@@ -119,8 +150,15 @@ class Menu {
         case 'quick':
           gameHandler.newGame('marathon');
           break;
-        case 'default':
-        // TODO wtf error
+        case 'game':
+          gameHandler.newGame(this.selectedData.game);
+          break;
+        case 'controls':
+          this.load('controls', 'controls');
+          break;
+        default:
+          // TODO wtf error
+          break;
       }
     }
   }

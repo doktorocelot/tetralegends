@@ -1,5 +1,6 @@
 import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
+import sound from '../sound.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -14,9 +15,18 @@ export default class Stack extends GameModule {
     this.toCollapse = [];
     this.ctx = ctx;
     this.lineClear = 0;
+    this.flashLineClear = false;
+    this.flashClearRate = 50;
+    this.fadeLineClear = true;
+    this.useMinoSkin = false;
   }
   add(passedX, passedY, shape, color) {
+    if (!this.parent.piece.hasHardDropped) {
+      sound.add('locknohd');
+    }
+    sound.add('lock');
     this.parent.stat.piece++;
+    this.parent.piece.last = this.parent.piece.name;
     this.parent.updateStats();
     this.lineClear = 0;
     this.parent.hold.isLocked = false;
@@ -29,7 +39,11 @@ export default class Stack extends GameModule {
         if (isFilled) {
           const xLocation = x + passedX;
           const yLocation = y + passedY + this.hiddenHeight;
-          this.grid[xLocation][yLocation] = color;
+          if (this.parent.piece.useSpecialI && this.parent.piece.name === 'I') {
+            this.grid[xLocation][yLocation] = 'i' + shape[y][x];
+          } else {
+            this.grid[xLocation][yLocation] = color;
+          }
           this.flashX.unshift(xLocation);
           this.flashY.unshift(yLocation);
         }
@@ -50,6 +64,7 @@ export default class Stack extends GameModule {
           for (let x = 0; x < this.grid.length; x++) {
             delete this.grid[x][y];
           }
+          this.parent.piece.hasLineDelay = true;
           this.lineClear++;
           this.toCollapse.push(y);
           break;
@@ -59,12 +74,21 @@ export default class Stack extends GameModule {
         }
       }
     }
-
+    if (this.lineClear > 0) {
+      sound.add('erase');
+      sound.add(`erase${this.lineClear}`);
+      if (this.lineClear < 4) {
+        sound.add('erasenot4');
+      }
+    }
     if (this.parent.piece.areLineLimit === 0) {
       this.collapse();
     }
   }
   collapse() {
+    if (this.toCollapse.length === 0) {
+      return;
+    }
     for (const y of this.toCollapse) {
       for (let x = 0; x < this.grid.length; x++) {
         for (let shiftY = y; shiftY >= 0; shiftY--) {
@@ -78,9 +102,12 @@ export default class Stack extends GameModule {
       }
     }
     this.parent.stat.line += this.lineClear;
+    this.parent.addScore(`erase${this.lineClear}`);
     this.parent.updateStats();
+    sound.add('collapse');
     this.toCollapse = [];
     this.lineClear = 0;
+    this.isDirty = true;
   }
   new() {
     const cells = new Array(this.width);
@@ -113,7 +140,11 @@ export default class Stack extends GameModule {
         const isFilled = this.grid[x][y];
         if (isFilled) {
           const color = this.grid[x][y];
-          const img = document.getElementById(`stack-${color}`);
+          let name = 'stack';
+          if (this.useMinoSkin) {
+            name = 'mino';
+          }
+          const img = document.getElementById(`${name}-${color}`);
           const xPos = x * cellSize;
           const yPos = y * cellSize + cellSize * buffer - cellSize * this.hiddenHeight;
           img.height = cellSize;
@@ -164,10 +195,15 @@ export default class Stack extends GameModule {
     }
     if (this.toCollapse.length > 0) {
       const brightness = Math.max(0, 1 - this.parent.piece.are / (this.parent.piece.areLimit + this.parent.piece.areLimitLineModifier));
-      const brightnessHex = ('0' + Math.round(brightness * 255).toString(16)).slice(-2);
+      let brightnessHex = ('0' + Math.round(brightness * 255).toString(16)).slice(-2);
+      if (!this.fadeLineClear) {
+        brightnessHex = 'ff';
+      }
       ctx.fillStyle = `#ffffff${brightnessHex}`;
-      for (let i = 0; i < this.toCollapse.length; i++) {
-        ctx.fillRect(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize);
+      if (Math.round(this.parent.piece.are / this.flashClearRate) % 2 !== 1 || !this.flashLineClear) {
+        for (let i = 0; i < this.toCollapse.length; i++) {
+          ctx.fillRect(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize);
+        }
       }
     }
   }

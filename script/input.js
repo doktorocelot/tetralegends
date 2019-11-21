@@ -44,6 +44,13 @@ class Input {
         buttonHints.change('keyboard');
         buttonHints.show();
       }
+      if (event.code === 'Backspace' && gameHandler.game != null) {
+        if (gameHandler.game.isVisible) {
+          gameHandler.game.hide();
+          gameHandler.game.pause();
+          menu.open();
+        }
+      }
       mouseLimit = 0;
       for (const name of Object.keys(keys)) {
         if (event.key === keys[name]) {

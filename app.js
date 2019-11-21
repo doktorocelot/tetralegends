@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   menu.load('root');
   menu.show();
   // TEMP BELOW
-  gameHandler.newGame('marathon');
+  // gameHandler.newGame('marathon');
 });
 
 

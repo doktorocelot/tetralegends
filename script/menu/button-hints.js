@@ -1,4 +1,5 @@
 import $ from '../shortcuts.js';
+import gameHandler from '../game/game-handler.js';
 class ButtonHints {
   constructor() {}
   change(type) {
@@ -22,6 +23,18 @@ class ButtonHints {
   }
   show() {
     $('#button-hint-container').classList.remove('hidden');
+  }
+  clear() {
+    $('#button-hint-container').innerHTML = '';
+  }
+  add(keys, label) {
+    const table = document.createElement('table');
+  }
+  draw() {
+    this.clear();
+    if (gameHandler.game == null) {
+
+    }
   }
 }
 const buttonHints = new ButtonHints;

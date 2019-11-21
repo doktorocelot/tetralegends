@@ -12,20 +12,14 @@
       "label": "Marathon",
       "default": true,
       "description": "Stack and clear to reach the goal",
-      "action": "none",
+      "action": "game",
       "game": "marathon"
     },
     {
-      "label": "Sprint",
-      "description": "Clear a set amount of lines as fast as possible",
-      "action": "none",
-      "game": "sprint"
-    },
-    {
-      "label": "Retro",
-      "description": "Play this classic version of the game",
-      "action": "none",
-      "game": ""
+      "label": "Handheld",
+      "description": "Play this classic version of the game!",
+      "action": "game",
+      "game": "handheld"
     }
   ]
 }

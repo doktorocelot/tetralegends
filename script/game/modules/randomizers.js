@@ -1,4 +1,5 @@
 import {shuffle} from '../../shortcuts.js';
+import {PIECE_BINARIES} from '../../consts.js';
 
 export function* memoryless(pieces, unfavored = []) {
   const favored = pieces.filter((x) => !unfavored.includes(x));
@@ -7,7 +8,28 @@ export function* memoryless(pieces, unfavored = []) {
     yield pieces[Math.floor(Math.random() * pieces.length)];
   }
 }
-
+export function* handheld(pieces) {
+  const history = [0, 0];
+  const calc = () => {
+    return Math.floor(Math.random() * pieces.length);
+  };
+  while (true) {
+    for (let i = 0; i < 3; i++) {
+      const gen = pieces[calc()];
+      const genBinary = PIECE_BINARIES[gen];
+      let orCalculation = genBinary;
+      for (const index of history) {
+        orCalculation |= index;
+      }
+      if (orCalculation !== history[1] || i === 2) {
+        history.unshift(genBinary);
+        history.pop();
+        yield gen;
+        break;
+      }
+    }
+  }
+}
 export function* bag(pieces, unfavored = [], bagMultiplier = 1) {
   let bag = [];
   const generateBag = () => {
