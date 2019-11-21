@@ -17,7 +17,7 @@ class Sound {
           this.files = soundData.files;
           for (const soundName of this.files) {
             this.sounds[soundName] = new Howl({
-              src: [`../se/game/${name}/${soundName}.ogg`],
+              src: [`./se/game/${name}/${soundName}.ogg`],
               volume: .25,
             });
           }
@@ -26,14 +26,14 @@ class Sound {
   }
   loadBgm(name, type) {
     this.music[`${type}-${name}-start`] = new Howl({
-      src: [`../bgm/${type}/${name}-start.ogg`],
+      src: [`./bgm/${type}/${name}-start.ogg`],
       volume: .25,
       onend: () => {
         this.music[`${type}-${name}-loop`].play();
       },
     });
     this.music[`${type}-${name}-loop`] = new Howl({
-      src: [`../bgm/${type}/${name}-loop.ogg`],
+      src: [`./bgm/${type}/${name}-loop.ogg`],
       volume: .25,
       loop: true,
     });
