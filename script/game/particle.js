@@ -30,7 +30,7 @@ class SingleParticle {
   draw(ctx) {
     const opacity = (this.maxlife - this.lifetime) / this.maxlife;
     ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    ctx.fillRect(this.x, this.y, 5, 5);
+    ctx.fillRect(this.x, this.y, 3, 3);
   }
 }
 export default class Particle extends GameModule {
@@ -43,6 +43,7 @@ export default class Particle extends GameModule {
     this.particles.push(new SingleParticle(x, y, xVel, yVel));
   }
   generate(x, y, maxX, maxY, velX, varianceX, velY, varianceY, amount) {
+    // return;
     for (let i = 0; i <= amount; i++) {
       const xGen = getRandomInt(maxX * 100) / 100 + x;
       const yGen = getRandomInt(maxY * 100) / 100 + y;
