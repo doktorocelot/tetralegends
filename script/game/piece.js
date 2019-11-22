@@ -223,19 +223,62 @@ export default class Piece extends GameModule {
 
     return false;
   }
+  get endPoints() {
+    let maxX = 0;
+    let maxY = 0;
+    for (let i = 0; i < this.shape.length; i++) {
+      for (let j = 0; j < this.shape[i].length; j++) {
+        const mino = this.shape[i][j];
+        if (mino !== 0) {
+          maxX = Math.max(maxX, j);
+          maxY = Math.max(maxY, i);
+        }
+      }
+    }
+    return [maxX, maxY];
+  }
+  get endX() {
+    return this.endPoints[0];
+  }
+  get endY() {
+    return this.endPoints[1];
+  }
+  get startPoints() {
+    let minX = this.shape[0].length;
+    let minY = this.shape.length;
+    for (let i = 0; i < this.shape.length; i++) {
+      for (let j = 0; j < this.shape[i].length; j++) {
+        const mino = this.shape[i][j];
+        if (mino !== 0) {
+          minX = Math.min(minX, j);
+          minY = Math.max(minY, i);
+        }
+      }
+    }
+    return [minX, minY];
+  }
+  get startX() {
+    return this.startPoints[0];
+  }
+  get startY() {
+    return this.startPoints[1];
+  }
   sonicDrop() {
     this.y += this.getDrop();
     this.isDirty = true;
   }
   hardDrop() {
-    const score = this.getDrop();
+    if (!this.isDead) {
+      const drop = this.getDrop();
+      const cellSize = this.parent.cellSize;
+      this.parent.addScore('hardDrop', drop);
+      sound.add('harddrop');
+      this.parent.particle.generate((this.x + this.startX) * cellSize, (this.y + this.endY - this.parent.bufferPeek) * cellSize, (this.endX - this.startX + 1) * cellSize, (drop + 1) * cellSize, 0, 1, 5, 5, 50);
+    }
+
     this.sonicDrop();
     this.hasHardDropped = true;
     this.mustLock = true;
-    if (!this.inAre) {
-      this.parent.addScore('hardDrop', score);
-      sound.add('harddrop');
-    }
   }
   shift(direction, amount, condition) {
     if (condition) {

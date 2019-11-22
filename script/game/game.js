@@ -12,6 +12,7 @@ import updateKeys from './loop-modules/update-keys.js';
 import input from '../input.js';
 import Hold from './hold.js';
 import sound from '../sound.js';
+import Particle from './particle.js';
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
@@ -22,6 +23,7 @@ export default class Game {
     this.nextCanvas = $('#next-main');
     this.nextSubCanvas = $('#next-sub');
     this.holdCanvas = $('#hold');
+    this.particleCanvas = $('#particle');
     this.bufferPeek = .25;
     this.loop;
     this.now;
@@ -52,13 +54,13 @@ export default class Game {
 
           this.settings = gameData.settings;
           this.stats = gameData.stats;
-          this.background = this.settings.background;
           sound.load(this.settings.soundbank);
           // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
           this.piece = new Piece(this, toCtx(this.pieceCanvas));
           this.next = new Next(this, toCtx(this.nextCanvas), toCtx(this.nextSubCanvas));
           this.hold = new Hold(this, toCtx(this.holdCanvas));
+          this.particle = new Particle(this, toCtx(this.particleCanvas));
           // SET UP SETTINGS
           this.makeSprite();
           this.rotationSystem = this.settings.rotationSystem;
@@ -84,6 +86,7 @@ export default class Game {
           window.onresize = this.resize;
           $('.game').classList.remove('paused');
           this.request = requestAnimationFrame(this.gameLoop);
+          document.documentElement.style.setProperty('--current-background', `url("../img/bg/${this.settings.background}")`);
         });
   }
   unpause() {
@@ -120,9 +123,8 @@ export default class Game {
     root.style.setProperty('--cell-size', `${game.cellSize}px`);
     root.style.setProperty('--matrix-width', game.settings.width);
     root.style.setProperty('--matrix-height-base', game.settings.height);
-    root.style.setProperty('--matrix-width', `url("../img/bg/${this.background}");`);
     // console.log(`url("../img/bg/${this.background}");`);
-    for (const element of ['pieceCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas']) {
+    for (const element of ['pieceCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas', 'particleCanvas']) {
       game[element].width = game[element].clientWidth;
       game[element].height = game[element].clientHeight;
     }
@@ -173,8 +175,10 @@ export default class Game {
             piece: game.piece,
             stack: game.stack,
             hold: game.hold,
+            particle: game.particle,
           });
-          const modules = ['piece', 'stack', 'next', 'hold'];
+          game.particle.update();
+          const modules = ['piece', 'stack', 'next', 'hold', 'particle'];
           for (const moduleName of modules) {
             const currentModule = game[moduleName];
             if (currentModule.isDirty || game.isDirty) {

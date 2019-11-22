@@ -9,7 +9,7 @@
     "rotationSystem": "handheld",
     "skin": "retro",
     "soundbank": "handheld",
-    "music": "korobeiniki",
+    "music": "mono",
     "scoreTable": "retro",
     "background": "handheld.png"
   },

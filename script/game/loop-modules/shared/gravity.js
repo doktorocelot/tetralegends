@@ -4,7 +4,7 @@ import sound from '../../../sound.js';
 
 export function fallen(piece) {
   if (piece.yFloor > Math.floor(piece.lastY)) {
-    if (piece.gravityMultiplier || piece.gravityOverride) {
+    if (piece.gravityMultiplier !== 1 || piece.gravityOverride) {
       for (let i = 1; i <= (piece.yFloor - Math.floor(piece.lastY)); i++) {
         {gameHandler.game.addScore('softDrop');}
       }
