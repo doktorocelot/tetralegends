@@ -5,6 +5,9 @@ class GameHandler {
     this.game = null;
   }
   newGame(gametype) {
+    if (this.game != null) {
+      this.game.kill();
+    }
     this.game = null;
     this.game = new Game(gametype);
   }
