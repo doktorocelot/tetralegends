@@ -105,7 +105,7 @@ export default class Stack extends GameModule {
     this.parent.addScore(`erase${this.lineClear}`);
     this.parent.updateStats();
     sound.add('collapse');
-    this.parent.particle.generate(0, (this.toCollapse[this.toCollapse.length - 1] - this.hiddenHeight + 1) * this.parent.cellSize, this.width * this.parent.cellSize, 0, 0, 5, 0, 1, 100);
+    this.parent.particle.generate(0, (this.toCollapse[this.toCollapse.length - 1] - this.hiddenHeight + 1) * this.parent.cellSize, this.width * this.parent.cellSize, 0, 0, 5, -1, 2, 100);
     this.toCollapse = [];
     this.lineClear = 0;
     this.isDirty = true;

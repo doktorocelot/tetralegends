@@ -1,44 +1,42 @@
+import {framesToMs} from '../shortcuts.js';
+import {gravity, classicGravity} from './loop-modules/gravity.js';
+import {KICK_TABLES, PIECE_COLORS} from '../consts.js';
 import classicLockdown from './loop-modules/classic-lockdown.js';
+import collapse from './loop-modules/collapse.js';
 import extendedLockdown from './loop-modules/extended-lockdown.js';
-import gravity from './loop-modules/gravity.js';
+import gameHandler from './game-handler.js';
+import handheldDasAre from './loop-modules/handheld-das-are.js';
 import hardDrop from './loop-modules/hard-drop.js';
 import hold from './loop-modules/hold.js';
 import hyperSoftDrop from './loop-modules/hyper-soft-drop.js';
+import infiniteLockdown from './loop-modules/infinite-lockdown.js';
 import initialDas from './loop-modules/initial-das.js';
 import initialHold from './loop-modules/initial-hold.js';
 import initialRotation from './loop-modules/initial-rotation.js';
 import lockFlash from './loop-modules/lock-flash.js';
 import reset from './loop-modules/reset.js';
 import respawnPiece from './loop-modules/respawn-piece.js';
+import retroLockdown from './loop-modules/retro-lockdown.js';
 import rotate from './loop-modules/rotate.js';
 import rotate180 from './loop-modules/rotate-180.js';
 import shifting from './loop-modules/shifting.js';
+import shiftingHandheld from './loop-modules/shifting-handheld.js';
+import shiftingRetro from './loop-modules/shifting-retro.js';
 import softDrop from './loop-modules/soft-drop.js';
+import softDropHandheld from './loop-modules/soft-drop-handheld.js';
+import softDropRetro from './loop-modules/soft-drop-retro.js';
+import sound from '../sound.js';
 import updateKeys from './loop-modules/update-keys.js';
 import updateLasts from './loop-modules/update-lasts.js';
-import infiniteLockdown from './loop-modules/infinite-lockdown.js';
-import collapse from './loop-modules/collapse.js';
-import {framesToMs} from '../shortcuts.js';
-import {KICK_TABLES, PIECE_COLORS} from '../consts.js';
-import sound from '../sound.js';
-import softDropHandheld from './loop-modules/soft-drop-handheld.js';
-import classicGravity from './loop-modules/classic-gravity.js';
-import retroLockdown from './loop-modules/retro-lockdown.js';
-import shiftingHandheld from './loop-modules/shifting-handheld.js';
-import handheldDasAre from './loop-modules/handheld-das-are.js';
-import gameHandler from './game-handler.js';
-import softDropRetro from './loop-modules/soft-drop-retro.js';
-import shiftingRetro from './loop-modules/shifting-retro.js';
 let lastLevel = 0;
 export const loops = {
   marathon: {
     update: (arg) => {
-      // arg.ms = 1 / 60 * 1000;
+      collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
         initialRotation(arg);
         initialHold(arg);
-        collapse(arg);
         arg.piece.are += arg.ms;
       }
       else {
@@ -90,10 +88,9 @@ export const loops = {
   },
   handheld: {
     update: (arg) => {
-      // arg.ms = 1 / 60 * 1000;
+      collapse(arg);
       if (arg.piece.inAre) {
         handheldDasAre(arg);
-        collapse(arg);
         arg.piece.are += arg.ms;
       }
       else {

@@ -273,7 +273,7 @@ export default class Piece extends GameModule {
       const cellSize = this.parent.cellSize;
       this.parent.addScore('hardDrop', drop);
       sound.add('harddrop');
-      this.parent.particle.generate((this.x + this.startX) * cellSize, (this.y + this.endY - this.parent.bufferPeek) * cellSize, (this.endX - this.startX + 1) * cellSize, (drop + 1) * cellSize, 0, 1, 5, 5, 50);
+      this.parent.particle.generate((this.x + this.startX) * cellSize, (this.y + this.endY - this.parent.bufferPeek) * cellSize, (this.endX - this.startX + 1) * cellSize, (drop + 1) * cellSize, 0, 1, 3, 3, 50);
     }
 
     this.sonicDrop();
