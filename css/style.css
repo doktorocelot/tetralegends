@@ -40,7 +40,7 @@ body {
   padding: 0;
   top: 0;
   left: 0;
-  background-image: var(--current-background);
+  /* background-image: var(--current-background); */
   background-size: cover;
   width: 100%;
   height: 100%;
