@@ -15,9 +15,16 @@ class Sound {
     loadSoundbank(name)
         .then((soundData) => {
           this.files = soundData.files;
+          this.ren = soundData.ren;
           for (const soundName of this.files) {
             this.sounds[soundName] = new Howl({
               src: [`./se/game/${name}/${soundName}.ogg`],
+              volume: .25,
+            });
+          }
+          for (const ren of this.ren) {
+            this.sounds[`ren${ren}`] = new Howl({
+              src: [`./se/game/${name}/ren/ren${ren}.ogg`],
               volume: .25,
             });
           }
@@ -56,6 +63,20 @@ class Sound {
         this.sounds[name].play();
       } else if (name === 'initialrotate' && this.files.indexOf('rotate') !== -1) {
         this.sounds['rotate'].play();
+      }
+
+      if (name.substr(0, 3) === 'ren') {
+        let number = parseInt(name.substr(3, name.length - 3));
+        while (this.ren.indexOf(number) === -1) {
+          console.log(number);
+          if (number <= 0) {
+            break;
+          }
+          number--;
+        }
+        if (number > 0) {
+          this.sounds[`ren${number}`].play();
+        }
       }
     }
     this.toPlay = {};
