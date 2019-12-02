@@ -61,7 +61,7 @@ export default class Particle extends GameModule {
   }
   // generate(x, y, xRange, yRange, velX, varianceX, velY, varianceY, amount) {
   generate(properties) {
-    // return;
+    return;
     const p = {
       amount: 1,
       xVariance: 0,
@@ -88,6 +88,7 @@ export default class Particle extends GameModule {
     }
   }
   update() {
+    return;
     while (this.particles.length > limit) {
       this.particles.splice(getRandomInt(limit - 1), 1);
     }
@@ -104,9 +105,9 @@ export default class Particle extends GameModule {
     } else {
       clearCtx(this.ctx);
     };
-    console.log(this.particles.length)
   }
   draw() {
+    return;
     clearCtx(this.ctx);
     for (const particle of this.particles) {
       particle.draw(this.ctx);
