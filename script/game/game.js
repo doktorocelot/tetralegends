@@ -47,6 +47,8 @@ export default class Game {
       score: true,
       fallspeed: true,
     };
+    this.b2b = 0;
+    this.combo = -1;
     loadGameType(gametype)
         .then((gameData) => {
           this.show();
@@ -254,6 +256,10 @@ export default class Game {
     if (score != null) {
       if (scoreTable.levelMultiplied.indexOf(name) !== -1) {
         score *= this.stat.level + scoreTable.levelAdditive;
+      }
+      if (scoreTable.b2bMultiplied.indexOf(name) !== -1 && this.b2b > 1) {
+        console.log('yay!');
+        score *= scoreTable.b2bMultiplier;
       }
       this.stat.score += score;
     }

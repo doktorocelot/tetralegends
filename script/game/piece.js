@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS, INITIAL_ORIENTATION, PIECE_OFFSETS} from '../consts.js';
+import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS, INITIAL_ORIENTATION, PIECE_OFFSETS, SPIN_POINTS} from '../consts.js';
 import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
 import settings from '../settings.js';
 import gameHandler from './game-handler.js';
@@ -53,7 +53,7 @@ export default class Piece extends GameModule {
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
-    if (this.parent.stat.piece === 0) {
+    if (this.parent.stat.piece === 0 && this.parent.hold.pieceName == null) {
       sound.add('start');
       $('#message').textContent = 'START';
       $('#message').classList.add('dissolve');
@@ -93,6 +93,8 @@ export default class Piece extends GameModule {
       gameHandler.reset();
     }
     this.color = this.parent.colors[this.name];
+    this.rotatedX = null;
+    this.rotatedY = null;
   }
   die() {
     this.isDead = true;
@@ -167,6 +169,11 @@ export default class Piece extends GameModule {
       ctx.strokeStyle = '#f00';
       ctx.stroke();
       ctx.strokeRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
+    }
+    if (this.hasSpun) {
+      this.parent.pieceCanvas.classList.add('spin-pulse');
+    } else {
+      this.parent.pieceCanvas.classList.remove('spin-pulse');
     }
   }
   moveValid(passedX, passedY, shape) {
@@ -273,7 +280,19 @@ export default class Piece extends GameModule {
       const cellSize = this.parent.cellSize;
       this.parent.addScore('hardDrop', drop);
       sound.add('harddrop');
-      this.parent.particle.generate((this.x + this.startX) * cellSize, (this.y + this.endY - this.parent.bufferPeek) * cellSize, (this.endX - this.startX + 1) * cellSize, (drop + 1) * cellSize, 0, 1, 3, 3, 50);
+      this.parent.particle.generate({
+        amount: 5 * (drop + 1),
+        x: (this.x + this.startX) * cellSize,
+        y: (this.y + this.endY - this.parent.bufferPeek) * cellSize,
+        xRange: (this.endX - this.startX + 1) * cellSize,
+        yRange: (drop + 1) * cellSize,
+        xVelocity: 0,
+        yVelocity: 3,
+        xVariance: 1,
+        yVariance: 3,
+        xDampening: 1.03,
+        yDampening: 1.05,
+      });
     }
 
     this.sonicDrop();
@@ -319,6 +338,25 @@ export default class Piece extends GameModule {
         this.manipulations++;
         this.isDirty = true;
         sound.add('rotate');
+        if (this.checkSpin().isSpin) {
+          sound.add('prespin');
+          const cellSize = this.parent.cellSize;
+          this.parent.particle.generate({
+            amount: 50,
+            x: (this.x) * cellSize,
+            y: (this.y) * cellSize,
+            xRange: (this.shape[0].length) * cellSize,
+            yRange: (this.shape[0].length) * cellSize,
+            xVelocity: 0,
+            yVelocity: 5,
+            xVariance: 10,
+            yVariance: 5,
+            gravity: 1,
+            maxlife: 150,
+          });
+        }
+        this.rotatedX = this.x;
+        this.rotatedY = this.yFloor;
         break;
       }
     }
@@ -331,6 +369,49 @@ export default class Piece extends GameModule {
   }
   rotate180() {
     this.rotate(2, 'double');
+  }
+  checkSpin() {
+    const check = (x, y) => {return this.parent.stack.isFilled(x, y);};
+    const name = this.name;
+    let spinCheckCount = 0;
+    let isSpin = false;
+    let isMini = false;
+    if (name === 'T') {
+      const spinHigh = SPIN_POINTS[name].high[this.orientation];
+      const spinLow = SPIN_POINTS[name].low[this.orientation];
+      for (const point of spinHigh) {
+        const x = this.x + point[0];
+        const y = this.yFloor + this.parent.stack.hiddenHeight + point[1];
+        if (check(x, y)) {
+          spinCheckCount++;
+        }
+      }
+      if (spinCheckCount < 2) {
+        isMini = true;
+      }
+      for (const point of spinLow) {
+        const x = this.x + point[0];
+        const y = this.yFloor + this.parent.stack.hiddenHeight + point[1];
+        if (check(x, y)) {
+          spinCheckCount++;
+        }
+      }
+      if (spinCheckCount >= 3) {
+        isSpin = true;
+      }
+    }
+    return {isSpin: isSpin, isMini: isMini};
+  }
+  get hasSpun() {
+    if (
+      this.x === this.rotatedX &&
+      this.yFloor === this.rotatedY &&
+      this.checkSpin().isSpin
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
   get inAre() {
     let areMod = 0;

@@ -24,6 +24,17 @@ export default class Stack extends GameModule {
     if (!this.parent.piece.hasHardDropped) {
       sound.add('locknohd');
     }
+    const checkSpin = this.parent.piece.checkSpin();
+    let isSpin = false;
+    let isMini = false;
+    if (
+      this.parent.piece.x === this.parent.piece.rotatedX &&
+      this.parent.piece.yFloor === this.parent.piece.rotatedY &&
+      this.parent.piece.checkSpin().isSpin
+    ) {
+      isSpin = checkSpin.isSpin;
+      isMini = checkSpin.isMini;
+    }
     sound.add('lock');
     this.parent.stat.piece++;
     this.parent.piece.last = this.parent.piece.name;
@@ -74,11 +85,35 @@ export default class Stack extends GameModule {
         }
       }
     }
+    if (isSpin) {
+      sound.add('tspinbonus');
+    }
     if (this.lineClear > 0) {
-      sound.add('erase');
-      sound.add(`erase${this.lineClear}`);
+      this.parent.combo++;
+      let type = 'erase';
+      if (isSpin) {
+        type = 'tspin';
+        this.parent.b2b++;
+      } else if (this.lineClear < 4) {
+        this.parent.b2b = 0;
+      }
+      sound.add(`${type}`);
+      sound.add(`${type}${this.lineClear}`);
       if (this.lineClear < 4) {
-        sound.add('erasenot4');
+        sound.add(`${type}not4`);
+      } else {
+        this.parent.b2b++;
+      }
+      if (this.parent.b2b > 1) {
+        sound.add('b2b');
+      }
+      if (this.parent.combo > 0) {
+        sound.add(`ren${this.parent.combo}`);
+      }
+    } else {
+      this.parent.combo = -1;
+      if (isSpin) {
+        sound.add('tspin0');
       }
     }
     if (this.parent.piece.areLineLimit === 0) {
@@ -105,7 +140,19 @@ export default class Stack extends GameModule {
     this.parent.addScore(`erase${this.lineClear}`);
     this.parent.updateStats();
     sound.add('collapse');
-    this.parent.particle.generate(0, (this.toCollapse[this.toCollapse.length - 1] - this.hiddenHeight + 1) * this.parent.cellSize, this.width * this.parent.cellSize, 0, 0, 5, -1, 2, 100);
+    this.parent.particle.generate({
+      amount: 100,
+      x: 0,
+      y: (this.toCollapse[this.toCollapse.length - 1] - this.hiddenHeight + 1) * this.parent.cellSize,
+      xRange: this.width * this.parent.cellSize,
+      yRange: 0,
+      xVelocity: 0,
+      yVelocity: 1,
+      xVariance: 5,
+      yVariance: 2,
+      gravity: .3,
+      gravityAccceleration: 1.05,
+    });
     this.toCollapse = [];
     this.lineClear = 0;
     this.isDirty = true;
@@ -129,6 +176,21 @@ export default class Stack extends GameModule {
       }
     }
     return highest;
+  }
+  isFilled(x, y) {
+    if (this.grid[x] != null) {
+      if (y < this.height + this.hiddenHeight) {
+        if (this.grid[x][y] != null) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return true;
+      }
+    } else {
+      return true;
+    }
   }
   draw() {
     const cellSize = this.parent.cellSize;
@@ -202,7 +264,19 @@ export default class Stack extends GameModule {
       }
       ctx.fillStyle = `#ffffff${brightnessHex}`;
       for (let i = 0; i < this.toCollapse.length; i++) {
-        this.parent.particle.generate(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize, 0, 10, 0, 10, 2);
+        this.parent.particle.generate({
+          amount: 2,
+          x: 0,
+          y: (this.toCollapse[i] - this.hiddenHeight + buffer) * cellSize,
+          xRange: this.width * cellSize,
+          yRange: cellSize,
+          xVelocity: 0,
+          yVelocity: 0,
+          xVariance: 10,
+          yVariance: 10,
+          xDampening: 1.03,
+          yDampening: 1.03,
+        });
         if (Math.round(this.parent.piece.are / this.flashClearRate) % 2 !== 1 || !this.flashLineClear) {
           ctx.fillRect(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize);
         }
