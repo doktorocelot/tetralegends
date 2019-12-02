@@ -11,7 +11,8 @@
     "harddrop",
     "hold",
     "ko",
-    "levelup",
+    "levelupmajor",
+    "levelupminor",
     "lock",
     "move",
     "pause",
@@ -19,7 +20,7 @@
     "rotate",
     "start",
     "step",
-    "tspin",
+    "tspinbonus",
     "victory"
   ],
   "ren": []

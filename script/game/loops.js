@@ -78,6 +78,11 @@ export const loops = {
       game.stat.fallspeed = gravityVisual();
       if (game.stat.level !== lastLevel) {
         sound.add('levelup');
+        if (game.stat.level % 5 === 0) {
+          sound.add('levelupmajor');
+        } else {
+          sound.add('levelupminor');
+        }
       }
       lastLevel = game.stat.level;
     },
