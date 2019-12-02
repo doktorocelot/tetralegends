@@ -1,0 +1,27 @@
+==NAMES==
+
+b2b - plays on all back to backs
+bravo - plays on a perfect clear
+collapse - plays when the board collapses
+erase - plays on all line clears
+erase{number} - plays on that specific line clear
+erasenot4 - plays on all line clears except 4
+garbage - plays when garbage is sent
+go - plays on 'GO!'
+harddrop - plays on hard drop
+hold - plays when piece is held
+initialhold - plays when the piece is held before it spawns
+initialrotate - plays when the piece is rotated before it spawns
+levelup - plays on level up
+lock - plays when the piece locks
+locknohd - plays when the piece locks unless it was hard dropped
+move - plays when the piece moves
+pause - plays when the game pauses or unpauses
+prespin - plays if the piece is twisted into a spin
+ready - plays on 'READY'
+rotate - plays when the piece is rotated
+start - plays on 'START!'
+step - plays when the piece lands
+tspinbonus - plays on all tspins
+tspin - plays on all tspin line clears
+tspin{number} - plays on that specific tspin clear

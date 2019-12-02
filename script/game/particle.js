@@ -1,28 +1,45 @@
 import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
+const limit = 5000;
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 class SingleParticle {
-  constructor(x, y, xVelocity, yVelocity) {
+  constructor(properties) {
+    /*
     this.x = x;
     this.y = y;
     this.xVelocity = xVelocity;
     this.yVelocity = yVelocity;
+       */
     // this.yAccel = -0.11;
-    this.yAccel = 0;
+    this.xDampening = 1;
+    this.yDampening = 1;
+    this.xFlurry = 0;
+    this.yFlurry = 0;
     this.lifetime = 0;
     this.maxlife = 100;
     this.opacity = 1;
+    this.gravity = 0;
+    this.gravityAcceleration = 1.05;
+
+    for (const key of Object.keys(properties)) {
+      const value = properties[key];
+      this[key] = value;
+    }
   }
   update() {
+    const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
+    const yFlurryGen = getRandomInt(this.yFlurry * 100) / 100;
+    this.xVelocity += this.xFlurry / 2 - xFlurryGen;
+    this.yVelocity += this.yFlurry / 2 - yFlurryGen;
     this.lifetime++;
     this.x += this.xVelocity;
     this.y -= this.yVelocity;
-    this.y += this.yAccel;
-    this.yAccel *= 1.05;
-    this.xVelocity /= 1.005;
-    this.yVelocity /= 1.005;
+    this.y += this.gravity;
+    this.gravity *= this.gravityAcceleration;
+    this.xVelocity /= this.xDampening;
+    this.yVelocity /= this.yDampening;
     if (this.lifetime >= this.maxlife) {
       return true;
     }
@@ -39,24 +56,41 @@ export default class Particle extends GameModule {
     this.ctx = ctx;
     this.particles = [];
   }
-  add(x, y, xVel, yVel) {
-    this.particles.push(new SingleParticle(x, y, xVel, yVel));
+  add(properties) {
+    this.particles.push(new SingleParticle(properties));
   }
-  generate(x, y, maxX, maxY, velX, varianceX, velY, varianceY, amount) {
-    return;
-    for (let i = 0; i <= amount; i++) {
-      const xGen = getRandomInt(maxX * 100) / 100 + x;
-      const yGen = getRandomInt(maxY * 100) / 100 + y;
-      const xVelGen = getRandomInt(varianceX * 100) / 100;
-      const yVelGen = getRandomInt(varianceY * 100) / 100;
-      const xVelocity = varianceX / 2 - xVelGen + velX;
-      const yVelocity = varianceY / 2 - yVelGen + velY;
-      this.add(xGen, yGen, xVelocity, yVelocity);
-      if (i === 1) {
-      }
+  // generate(x, y, xRange, yRange, velX, varianceX, velY, varianceY, amount) {
+  generate(properties) {
+    // return;
+    const p = {
+      amount: 1,
+      xVariance: 0,
+      yVariance: 0,
+      xVelocity: 0,
+      yVelocity: 0,
+      ...properties,
+    };
+    for (let i = 0; i <= p.amount; i++) {
+      const xGen = getRandomInt(p.xRange * 100) / 100 + p.x;
+      const yGen = getRandomInt(p.yRange * 100) / 100 + p.y;
+      const xVelGen = getRandomInt(p.xVariance * 100) / 100;
+      const yVelGen = getRandomInt(p.yVariance * 100) / 100;
+      const xVelocity = p.xVariance / 2 - xVelGen + p.xVelocity;
+      const yVelocity = p.yVariance / 2 - yVelGen + p.yVelocity;
+      const finalProperties = {
+        ...p,
+        x: xGen,
+        y: yGen,
+        xVelocity: xVelocity,
+        yVelocity: yVelocity,
+      };
+      this.add(finalProperties);
     }
   }
   update() {
+    while (this.particles.length > limit) {
+      this.particles.splice(getRandomInt(limit - 1), 1);
+    }
     for (let i = 0; i < this.particles.length; i++) {
       const particle = this.particles[i];
       particle.update();
@@ -70,6 +104,7 @@ export default class Particle extends GameModule {
     } else {
       clearCtx(this.ctx);
     };
+    console.log(this.particles.length)
   }
   draw() {
     clearCtx(this.ctx);

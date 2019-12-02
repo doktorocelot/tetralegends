@@ -377,12 +377,22 @@ export const SCORE_TABLES = {
     erase2: 300,
     erase3: 500,
     erase4: 800,
+    tspin0: 400,
+    tspin1: 700, // These add to the regular erase points
+    tspin2: 900,
+    tspin3: 1100,
+    tspin4: 1200,
+    tmini: 100,
     softDrop: 1,
     hardDrop: 2,
     updateSoftDropImmediately: true,
+    hasSpins: true,
+    hasCombo: true,
     levelAdditive: 0,
-    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
-    b2bMultiplier: 1,
+    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin0', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini', 'combo'],
+    b2bMultiplier: 1.5,
+    b2bMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini'],
+    combo: 50,
   },
   retro: {
     erase1: 40,
@@ -394,6 +404,54 @@ export const SCORE_TABLES = {
     levelAdditive: 1,
     levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
     b2bMultiplier: 1,
+    b2bMultiplied: [],
   },
 };
 
+export const SPIN_POINTS = {
+  I: {
+    high: [
+      [[1, 0], [2, 2], [2, 0], [1, 2]],
+      [[1, 1], [3, 2], [1, 2], [3, 1]],
+      [[1, 1], [2, 3], [2, 1], [1, 3]],
+      [[0, 1], [2, 2], [0, 2], [2, 1]]],
+    low: [
+      [[-1, 1], [4, 1], [-1, 1], [4, 1]],
+      [[2, -1], [2, 4], [2, -1], [2, 4]],
+      [[-1, 2], [4, 2], [-1, 2], [4, 2]],
+      [[1, -1], [1, 4], [1, -1], [1, 4]]],
+  },
+  L: {
+    high: [
+      [[1, 0], [0, 0]],
+      [[2, 1], [2, 0]],
+      [[1, 2], [2, 2]],
+      [[0, 1], [0, 2]]],
+  },
+  Z: {
+
+  },
+  T: {
+    high: [
+      [[0, 0], [2, 0]],
+      [[2, 0], [2, 2]],
+      [[0, 2], [2, 2]],
+      [[0, 0], [0, 2]]],
+    low: [
+      [[0, 2], [2, 2]],
+      [[0, 0], [0, 2]],
+      [[0, 0], [2, 0]],
+      [[2, 0], [2, 2]]],
+  },
+  J: {
+
+  },
+  S: {
+
+  },
+};
+export const SPIN_SETS = {
+  tOnly: ['T'],
+  all: ['I', 'L', 'Z', 'T', 'J', 'S'],
+  none: [],
+};
