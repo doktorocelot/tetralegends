@@ -307,6 +307,14 @@ export default class Piece extends GameModule {
       if (direction === 'x') {
         sound.add('move');
       }
+    } else {
+      if (direction === 'x') {
+        if (amount > 0) {
+          this.parent.shiftMatrix('right');
+        } else {
+          this.parent.shiftMatrix('left');
+        }
+      }
     }
   }
   shiftLeft() {

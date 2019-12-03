@@ -36,6 +36,7 @@ export default class Stack extends GameModule {
       isMini = checkSpin.isMini;
     }
     sound.add('lock');
+    this.parent.shiftMatrix('down');
     this.parent.stat.piece++;
     this.parent.piece.last = this.parent.piece.name;
     this.parent.updateStats();
