@@ -208,6 +208,9 @@ export default class Piece extends GameModule {
   get canShiftRight() {
     return this.moveValid(1, 0, this.shape);
   }
+  get canShiftUp() {
+    return this.moveValid(0, -1, this.shape);
+  }
   getDrop(distance = (this.parent.settings.height + this.parent.settings.hiddenHeight) * 2) {
     if (this.isStuck) {
       return 0;
@@ -307,6 +310,14 @@ export default class Piece extends GameModule {
       if (direction === 'x') {
         sound.add('move');
       }
+    } else {
+      if (direction === 'x') {
+        if (amount > 0) {
+          this.parent.shiftMatrix('right');
+        } else {
+          this.parent.shiftMatrix('left');
+        }
+      }
     }
   }
   shiftLeft() {
@@ -371,6 +382,12 @@ export default class Piece extends GameModule {
     this.rotate(2, 'double');
   }
   checkSpin() {
+    if (true) {
+      if (!this.canShiftLeft && !this.canShiftRight && !this.canShiftUp) {
+        return {isSpin: true, isMini: false};
+      }
+      return {isSpin: false, isMini: false};
+    }
     const check = (x, y) => {return this.parent.stack.isFilled(x, y);};
     const name = this.name;
     let spinCheckCount = 0;
