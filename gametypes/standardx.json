@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "width": 10,
+    "height": 20,
+    "hiddenHeight": 4,
+    "pieces": "standard",
+    "unfavored": "standardUnfavored",
+    "randomizer": "tetrax",
+    "rotationSystem": "tetrax",
+    "skin": "standard",
+    "soundbank": "standard",
+    "music": "marathon",
+    "scoreTable": "tetrax",
+    "background": "marathon.jpg"
+  },
+  "piece": {
+    "areLimit": 100,
+    "areLineLimit": 166.666666667,
+    "areLimitLineModifier": 166.666666667
+  },
+  "stats": [
+    "score",
+    "level",
+    "fallspeed",
+    "line",
+    "piece"
+  ]
+}
