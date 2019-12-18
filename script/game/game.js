@@ -43,9 +43,11 @@ export default class Game {
       piece: 0,
     };
     this.appends = {};
+    this.prefixes = {};
     this.smallStats = {
       score: true,
       fallspeed: true,
+      entrydelay: true,
     };
     this.b2b = 0;
     this.combo = -1;
@@ -162,11 +164,15 @@ export default class Game {
   }
   updateStats() {
     for (const statName of this.stats) {
+      let prefix = '';
       let append = '';
+      if (this.prefixes[statName]) {
+        prefix = this.prefixes[statName];
+      }
       if (this.appends[statName]) {
         append = this.appends[statName];
       }
-      $(`#stat-${statName}`).innerHTML = `${this.stat[statName]}${append}`;
+      $(`#stat-${statName}`).innerHTML = `${prefix}${this.stat[statName]}${append}`;
     }
   }
   shiftMatrix(direction) {
@@ -208,7 +214,7 @@ export default class Game {
       this.matrix.velocity[direction] = Math.max(this.matrix.velocity[direction], 0);
     };
     for (const direction of ['x', 'y']) {
-      if (Math.abs(this.matrix.position[direction]) < 0.01) {
+      if (Math.abs(this.matrix.position[direction]) < 0.0001) {
         this.matrix.position[direction] = 0;
       }
     }
@@ -228,7 +234,7 @@ export default class Game {
       }
     }
     for (const element of ['#game-center', '#stats']) {
-      $(element).style.transform = `translate(${this.matrix.position.x / 2}em, ${this.matrix.position.y / 2}em)`;
+      $(element).style.transform = `translate(${this.matrix.position.x / 3}em, ${this.matrix.position.y / 3}em)`;
     }
   }
   get cellSize() {

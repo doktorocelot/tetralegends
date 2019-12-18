@@ -61,6 +61,7 @@ export default class Particle extends GameModule {
   }
   // generate(x, y, xRange, yRange, velX, varianceX, velY, varianceY, amount) {
   generate(properties) {
+    return;
     const p = {
       amount: 1,
       xVariance: 0,

@@ -170,6 +170,7 @@ export const SPAWN_OFFSETS = {
     S: [3, 1],
   },
 };
+SPAWN_OFFSETS.tetrax = {...SPAWN_OFFSETS.srs, downShift: 2, I: [3, -3]};
 export const INITIAL_ORIENTATION = {
   srs: {
     I: 0,
@@ -190,6 +191,7 @@ export const INITIAL_ORIENTATION = {
     S: 0,
   },
 };
+INITIAL_ORIENTATION.tetrax = INITIAL_ORIENTATION.srs;
 INITIAL_ORIENTATION.handheld = INITIAL_ORIENTATION.retro;
 const KICK_TEMPLATES = {
   srs: {
@@ -234,7 +236,48 @@ const KICK_TEMPLATES = {
       ],
     },
   },
-
+  tetrax: {
+    x: {
+      right: [
+        [[0, 0], [0, -1], [-1, 0], [+1, 0], [0, +1], [-1, +1], [+1, +1], [-1, -1], [+1, -1]],
+        [[0, 0], [0, -1], [-1, 0], [+1, 0], [0, +1], [-1, +1], [+1, +1], [-1, -1], [+1, -1]],
+        [[0, 0], [0, -1], [-1, 0], [+1, 0], [0, +1], [-1, +1], [+1, +1], [-1, -1], [+1, -1]],
+        [[0, 0], [0, -1], [-1, 0], [+1, 0], [0, +1], [-1, +1], [+1, +1], [-1, -1], [+1, -1]],
+      ],
+      left: [
+        [[0, 0], [0, -1], [+1, 0], [-1, 0], [0, +1], [+1, +1], [-1, +1], [+1, -1], [-1, -1]],
+        [[0, 0], [0, -1], [+1, 0], [-1, 0], [0, +1], [+1, +1], [-1, +1], [+1, -1], [-1, -1]],
+        [[0, 0], [0, -1], [+1, 0], [-1, 0], [0, +1], [+1, +1], [-1, +1], [+1, -1], [-1, -1]],
+        [[0, 0], [0, -1], [+1, 0], [-1, 0], [0, +1], [+1, +1], [-1, +1], [+1, -1], [-1, -1]],
+      ],
+      double: [
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+      ],
+    },
+    I: {
+      right: [
+        [[0, 0], [0, -1], [0, -2], [0, +1], [+1, -1], [-1, -1], [+1, -2], [-1, -2]],
+        [[0, 0], [0, -1], [0, -2], [0, +1], [-1, 0], [+1, 0], [+2, 0]],
+        [[0, 0], [0, +1], [0, +2], [0, -1], [+1, +1], [-1, +1], [+1, +2], [-1, +2]],
+        [[0, 0], [0, -1], [0, -2], [0, +1], [+1, 0], [-1, 0], [-2, 0]],
+      ],
+      left: [
+        [[0, 0], [0, -1], [0, -2], [0, +1], [-1, -1], [+1, -1], [-1, -2], [+1, -2]],
+        [[0, 0], [0, -1], [0, -2], [0, +1], [-1, 0], [+1, 0], [+2, 0]],
+        [[0, 0], [0, +1], [0, +2], [0, -1], [-1, +1], [+1, +1], [-1, +2], [+1, +2]],
+        [[0, 0], [0, -1], [0, -2], [0, +1], [+1, 0], [-1, 0], [-2, 0]],
+      ],
+      double: [
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+        [[0, 0], [0, -1], [0, +1]],
+      ],
+    },
+  },
   none: {
     all: {
       right: [
@@ -268,6 +311,15 @@ export const KICK_TABLES = {
     J: KICK_TEMPLATES.srs.x,
     S: KICK_TEMPLATES.srs.x,
   },
+  tetrax: {
+    I: KICK_TEMPLATES.tetrax.I,
+    L: KICK_TEMPLATES.tetrax.x,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.tetrax.x,
+    T: KICK_TEMPLATES.tetrax.x,
+    J: KICK_TEMPLATES.tetrax.x,
+    S: KICK_TEMPLATES.tetrax.x,
+  },
   retro: {
     I: KICK_TEMPLATES.none.all,
     L: KICK_TEMPLATES.none.all,
@@ -278,6 +330,7 @@ export const KICK_TABLES = {
     S: KICK_TEMPLATES.none.all,
   },
 };
+// KICK_TABLES.tetrax = KICK_TABLES.srs;
 KICK_TABLES.handheld = KICK_TABLES.retro;
 
 export const PIECE_COLORS = {
@@ -289,6 +342,15 @@ export const PIECE_COLORS = {
     T: 'purple',
     J: 'blue',
     S: 'green',
+  },
+  tetrax: {
+    I: 'orange',
+    L: 'yellow',
+    O: 'green',
+    Z: 'red',
+    T: 'purple',
+    J: 'blue',
+    S: 'lightBlue',
   },
   retro: {
     I: 'white',
@@ -331,6 +393,7 @@ export const NEXT_OFFSETS = {
     S: [0.5, 0.5],
   },
 };
+NEXT_OFFSETS.tetrax = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
 
 export const PIECE_OFFSETS = {
@@ -362,6 +425,7 @@ export const PIECE_OFFSETS = {
     S: [[0, 1], [-1, 0], [0, 0], [0, 0]],
   },
 };
+PIECE_OFFSETS.tetrax = PIECE_OFFSETS.srs;
 export const PIECE_BINARIES = {
   L: 0b000,
   J: 0b001,
@@ -393,6 +457,28 @@ export const SCORE_TABLES = {
     b2bMultiplier: 1.5,
     b2bMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini'],
     combo: 50,
+  },
+  tetrax: {
+    erase1: 100,
+    erase2: 200,
+    erase3: 400,
+    erase4: 800,
+    tspin0: 50,
+    tspin1: 100, // These add to the regular erase points
+    tspin2: 150,
+    tspin3: 200,
+    tspin4: 250,
+    tmini: 0,
+    softDrop: 1,
+    hardDrop: 2,
+    updateSoftDropImmediately: true,
+    hasSpins: true,
+    hasCombo: true,
+    levelAdditive: 0,
+    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin0', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini', 'combo'],
+    b2bMultiplier: 1.5,
+    b2bMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini'],
+    combo: 25,
   },
   retro: {
     erase1: 40,

@@ -55,3 +55,29 @@ export function* bag(pieces, unfavored = [], bagMultiplier = 1) {
     yield bag.shift();
   }
 }
+export function* tetrax(pieces, unfavored = []) {
+  let bag = [];
+  const generateBag = () => {
+    bag = [];
+    bag = [...bag, ...pieces];
+    for (let i = 0; i < 2; i++) {
+      bag = [...bag, pieces[Math.floor(Math.random() * pieces.length)]];
+    }
+    bag = shuffle(bag);
+  };
+  generateBag();
+  if (unfavored.indexOf(bag[0]) !== -1) {
+    for (let i = 0; i < bag.length; i++) {
+      if (unfavored.indexOf(bag[i]) === -1) {
+        [bag[0], bag[i]] = [bag[i], bag[0]];
+        break;
+      }
+    }
+  }
+  while (true) {
+    if (bag.length === 0) {
+      generateBag();
+    }
+    yield bag.shift();
+  }
+}

@@ -89,7 +89,11 @@ export default class Stack extends GameModule {
     if (isSpin) {
       sound.add('tspinbonus');
     }
-    if (this.lineClear > 0) {
+    let version = '';
+    if (isMini) {
+      version = 'mini';
+    }
+    if (this.lineClear > 0) { // TODO mini tspin and clean this up
       this.parent.combo++;
       let type = 'erase';
       if (isSpin) {
@@ -98,10 +102,10 @@ export default class Stack extends GameModule {
       } else if (this.lineClear < 4) {
         this.parent.b2b = 0;
       }
-      sound.add(`${type}`);
-      sound.add(`${type}${this.lineClear}`);
+      sound.add(`${type}${version}`);
+      sound.add(`${type}${this.lineClear}${version}`);
       if (this.lineClear < 4) {
-        sound.add(`${type}not4`);
+        sound.add(`${type}not4${version}`);
       } else {
         this.parent.b2b++;
       }
@@ -110,11 +114,16 @@ export default class Stack extends GameModule {
       }
       if (this.parent.combo > 0) {
         sound.add(`ren${this.parent.combo}`);
+        this.parent.addScore('combo', this.parent.combo);
+      }
+      if (isSpin) {
+        this.parent.addScore(`tspin${this.lineClear}`);
       }
     } else {
       this.parent.combo = -1;
       if (isSpin) {
-        sound.add('tspin0');
+        sound.add(`tspin0${version}`);
+        this.parent.addScore('tspin0');
       }
     }
     if (this.parent.piece.areLineLimit === 0) {
