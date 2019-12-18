@@ -88,7 +88,6 @@ export default class Particle extends GameModule {
     }
   }
   update() {
-    return;
     while (this.particles.length > limit) {
       this.particles.splice(getRandomInt(limit - 1), 1);
     }
@@ -107,7 +106,6 @@ export default class Particle extends GameModule {
     };
   }
   draw() {
-    return;
     clearCtx(this.ctx);
     for (const particle of this.particles) {
       particle.draw(this.ctx);

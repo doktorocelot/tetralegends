@@ -43,12 +43,26 @@ export default class Game {
       piece: 0,
     };
     this.appends = {};
+    this.prefixes = {};
     this.smallStats = {
       score: true,
       fallspeed: true,
+      entrydelay: true,
     };
     this.b2b = 0;
     this.combo = -1;
+    this.matrix = {
+      position: {
+        x: 0,
+        y: 0,
+      },
+      velocity: {
+        left: 0,
+        right: 0,
+        up: 0,
+        down: 0,
+      },
+    };
     loadGameType(gametype)
         .then((gameData) => {
           this.show();
@@ -150,11 +164,77 @@ export default class Game {
   }
   updateStats() {
     for (const statName of this.stats) {
+      let prefix = '';
       let append = '';
+      if (this.prefixes[statName]) {
+        prefix = this.prefixes[statName];
+      }
       if (this.appends[statName]) {
         append = this.appends[statName];
       }
-      $(`#stat-${statName}`).innerHTML = `${this.stat[statName]}${append}`;
+      $(`#stat-${statName}`).innerHTML = `${prefix}${this.stat[statName]}${append}`;
+    }
+  }
+  shiftMatrix(direction) {
+    switch (direction) {
+      case 'left':
+        this.matrix.velocity.left = 1;
+        this.matrix.velocity.right = 0;
+        break;
+      case 'right':
+        this.matrix.velocity.right = 1;
+        this.matrix.velocity.left = 0;
+        break;
+      case 'up':
+        this.matrix.velocity.up = 1;
+        this.matrix.velocity.down = 0;
+        break;
+      case 'down':
+        this.matrix.velocity.down = 1;
+        this.matrix.velocity.up = 0;
+        break;
+      default:
+        throw new Error('Matrix shift direction undefined or incorrect');
+        break;
+    }
+  }
+  updateMatrix() {
+    const matrixPush = (direction) => {
+      const axis =
+        direction === 'right' || direction === 'left' ?
+          'x' : 'y';
+      const modifier =
+        direction === 'right' || direction === 'down' ?
+          1 : -1;
+      this.matrix.velocity[direction] = Math.min(this.matrix.velocity[direction], 1);
+      if (Math.abs(this.matrix.position[axis]) < 0.5) {
+        this.matrix.position[axis] += 0.2 * modifier;
+      }
+      this.matrix.velocity[direction] -= 0.2;
+      this.matrix.velocity[direction] = Math.max(this.matrix.velocity[direction], 0);
+    };
+    for (const direction of ['x', 'y']) {
+      if (Math.abs(this.matrix.position[direction]) < 0.0001) {
+        this.matrix.position[direction] = 0;
+      }
+    }
+    for (const directions of [['left', 'right', 'x'], ['up', 'down', 'y']]) {
+      if (
+        this.matrix.velocity[directions[0]] === 0 &&
+        this.matrix.velocity[directions[1]] === 0
+      ) {
+        this.matrix.position[directions[2]] /= 1.1;
+      } else {
+        for (let i = 0; i < 2; i++) {
+          const direction = directions[i];
+          if (this.matrix.velocity[direction] !== 0) {
+            matrixPush(direction);
+          }
+        }
+      }
+    }
+    for (const element of ['#game-center', '#stats']) {
+      $(element).style.transform = `translate(${this.matrix.position.x / 3}em, ${this.matrix.position.y / 3}em)`;
     }
   }
   get cellSize() {
@@ -180,6 +260,7 @@ export default class Game {
             particle: game.particle,
           });
           game.particle.update();
+          game.updateMatrix();
           const modules = ['piece', 'stack', 'next', 'hold', 'particle'];
           for (const moduleName of modules) {
             const currentModule = game[moduleName];
