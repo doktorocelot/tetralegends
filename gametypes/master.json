@@ -6,7 +6,7 @@
     "pieces": "standard",
     "unfavored": null,
     "randomizer": "bag",
-    "rotationSystem": "tetrax",
+    "rotationSystem": "srs",
     "skin": "standard",
     "soundbank": "standard",
     "music": "master",

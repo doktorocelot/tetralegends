@@ -55,14 +55,13 @@ export function* bag(pieces, unfavored = [], bagMultiplier = 1) {
     yield bag.shift();
   }
 }
+/*
 export function* tetrax(pieces, unfavored = []) {
   let bag = [];
   const generateBag = () => {
     bag = [];
     bag = [...bag, ...pieces];
-    for (let i = 0; i < 2; i++) {
-      bag = [...bag, pieces[Math.floor(Math.random() * pieces.length)]];
-    }
+    bag = [...bag, pieces[Math.floor(Math.random() * pieces.length)]];
     bag = shuffle(bag);
   };
   generateBag();
@@ -79,5 +78,67 @@ export function* tetrax(pieces, unfavored = []) {
       generateBag();
     }
     yield bag.shift();
+  }
+}
+*/
+export function* tetrax(pieces, unfavored = []) {
+  /*
+  const favored = pieces.filter((x) => !unfavored.includes(x));
+  yield favored[Math.floor(Math.random() * favored.length)];
+  */
+  const history = {};
+  const chances = {};
+  const lastseen = [];
+  const lastPieces = [null, null, null, null, null];
+  let pieceSelection = [];
+  let total = 0;
+  for (const name of pieces) {
+    history[name] = 0;
+    chances[name] = 1;
+    lastseen[name] = 0;
+    pieceSelection.push(name);
+  }
+  while (true) {
+    let canPass = false;
+    let generated = null;
+    while (!canPass) {
+      generated = pieceSelection[Math.floor(Math.random() * pieceSelection.length)];
+      let pieceTest = 0;
+      for (let i = 0; i < lastPieces.length; i++) {
+        if (generated === lastPieces[i]) {
+          pieceTest++;
+        }
+      }
+      if (pieceTest < 2) {
+        canPass = true;
+      }
+    }
+    for (const piece of Object.keys(lastseen)) {
+      if (lastseen[piece] >= 13) {
+        generated = piece;
+        break;
+      }
+    }
+    for (const piece of Object.keys(lastseen)) {
+      if (piece === generated) {
+        lastseen[piece] = 0;
+      } else {
+        lastseen[piece]++;
+      }
+    }
+    history[generated]++;
+    lastPieces.shift();
+    lastPieces.push(generated);
+    total++;
+    yield generated;
+    console.log('history', history);
+    pieceSelection = [];
+    for (const piece of Object.keys(history)) {
+      chances[piece] = Math.round((total - history[piece]) / (total * (pieces.length - 1)) * 1000);
+      for (let i = 0; i < chances[piece]; i++) {
+        pieceSelection.push(piece);
+      }
+    }
+    console.log('last', lastseen);
   }
 }

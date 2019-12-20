@@ -1,10 +1,8 @@
 import input from '../../input.js';
 import {capitalizeFirstLetter, framesToMs} from '../../shortcuts.js';
 
-export default function shiftingRetro(arg) {
+export default function shiftingRetro(arg, dasLimit, arrLimit) {
   const piece = arg.piece;
-  const DAS_LIMIT = framesToMs(10);
-  const ARR_LIMIT = framesToMs(6);
   const resetShift = () => {
     piece.das = 0;
     piece.arr = 0;
@@ -54,18 +52,18 @@ export default function shiftingRetro(arg) {
       piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
       piece.das += arg.ms;
       piece.shiftReleased = false;
-    } else if (piece.das < DAS_LIMIT) {
+    } else if (piece.das < dasLimit) {
       piece.das += arg.ms;
-    } else if (piece.das >= DAS_LIMIT) {
+    } else if (piece.das >= dasLimit) {
       piece.arr += arg.ms;
-      if (ARR_LIMIT === 0) {
+      if (arrLimit === 0) {
         while (piece[`canShift${capitalizeFirstLetter(piece.shiftDir)}`]) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
         }
       } else {
-        while (piece.arr >= ARR_LIMIT) {
+        while (piece.arr >= arrLimit) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
-          piece.arr -= ARR_LIMIT;
+          piece.arr -= arrLimit;
         }
       }
     }
@@ -76,7 +74,7 @@ export default function shiftingRetro(arg) {
       (input.getGameDown('moveRight') && !piece.canShiftRight)
     ) && !piece.isStuck
   ) {
-    piece.das = DAS_LIMIT;
-    piece.arr = ARR_LIMIT;
+    piece.das = dasLimit;
+    piece.arr = arrLimit;
   }
 }
