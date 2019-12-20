@@ -336,6 +336,11 @@ body {
   left: -.5em;
   bottom: -2em;
 }
+.lockdown-meter.hidden,
+.manip-grid.hidden,
+.delay-time.hidden {
+  display: none;
+}
 progress[value]  {
   -webkit-appearance: none;
   background-color: #000a;

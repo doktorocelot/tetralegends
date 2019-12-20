@@ -148,7 +148,7 @@ class Menu {
           this.back();
           break;
         case 'quick':
-          gameHandler.newGame('master');
+          gameHandler.newGame('marathon');
           break;
         case 'game':
           gameHandler.newGame(this.selectedData.game);

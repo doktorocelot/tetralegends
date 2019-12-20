@@ -50,6 +50,9 @@ export default class Piece extends GameModule {
     this.ghostIsVisible = true;
     this.softDropIsLocked = false;
     this.useSpecialI = false;
+    this.xSpawnOffset = 0;
+    this.lockdownType = null;
+    this.lockdownTypeLast = null;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
@@ -77,7 +80,7 @@ export default class Piece extends GameModule {
     this.ire = 0;
     this.piece = PIECES[name].shape;
     this.shape = this.piece[this.orientation];
-    this.x = 0 + SPAWN_OFFSETS[rotSys][name][0] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
+    this.x = 0 + SPAWN_OFFSETS[rotSys][name][0] + PIECE_OFFSETS[rotSys][name][this.orientation][0] + this.xSpawnOffset;
     this.y = 0 + SPAWN_OFFSETS[rotSys][name][1] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
     this.lowestY = this.y;
     this.kicks = KICK_TABLES[rotSys][name];
