@@ -135,6 +135,7 @@ export const PIECES = {
   },
 };
 export const PIECE_SETS = {
+  i: ['I'],
   standard: ['I', 'L', 'O', 'Z', 'T', 'J', 'S'],
   standardUnfavored: ['O', 'Z', 'S'],
 };
@@ -330,7 +331,6 @@ export const KICK_TABLES = {
     S: KICK_TEMPLATES.none.all,
   },
 };
-// KICK_TABLES.tetrax = KICK_TABLES.srs;
 KICK_TABLES.handheld = KICK_TABLES.retro;
 
 export const PIECE_COLORS = {
@@ -369,6 +369,15 @@ export const PIECE_COLORS = {
     T: 't',
     J: 'j',
     S: 's',
+  },
+  retroSpecial: {
+    I: 'x',
+    L: 'l',
+    O: 'x',
+    Z: 'l',
+    T: 'x',
+    J: 'r',
+    S: 'r',
   },
 };
 PIECE_COLORS.handheld = PIECE_COLORS.retro;

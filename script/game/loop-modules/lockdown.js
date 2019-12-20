@@ -1,4 +1,4 @@
-import $ from '../../shortcuts.js';
+import $, {framesToMs} from '../../shortcuts.js';
 // SHARED
 function tryLockdown(piece, arg) {
   if (
@@ -79,7 +79,7 @@ export function classicLockdown(arg) {
   updateLockdownBar(piece);
   piece.lowestY = Math.max(piece.y, piece.lowestY);
 }
-export function retroLockdown(arg) {
+export function retroLockdown(arg, useNesTable) {
   const piece = arg.piece;
   piece.lockdownType = 'retro';
   if (piece.isDead) {
@@ -89,6 +89,12 @@ export function retroLockdown(arg) {
   if (piece.mustLock) {
     arg.stack.add(piece.x, piece.yFloor, piece.shape, piece.color);
     arg.stack.isDirty = true;
+    if (useNesTable) {
+      const areFrames = Math.floor(Math.abs(piece.yFloor + piece.endY - 21) / 4);
+      piece.areLimit = framesToMs(10 + areFrames * 2);
+      piece.areLineLimit = framesToMs(10 + areFrames * 2);
+      piece.areLimitLineModifier = framesToMs(19) - piece.areLimit;
+    }
     piece.softDropIsLocked = true;
     piece.die();
   }

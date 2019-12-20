@@ -9,17 +9,35 @@
       "action": "back"
     },
     {
-      "label": "Marathon",
+      "label": "Standard-X",
       "default": true,
       "description": "Stack and clear to reach the goal",
       "action": "game",
+      "game": "standardx"
+    },
+    {
+      "label": "Marathon",
+      "description": "Stack and clear to reach the goal",
+      "action": "game",
       "game": "marathon"
+    },
+    {
+      "label": "Master",
+      "description": "Super fast stacking action",
+      "action": "game",
+      "game": "master"
     },
     {
       "label": "Handheld",
       "description": "Play this classic version of the game!",
       "action": "game",
       "game": "handheld"
+    },
+    {
+      "label": "Retro",
+      "description": "Play this classic version of the game!",
+      "action": "game",
+      "game": "retro"
     }
   ]
 }

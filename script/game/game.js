@@ -162,6 +162,33 @@ export default class Game {
       $('#stats').appendChild(stat);
     }
   }
+  drawLockdown() {
+    $('#pip-grid').innerHTML = '';
+    for (let i = this.piece.manipulationLimit; i > 0; i--) {
+      const pip = document.createElement('div');
+      pip.classList.add('manip-pip');
+      pip.id = `pip-${i}`;
+      $('#pip-grid').appendChild(pip);
+    }
+    switch (this.piece.lockdownType) {
+      case 'extended':
+        $('#pip-grid').classList.remove('hidden');
+        $('#lockdown').classList.remove('hidden');
+        $('#delay').classList.remove('hidden');
+        break;
+      case 'infinite':
+      case 'classic':
+        $('#pip-grid').classList.add('hidden');
+        $('#lockdown').classList.remove('hidden');
+        $('#delay').classList.remove('hidden');
+        break;
+      default:
+        $('#pip-grid').classList.add('hidden');
+        $('#lockdown').classList.add('hidden');
+        $('#delay').classList.add('hidden');
+        break;
+    }
+  }
   updateStats() {
     for (const statName of this.stats) {
       let prefix = '';
@@ -271,6 +298,10 @@ export default class Game {
           }
           game.isDirty = false;
         }
+        if (game.piece.lockdownTypeLast !== game.piece.lockdownType) {
+          game.drawLockdown();
+        }
+        game.piece.lockdownTypeLast = game.piece.lockdownType;
         if (input.getGamePress('pause')) {
           if (game.isPaused) {
             game.unpause();
@@ -333,8 +364,8 @@ export default class Game {
   addScore(name, multiplier = 1) {
     const scoreTable = SCORE_TABLES[this.settings.scoreTable];
     let score = scoreTable[name];
-    score *= multiplier;
     if (score != null) {
+      score *= multiplier;
       if (scoreTable.levelMultiplied.indexOf(name) !== -1) {
         score *= this.stat.level + scoreTable.levelAdditive;
       }
