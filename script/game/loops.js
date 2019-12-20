@@ -100,7 +100,7 @@ export const loops = {
       gravity(arg);
       hyperSoftDrop(arg);
       hardDrop(arg);
-      extendedLockdown(arg);
+      classicLockdown(arg);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
         hold(arg);
@@ -185,6 +185,89 @@ export const loops = {
       game.updateStats();
     },
   },
+  prox: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      hyperSoftDrop(arg);
+      hardDrop(arg);
+      switch (arg.piece.dynamicLockType) {
+        case 'e':
+          extendedLockdown(arg);
+          break;
+        case 'c':
+          classicLockdown(arg);
+          break;
+        default:
+          infiniteLockdown(arg);
+          break;
+      }
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10 + 1);
+      const calcLevel = Math.min(29, game.stat.level - 1);
+      const SPEED_TABLE = [
+        5, 3, 2, 1, 1/2,
+        1/3, 1/5, 1/20, 0, 0,
+        0, 0, 10, 1, 1,
+        0, 0, 250, 240, 230,
+        221, 212, 204, 196, 188,
+        180, 173, 166, 159, 153];
+      game.piece.gravity = framesToMs(SPEED_TABLE[calcLevel]);
+      const DELAY_TABLE = [
+        1500, 1200, 1000, 900, 800,
+        700, 600, 500, 450, 425,
+        400, 350, 500, 300, 200,
+        350, 340, 250, 240, 230,
+        221, 212, 204, 196, 188,
+        180, 173, 166, 159, 153];
+      game.piece.lockDelayLimit = DELAY_TABLE[calcLevel];
+      const ARE_TABLE = [
+        400, 376, 353, 332, 312,
+        294, 276, 259, 244, 229,
+        215, 203, 190, 179, 168,
+        158, 149, 140, 131, 123,
+        116, 109, 103, 96, 91,
+        85, 80, 75, 71, 65];
+      game.piece.areLimit = ARE_TABLE[calcLevel];
+      game.piece.areLineLimit = ARE_TABLE[calcLevel];
+      game.stat.entrydelay = `${ARE_TABLE[calcLevel]}ms`;
+      const LOCK_TABLE = [
+        'i', 'i', 'i', 'i', 'i',
+        'i', 'i', 'i', 'i', 'i',
+        'i', 'i', 'e', 'e', 'e',
+        'e', 'e', 'e', 'e', 'e',
+        116, 109, 103, 96, 91,
+        85, 80, 75, 71, 65];
+      game.piece.dynamicLockType = LOCK_TABLE[calcLevel];
+      levelUpdate(game);
+    },
+    onInit: (game) => {
+      game.stat.level = 1;
+      lastLevel = 1;
+      game.prefixes.level = 'PRO ';
+      game.smallStats.level = true;
+      game.resize();
+      updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
   handheld: {
     update: (arg) => {
       collapse(arg);
@@ -193,7 +276,7 @@ export const loops = {
         arg.piece.are += arg.ms;
       } else {
         rotate(arg);
-        shiftingHandheld(arg);
+        shiftingRetro(arg, framesToMs(23), 150);
       }
       classicGravity(arg);
       softDropHandheld(arg);
@@ -226,9 +309,54 @@ export const loops = {
             's', 'white', 'black',
           ],
           ['mino'],
-          'handheld-special'
+          'handheld-special-grey'
       );
       gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
+    },
+  },
+  retro: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        handheldDasAre(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        shiftingRetro(arg, framesToMs(16), framesToMs(6));
+      }
+      classicGravity(arg);
+      softDropRetro(arg);
+      retroLockdown(arg, true);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10);
+      const SPEED_TABLE = [
+        48, 43, 38, 33, 28,
+        23, 18, 13, 8, 5,
+        5, 5, 5, 4, 4,
+        4, 3, 3, 3, 2,
+        2, 2, 2, 2, 2,
+        2, 2, 2, 2, 1,
+      ];
+      game.piece.gravity = framesToMs(SPEED_TABLE[Math.min(29, game.stat.level)]);
+      levelUpdate(game);
+    },
+    onInit: (game) => {
+      game.stat.level = 0;
+      lastLevel = 0;
+      gameHandler.game.makeSprite(
+          [
+            'x', 'l', 'r',
+          ],
+          ['mino'],
+          'retro-special'
+      );
+      gameHandler.game.colors = PIECE_COLORS.retroSpecial;
     },
   },
 };
