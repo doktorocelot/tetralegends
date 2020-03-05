@@ -81,6 +81,39 @@ export function* tetrax(pieces, unfavored = []) {
   }
 }
 */
+export function* nes(pieces, unfavored = []) {
+  let history = null;
+  const calc = (useReroll) => {
+    let modifier = 0;
+    if (useReroll) {
+      modifier++;
+    }
+    const calculation = Math.floor(Math.random() * pieces.length + modifier);
+    if (calculation >= pieces.length) {
+      return 'reroll';
+    } else {
+      return calculation;
+    }
+  };
+  while (true) {
+    const generated = calc(true);
+    let doReroll = false;
+    let pieceName = null;
+    if (generated !== 'reroll') {
+      pieceName = pieces[generated];
+      if (pieceName === history) {
+        doReroll = true;
+      }
+    } else {
+      doReroll = true;
+    }
+    if (doReroll) {
+      pieceName = pieces[calc(false)];
+    }
+    history = pieceName;
+    yield pieceName;
+  }
+}
 export function* tetrax(pieces, unfavored = []) {
   /*
   const favored = pieces.filter((x) => !unfavored.includes(x));
@@ -89,7 +122,7 @@ export function* tetrax(pieces, unfavored = []) {
   const history = {};
   const chances = {};
   const lastseen = [];
-  const lastPieces = [null, null, null, null, null];
+  const lastPieces = [null, null];
   let pieceSelection = [];
   let total = 0;
   for (const name of pieces) {
@@ -109,7 +142,7 @@ export function* tetrax(pieces, unfavored = []) {
           pieceTest++;
         }
       }
-      if (pieceTest < 2) {
+      if (pieceTest < 1) {
         canPass = true;
       }
     }
@@ -131,7 +164,6 @@ export function* tetrax(pieces, unfavored = []) {
     lastPieces.push(generated);
     total++;
     yield generated;
-    console.log('history', history);
     pieceSelection = [];
     for (const piece of Object.keys(history)) {
       chances[piece] = Math.round((total - history[piece]) / (total * (pieces.length - 1)) * 1000);
@@ -139,6 +171,5 @@ export function* tetrax(pieces, unfavored = []) {
         pieceSelection.push(piece);
       }
     }
-    console.log('last', lastseen);
   }
 }

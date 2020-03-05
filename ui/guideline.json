@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "Marathon",
+      "default": true,
+      "description": "The standard mode loved by players!",
+      "action": "game",
+      "game": "marathon"
+    },
+    {
+      "label": "Master",
+      "description": "Insanely fast stacking action!",
+      "action": "game",
+      "game": "master"
+    }
+  ]
+}

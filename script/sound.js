@@ -63,12 +63,13 @@ class Sound {
         this.sounds[name].play();
       } else if (name === 'initialrotate' && this.files.indexOf('rotate') !== -1) {
         this.sounds['rotate'].play();
+      } else if (name === 'initialhold' && this.files.indexOf('hold') !== -1) {
+        this.sounds['hold'].play();
       }
 
       if (name.substr(0, 3) === 'ren') {
         let number = parseInt(name.substr(3, name.length - 3));
         while (this.ren.indexOf(number) === -1) {
-          console.log(number);
           if (number <= 0) {
             break;
           }

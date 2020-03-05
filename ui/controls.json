@@ -1,0 +1,90 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "Clear",
+      "width": "half",
+      "description": "Clear all the controls so you have a blank workspace",
+      "action": "functionClearControls"
+    },
+    {
+      "label": "Reset",
+      "width": "half",
+      "description": "Reset all controls back to their defaults",
+      "action": "functionResetControls"
+    },
+    {
+      "label": "Shift Left",
+      "default": true,
+      "description": "Move a piece left once or hold for autoshift",
+      "type": "control",
+      "action": "control",
+      "control": "moveLeft"
+    },
+    {
+      "label": "Shift Right",
+      "description": "Move a piece right once or hold for autoshift",
+      "type": "control",
+      "action": "control",
+      "control": "moveRight"
+    },
+    {
+      "label": "Hard Drop",
+      "description": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)",
+      "type": "control",
+      "action": "control",
+      "control": "hardDrop"
+    },
+    {
+      "label": "Soft Drop",
+      "description": "Speed up a piece's descent (may act differently in some modes)",
+      "type": "control",
+      "action": "control",
+      "control": "softDrop"
+    },
+    {
+      "label": "Rotate Left",
+      "description": "Rotate a piece 90° counter-clockwise.",
+      "type": "control",
+      "action": "control",
+      "control": "rotateLeft"
+    },
+    {
+      "label": "Rotate Right",
+      "description": "Rotate a piece 90° clockwise.",
+      "type": "control",
+      "action": "control",
+      "control": "rotateRight"
+    },
+    {
+      "label": "Rotate 180°",
+      "description": "Rotate a piece 180° (may be disabled in some modes)",
+      "type": "control",
+      "action": "control",
+      "control": "rotate180"
+    },
+    {
+      "label": "Hold",
+      "description": "Send a piece to the hold queue (may be disabled in some modes)",
+      "type": "control",
+      "action": "control",
+      "control": "hold"
+    },
+    {
+      "label": "Retry",
+      "description": "Instantly have another attempt",
+      "type": "control",
+      "action": "control",
+      "control": "retry"
+    },
+    {
+      "label": "Pause",
+      "description": "Pause the game",
+      "type": "control",
+      "action": "control",
+      "control": "pause"
+    }
+  ]
+}
