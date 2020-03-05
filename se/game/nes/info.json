@@ -1,0 +1,16 @@
+{
+  "files": [
+    "erase4",
+    "erasenot4",
+    "garbage",
+    "harddrop",
+    "hold",
+    "initialhold",
+    "initialrotate",
+    "levelup",
+    "locknohd",
+    "move",
+    "rotate"
+  ],
+  "ren": []
+}

@@ -16,6 +16,12 @@
       "game": "standardx"
     },
     {
+      "label": "Survival-X",
+      "description": "Survive the rising lines",
+      "action": "game",
+      "game": "survivalx"
+    },
+    {
       "label": "Marathon",
       "description": "Stack and clear to reach the goal",
       "action": "game",

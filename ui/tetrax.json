@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "Standard",
+      "default": true,
+      "description": "Stack until you drop!",
+      "action": "game",
+      "game": "standardx"
+    }
+  ]
+}

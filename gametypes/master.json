@@ -7,7 +7,7 @@
     "unfavored": null,
     "randomizer": "bag",
     "rotationSystem": "srs",
-    "skin": "standard",
+    "skin": "srsx",
     "soundbank": "standard",
     "music": "master",
     "scoreTable": "guideline",
@@ -16,7 +16,8 @@
   "piece": {
     "areLimit": 100,
     "areLineLimit": 0,
-    "areLimitLineModifier": 166.666666667
+    "areLimitLineModifier": 166.666666667,
+    "spinDetectionType": "3corner"
   },
   "stats": [
     "score",

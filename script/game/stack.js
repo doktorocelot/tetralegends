@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import {clearCtx} from '../shortcuts.js';
+import {clearCtx, negativeMod} from '../shortcuts.js';
 import sound from '../sound.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
@@ -19,6 +19,16 @@ export default class Stack extends GameModule {
     this.flashClearRate = 50;
     this.fadeLineClear = true;
     this.useMinoSkin = false;
+    this.dirtyCells = [];
+    this.levelUpAnimation = 0;
+    this.levelUpAnimationLimit = 0;
+  }
+  makeAllDirty() {
+    for (let x = 0; x < this.grid.length; x++) {
+      for (let y = 0; y < this.grid[x].length; y++) {
+        this.dirtyCells.push([x, y]);
+      }
+    }
   }
   add(passedX, passedY, shape, color) {
     if (!this.parent.piece.hasHardDropped) {
@@ -42,6 +52,9 @@ export default class Stack extends GameModule {
     this.parent.updateStats();
     this.lineClear = 0;
     this.parent.hold.isLocked = false;
+    for (let i = 0; i < this.flashX.length; i++) {
+      this.dirtyCells.push([this.flashX[i], this.flashY[i]]);
+    }
     this.flashX = [];
     this.flashY = [];
     this.flashTime = 0;
@@ -56,6 +69,7 @@ export default class Stack extends GameModule {
           } else {
             this.grid[xLocation][yLocation] = color;
           }
+          this.dirtyCells.push([xLocation, yLocation]);
           this.flashX.unshift(xLocation);
           this.flashY.unshift(yLocation);
         }
@@ -130,6 +144,10 @@ export default class Stack extends GameModule {
       this.collapse();
     }
   }
+  spawnBrokenLine() {
+    sound.add('garbage');
+    this.parent.shiftMatrix('up');
+  }
   collapse() {
     if (this.toCollapse.length === 0) {
       return;
@@ -138,6 +156,7 @@ export default class Stack extends GameModule {
       for (let x = 0; x < this.grid.length; x++) {
         for (let shiftY = y; shiftY >= 0; shiftY--) {
           this.grid[x][shiftY] = this.grid[x][shiftY - 1];
+          this.dirtyCells.push([x, shiftY + 1]);
         }
       }
       for (let i = 0; i < this.flashY.length; i++) {
@@ -207,7 +226,14 @@ export default class Stack extends GameModule {
     const buffer = this.parent.bufferPeek;
     const ctx = this.ctx;
     const flash = ('0' + (Math.floor((1 - this.flashTime / this.flashLimit) * 255)).toString(16)).slice(-2);
-    clearCtx(this.ctx);
+    // clearCtx(this.ctx);
+    this.dirtyCells = Array.from(new Set(this.dirtyCells.map(JSON.stringify)), JSON.parse);
+    for (const cell of this.dirtyCells) {
+      const x = cell[0] * cellSize;
+      const y = (cell[1] - this.hiddenHeight) * cellSize + buffer * cellSize;
+      ctx.clearRect(x, Math.floor(y), cellSize, cellSize);
+    }
+    /*
     for (let x = 0; x < this.grid.length; x++) {
       for (let y = 0; y < this.grid[x].length; y++) {
         const isFilled = this.grid[x][y];
@@ -225,14 +251,45 @@ export default class Stack extends GameModule {
         }
       }
     }
-
+    */
+    const levelUpLength = this.height * this.levelUpAnimation / this.levelUpAnimationLimit;
+    for (const cell of this.dirtyCells) {
+      const x = cell[0];
+      const y = cell[1];
+      const isFilled = this.grid[x][y];
+      if (isFilled) {
+        const color = this.grid[x][y];
+        let name = 'stack';
+        if (this.useMinoSkin) {
+          name = 'mino';
+        }
+        let suffix = '';
+        if (this.parent.piece.useRetroColors) {
+          let modifier = 0;
+          if (this.levelUpAnimation < this.levelUpAnimationLimit) {
+            if (y - 3 <= (this.height - levelUpLength)) {
+              modifier--;
+            }
+          }
+          suffix = `-${negativeMod((this.parent.stat.level + modifier), 10)}`;
+        }
+        const img = document.getElementById(`${name}-${color}${suffix}`);
+        const xPos = x * cellSize;
+        const yPos = y * cellSize + cellSize * buffer - cellSize * this.hiddenHeight;
+        img.height = cellSize;
+        ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.fillStyle = '#0003';
+        ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize);
+      }
+    }
     if (this.flashTime < this.flashLimit) {
       for (let i = 0; i < this.flashX.length; i++) {
         ctx.globalCompositeOperation = 'overlay';
         const x = this.flashX[i] * cellSize;
         const y = this.flashY[i] * cellSize + cellSize * buffer - cellSize * this.hiddenHeight;
         ctx.fillStyle = `#ffffff${flash}`;
-        ctx.fillRect(x, y, cellSize, cellSize);
+        ctx.fillRect(x, Math.floor(y), cellSize, cellSize);
 
         const float = this.flashTime * 2 / this.flashLimit;
         const beforeFloat = Math.min(float * 2, 1);
@@ -252,17 +309,18 @@ export default class Stack extends GameModule {
         const cornerY = Math.min(distance1y, distance2y);
 
         ctx.beginPath();
-        ctx.moveTo(x + distance1x, y + distance1y);
-        ctx.lineTo(x + cellSize - distance1y, y + cellSize - distance1x);
-        ctx.lineTo(x + cellSize - cornerY, y + cellSize - cornerX);
-        ctx.lineTo(x + cellSize - distance2y, y + cellSize - distance2x);
-        ctx.lineTo(x + distance2x, y + distance2y);
-        ctx.lineTo(x + cornerX, y + cornerY);
+        ctx.moveTo(x + distance1x, Math.floor(y + distance1y));
+        ctx.lineTo(x + cellSize - distance1y, Math.floor(y + cellSize - distance1x));
+        ctx.lineTo(x + cellSize - cornerY, Math.floor(y + cellSize - cornerX));
+        ctx.lineTo(x + cellSize - distance2y, Math.floor(y + cellSize - distance2x));
+        ctx.lineTo(x + distance2x, Math.floor(y + distance2y));
+        ctx.lineTo(x + cornerX, Math.floor(y + cornerY));
         ctx.fillStyle = '#fff';
         ctx.fill();
         if (this.flashTime < 50) {
           ctx.globalCompositeOperation = 'source-over';
-          ctx.fillRect(x, y, cellSize, cellSize);
+          ctx.fillStyle = `#fff`;
+          ctx.fillRect(x, Math.floor(y), cellSize, cellSize);
         }
       }
     }
@@ -274,6 +332,7 @@ export default class Stack extends GameModule {
       }
       ctx.fillStyle = `#ffffff${brightnessHex}`;
       for (let i = 0; i < this.toCollapse.length; i++) {
+        ctx.clearRect(0, Math.floor((this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize), cellSize * this.width, cellSize);
         this.parent.particle.generate({
           amount: 2,
           x: 0,
@@ -288,9 +347,10 @@ export default class Stack extends GameModule {
           yDampening: 1.03,
         });
         if (Math.round(this.parent.piece.are / this.flashClearRate) % 2 !== 1 || !this.flashLineClear) {
-          ctx.fillRect(0, (this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize, cellSize * this.width, cellSize);
+          ctx.fillRect(0, Math.floor((this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize), cellSize * this.width, cellSize);
         }
       }
     }
+    this.dirtyCells = [];
   }
 }

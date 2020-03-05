@@ -55,6 +55,7 @@ export default class Particle extends GameModule {
     super(parent);
     this.ctx = ctx;
     this.particles = [];
+    this.hasCleared = false;
   }
   add(properties) {
     this.particles.push(new SingleParticle(properties));
@@ -62,7 +63,6 @@ export default class Particle extends GameModule {
   // generate(x, y, xRange, yRange, velX, varianceX, velY, varianceY, amount) {
   generate(properties) {
     return;
-
     const p = {
       amount: 1,
       xVariance: 0,
@@ -103,7 +103,10 @@ export default class Particle extends GameModule {
     if (this.particles.length > 0) {
       this.isDirty = true;
     } else {
-      clearCtx(this.ctx);
+      if (!this.hasCleared) {
+        clearCtx(this.ctx);
+        this.hasCleared = true;
+      }
     };
   }
   draw() {

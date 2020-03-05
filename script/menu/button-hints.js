@@ -1,8 +1,10 @@
 import $ from '../shortcuts.js';
 import gameHandler from '../game/game-handler.js';
+import menu from './menu.js';
 class ButtonHints {
   constructor() {}
   change(type) {
+
     /*
     switch (type) {
       case 'keyboard':
@@ -31,7 +33,12 @@ class ButtonHints {
     const table = document.createElement('table');
   }
   draw() {
-    this.clear();
+    // this.clear();
+    if (menu.isEnabled) {
+      console.log('menu on');
+    } else {
+      console.log('menu off');
+    }
     if (gameHandler.game == null) {
 
     }

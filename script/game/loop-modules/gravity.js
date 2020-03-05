@@ -3,6 +3,10 @@ import {SCORE_TABLES} from '../../consts.js';
 import sound from '../../sound.js';
 
 function fallen(piece) {
+  if (piece.manipulations >= piece.manipulationLimit) {
+    piece.isDirty = true;
+  }
+
   if (piece.yFloor > Math.floor(piece.lastY)) {
     if (piece.gravityMultiplier !== 1 || piece.gravityOverride) {
       for (let i = 1; i <= (piece.yFloor - Math.floor(piece.lastY)); i++) {
