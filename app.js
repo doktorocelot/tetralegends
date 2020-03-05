@@ -11,11 +11,15 @@ import $, {hzToMs, framesToMs} from './script/shortcuts.js';
 input.addMany([
   'menuUp',
   'menuDown',
+  'menuLeft',
+  'menuRight',
   'menuOk',
   'menuBack',
 ], [
   () => {menu.up();},
   () => {menu.down();},
+  () => {menu.left();},
+  () => {menu.right();},
   () => {menu.ok();},
   () => {menu.back();},
 ]);

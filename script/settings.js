@@ -1,3 +1,5 @@
+import menu from './menu/menu.js';
+
 const SETTINGS_VERSION = 3;
 class Settings {
   constructor() {
@@ -165,6 +167,39 @@ class Settings {
   }
   changeSetting(setting, value) {
     this.settings[setting] = value;
+  }
+  getConflictingControlNames() {
+    const keyFrequency = {};
+    const duplicates = [''];
+    for (const key of Object.keys(this.controls)) {
+      for (const name of this.controls[key]) {
+        if (keyFrequency[name] == null) {
+          keyFrequency[name] = 1;
+        } else {
+          keyFrequency[name]++;
+          duplicates.unshift(name);
+        }
+      }
+    }
+    return duplicates;
+  }
+  addControl(key, control) {
+    const array = this.controls[key];
+    const index = array.indexOf(control);
+    if (index === -1) {
+      array.push(control);
+    }
+    this.saveControls();
+    menu.drawControls();
+  }
+  removeControl(key, control) {
+    const array = this.controls[key];
+    const index = array.indexOf(control);
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
+    this.saveControls();
+    menu.drawControls();
   }
 }
 const settings = new Settings();

@@ -27,14 +27,20 @@ import updateLasts from './loop-modules/update-lasts.js';
 import {extendedLockdown, retroLockdown, infiniteLockdown, classicLockdown} from './loop-modules/lockdown.js';
 import updateFallSpeed from './loop-modules/update-fallspeed.js';
 let lastLevel = 0;
+let garbageTimer = 0;
 const levelUpdate = (game) => {
   if (game.stat.level !== lastLevel) {
     sound.add('levelup');
+    game.stack.levelUpAnimation = 0;
     if (game.stat.level % 5 === 0) {
       sound.add('levelupmajor');
     } else {
       sound.add('levelupminor');
     }
+  }
+  if (game.redrawOnLevelUp && false) {
+    game.stack.makeAllDirty();
+    game.stack.isDirty = true;
   }
   lastLevel = game.stat.level;
 };
@@ -122,6 +128,57 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      game.stat.level = 1;
+      lastLevel = 1;
+      game.piece.gravity = 1000;
+      updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
+  survivalx: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        garbageTimer += arg.ms;
+        if (garbageTimer > 2000) {
+          garbageTimer -= 2000;
+          arg.stack.spawnBrokenLine();
+        }
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      hyperSoftDrop(arg);
+      hardDrop(arg);
+      classicLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10 + 1);
+      const x = game.stat.level;
+      const gravityEquation = (0.8 - ((x - 1) * 0.007)) ** (x - 1);
+      game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
+      if (game.stat.level >= 20) {
+        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 20, 0.8)))));
+      } else {
+        game.piece.lockDelayLimit = 500;
+      }
+      updateFallSpeed(game);
+      levelUpdate(game);
+    },
+    onInit: (game) => {
+      garbageTimer = 0;
       game.stat.level = 1;
       lastLevel = 1;
       game.piece.gravity = 1000;
@@ -238,16 +295,6 @@ export const loops = {
         221, 212, 204, 196, 188,
         180, 173, 166, 159, 153];
       game.piece.lockDelayLimit = DELAY_TABLE[calcLevel];
-      const ARE_TABLE = [
-        400, 376, 353, 332, 312,
-        294, 276, 259, 244, 229,
-        215, 203, 190, 179, 168,
-        158, 149, 140, 131, 123,
-        116, 109, 103, 96, 91,
-        85, 80, 75, 71, 65];
-      game.piece.areLimit = ARE_TABLE[calcLevel];
-      game.piece.areLineLimit = ARE_TABLE[calcLevel];
-      game.stat.entrydelay = `${ARE_TABLE[calcLevel]}ms`;
       const LOCK_TABLE = [
         'i', 'i', 'i', 'i', 'i',
         'i', 'i', 'i', 'i', 'i',
@@ -309,7 +356,7 @@ export const loops = {
             's', 'white', 'black',
           ],
           ['mino'],
-          'handheld-special-grey'
+          'handheld-special'
       );
       gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
     },
@@ -317,6 +364,11 @@ export const loops = {
   retro: {
     update: (arg) => {
       collapse(arg);
+      if (arg.stack.levelUpAnimation < arg.stack.levelUpAnimationLimit) {
+        arg.stack.makeAllDirty();
+        arg.stack.isDirty = true;
+        arg.stack.levelUpAnimation += arg.ms;
+      }
       if (arg.piece.inAre) {
         handheldDasAre(arg);
         arg.piece.are += arg.ms;
@@ -348,14 +400,27 @@ export const loops = {
     },
     onInit: (game) => {
       game.stat.level = 0;
+      game.redrawOnLevelUp = true;
       lastLevel = 0;
       gameHandler.game.makeSprite(
           [
-            'x', 'l', 'r',
+            'x-0', 'l-0', 'r-0',
+            'x-1', 'l-1', 'r-1',
+            'x-2', 'l-2', 'r-2',
+            'x-3', 'l-3', 'r-3',
+            'x-4', 'l-4', 'r-4',
+            'x-5', 'l-5', 'r-5',
+            'x-6', 'l-6', 'r-6',
+            'x-7', 'l-7', 'r-7',
+            'x-8', 'l-8', 'r-8',
+            'x-9', 'l-9', 'r-9',
           ],
           ['mino'],
           'retro-special'
       );
+      game.stack.levelUpAnimation = 1000;
+      game.stack.levelUpAnimationLimit = 450;
+      game.piece.useRetroColors = true;
       gameHandler.game.colors = PIECE_COLORS.retroSpecial;
     },
   },

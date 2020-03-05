@@ -13,19 +13,26 @@
 <body>
 
   <div id="main">
+    <div id="key-popup" class="modal hidden">
+      <div class="header">Control Configuration</div>
+      <div class="body">Press the key you wish to use for this action</div>
+    </div>
     <div id="menu-container" class="hidden">
-      <div id="logo-container">
-        <img alt="Tetra Legends Logo" id="#logo" src="img/brand/logo-monochrome.svg">
+      <div id="logo-container" style="display:none">
+        <img alt="Tetra Legends Logo" id="#logo" src="img/brand/logo-monochrome.svg" >
       </div>
-      <div id="description-text"></div>
-      <ul id="vertical-menu">
+      <div id="menu">
+      </div>
+      <div id="description"></div>
+      <div id="description-text" style="display:none"></div>
+      <ul id="vertical-menu" style="display:none">
       </ul>
 
     </div>
     <div id="game-container" class="hidden">
       <div id="game" class="game">
         <div class="game-left">
-          <div class="hold-container">
+          <div class="hold-container" id="hold-container">
             <p class="hold-label">HOLD</p>
             <canvas id="hold" class="hold-canvas"></canvas>
           </div>
@@ -40,21 +47,6 @@
             500ms
           </div>
           <div class="manip-grid" id="pip-grid">
-            <!-- <div class="manip-pip" id="pip-15"></div>
-            <div class="manip-pip" id="pip-14"></div>
-            <div class="manip-pip" id="pip-13"></div>
-            <div class="manip-pip" id="pip-12"></div>
-            <div class="manip-pip" id="pip-11"></div>
-            <div class="manip-pip" id="pip-10"></div>
-            <div class="manip-pip" id="pip-9"></div>
-            <div class="manip-pip" id="pip-8"></div>
-            <div class="manip-pip" id="pip-7"></div>
-            <div class="manip-pip" id="pip-6"></div>
-            <div class="manip-pip" id="pip-5"></div>
-            <div class="manip-pip" id="pip-4"></div>
-            <div class="manip-pip" id="pip-3"></div>
-            <div class="manip-pip" id="pip-2"></div>
-            <div class="manip-pip" id="pip-1"></div> -->
           </div>
           <progress max="1" value="1" id="lockdown" class="lockdown-meter"></progress>
           <div class="pause">
@@ -75,31 +67,11 @@
         </div>
       </div>
       <div>
-        <div id="sprite" style="display: none">
-          <!-- <img id="mino-red" src="img/skin/standard/mino-red.svg">
-          <img id="mino-orange" src="img/skin/standard/mino-orange.svg">
-          <img id="mino-yellow" src="img/skin/standard/mino-yellow.svg">
-          <img id="mino-green" src="img/skin/standard/mino-green.svg">
-          <img id="mino-lightBlue" src="img/skin/standard/mino-lightBlue.svg">
-          <img id="mino-blue" src="img/skin/standard/mino-blue.svg">
-          <img id="mino-purple" src="img/skin/standard/mino-purple.svg">
-          <img id="mino-white" src="img/skin/standard/mino-white.svg">
-          <img id="mino-black" src="img/skin/standard/mino-black.svg">
-
-          <img id="ghost-red" src="img/skin/standard/ghost-red.svg">
-          <img id="ghost-orange" src="img/skin/standard/ghost-orange.svg">
-          <img id="ghost-yellow" src="img/skin/standard/ghost-yellow.svg">
-          <img id="ghost-green" src="img/skin/standard/ghost-green.svg">
-          <img id="ghost-lightBlue" src="img/skin/standard/ghost-lightBlue.svg">
-          <img id="ghost-blue" src="img/skin/standard/ghost-blue.svg">
-          <img id="ghost-purple" src="img/skin/standard/ghost-purple.svg">
-          <img id="ghost-white" src="img/skin/standard/ghost-white.svg">
-          <img id="ghost-black" src="img/skin/standard/ghost-black.svg"> -->
-        </div>
+        <div id="sprite" style="display: none"></div>
       </div>
     </div>
 
-    <div id="button-hint-container" class="">
+    <div id="button-hint-container" class="" style="display: none">
       <!-- <kbd class="key">Z</kbd> -->
       <!-- <label>OK</label> -->
       <table>

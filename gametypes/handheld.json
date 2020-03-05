@@ -28,6 +28,9 @@
   "next": {
     "nextLength": 1
   },
+  "hold": {
+    "isDisabled": true
+  },
   "stats": [
     "score",
     "level",

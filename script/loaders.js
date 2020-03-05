@@ -3,7 +3,7 @@ export function loadGameType(name) {
       .then((r) => r.json());
 }
 export function loadMenu(name) {
-  return fetch(`./menus/${name}.json`)
+  return fetch(`./ui/${name}.json`)
       .then((r) => r.json());
 }
 export function loadSoundbank(name) {

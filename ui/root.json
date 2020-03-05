@@ -1,0 +1,85 @@
+{
+  "properties": {
+    "parent": null
+  },
+  "data": [
+    {
+      "label": "Quick Play",
+      "default": true,
+      "description": "Jump right into a game of Marathon",
+      "action": "quick"
+    },
+    {
+      "label": "Game Styles",
+      "type": "overline"
+    },
+    {
+      "label": "Guideline",
+      "description": "Standard variant of the puzzle found in modern games",
+      "action": "submenu",
+      "submenu": "guideline"
+    },
+    {
+      "label": "Tetra-X",
+      "description": "Custom variant founded by this game",
+      "action": "submenu",
+      "submenu": "tetrax"
+    },
+    {
+      "label": "Retro",
+      "width": "half",
+      "description": "Classic variant loved by oldschool players",
+      "action": "submenu",
+      "submenu": "retro"
+    },
+    {
+      "label": "Arcade",
+      "disabled": true,
+      "width": "half",
+      "description": "Difficult vaiant loved by harcore players (coming soon!)",
+      "action": "submenu"
+    },
+    {
+      "label": "Settings",
+      "type": "overline"
+    },
+    {
+      "label": "Tuning",
+      "disabled": true,
+      "width": "half",
+      "description": "Change how the game feels (W.I.P.)",
+      "action": "submenu"
+    },
+    {
+      "label": "Controls",
+      "width": "half",
+      "description": "Change how the game controls",
+      "action": "submenu",
+      "submenu": "controls"
+    },
+    {
+      "label": "Audio",
+      "disabled": true,
+      "width": "half",
+      "description": "Change how the game sounds (W.I.P.)",
+      "action": "submenu"
+    },
+    {
+      "label": "Video",
+      "disabled": true,
+      "width": "half",
+      "description": "Change how the game looks (W.I.P.)",
+      "action": "submenu"
+    },
+    {
+      "label": "Misc",
+      "type": "overline"
+    },
+    {
+      "label": "Soundtrack",
+      "disabled": true,
+      "description": "Listen to the original soundtrack (coming soon!)",
+      "action": "submenu"
+    }
+  ]
+}

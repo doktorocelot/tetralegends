@@ -58,6 +58,9 @@ export default class Next extends GameModule {
         if (this.parent.piece.useSpecialI && piece === 'I') {
           suffix = shape[y][x];
         }
+        if (this.parent.piece.useRetroColors) {
+          suffix = `-${this.parent.stat.level % 10}`;
+        }
         const img = document.getElementById(`mino-${color}${suffix}`);
         const isFilled = shape[y][x];
         if (isFilled) {
