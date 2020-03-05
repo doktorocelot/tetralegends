@@ -1,5 +1,4 @@
 import menu from './menu/menu.js';
-
 const SETTINGS_VERSION = 3;
 class Settings {
   constructor() {
@@ -124,13 +123,13 @@ class Settings {
     this.game = {};
   }
   resetSettings() {
-    this.settings = {...this.defaultSettings};
+    this.settings = JSON.parse(JSON.stringify(this.defaultSettings));
   }
   resetControls() {
-    this.controls = {...this.defaultControls};
+    this.controls = JSON.parse(JSON.stringify(this.defaultControls));
   }
   resetGame() {
-    this.game = {...this.defaultGame};
+    this.game = JSON.parse(JSON.stringify(this.defaultGame));
   }
   load() {
     for (const index of ['Settings', 'Controls', 'Game']) {
