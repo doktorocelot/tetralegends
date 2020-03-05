@@ -7,9 +7,9 @@
   --matrix-width: 10;
   --matrix-height-base: 20;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   :root {
-    font-size: .7em;
+    /* font-size: .7em; */
   }
 }
 @keyframes pulse-darkness {
@@ -32,11 +32,37 @@
   from {padding-left: .15em}
   to {padding-left: .35em}
 }
+@keyframes flash {
+  from {background-color: #666}
+  to {background-color: #aaa}
+}
+/*
+.pulse {
+  animation-name: pulse;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+.pulse.spin-pulse {
+  animation-name: pulse-strong;
+  animation-duration: .1s;
+  */
 body {
   margin: 0;
   padding: 0;
   font-family: var(--main-font);
+  /* background-color: #034efc; */
   background-color: #000;
+  /* background-blend-mode: luminosity; */
+  /* background-image: var(--current-background); */
+  background-size: cover;
+  /* background-position: center; */
+  /* animation-name: flash; */
+  animation-duration: .1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 #main {
   position: fixed;
@@ -62,8 +88,11 @@ body {
 {
   display: none;
 }
-#game-container.faded
-{
+#hold-container.hidden {
+  opacity: 0;
+}
+
+#game-container.faded {
   opacity: 0.1;
 }
 #vertical-menu {
@@ -88,7 +117,158 @@ body {
   transition: font-size .1s, border-left-width .1s;
   cursor: pointer;  
 }
-
+#description {
+  width: 40vh;
+  height: 25vh;
+  font-size: 2.5vh;
+  margin: auto;
+}
+#menu {
+  width: 40vh;
+  height: 70vh;
+  font-size: 3.5vh;
+  padding-right: 5em;
+  margin: auto;
+  text-align: center;
+  padding: .3em 0;
+  overflow-y: scroll;
+}
+.modal {
+  font-size: 2em;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  background-color: #000a;
+  padding: 1em 2em;
+  border-radius: .2em;
+  border-color: #fff;
+  border-left-style: solid;
+  border-left-width: .1em;
+  -webkit-backdrop-filter: blur(1em);
+  backdrop-filter: blur(1em);
+  z-index: 10;
+}
+.modal .header {
+  font-weight: 100;
+  text-align: center;
+}
+.modal .body {
+  font-size: .7em;
+}
+.modal.hidden {
+  display: none;
+}
+#menu > .control {
+  padding: .2em .5em;
+}
+#menu > .control.selected {
+  background-color: transparent;
+  color: #fff;
+  border-left-width: .1em;
+  border-left-style: solid;
+  border-left-color: #fff;
+}
+#menu > .control > .label {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: .7em;
+  letter-spacing: .3em;
+}
+#menu > .control > .control-bay {
+  text-align: left;
+}
+#menu > .control > .control-bay > .set-control {
+  cursor: pointer;
+  font-size: .7em;
+  display: inline-block;
+  padding: .1em .5em;
+  margin-right: .2em;
+  border-color: #fff;
+  border-width: .05em;
+  border-radius: 100em;
+  border-style: solid;
+}
+#menu > .control.selected > .control-bay > .set-control.selected {
+  background-color: #fff;
+  color: #000;
+}
+#menu > .control > .control-bay > .set-control.conflict {
+  color: #eb4034; 
+  border-color: #eb4034;
+  animation-name: pulse;
+  animation-duration: .2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#menu > .control.selected > .control-bay > .set-control.selected.conflict {
+  background-color: #eb4034;
+}
+#menu > .btn,
+#menu > .social {
+  position: relative;
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: 300;
+  display: inline-block;
+  padding: .4em .7em;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: .4em;
+  margin-left: .15em;
+  margin-right: .15em;
+}
+#menu > .btn {
+  border-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+#menu > .disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+#menu > .social {
+  filter: invert(1);
+  height: 2.5em;
+}
+#menu > .social img {
+  height: 100%;
+}
+#menu .overline {
+  text-transform: uppercase;
+  font-size: .67em;
+  font-weight: 500;
+  letter-spacing: .4em;
+  margin-top: .2em;
+  margin-bottom: .4em;
+}
+@keyframes menu-selected {
+  from {transform: translateY(0)}
+  to {transform: translateY(-.1em)}
+}
+#menu > .selected {
+  background-color: #fff;
+  color: #000;
+  animation-name: menu-selected;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#menu > .selected.disabled {
+  animation-name: none;
+}
+#menu > .full-width {
+  width: 95%;
+}
+#menu > .half-width {
+  width: 46.5%;
+}
+#menu > .third-width {
+  width: 25.8%;
+}
 .pulse {
   animation-name: pulse;
   animation-duration: .5s;
@@ -168,12 +348,37 @@ body {
   font-family: 'Material Icons';
 }
 ::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  width: 5px;
+  height: 10px;
 }
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 2px solid #000;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #bababa;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 #game-container {
   --matrix-height: calc(var(--matrix-height-base) + var(--peek-zone));
@@ -241,12 +446,12 @@ body {
 }
 .game-center {
   position: relative;
-  -webkit-backdrop-filter: blur(5em);
-  backdrop-filter: blur(5em);
+  /* -webkit-backdrop-filter: blur(5em); */
+  /* backdrop-filter: blur(5em); */
   width: calc(var(--matrix-width) * var(--cell-size));
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
-  background-color: #000a;
+  background-color: #000e;
   background-image: url(../img/tetrion/grid-bg-cross.svg);
   background-position: left bottom;
   outline-color: #fff;

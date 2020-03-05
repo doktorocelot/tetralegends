@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "Console",
+      "default": true,
+      "description": "The classic version of the puzzle used competitvely",
+      "action": "game",
+      "game": "retro"
+    },
+    {
+      "label": "Handheld",
+      "description": "The classic version of the puzzle with heavy nostalgic value",
+      "action": "game",
+      "game": "handheld"
+    }
+  ]
+}

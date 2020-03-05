@@ -82,16 +82,16 @@ export default class Game {
           this.rotationSystem = this.settings.rotationSystem;
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
-          this.resize();
           this.loop = loops[gametype].update;
           this.onPieceSpawn = loops[gametype].onPieceSpawn;
-          for (const element of ['piece', 'stack', 'next']) {
+          for (const element of ['piece', 'stack', 'next', 'hold']) {
             if (gameData[element] != null) {
               for (const property of Object.keys(gameData[element])) {
                 this[element][property] = gameData[element][property];
               }
             }
           }
+          this.resize();
           loops[gametype].onInit(this);
           sound.killBgm();
           sound.loadBgm(this.settings.music, gametype);
@@ -139,13 +139,18 @@ export default class Game {
     root.style.setProperty('--cell-size', `${game.cellSize}px`);
     root.style.setProperty('--matrix-width', game.settings.width);
     root.style.setProperty('--matrix-height-base', game.settings.height);
-    // console.log(`url("../img/bg/${this.background}");`);
     for (const element of ['pieceCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas', 'particleCanvas']) {
       game[element].width = game[element].clientWidth;
       game[element].height = game[element].clientHeight;
     }
+    game.stack.makeAllDirty();
     game.isDirty = true;
     $('#stats').innerHTML = '';
+    if (game.hold.isDisabled) {
+      $('#hold-container').classList.add('hidden');
+    } else {
+      $('#hold-container').classList.remove('hidden');
+    }
     for (const statName of game.stats) {
       const stat = document.createElement('div');
       stat.classList.add('stat-group');
@@ -370,7 +375,6 @@ export default class Game {
         score *= this.stat.level + scoreTable.levelAdditive;
       }
       if (scoreTable.b2bMultiplied.indexOf(name) !== -1 && this.b2b > 1) {
-        console.log('yay!');
         score *= scoreTable.b2bMultiplier;
       }
       this.stat.score += score;

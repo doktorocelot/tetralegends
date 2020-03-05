@@ -53,6 +53,7 @@ export default class Piece extends GameModule {
     this.xSpawnOffset = 0;
     this.lockdownType = null;
     this.lockdownTypeLast = null;
+    this.spinDetectionType = null;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
@@ -84,10 +85,10 @@ export default class Piece extends GameModule {
     this.y = 0 + SPAWN_OFFSETS[rotSys][name][1] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
     this.lowestY = this.y;
     this.kicks = KICK_TABLES[rotSys][name];
+    this.manipulations = 0;
     for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
       this.shiftDown();
     }
-    this.manipulations = 0;
     if (this.gravity <= framesToMs(1 / 20)) {
       this.sonicDrop();
     }
@@ -106,7 +107,7 @@ export default class Piece extends GameModule {
   get yFloor() {
     return Math.floor(this.y);
   }
-  drawMino(x, y, buffer, type, number) {
+  drawMino(x, y, buffer, type, number, color) {
     const cellSize = this.parent.cellSize;
     const ctx = this.ctx;
     const xPos = x * cellSize;
@@ -115,14 +116,17 @@ export default class Piece extends GameModule {
     let img;
     switch (type) {
       case 'ghost':
-        img = document.getElementById(`ghost-${this.color}`);
+        img = document.getElementById(`ghost-${color}`);
         break;
       case 'piece':
         let suffix = '';
         if (this.useSpecialI && this.name === 'I') {
           suffix = number;
         }
-        img = document.getElementById(`mino-${this.color}${suffix}`);
+        if (this.useRetroColors) {
+          suffix = `-${this.parent.stat.level % 10}`;
+        }
+        img = document.getElementById(`mino-${color}${suffix}`);
       default:
         break;
     }
@@ -133,7 +137,7 @@ export default class Piece extends GameModule {
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
 
     const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 255)).toString(16)).slice(-2);
-    if (type === 'piece' && this.isLanded) {
+    if (type === 'piece') {
       ctx.globalCompositeOperation = 'saturation';
 
       ctx.fillStyle = `#000000${darkness}`;
@@ -142,12 +146,15 @@ export default class Piece extends GameModule {
 
     // ctx.fillRect(x * cellSize, y * cellSize + cellSize * buffer, cellSize, cellSize);
   }
-  drawPiece(shape, offsetX = 0, offsetY = 0, type) {
+  drawPiece(shape, offsetX = 0, offsetY = 0, type = 'piece', color = null) {
+    if (color == null) {
+      color = this.color;
+    }
     for (let y = 0; y < shape.length; y++) {
       for (let x = 0; x < shape[y].length; x++) {
         const isFilled = shape[y][x];
         if (isFilled) {
-          this.drawMino(this.x + x + offsetX, this.yFloor + y + offsetY, this.parent.bufferPeek, type, shape[y][x]);
+          this.drawMino(this.x + x + offsetX, this.yFloor + y + offsetY, this.parent.bufferPeek, type, shape[y][x], color);
         }
       }
     }
@@ -264,7 +271,7 @@ export default class Piece extends GameModule {
         const mino = this.shape[i][j];
         if (mino !== 0) {
           minX = Math.min(minX, j);
-          minY = Math.max(minY, i);
+          minY = Math.min(minY, i);
         }
       }
     }
@@ -305,10 +312,20 @@ export default class Piece extends GameModule {
     this.hasHardDropped = true;
     this.mustLock = true;
   }
+  addManipulation() {
+    if (this.lockdownType !== 'extended') {
+      return;
+    }
+    this.manipulations++;
+    if (this.manipulations === this.manipulationLimit) {
+      sound.add('lockforce');
+    }
+  }
   shift(direction, amount, condition) {
+    const cellSize = this.parent.cellSize;
     if (condition) {
       this[direction] += amount;
-      this.manipulations++;
+      this.addManipulation();
       this.isDirty = true;
       if (direction === 'x') {
         sound.add('move');
@@ -349,7 +366,7 @@ export default class Piece extends GameModule {
         this.y += kickY;
         this.orientation = newOrientation;
         this.shape = rotatedShape;
-        this.manipulations++;
+        this.addManipulation();
         this.isDirty = true;
         sound.add('rotate');
         if (this.checkSpin().isSpin) {
@@ -385,7 +402,10 @@ export default class Piece extends GameModule {
     this.rotate(2, 'double');
   }
   checkSpin() {
-    if (true) {
+    if (this.spinDetectionType == null) {
+      return {isSpin: false, isMini: false};
+    }
+    if (this.spinDetectionType === 'immobile') {
       if (!this.canShiftLeft && !this.canShiftRight && !this.canShiftUp) {
         return {isSpin: true, isMini: false};
       }

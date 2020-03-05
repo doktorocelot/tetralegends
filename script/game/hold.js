@@ -11,6 +11,7 @@ export default class Hold extends GameModule {
     this.pieceName = null;
     this.isLocked = false;
     this.ihs = false;
+    this.isDisabled = false;
   }
   hold() {
     if (this.isLocked) {

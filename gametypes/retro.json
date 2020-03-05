@@ -5,10 +5,10 @@
     "hiddenHeight": 4,
     "pieces": "standard",
     "unfavored": null,
-    "randomizer": "handheld",
+    "randomizer": "nes",
     "rotationSystem": "retro",
     "skin": "retro",
-    "soundbank": "handheld",
+    "soundbank": "nes",
     "music": "retro",
     "scoreTable": "retro",
     "background": "handheld.png"
@@ -20,10 +20,15 @@
     "ghostIsVisible": false
   },
   "stack": {
+    "flashLineClear": true,
+    "flashClearRate": 16.7,
     "useMinoSkin": true
   },
   "next": {
     "nextLength": 1
+  },
+  "hold": {
+    "isDisabled": true
   },
   "stats": [
     "score",

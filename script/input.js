@@ -8,6 +8,8 @@ class Input {
     const keys = {
       menuUp: 'ArrowUp',
       menuDown: 'ArrowDown',
+      menuLeft: 'ArrowLeft',
+      menuRight: 'ArrowRight',
       menuOk: 'Enter',
       menuBack: 'Backspace',
     };
@@ -30,7 +32,7 @@ class Input {
       this.events[name] = new Event(name);
     }
 
-    let mouseLimit = 0;
+    this.mouseLimit = 0;
 
     this.currentGameKeys = {};
     this.lastGameKeys = {};
@@ -51,7 +53,7 @@ class Input {
           menu.open();
         }
       }
-      mouseLimit = 0;
+      this.mouseLimit = 0;
       for (const name of Object.keys(keys)) {
         if (event.key === keys[name]) {
           document.dispatchEvent(this.events[name]);
@@ -71,8 +73,8 @@ class Input {
       }
     });
     document.addEventListener('mousemove', (event) => {
-      mouseLimit++;
-      if (mouseLimit > 3) {
+      this.mouseLimit++;
+      if (this.mouseLimit > 3) {
         buttonHints.hide();
       }
     });

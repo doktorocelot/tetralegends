@@ -57,3 +57,7 @@ export function clearCtx(ctx) {
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+export function negativeMod(n, m) {
+  return ((n % m) + m) % m;
+}
