@@ -65,6 +65,8 @@ class Sound {
         this.sounds['rotate'].play();
       } else if (name === 'initialhold' && this.files.indexOf('hold') !== -1) {
         this.sounds['hold'].play();
+      } else if (name === 'prespinmini' && this.files.indexOf('prespin') !== -1) {
+        this.sounds['prespin'].play();
       }
 
       if (name.substr(0, 3) === 'ren') {
