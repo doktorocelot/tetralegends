@@ -61,3 +61,9 @@ export function capitalizeFirstLetter(string) {
 export function negativeMod(n, m) {
   return ((n % m) + m) % m;
 }
+
+export function resetAnimation(selector, className) {
+  $(selector).classList.remove(className);
+  void $(selector).offsetWidth;
+  $(selector).classList.add(className);
+}
