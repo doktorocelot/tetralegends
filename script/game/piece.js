@@ -54,6 +54,7 @@ export default class Piece extends GameModule {
     this.lockdownType = null;
     this.lockdownTypeLast = null;
     this.spinDetectionType = null;
+    this.lastKickIndex = 0;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
@@ -181,9 +182,14 @@ export default class Piece extends GameModule {
       ctx.strokeRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
     }
     if (this.hasSpun) {
-      this.parent.pieceCanvas.classList.add('spin-pulse');
+      if (this.hasSpunMini) {
+        this.parent.pieceCanvas.classList.add('spin-pulse-mini');
+      } else {
+        this.parent.pieceCanvas.classList.add('spin-pulse');
+      }
     } else {
       this.parent.pieceCanvas.classList.remove('spin-pulse');
+      this.parent.pieceCanvas.classList.remove('spin-pulse-mini');
     }
   }
   moveValid(passedX, passedY, shape) {
@@ -220,6 +226,9 @@ export default class Piece extends GameModule {
   }
   get canShiftUp() {
     return this.moveValid(0, -1, this.shape);
+  }
+  get canShiftDown() {
+    return this.moveValid(0, 1, this.shape);
   }
   getDrop(distance = (this.parent.settings.height + this.parent.settings.hiddenHeight) * 2) {
     if (this.isStuck) {
@@ -305,6 +314,7 @@ export default class Piece extends GameModule {
         yVariance: 3,
         xDampening: 1.03,
         yDampening: 1.05,
+        lifeVariance: 100,
       });
     }
 
@@ -362,6 +372,7 @@ export default class Piece extends GameModule {
       const kickX = kickTable[i][0] + offset[newOrientation][0] - offset[this.orientation][0];
       const kickY = kickTable[i][1] + offset[newOrientation][1] - offset[this.orientation][1];
       if (this.moveValid(kickX, kickY, rotatedShape)) {
+        this.lastKickIndex = i;
         this.x += kickX;
         this.y += kickY;
         this.orientation = newOrientation;
@@ -370,21 +381,44 @@ export default class Piece extends GameModule {
         this.isDirty = true;
         sound.add('rotate');
         if (this.checkSpin().isSpin) {
-          sound.add('prespin');
           const cellSize = this.parent.cellSize;
-          this.parent.particle.generate({
-            amount: 50,
-            x: (this.x) * cellSize,
-            y: (this.y) * cellSize,
-            xRange: (this.shape[0].length) * cellSize,
-            yRange: (this.shape[0].length) * cellSize,
-            xVelocity: 0,
-            yVelocity: 5,
-            xVariance: 10,
-            yVariance: 5,
-            gravity: 1,
-            maxlife: 150,
-          });
+          if (this.checkSpin().isMini) {
+            sound.add('prespinmini');
+            this.parent.particle.generate({
+              amount: 55,
+              x: (this.x) * cellSize,
+              y: (this.y) * cellSize,
+              xRange: (this.shape[0].length) * cellSize,
+              yRange: (this.shape[0].length) * cellSize,
+              xVelocity: 0,
+              yVelocity: 0,
+              xVariance: 10,
+              yVariance: 10,
+              xFlurry: 1,
+              yFlurry: 1,
+              gravity: 0,
+              maxlife: 60,
+              lifeVariance: 40,
+            });
+          } else {
+            this.parent.particle.generate({
+              amount: 75,
+              x: (this.x) * cellSize,
+              y: (this.y) * cellSize,
+              xRange: (this.shape[0].length) * cellSize,
+              yRange: (this.shape[0].length) * cellSize,
+              xVelocity: 0,
+              yVelocity: 0,
+              xVariance: 5,
+              yVariance: 5,
+              xFlurry: 1,
+              yFlurry: 1,
+              gravity: 0,
+              maxlife: 150,
+              lifeVariance: 100,
+            });
+            sound.add('prespin');
+          }
         }
         this.rotatedX = this.x;
         this.rotatedY = this.yFloor;
@@ -406,7 +440,7 @@ export default class Piece extends GameModule {
       return {isSpin: false, isMini: false};
     }
     if (this.spinDetectionType === 'immobile') {
-      if (!this.canShiftLeft && !this.canShiftRight && !this.canShiftUp) {
+      if (!this.canShiftLeft && !this.canShiftRight && !this.canShiftUp && !this.canShiftDown) {
         return {isSpin: true, isMini: false};
       }
       return {isSpin: false, isMini: false};
@@ -426,7 +460,7 @@ export default class Piece extends GameModule {
           spinCheckCount++;
         }
       }
-      if (spinCheckCount < 2) {
+      if (spinCheckCount < 2 && this.lastKickIndex < 4) {
         isMini = true;
       }
       for (const point of spinLow) {
@@ -447,6 +481,17 @@ export default class Piece extends GameModule {
       this.x === this.rotatedX &&
       this.yFloor === this.rotatedY &&
       this.checkSpin().isSpin
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  get hasSpunMini() {
+    if (
+      this.x === this.rotatedX &&
+      this.yFloor === this.rotatedY &&
+      this.checkSpin().isMini
     ) {
       return true;
     } else {

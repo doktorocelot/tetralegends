@@ -51,7 +51,10 @@ export default class Stack extends GameModule {
     this.parent.piece.last = this.parent.piece.name;
     this.parent.updateStats();
     this.lineClear = 0;
-    this.parent.hold.isLocked = false;
+    if (this.parent.hold.isLocked) {
+      this.parent.hold.isLocked = false;
+      this.parent.hold.isDirty = true;
+    }
     for (let i = 0; i < this.flashX.length; i++) {
       this.dirtyCells.push([this.flashX[i], this.flashY[i]]);
     }
@@ -62,6 +65,22 @@ export default class Stack extends GameModule {
       for (let x = 0; x < shape[y].length; x++) {
         const isFilled = shape[y][x];
         if (isFilled) {
+          this.parent.particle.generate({
+            amount: 5,
+            x: x * this.parent.cellSize + passedX * this.parent.cellSize,
+            y: y * this.parent.cellSize + passedY * this.parent.cellSize + this.parent.bufferPeek * this.parent.cellSize,
+            xRange: this.parent.cellSize,
+            yRange: this.parent.cellSize,
+            xVelocity: 0,
+            yVelocity: 2,
+            xVariance: 4,
+            yVariance: 2,
+            xDampening: 1.03,
+            yDampening: 1.03,
+            gravity: 0,
+            maxlife: 70,
+            lifeVariance: 40,
+          });
           const xLocation = x + passedX;
           const yLocation = y + passedY + this.hiddenHeight;
           if (this.parent.piece.useSpecialI && this.parent.piece.name === 'I') {
@@ -143,6 +162,21 @@ export default class Stack extends GameModule {
     if (this.parent.piece.areLineLimit === 0) {
       this.collapse();
     }
+    // console.log(this.highest, this.skyToFloor);
+    // console.log(this.skyToFloor);
+    this.alarmCheck();
+  }
+  alarmCheck() {
+    if (
+      this.height - this.highest < 2 ||
+      (
+        this.height - this.highest < 6 &&
+        this.skyToFloor - this.hiddenHeight < this.height - 4
+      )
+    ) {
+    } else {
+
+    }
   }
   spawnBrokenLine() {
     sound.add('garbage');
@@ -181,6 +215,7 @@ export default class Stack extends GameModule {
       yVariance: 2,
       gravity: .3,
       gravityAccceleration: 1.05,
+      lifeVariance: 80,
     });
     this.toCollapse = [];
     this.lineClear = 0;
@@ -205,6 +240,23 @@ export default class Stack extends GameModule {
       }
     }
     return highest;
+  }
+  get skyToFloor() {
+    let amount = 0;
+    for (const currentY of this.grid) {
+      let passed = true;
+      for (let i = 0; i < currentY.length; i++) {
+        if (currentY[i] != null) {
+          amount = Math.max(amount, i);
+          passed = false;
+          break;
+        }
+      }
+      if (passed) {
+        amount = Math.max(amount, this.height + this.hiddenHeight);
+      }
+    }
+    return amount;
   }
   isFilled(x, y) {
     if (this.grid[x] != null) {
@@ -345,6 +397,7 @@ export default class Stack extends GameModule {
           yVariance: 10,
           xDampening: 1.03,
           yDampening: 1.03,
+          lifeVariance: 80,
         });
         if (Math.round(this.parent.piece.are / this.flashClearRate) % 2 !== 1 || !this.flashLineClear) {
           ctx.fillRect(0, Math.floor((this.toCollapse[i] - this.hiddenHeight) * cellSize + buffer * cellSize), cellSize * this.width, cellSize);

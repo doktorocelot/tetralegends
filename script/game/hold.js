@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import {clearCtx} from '../shortcuts.js';
+import $, {clearCtx, resetAnimation} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
 import {PIECE_SETS, PIECES} from '../consts.js';
 import sound from '../sound.js';
@@ -32,10 +32,16 @@ export default class Hold extends GameModule {
     }
     this.isDirty = true;
     this.isLocked = true;
+    resetAnimation('#hold-container', 'flash');
   }
   draw() {
     if (this.pieceName === null) {
       return;
+    }
+    if (this.isLocked) {
+      $('#hold').classList.add('locked');
+    } else {
+      $('#hold').classList.remove('locked');
     }
     const shape = PIECES[this.pieceName].shape[0];
     const cellSize = this.parent.cellSize;

@@ -88,7 +88,7 @@ export function* nes(pieces, unfavored = []) {
     if (useReroll) {
       modifier++;
     }
-    const calculation = Math.floor(Math.random() * pieces.length + modifier);
+    const calculation = Math.floor(Math.random() * (pieces.length + modifier));
     if (calculation >= pieces.length) {
       return 'reroll';
     } else {
@@ -111,6 +111,7 @@ export function* nes(pieces, unfavored = []) {
       pieceName = pieces[calc(false)];
     }
     history = pieceName;
+    stats[pieceName]++;
     yield pieceName;
   }
 }

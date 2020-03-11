@@ -20,6 +20,10 @@
   from {filter: brightness(1.1)}
   to {filter: brightness(0.9)}
 }
+@keyframes pulse-semi-strong {
+  from {filter: brightness(1.45)}
+  to {filter: brightness(0.55)}
+}
 @keyframes pulse-strong {
   from {filter: brightness(1.8)}
   to {filter: brightness(0.2)}
@@ -279,6 +283,22 @@ body {
 .pulse.spin-pulse {
   animation-name: pulse-strong;
   animation-duration: .1s;
+}
+.pulse.spin-pulse-mini {
+  animation-name: pulse-semi-strong;
+  animation-duration: .1s;
+}
+.hold-canvas.locked {
+  filter: grayscale(100%);
+}
+@keyframes hold-flash {
+  from {filter: brightness(200%)}
+  to {filter: brightness(100%)}
+}
+.hold-container.flash {
+  animation-name: hold-flash;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
 }
 #vertical-menu li.control-name {
   text-transform: uppercase;
