@@ -22,11 +22,14 @@ class SingleParticle {
     this.opacity = 1;
     this.gravity = 0;
     this.gravityAcceleration = 1.05;
+    this.lifeVariance = 0;
 
     for (const key of Object.keys(properties)) {
       const value = properties[key];
       this[key] = value;
     }
+    const lifeGen = getRandomInt(this.lifeVariance * 100) / 100;
+    this.maxlife += this.lifeVariance / 2 - lifeGen;
   }
   update() {
     const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
