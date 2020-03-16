@@ -13,6 +13,7 @@ import input from '../input.js';
 import Hold from './hold.js';
 import sound from '../sound.js';
 import Particle from './particle.js';
+import GameModule from './game-module.js';
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
@@ -297,6 +298,9 @@ export default class Game {
           for (const moduleName of modules) {
             const currentModule = game[moduleName];
             if (currentModule.isDirty || game.isDirty) {
+              if (moduleName === 'stack' && game.isDirty) {
+                game.stack.makeAllDirty();
+              }
               currentModule.draw();
               currentModule.isDirty = false;
             }

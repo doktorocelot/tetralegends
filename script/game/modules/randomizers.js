@@ -115,6 +115,31 @@ export function* nes(pieces, unfavored = []) {
     yield pieceName;
   }
 }
+export function* deluxe(pieces, unfavored = []) {
+  let pieceCount = 0;
+  let lastPiece = null;
+  let rerollCount = 0;
+  while (true) {
+    pieceCount = (pieceCount + 1) % pieces.length;
+    let generated = Math.floor(Math.random() * (pieces.length + 1));
+    if (generated === pieces.length) {
+      generated = pieceCount;
+    }
+    if (generated !== lastPiece) {
+      lastPiece = generated;
+      rerollCount = 0;
+    } else {
+      rerollCount++;
+      generated = rerollCount;
+      if (rerollCount >= 5) {
+        rerollCount = 0;
+        continue;
+      }
+    }
+    console.log();
+    yield pieces[generated];
+  }
+}
 export function* tetrax(pieces, unfavored = []) {
   /*
   const favored = pieces.filter((x) => !unfavored.includes(x));

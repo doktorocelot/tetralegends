@@ -137,6 +137,7 @@ export const PIECES = {
 export const PIECE_SETS = {
   i: ['I'],
   standard: ['I', 'L', 'O', 'Z', 'T', 'J', 'S'],
+  deluxe: ['I', 'T', 'Z', 'S', 'J', 'L', 'O'],
   standardUnfavored: ['O', 'Z', 'S'],
 };
 export const SPAWN_OFFSETS = {
@@ -170,6 +171,16 @@ export const SPAWN_OFFSETS = {
     J: [3, 0],
     S: [3, 1],
   },
+  deluxe: {
+    downShift: 0,
+    I: [3, -1],
+    L: [3, -1],
+    O: [4, 0],
+    Z: [3, 0],
+    T: [3, -1],
+    J: [3, -1],
+    S: [3, 0],
+  },
 };
 SPAWN_OFFSETS.tetrax = {...SPAWN_OFFSETS.srs, downShift: 2, I: [3, -3]};
 export const INITIAL_ORIENTATION = {
@@ -194,6 +205,7 @@ export const INITIAL_ORIENTATION = {
 };
 INITIAL_ORIENTATION.tetrax = INITIAL_ORIENTATION.srs;
 INITIAL_ORIENTATION.handheld = INITIAL_ORIENTATION.retro;
+INITIAL_ORIENTATION.deluxe = INITIAL_ORIENTATION.retro;
 const KICK_TEMPLATES = {
   srs: {
     x: {
@@ -205,9 +217,9 @@ const KICK_TEMPLATES = {
       ],
       left: [
         [[0, 0], [+1, 0], [+1, -1], [0, +2], [+1, +2]], // 0 >> 3
-        [[0, 0], [+1, 0], [+1, +1], [0, -2], [+1, -2]], // 3 >> 2
+        [[0, 0], [+1, 0], [+1, +1], [0, -2], [+1, -2]], // 1 >> 0
         [[0, 0], [-1, 0], [-1, -1], [0, +2], [-1, +2]], // 2 >> 1
-        [[0, 0], [-1, 0], [-1, +1], [0, -2], [-1, -2]], // 1 >> 0
+        [[0, 0], [-1, 0], [-1, +1], [0, -2], [-1, -2]], // 3 >> 2
       ],
       double: [
         [[0, 0], [+1, 0], [+2, 0], [+1, +1], [+2, +1], [-1, 0], [-2, 0], [-1, +1], [-2, +1], [0, -1], [+3, 0], [-3, 0]],
@@ -279,6 +291,48 @@ const KICK_TEMPLATES = {
       ],
     },
   },
+  deluxe: {
+    TLJ: {
+      right: [
+        [[0, 0], [+1, +1]], // 0 >> 1
+        [[0, 0], [-1, +1]], // 1 >> 2
+        [[0, 0], [-1, -1]], // 2 >> 3
+        [[0, 0], [+1, -1]], // 3 >> 0
+      ],
+      left: [
+        [[0, 0], [-1, +1]], // 0 >> 3
+        [[0, 0], [+1, +1]], // 3 >> 2
+        [[0, 0], [+1, -1]], // 2 >> 1
+        [[0, 0], [-1, -1]], // 1 >> 0
+      ],
+      double: [
+        [[0, 0], [0, -2]], // 0 >> 2
+        [[0, 0], [-2, 0]], // 1 >> 3
+        [[0, 0], [0, +2]], // 2 >> 0
+        [[0, 0], [+2, 0]], // 3 >> 1
+      ],
+    },
+    x: {
+      right: [
+        [[0, 0], [-1, -1]], // 0 >> 1
+        [[0, 0], [+1, -1]], // 1 >> 2
+        [[0, 0], [+1, +1]], // 2 >> 3
+        [[0, 0], [-1, +1]], // 3 >> 0
+      ],
+      left: [
+        [[0, 0], [+1, -1]], // 0 >> 3
+        [[0, 0], [+1, +1]], // 1 >> 0
+        [[0, 0], [-1, +1]], // 2 >> 1
+        [[0, 0], [-1, -1]], // 3 >> 2
+      ],
+      double: [
+        [[0, 0], [0, +2]], // 0 >> 2
+        [[0, 0], [+2, 0]], // 1 >> 3
+        [[0, 0], [0, -2]], // 2 >> 0
+        [[0, 0], [-2, 0]], // 3 >> 1
+      ],
+    },
+  },
   none: {
     all: {
       right: [
@@ -330,6 +384,15 @@ export const KICK_TABLES = {
     J: KICK_TEMPLATES.none.all,
     S: KICK_TEMPLATES.none.all,
   },
+  deluxe: {
+    I: KICK_TEMPLATES.deluxe.x,
+    L: KICK_TEMPLATES.deluxe.x,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.deluxe.x,
+    T: KICK_TEMPLATES.deluxe.x,
+    J: KICK_TEMPLATES.deluxe.x,
+    S: KICK_TEMPLATES.deluxe.x,
+  },
 };
 KICK_TABLES.handheld = KICK_TABLES.retro;
 
@@ -360,6 +423,15 @@ export const PIECE_COLORS = {
     T: 'white',
     J: 'blue',
     S: 'red',
+  },
+  deluxe: {
+    I: 'orange',
+    L: 'red',
+    O: 'yellow',
+    Z: 'orange',
+    T: 'green',
+    J: 'lightBlue',
+    S: 'purple',
   },
   handheldSpecial: {
     I: 'i',
@@ -404,6 +476,7 @@ export const NEXT_OFFSETS = {
 };
 NEXT_OFFSETS.tetrax = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
+NEXT_OFFSETS.deluxe = NEXT_OFFSETS.retro;
 
 export const PIECE_OFFSETS = {
   srs: {
@@ -435,6 +508,7 @@ export const PIECE_OFFSETS = {
   },
 };
 PIECE_OFFSETS.tetrax = PIECE_OFFSETS.srs;
+PIECE_OFFSETS.deluxe = PIECE_OFFSETS.srs;
 export const PIECE_BINARIES = {
   L: 0b000,
   J: 0b001,

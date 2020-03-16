@@ -7,7 +7,8 @@ const isSelectable = (type) => {
   if (
     type == null ||
     type == 'control' ||
-    type == 'setting'
+    type == 'setting' ||
+    type == 'slider'
   ) {
     return true;
   }
@@ -120,6 +121,12 @@ class Menu {
           element.classList.add('third-width');
           element.classList.add('social');
           break;
+        case 'slider':
+          element = document.createElement('div');
+          element.classList.add('slider-container');
+          sub.innerHTML =
+            `<input type="range" min="${currentData.min}" max="${currentData.max}" value="${currentData.min}" class="slider" id="${currentData.settingType}-${currentData.setting}">`;
+          break;
         case 'control':
           element = document.createElement('div');
           element.classList.add('control');
@@ -160,6 +167,12 @@ class Menu {
         nonOptions++;
       }
       if (currentData.type === 'control') {
+        const label = document.createElement('div');
+        label.textContent = currentData.label;
+        label.classList.add('label');
+        element.appendChild(label);
+        element.appendChild(sub);
+      } else if (currentData.type === 'slider') {
         const label = document.createElement('div');
         label.textContent = currentData.label;
         label.classList.add('label');
@@ -311,6 +324,11 @@ class Menu {
         return;
       }
       next.classList.add('selected');
+      return;
+    }
+    if (this.selectedData.type === 'slider') {
+      const slider = $('#menu > .slider-container.selected .slider');
+      slider.value = parseInt(slider.value) + 1;
       return;
     }
     if (!this.isLocked) {

@@ -48,7 +48,8 @@
       "disabled": true,
       "width": "half",
       "description": "Change how the game feels (W.I.P.)",
-      "action": "submenu"
+      "action": "submenu",
+      "submenu": "tuning"
     },
     {
       "label": "Controls",
