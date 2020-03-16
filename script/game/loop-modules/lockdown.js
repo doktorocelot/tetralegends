@@ -8,6 +8,7 @@ function tryLockdown(piece, arg) {
     arg.stack.add(piece.x, piece.yFloor, piece.shape, piece.color);
     arg.stack.isDirty = true;
     piece.isDead = true;
+    piece.softDropIsLocked = true;
     piece.die();
   }
 }
@@ -15,7 +16,7 @@ function stepReset(piece, arg) {
   if (piece.isLanded) {
     if (
       piece.lastX !== piece.x ||
-      piece.lastY !== piece.y ||
+      piece.lastVisualY !== piece.visualY ||
       piece.lastOrientation !== piece.orientation
     ) {
       piece.lockDelay = 0;
@@ -31,12 +32,16 @@ function updateLockdownBar(piece) {
   $('#lockdown').value = piece.lockDelayLimit - piece.lockDelay;
 }
 function fallReset(piece, usesManipulations) {
-  if (piece.yFloor > Math.floor(piece.lowestY)) {
+  if (Math.floor(piece.visualY) > Math.floor(piece.lowestVisualY)) {
     if (usesManipulations) {
       piece.manipulations = 0;
     }
     piece.lockDelay = 0;
   }
+}
+function setLowestY(piece) {
+  piece.lowestY = Math.max(piece.y, piece.lowestY);
+  piece.lowestVisualY = Math.max(piece.visualY, piece.lowestVisualY);
 }
 // LOCKDOWN FUNCTIONS
 export function extendedLockdown(arg) {
@@ -54,7 +59,7 @@ export function extendedLockdown(arg) {
     piece.lockDelay = piece.lockDelayLimit;
   }
   updateLockdownBar(piece);
-  piece.lowestY = Math.max(piece.y, piece.lowestY);
+  setLowestY(piece);
   for (let i = 1; i <= piece.manipulationLimit; i++) {
     $(`#pip-${i}`).classList.remove('disabled');
   }
@@ -77,7 +82,7 @@ export function classicLockdown(arg) {
     piece.isDirty = true;
   }
   updateLockdownBar(piece);
-  piece.lowestY = Math.max(piece.y, piece.lowestY);
+  setLowestY(piece);
 }
 export function retroLockdown(arg, useNesTable) {
   const piece = arg.piece;
@@ -104,7 +109,7 @@ export function retroLockdown(arg, useNesTable) {
   }
   $('#lockdown').max = 1;
   $('#lockdown').value = 1;
-  piece.lowestY = Math.max(piece.y, piece.lowestY);
+  setLowestY(piece);
 }
 export function infiniteLockdown(arg) {
   const piece = arg.piece;
@@ -118,5 +123,5 @@ export function infiniteLockdown(arg) {
   tryLockdown(piece, arg);
   stepReset(piece, arg);
   updateLockdownBar(piece);
-  piece.lowestY = Math.max(piece.y, piece.lowestY);
+  setLowestY(piece);
 }

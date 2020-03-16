@@ -3,27 +3,29 @@
     "width": 10,
     "height": 18,
     "hiddenHeight": 4,
-    "pieces": "standard",
+    "pieces": "deluxe",
     "unfavored": null,
-    "randomizer": "handheld",
-    "rotationSystem": "handheld",
+    "randomizer": "deluxe",
+    "rotationSystem": "deluxe",
     "skin": "retro",
-    "soundbank": "handheld",
-    "music": "mono",
+    "soundbank": "deluxe",
+    "music": "korobeiniki",
     "scoreTable": "retro",
     "background": "handheld.png"
   },
   "piece": {
-    "areLimit": 33.3333333333,
-    "areLineLimit": 183.333333333,
-    "areLimitLineModifier": 1333.33333333,
+    "areLimit": 66,
+    "areLineLimit": 33,
+    "areLimitLineModifier": 583,
     "ghostIsVisible": false,
-    "useSpecialI": true
+    "useSpecialI": true,
+    "resetGravityOnKick": true,
+    "resetDelayOnKick": true
   },
   "stack": {
     "flashLineClear": true,
     "flashClearRate": 200,
-    "useMinoSkin": true,
+    "fadeLineClear": false,
     "flashOnTetris": true
   },
   "next": {

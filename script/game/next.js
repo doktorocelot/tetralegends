@@ -15,7 +15,7 @@ export default class Next extends GameModule {
     for (const piece of Object.keys(PIECES)) {
       this.stats[piece] = 0;
     }
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < 9; i++) {
       this.generate();
     }
   }

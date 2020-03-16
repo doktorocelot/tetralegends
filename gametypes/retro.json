@@ -20,9 +20,8 @@
     "ghostIsVisible": false
   },
   "stack": {
-    "flashLineClear": true,
-    "flashClearRate": 16.7,
-    "useMinoSkin": true
+    "useMinoSkin": true,
+    "flashOnTetris": true
   },
   "next": {
     "nextLength": 1

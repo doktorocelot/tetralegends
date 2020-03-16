@@ -11,7 +11,9 @@ export default class Piece extends GameModule {
     this.lastX;
     this.y;
     this.lastY;
+    this.lastVisualY;
     this.lowestY;
+    this.lowestVisualY;
     this.name;
     this.piece;
     this.shape;
@@ -55,6 +57,8 @@ export default class Piece extends GameModule {
     this.lockdownTypeLast = null;
     this.spinDetectionType = null;
     this.lastKickIndex = 0;
+    this.resetGravityOnKick = false;
+    this.resetDelayOnKick = false;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
@@ -85,13 +89,16 @@ export default class Piece extends GameModule {
     this.x = 0 + SPAWN_OFFSETS[rotSys][name][0] + PIECE_OFFSETS[rotSys][name][this.orientation][0] + this.xSpawnOffset;
     this.y = 0 + SPAWN_OFFSETS[rotSys][name][1] + PIECE_OFFSETS[rotSys][name][this.orientation][0];
     this.lowestY = this.y;
+    this.lowestVisualY = this.visualY;
     this.kicks = KICK_TABLES[rotSys][name];
     this.manipulations = 0;
     for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
       this.shiftDown();
     }
     if (this.gravity <= framesToMs(1 / 20)) {
+      sound.add('land');
       this.sonicDrop();
+      this.genDropParticles();
     }
     if (this.isStuck) {
       sound.add('ko');
@@ -100,6 +107,7 @@ export default class Piece extends GameModule {
     this.color = this.parent.colors[this.name];
     this.rotatedX = null;
     this.rotatedY = null;
+    this.isDirty = true;
   }
   die() {
     this.isDead = true;
@@ -107,6 +115,9 @@ export default class Piece extends GameModule {
   }
   get yFloor() {
     return Math.floor(this.y);
+  }
+  get visualY() {
+    return (this.y + this.endY);
   }
   drawMino(x, y, buffer, type, number, color) {
     const cellSize = this.parent.cellSize;
@@ -160,6 +171,41 @@ export default class Piece extends GameModule {
       }
     }
   }
+  genDropParticles() {
+    const drop = this.getDrop();
+    const cellSize = this.parent.cellSize;
+    this.parent.particle.generate({
+      amount: 5 * (drop + 1),
+      x: (this.x + this.startX) * cellSize,
+      y: (this.y + this.endY - this.parent.bufferPeek) * cellSize,
+      xRange: (this.endX - this.startX + 1) * cellSize,
+      yRange: (drop + 1) * cellSize,
+      xVelocity: 0,
+      yVelocity: 3,
+      xVariance: 1,
+      yVariance: 3,
+      xDampening: 1.03,
+      yDampening: 1.05,
+      lifeVariance: 100,
+    });
+  }
+  genPieceParticles() {
+    const cellSize = this.parent.cellSize;
+    this.parent.particle.generate({
+      amount: 2,
+      x: (this.x + this.startX) * cellSize,
+      y: (this.y + this.endY - this.parent.bufferPeek) * cellSize,
+      xRange: (this.endX - this.startX + 1) * cellSize,
+      yRange: cellSize,
+      xVelocity: 0,
+      yVelocity: 3,
+      xVariance: 1,
+      yVariance: 3,
+      xDampening: 1.03,
+      yDampening: 1.05,
+      lifeVariance: 100,
+    });
+  }
   draw() {
     const ctx = this.ctx;
     clearCtx(ctx);
@@ -170,16 +216,15 @@ export default class Piece extends GameModule {
       this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
     }
     this.drawPiece(this.shape, 0, 0, 'piece');
-    if (this.manipulations >= this.manipulationLimit && false) {
+    if (this.manipulations >= this.manipulationLimit) {
       const cellSize = this.parent.cellSize;
       ctx.beginPath();
-      const y = cellSize * Math.floor(this.lowestY) + cellSize * this.parent.bufferPeek + this.shape.length * cellSize;
+      const y = cellSize * (Math.floor(this.lowestVisualY) + 1) + cellSize * this.parent.bufferPeek;
       ctx.moveTo(0, y);
       ctx.lineTo(this.parent.settings.width * cellSize, y);
       ctx.lineWidth = cellSize / 20;
       ctx.strokeStyle = '#f00';
       ctx.stroke();
-      ctx.strokeRect(this.x * cellSize, this.yFloor * cellSize + cellSize * this.parent.bufferPeek, this.shape.length * cellSize, this.shape.length * cellSize);
     }
     if (this.hasSpun) {
       if (this.hasSpunMini) {
@@ -253,6 +298,9 @@ export default class Piece extends GameModule {
     return false;
   }
   get endPoints() {
+    if (this.shape == null) {
+      return [0, 0];
+    }
     let maxX = 0;
     let maxY = 0;
     for (let i = 0; i < this.shape.length; i++) {
@@ -273,6 +321,9 @@ export default class Piece extends GameModule {
     return this.endPoints[1];
   }
   get startPoints() {
+    if (this.shape == null) {
+      return [0, 0];
+    }
     let minX = this.shape[0].length;
     let minY = this.shape.length;
     for (let i = 0; i < this.shape.length; i++) {
@@ -302,20 +353,7 @@ export default class Piece extends GameModule {
       const cellSize = this.parent.cellSize;
       this.parent.addScore('hardDrop', drop);
       sound.add('harddrop');
-      this.parent.particle.generate({
-        amount: 5 * (drop + 1),
-        x: (this.x + this.startX) * cellSize,
-        y: (this.y + this.endY - this.parent.bufferPeek) * cellSize,
-        xRange: (this.endX - this.startX + 1) * cellSize,
-        yRange: (drop + 1) * cellSize,
-        xVelocity: 0,
-        yVelocity: 3,
-        xVariance: 1,
-        yVariance: 3,
-        xDampening: 1.03,
-        yDampening: 1.05,
-        lifeVariance: 100,
-      });
+      this.genDropParticles();
     }
 
     this.sonicDrop();
@@ -329,6 +367,23 @@ export default class Piece extends GameModule {
     this.manipulations++;
     if (this.manipulations === this.manipulationLimit) {
       sound.add('lockforce');
+      const cellSize = this.parent.cellSize;
+      this.parent.particle.generate({
+        amount: 100,
+        x: 0,
+        y: cellSize * (Math.floor(this.lowestVisualY) + 1) + cellSize * this.parent.bufferPeek,
+        xRange: this.parent.stack.width * cellSize,
+        yRange: 1,
+        xVelocity: 0,
+        yVelocity: 0,
+        xVariance: 3,
+        yVariance: 3,
+        xFlurry: 1,
+        yFlurry: 1,
+        xDampening: 1.03,
+        yDampening: 1.03,
+        lifeVariance: 80,
+      });
     }
   }
   shift(direction, amount, condition) {
@@ -339,6 +394,9 @@ export default class Piece extends GameModule {
       this.isDirty = true;
       if (direction === 'x') {
         sound.add('move');
+      }
+      if (this.isLanded) {
+        sound.add('step');
       }
     } else {
       if (direction === 'x') {
@@ -380,6 +438,15 @@ export default class Piece extends GameModule {
         this.addManipulation();
         this.isDirty = true;
         sound.add('rotate');
+        if (this.isLanded) {
+          sound.add('step');
+        }
+        if (this.resetGravityOnKick && i > 0) {
+          this.y = this.yFloor;
+        }
+        if (this.resetDelayOnKick && i > 0) {
+          this.lockDelay = 0;
+        }
         if (this.checkSpin().isSpin) {
           const cellSize = this.parent.cellSize;
           if (this.checkSpin().isMini) {
