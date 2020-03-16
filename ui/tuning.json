@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "Autoshift Delay",
+      "default": true,
+      "description": "Change the amount of time in milliseconds before a piece will automatically shift",
+      "type": "slider",
+      "action": "slider",
+      "max": 300,
+      "min": 0,
+      "discrete": 10,
+      "setting": "DAS",
+      "settingType": "setting"
+    }
+  ]
+}

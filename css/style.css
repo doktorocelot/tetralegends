@@ -164,6 +164,48 @@ body {
 .modal.hidden {
   display: none;
 }
+#menu > .slider-container {
+  padding: .2em .5em;
+}
+#menu > .slider-container > .label {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: .7em;
+  letter-spacing: .3em;
+}
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+#menu > .slider-container .slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #aaa; /* Grey background */
+  outline: none; /* Remove outline */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+#menu > .slider-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fff; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#menu > .slider-container .slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fff; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
 #menu > .control {
   padding: .2em .5em;
 }
@@ -272,6 +314,17 @@ body {
 }
 #menu > .third-width {
   width: 25.8%;
+}
+@keyframes tetris-flash {
+  from {filter: brightness(100%);}
+  to {filter: brightness(800%);}
+}
+.tetris-flash {
+  animation-name: tetris-flash;
+  animation-duration: .05s;
+  animation-iteration-count: 8;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 .pulse {
   animation-name: pulse;

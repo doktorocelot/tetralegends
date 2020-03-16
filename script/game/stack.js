@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import {clearCtx, negativeMod} from '../shortcuts.js';
+import {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
 import sound from '../sound.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
@@ -22,6 +22,7 @@ export default class Stack extends GameModule {
     this.dirtyCells = [];
     this.levelUpAnimation = 0;
     this.levelUpAnimationLimit = 0;
+    this.flashOnTetris = false;
   }
   makeAllDirty() {
     for (let x = 0; x < this.grid.length; x++) {
@@ -126,6 +127,9 @@ export default class Stack extends GameModule {
     if (isMini) {
       version = 'mini';
     }
+    if (this.lineClear >= 4 && this.flashOnTetris) {
+      resetAnimation('#stack', 'tetris-flash');
+    }
     if (this.lineClear > 0) { // TODO mini tspin and clean this up
       this.parent.combo++;
       let type = 'erase';
@@ -203,6 +207,11 @@ export default class Stack extends GameModule {
     this.parent.addScore(`erase${this.lineClear}`);
     this.parent.updateStats();
     sound.add('collapse');
+    if (this.toCollapse.length >= 4) {
+      sound.add('collapse4');
+    } else {
+      sound.add('collapsenot4');
+    }
     this.parent.particle.generate({
       amount: 100,
       x: 0,

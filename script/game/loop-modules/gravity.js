@@ -7,7 +7,7 @@ function fallen(piece) {
     piece.isDirty = true;
   }
 
-  if (piece.yFloor > Math.floor(piece.lastY)) {
+  if (Math.floor(piece.visualY) > Math.floor(piece.lastVisualY)) {
     if (piece.gravityMultiplier !== 1 || piece.gravityOverride) {
       for (let i = 1; i <= (piece.yFloor - Math.floor(piece.lastY)); i++) {
         {gameHandler.game.addScore('softDrop');}
@@ -18,7 +18,7 @@ function fallen(piece) {
     }
     piece.isDirty = true;
     if (piece.isLanded) {
-      sound.add('step');
+      sound.add('land');
     }
   }
 }
@@ -33,6 +33,7 @@ export function gravity(arg) {
     if (piece.checkFall(distance)) {
       piece.y += Math.min(distance, piece.getDrop(distance + 1));
     } else {
+      piece.genDropParticles();
       piece.sonicDrop();
     }
   } else {
@@ -52,6 +53,34 @@ export function classicGravity(arg) {
     piece.y = oldY;
     piece.sonicDrop();
     piece.mustLock = true;
+  }
+  fallen(piece);
+}
+export function deluxeGravity(arg) {
+  const piece = arg.piece;
+  let distance = arg.ms / (piece.gravity / piece.gravityMultiplier);
+  if (piece.gravityOverride) {
+    distance = arg.ms / piece.gravityOverride;
+  }
+  if (!piece.mustLockRetro) {
+    if (!piece.isLanded) {
+      if (piece.checkFall(distance)) {
+        piece.y += Math.min(distance, piece.getDrop(distance + 1));
+      } else {
+        piece.genDropParticles();
+        piece.sonicDrop();
+      }
+    } else {
+      piece.y = Math.floor(piece.y);
+    }
+  } else {
+    const oldY = piece.y;
+    piece.y += Math.min(distance);
+    if (piece.isStuck) {
+      piece.y = oldY;
+      piece.sonicDrop();
+      piece.mustLock = true;
+    }
   }
   fallen(piece);
 }
