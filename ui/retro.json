@@ -4,17 +4,27 @@
   },
   "data": [
     {
+      "label": "Variations",
+      "type": "overline"
+    },
+    {
       "label": "Console",
       "default": true,
-      "description": "The classic version of the puzzle used competitvely",
+      "description": "The most competitively-used, classic version of the puzzle in the world!",
       "action": "game",
       "game": "retro"
     },
     {
       "label": "Handheld",
-      "description": "The classic version of the puzzle with heavy nostalgic value",
+      "description": "A slow-paced, nostalgic version that many played on handheld devices",
       "action": "game",
       "game": "handheld"
+    },
+    {
+      "label": "Deluxe",
+      "description": "A nice blend of classic and modern elements",
+      "action": "game",
+      "game": "deluxe"
     }
   ]
 }

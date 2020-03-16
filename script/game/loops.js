@@ -1,5 +1,5 @@
 import {framesToMs} from '../shortcuts.js';
-import {gravity, classicGravity} from './loop-modules/gravity.js';
+import {gravity, classicGravity, deluxeGravity} from './loop-modules/gravity.js';
 import {KICK_TABLES, PIECE_COLORS} from '../consts.js';
 import collapse from './loop-modules/collapse.js';
 import gameHandler from './game-handler.js';
@@ -19,7 +19,6 @@ import shifting from './loop-modules/shifting.js';
 import shiftingHandheld from './loop-modules/shifting-handheld.js';
 import shiftingRetro from './loop-modules/shifting-retro.js';
 import softDrop from './loop-modules/soft-drop.js';
-import softDropHandheld from './loop-modules/soft-drop-handheld.js';
 import softDropRetro from './loop-modules/soft-drop-retro.js';
 import sound from '../sound.js';
 import updateKeys from './loop-modules/update-keys.js';
@@ -315,6 +314,52 @@ export const loops = {
       game.updateStats();
     },
   },
+  deluxe: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        handheldDasAre(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        shiftingRetro(arg, framesToMs(9), framesToMs(3));
+      }
+      deluxeGravity(arg);
+      softDropRetro(arg, framesToMs(2));
+      classicLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.stat.level = Math.floor(game.stat.line / 10);
+      const SPEED_TABLE = [53, 49, 45, 41, 37, 33, 28, 22, 17, 11, 10, 9, 8, 7, 6, 6, 5, 5, 4, 4, 3];
+      let levelAdd = 0;
+      if (game.appends.level === '♥') {
+        levelAdd = 10;
+      }
+      game.piece.gravity = framesToMs(SPEED_TABLE[Math.min(20, game.stat.level + levelAdd)]);
+      levelUpdate(game);
+    },
+    onInit: (game) => {
+      game.stat.level = 0;
+      // game.appends.level = '♥';
+      lastLevel = 0;
+      gameHandler.game.makeSprite(
+          [
+            'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+            'l', 'o',
+            'z', 't', 'j',
+            's', 'white', 'black',
+          ],
+          ['mino', 'stack'],
+          'deluxe-special'
+      );
+      gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
+    },
+  },
   handheld: {
     update: (arg) => {
       collapse(arg);
@@ -326,7 +371,7 @@ export const loops = {
         shiftingRetro(arg, framesToMs(23), 150);
       }
       classicGravity(arg);
-      softDropHandheld(arg);
+      softDropRetro(arg, 50);
       retroLockdown(arg);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
@@ -377,7 +422,7 @@ export const loops = {
         shiftingRetro(arg, framesToMs(16), framesToMs(6));
       }
       classicGravity(arg);
-      softDropRetro(arg);
+      softDropRetro(arg, 33.3333333333);
       retroLockdown(arg, true);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
