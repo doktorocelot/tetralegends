@@ -1,6 +1,6 @@
 import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
-const limit = 5000;
+import settings from '../settings.js';
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -50,7 +50,7 @@ class SingleParticle {
   draw(ctx) {
     const opacity = (this.maxlife - this.lifetime) / this.maxlife;
     ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    ctx.fillRect(this.x, this.y, 2, 2);
+    ctx.fillRect(this.x, this.y, settings.settings.particleSize, settings.settings.particleSize);
   }
 }
 export default class Particle extends GameModule {
@@ -65,7 +65,9 @@ export default class Particle extends GameModule {
   }
   // generate(x, y, xRange, yRange, velX, varianceX, velY, varianceY, amount) {
   generate(properties) {
-    return;
+    if (!settings.settings.particles) {
+      return;
+    }
     const p = {
       amount: 1,
       xVariance: 0,
@@ -74,6 +76,7 @@ export default class Particle extends GameModule {
       yVelocity: 0,
       ...properties,
     };
+    p.amount *= 0.5 * settings.settings.particleScale;
     for (let i = 0; i <= p.amount; i++) {
       const xGen = getRandomInt(p.xRange * 100) / 100 + p.x;
       const yGen = getRandomInt(p.yRange * 100) / 100 + p.y;
@@ -92,6 +95,7 @@ export default class Particle extends GameModule {
     }
   }
   update() {
+    const limit = settings.settings.particleLimit;
     while (this.particles.length > limit) {
       this.particles.splice(getRandomInt(limit - 1), 1);
     }

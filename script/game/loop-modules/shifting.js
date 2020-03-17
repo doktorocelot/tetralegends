@@ -57,7 +57,7 @@ export default function shifting(arg) {
       piece.das += arg.ms;
     } else if (piece.das >= piece.dasLimit) {
       piece.arr += arg.ms;
-      if (piece.arrLimit === 0) {
+      if (piece.arrLimit <= 0) {
         while (piece[`canShift${capitalizeFirstLetter(piece.shiftDir)}`]) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
         }
