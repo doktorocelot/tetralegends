@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "SFX Volume",
+      "default": true,
+      "description": "The volume of the various sound effects in percentage",
+      "type": "slider",
+      "action": "slider",
+      "max": 100,
+      "min": 0,
+      "discrete": 5,
+      "setting": "sfxVolume",
+      "settingType": "setting"
+    },
+    {
+      "label": "Music Volume",
+      "description": "The volume of the music in percentage",
+      "type": "slider",
+      "action": "slider",
+      "max": 100,
+      "min": 0,
+      "discrete": 5,
+      "setting": "musicVolume",
+      "settingType": "setting"
+    }
+  ]
+}

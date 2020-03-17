@@ -10,6 +10,7 @@ export default class Next extends GameModule {
     this.reset();
     this.subCtx = ctxSub;
     this.nextLength = this.parent.userSettings.nextLength;
+    this.nextLimit = 6;
     this.queue = [];
     this.stats = {};
     for (const piece of Object.keys(PIECES)) {
@@ -44,6 +45,10 @@ export default class Next extends GameModule {
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
   }
   draw() {
+    this.nextLength = Math.min(this.nextLength, this.nextLimit);
+    if (this.nextLength <= 0) {
+      return;
+    }
     const piece = this.queue[0];
     const shape = PIECES[piece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][piece]];
     let cellSize = this.parent.cellSize;

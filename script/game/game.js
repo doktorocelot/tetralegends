@@ -169,6 +169,12 @@ export default class Game {
     }
   }
   drawLockdown() {
+    if (!this.userSettings.useLockdownBar) {
+      $('#pip-grid').classList.add('hidden');
+      $('#lockdown').classList.add('hidden');
+      $('#delay').classList.add('hidden');
+      return;
+    }
     $('#pip-grid').innerHTML = '';
     for (let i = this.piece.manipulationLimit; i > 0; i--) {
       const pip = document.createElement('div');
@@ -209,6 +215,9 @@ export default class Game {
     }
   }
   shiftMatrix(direction) {
+    if (settings.settings.matrixSwayScale <= 0) {
+      return;
+    }
     switch (direction) {
       case 'left':
         this.matrix.velocity.left = 1;
@@ -256,7 +265,8 @@ export default class Game {
         this.matrix.velocity[directions[0]] === 0 &&
         this.matrix.velocity[directions[1]] === 0
       ) {
-        this.matrix.position[directions[2]] /= 1.1;
+        const speed = 1.033 + ((settings.settings.matrixSwaySpeed / 100) ** 2) / 3.75;
+        this.matrix.position[directions[2]] /= speed;
       } else {
         for (let i = 0; i < 2; i++) {
           const direction = directions[i];
@@ -267,7 +277,8 @@ export default class Game {
       }
     }
     for (const element of ['#game-center', '#stats']) {
-      $(element).style.transform = `translate(${this.matrix.position.x / 3}em, ${this.matrix.position.y / 3}em)`;
+      const scale = 6 - Math.sqrt(25 *(settings.settings.matrixSwayScale / 100));
+      $(element).style.transform = `translate(${this.matrix.position.x / scale}em, ${this.matrix.position.y / scale}em)`;
     }
   }
   get cellSize() {

@@ -1,5 +1,6 @@
 import menu from './menu/menu.js';
-const SETTINGS_VERSION = 3;
+import sound from './sound.js';
+const SETTINGS_VERSION = 4;
 class Settings {
   constructor() {
     this.defaultSettings = {
@@ -29,8 +30,17 @@ class Settings {
       backgroundOpacity: 30,
       grid: true,
       actionText: true,
-      matrixSway: true,
+      matrixSwayScale: 50,
+      matrixSwaySpeed: 50,
       visualInitial: true,
+      particles: true,
+      particleLimit: 1500,
+      particleSize: 3,
+      particleScale: 2,
+      useLockdownBar: true,
+      // Audio
+      sfxVolume: 50,
+      musicVolume: 50,
     };
     this.settingInfo = {
       // Tuning
@@ -166,6 +176,8 @@ class Settings {
   }
   changeSetting(setting, value) {
     this.settings[setting] = value;
+    sound.updateVolumes();
+    this.saveSettings();
   }
   getConflictingControlNames() {
     const keyFrequency = {};
