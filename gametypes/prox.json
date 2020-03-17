@@ -22,7 +22,6 @@
   "stats": [
     "score",
     "level",
-    "entrydelay",
     "line",
     "piece"
   ]

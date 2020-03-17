@@ -4,6 +4,12 @@
   },
   "data": [
     {
+      "label": "Delay/Rate Presets",
+      "description": "Select from a variety of different presets for the autoshift",
+      "action": "submenu",
+      "submenu": "daspresets"
+    },
+    {
       "label": "Autoshift Delay",
       "default": true,
       "description": "(DAS) The amount of time in milliseconds before a piece will automatically shift",
