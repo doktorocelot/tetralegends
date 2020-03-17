@@ -9,6 +9,12 @@
       "description": "Stack until you drop!",
       "action": "game",
       "game": "standardx"
+    },
+    {
+      "label": "Pro",
+      "description": "This is where puzzle masters come to die",
+      "action": "game",
+      "game": "prox"
     }
   ]
 }

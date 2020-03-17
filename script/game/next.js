@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import {clearCtx} from '../shortcuts.js';
+import $, {clearCtx} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
 import {PIECE_SETS, PIECES, INITIAL_ORIENTATION} from '../consts.js';
 
@@ -44,18 +44,23 @@ export default class Next extends GameModule {
 
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
   }
+
   draw() {
     this.nextLength = Math.min(this.nextLength, this.nextLimit);
+    clearCtx(this.ctx);
+    clearCtx(this.subCtx);
     if (this.nextLength <= 0) {
+      $('#main-next-container').classList.add('hidden');
       return;
+    } else {
+      $('#main-next-container').classList.remove('hidden');
     }
     const piece = this.queue[0];
     const shape = PIECES[piece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][piece]];
     let cellSize = this.parent.cellSize;
     const offset = this.parent.nextOffsets[piece];
     let ctx = this.ctx;
-    clearCtx(this.ctx);
-    clearCtx(this.subCtx);
+
     for (let y = 0; y < shape.length; y++) {
       for (let x = 0; x < shape[y].length; x++) {
         const color = this.parent.colors[piece];
