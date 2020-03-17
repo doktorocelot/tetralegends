@@ -24,7 +24,7 @@
     "flashOnTetris": true
   },
   "next": {
-    "nextLength": 1
+    "nextLimit": 1
   },
   "hold": {
     "isDisabled": true

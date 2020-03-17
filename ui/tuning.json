@@ -6,13 +6,32 @@
     {
       "label": "Autoshift Delay",
       "default": true,
-      "description": "Change the amount of time in milliseconds before a piece will automatically shift",
+      "description": "(DAS) The amount of time in milliseconds before a piece will automatically shift",
       "type": "slider",
       "action": "slider",
       "max": 300,
       "min": 0,
       "discrete": 10,
       "setting": "DAS",
+      "settingType": "setting"
+    },
+    {
+      "label": "Autoshift Rate",
+      "description": "(ARR) The amount of time in milliseconds in between each automatic shift",
+      "type": "slider",
+      "action": "slider",
+      "max": 100,
+      "min": 0,
+      "discrete": 5,
+      "setting": "ARR",
+      "settingType": "setting"
+    },
+    {
+      "label": "Autoshift Preload",
+      "description": "Automatically fully charge the autoshift when a shift key is pressed during entry delay",
+      "type": "toggle",
+      "action": "toggle",
+      "setting": "IAS",
       "settingType": "setting"
     }
   ]

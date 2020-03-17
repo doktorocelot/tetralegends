@@ -1,14 +1,21 @@
 import {loadSoundbank} from './loaders.js';
-
+import settings from './settings.js';
 class Sound {
   constructor() {
+    console.log();
     this.sounds = [];
     this.music = {};
     this.toPlay = {};
     this.files = [];
-    this.load('standard');
-    this.loadBgm('marathon', 'marathon');
     this.mustWait = false;
+  }
+  updateVolumes() {
+    for (const key of Object.keys(this.sounds)) {
+      this.sounds[key].volume(settings.settings.sfxVolume / 100);
+    }
+    for (const key of Object.keys(this.music)) {
+      this.music[key].volume(settings.settings.musicVolume / 100);
+    }
   }
   load(name = 'standard') {
     this.mustWait = true;
@@ -19,13 +26,13 @@ class Sound {
           for (const soundName of this.files) {
             this.sounds[soundName] = new Howl({
               src: [`./se/game/${name}/${soundName}.ogg`],
-              volume: .25,
+              volume: settings.settings.sfxVolume / 100,
             });
           }
           for (const ren of this.ren) {
             this.sounds[`ren${ren}`] = new Howl({
               src: [`./se/game/${name}/ren/ren${ren}.ogg`],
-              volume: .25,
+              volume: settings.settings.sfxVolume / 100,
             });
           }
           this.mustWait = false;
@@ -34,14 +41,14 @@ class Sound {
   loadBgm(name, type) {
     this.music[`${type}-${name}-start`] = new Howl({
       src: [`./bgm/${type}/${name}-start.ogg`],
-      volume: .25,
+      volume: settings.settings.musicVolume / 100,
       onend: () => {
         this.music[`${type}-${name}-loop`].play();
       },
     });
     this.music[`${type}-${name}-loop`] = new Howl({
       src: [`./bgm/${type}/${name}-loop.ogg`],
-      volume: .25,
+      volume: settings.settings.musicVolume / 100,
       loop: true,
     });
   }

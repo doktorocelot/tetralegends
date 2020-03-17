@@ -8,7 +8,8 @@ const isSelectable = (type) => {
     type == null ||
     type == 'control' ||
     type == 'setting' ||
-    type == 'slider'
+    type == 'slider' ||
+    type == 'toggle'
   ) {
     return true;
   }
@@ -125,7 +126,11 @@ class Menu {
           element = document.createElement('div');
           element.classList.add('slider-container');
           sub.innerHTML =
-            `<input type="range" min="${currentData.min}" max="${currentData.max}" value="${currentData.min}" class="slider" id="${currentData.settingType}-${currentData.setting}">`;
+            `<div id=${currentData.settingType}-${currentData.setting}-value></div>`;
+          break;
+        case 'toggle':
+          element = document.createElement('div');
+          element.classList.add('toggle-container');
           break;
         case 'control':
           element = document.createElement('div');
@@ -173,11 +178,50 @@ class Menu {
         element.appendChild(label);
         element.appendChild(sub);
       } else if (currentData.type === 'slider') {
+        element.onclick = () => {};
         const label = document.createElement('div');
         label.textContent = currentData.label;
-        label.classList.add('label');
+        label.classList.add('setting-text');
+        const value = document.createElement('div');
+        value.id = `${currentData.settingType}-${currentData.setting}-value`;
+        value.classList.add('value');
+        value.onclick = () => {
+          const newValue = prompt('Enter the desired value:');
+          if (isNaN(newValue) || newValue == null) {
+            return;
+          }
+          settings.changeSetting(currentData.setting, Math.min(Math.max(currentData.min, newValue), currentData.max));
+          this.drawSettings();
+        };
+        const slider = document.createElement('input');
+        slider.setAttribute('settingtype', 'slider');
+        slider.type = 'range';
+        slider.min = currentData.min;
+        slider.value = currentData.min;
+        slider.max = currentData.max;
+        slider.classList.add('slider');
+        slider.id = `${currentData.settingType}-${currentData.setting}`;
+        slider.oninput = () => {
+          settings.changeSetting(currentData.setting, slider.value);
+          this.drawSettings();
+        };
         element.appendChild(label);
-        element.appendChild(sub);
+        element.appendChild(slider);
+        element.appendChild(value);
+      } else if (currentData.type === 'toggle') {
+        const label = document.createElement('div');
+        label.textContent = currentData.label;
+        label.classList.add('setting-text');
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.id = `${currentData.settingType}-${currentData.setting}`;
+        bubble.setAttribute('settingtype', 'toggle');
+        const value = document.createElement('div');
+        value.classList.add('value-name');
+        value.id = `${currentData.settingType}-${currentData.setting}-value`;
+        element.appendChild(label);
+        element.appendChild(bubble);
+        element.appendChild(value);
       } else {
         element.textContent = currentData.label;
       }
@@ -199,7 +243,11 @@ class Menu {
     this.current.data = [...newData];
     if (this.current.name === 'controls') {
       this.drawControls();
+    } else if (this.current.name === 'tuning') {
+      this.drawSettings();
     }
+    this.drawSettings();
+
     return;
     for (let i = 0; i < this.current.data.length; i++) {
       const currentData = this.current.data[i];
@@ -224,6 +272,32 @@ class Menu {
   listenForNewKey() {
     this.isLocked = true;
     document.addEventListener('keydown', getKey);
+  }
+  drawSettings() {
+    for (const key of Object.keys(settings.settings)) {
+      const element = $(`#setting-${key}`);
+      if (element != null) {
+        switch (element.getAttribute('settingtype')) {
+          case 'slider':
+            element.value = settings.settings[key];
+            $(`#setting-${key}-value`).innerHTML = `${element.value}`;
+            break;
+          case 'toggle':
+            try {
+              if (settings.settings[key] === true) {
+                element.classList.add('enabled');
+                $(`#setting-${key}-value`).textContent = 'Enabled';
+              } else {
+                element.classList.remove('enabled');
+                $(`#setting-${key}-value`).textContent = 'Disabled';
+              }
+            } catch (e) {
+              // I REALLY AM AN IDIOT
+            }
+            break;
+        }
+      }
+    }
   }
   drawControls() {
     const duplicates = settings.getConflictingControlNames();
@@ -292,30 +366,35 @@ class Menu {
     $('#description').textContent = this.current.data[number].description;
   }
   up() {
-    if (!this.isLocked) {
-      let modifier = 0;
-      if (
-        this.selectedData.width === 'half' &&
-        this.current.data[negativeMod((this.selected - 1), this.length)].width === 'half'
-      ) {
-        modifier = 1;
-      }
-      this.select(negativeMod((this.selected - 1 - modifier), this.length));
+    if (this.isLocked) {
+      return;
     }
+    let modifier = 0;
+    if (
+      this.selectedData.width === 'half' &&
+        this.current.data[negativeMod((this.selected - 1), this.length)].width === 'half'
+    ) {
+      modifier = 1;
+    }
+    this.select(negativeMod((this.selected - 1 - modifier), this.length));
   }
   down() {
-    if (!this.isLocked) {
-      let modifier = 0;
-      if (
-        this.selectedData.width === 'half' &&
-        this.current.data[negativeMod((this.selected + 1), this.length)].width === 'half'
-      ) {
-        modifier = 1;
-      }
-      this.select(negativeMod((this.selected + 1 + modifier), this.length));
+    if (this.isLocked) {
+      return;
     }
+    let modifier = 0;
+    if (
+      this.selectedData.width === 'half' &&
+        this.current.data[negativeMod((this.selected + 1), this.length)].width === 'half'
+    ) {
+      modifier = 1;
+    }
+    this.select(negativeMod((this.selected + 1 + modifier), this.length));
   }
   right() {
+    if (this.isLocked) {
+      return;
+    }
     if (this.selectedData.type === 'control') {
       const next = this.selectedControl.nextSibling;
       this.selectedControl.classList.remove('selected');
@@ -328,14 +407,21 @@ class Menu {
     }
     if (this.selectedData.type === 'slider') {
       const slider = $('#menu > .slider-container.selected .slider');
-      slider.value = parseInt(slider.value) + 1;
+      slider.value = parseInt(slider.value) + this.selectedData.discrete;
+      slider.oninput();
       return;
     }
-    if (!this.isLocked) {
-      this.select(negativeMod((this.selected + 1), this.length));
+    if (this.selectedData.type === 'toggle') {
+      settings.changeSetting(this.selectedData.setting, true);
+      this.drawSettings();
+      return;
     }
+    this.select(negativeMod((this.selected + 1), this.length));
   }
   left() {
+    if (this.isLocked) {
+      return;
+    }
     if (this.selectedData.type === 'control') {
       const prev = this.selectedControl.previousElementSibling;
       this.selectedControl.classList.remove('selected');
@@ -346,9 +432,19 @@ class Menu {
       prev.classList.add('selected');
       return;
     }
-    if (!this.isLocked) {
-      this.select(negativeMod((this.selected - 1), this.length));
+    if (this.selectedData.type === 'slider') {
+      const slider = $('#menu > .slider-container.selected .slider');
+      slider.value = parseInt(slider.value) - this.selectedData.discrete;
+      slider.oninput();
+
+      return;
     }
+    if (this.selectedData.type === 'toggle') {
+      settings.changeSetting(this.selectedData.setting, false);
+      this.drawSettings();
+      return;
+    }
+    this.select(negativeMod((this.selected - 1), this.length));
   }
 
   ok() {
@@ -376,6 +472,13 @@ class Menu {
         break;
       case 'control':
         this.selectedControl.onclick();
+        break;
+      case 'toggle':
+        settings.changeSetting(this.selectedData.setting, !settings.settings[this.selectedData.setting]);
+        this.drawSettings();
+        break;
+      case 'slider':
+        $('.slider-container.selected .value').onclick();
         break;
       case 'controls':
         this.load('controls', 'controls');

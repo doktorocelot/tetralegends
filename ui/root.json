@@ -36,7 +36,7 @@
       "label": "Arcade",
       "disabled": true,
       "width": "half",
-      "description": "Difficult vaiant loved by harcore players (coming soon!)",
+      "description": "Difficult vaiant loved by hardcore players (coming soon!)",
       "action": "submenu"
     },
     {
@@ -45,9 +45,8 @@
     },
     {
       "label": "Tuning",
-      "disabled": true,
       "width": "half",
-      "description": "Change how the game feels (W.I.P.)",
+      "description": "Change how the game feels",
       "action": "submenu",
       "submenu": "tuning"
     },
@@ -60,17 +59,17 @@
     },
     {
       "label": "Audio",
-      "disabled": true,
       "width": "half",
-      "description": "Change how the game sounds (W.I.P.)",
-      "action": "submenu"
+      "description": "Change how the game sounds",
+      "action": "submenu",
+      "submenu": "audio"
     },
     {
       "label": "Video",
-      "disabled": true,
       "width": "half",
-      "description": "Change how the game looks (W.I.P.)",
-      "action": "submenu"
+      "description": "Change how the game looks",
+      "action": "submenu",
+      "submenu": "video"
     },
     {
       "label": "Misc",

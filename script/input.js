@@ -46,11 +46,17 @@ class Input {
         buttonHints.change('keyboard');
         buttonHints.show();
       }
-      if (event.code === 'Backspace' && gameHandler.game != null) {
-        if (gameHandler.game.isVisible) {
-          gameHandler.game.hide();
-          gameHandler.game.pause();
-          menu.open();
+      if (event.code === 'Backspace') {
+        if (gameHandler.game != null) {
+          if (gameHandler.game.isVisible) {
+            gameHandler.game.hide();
+            gameHandler.game.pause();
+            menu.open();
+          } else {
+            menu.back();
+          }
+        } else {
+          menu.back();
         }
       }
       this.mouseLimit = 0;
