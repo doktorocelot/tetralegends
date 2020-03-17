@@ -164,50 +164,107 @@ body {
 .modal.hidden {
   display: none;
 }
-#menu > .slider-container {
+#menu > .control,
+#menu > .slider-container,
+#menu > .toggle-container
+{
   padding: .2em .5em;
 }
-#menu > .slider-container > .label {
+#menu > .toggle-container {
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+}
+#menu > .toggle-container .value-name {
+  position: absolute;
+  margin-top: .6em;
+  padding-left: .6em;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: .7em;
+  font-weight: 500;
+  letter-spacing: .3em;
+}
+#menu > .toggle-container .bubble {
+  margin-top: .3em;
+  border-color: #fff;
+  border-width: .04em;
+  border-style: solid;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  border-radius: 100em;
+}
+#menu > .toggle-container .bubble.enabled {
+  background-color: #fff;
+}
+#menu > .toggle-container.selected .bubble {
+  border-color: #000;
+}
+#menu > .toggle-container.selected .bubble.enabled {
+  background-color: #000;
+}
+.setting-text {
   text-align: left;
   text-transform: uppercase;
   font-size: .7em;
-  letter-spacing: .3em;
+  letter-spacing: .1em;
 }
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+  width: 100%; 
 }
+#menu > .slider-container .value {
+  display: inline-block;
+  font-size: .8em;
+  text-align: right;
+  width: 2em;
+  border-radius: .2em;
+  border-color: #fff;
+  border-width: .04em;
+  border-style: solid;
+  padding: .1em .4em .1em .4em;
+  margin: .2em 0 .2em .8em;
+  cursor: pointer;
+}
+#menu > .slider-container.selected .value {
+  border-color: #000;
 
-/* The slider itself */
+}
 #menu > .slider-container .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #aaa; /* Grey background */
-  outline: none; /* Remove outline */
+  width: 70%; 
+  height: 1em;
+  background: #0000; /* Grey background */
+  outline-color: #fff;
+  outline-width: .1em;
+  outline-style: solid;
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
-
+#menu > .slider-container.selected .slider {
+  outline-color: #000;
+}
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 #menu > .slider-container .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 2em; /* Set a specific slider handle width */
+  height: 1em; /* Slider handle height */
   background: #fff; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-
+#menu > .slider-container.selected .slider::-webkit-slider-thumb {
+  background: #000; /* Green background */
+}
 #menu > .slider-container .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 2em; /* Set a specific slider handle width */
+  height: 1em; /* Slider handle height */
   background: #fff; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-
-#menu > .control {
-  padding: .2em .5em;
+#menu > .slider-container.selected .slider::-moz-range-thumb {
+  background: #000; /* Green background */
 }
 #menu > .control.selected {
   background-color: transparent;

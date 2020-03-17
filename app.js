@@ -21,7 +21,7 @@ input.addMany([
   () => {menu.left();},
   () => {menu.right();},
   () => {menu.ok();},
-  () => {menu.back();},
+  () => {},
 ]);
 document.addEventListener('DOMContentLoaded', () => {
   settings.load();
