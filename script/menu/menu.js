@@ -33,6 +33,8 @@ class Menu {
     };
     this.isEnabled = false;
     this.isLocked = false;
+    this.lastSelection = 0;
+    this.useLastSelected = false;
   }
   get selected() {
     return parseInt($('#menu > div.selected').id.substring(7));
@@ -72,6 +74,10 @@ class Menu {
               break;
           }
           this.showMenu();
+          if (this.useLastSelected) {
+            this.select(this.lastSelection);
+            this.useLastSelected = false;
+          }
           this.isLocked = false;
           this.isEnabled = true;
         })
@@ -459,6 +465,7 @@ class Menu {
     }
     switch (this.selectedData.action) {
       case 'submenu':
+        this.lastSelection = this.selected;
         this.load(this.selectedData.submenu);
         break;
       case 'back':
@@ -508,6 +515,7 @@ class Menu {
   back() {
     if (!this.isLocked) {
       if (this.current.properties.parent !== null) {
+        this.useLastSelected = true;
         this.load(this.current.properties.parent);
       }
     }
