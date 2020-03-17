@@ -14,7 +14,7 @@ export default class Hold extends GameModule {
     this.isDisabled = false;
   }
   hold() {
-    if (this.isLocked) {
+    if (this.isLocked || this.isDisabled) {
       return;
     }
     if (this.ihs) {
@@ -35,6 +35,11 @@ export default class Hold extends GameModule {
     resetAnimation('#hold-container', 'flash');
   }
   draw() {
+    if (this.isDisabled) {
+      $('#hold-container').classList.add('hidden');
+    } else {
+      $('#hold-container').classList.remove('hidden');
+    }
     if (this.pieceName === null) {
       return;
     }
@@ -43,11 +48,14 @@ export default class Hold extends GameModule {
     } else {
       $('#hold').classList.remove('locked');
     }
+    clearCtx(this.ctx);
+    if (this.isDisabled) {
+      return;
+    }
     const shape = PIECES[this.pieceName].shape[0];
     const cellSize = this.parent.cellSize;
     const offset = this.parent.nextOffsets[this.pieceName];
     const ctx = this.ctx;
-    clearCtx(this.ctx);
     for (let y = 0; y < shape.length; y++) {
       for (let x = 0; x < shape[y].length; x++) {
         const color = this.parent.colors[this.pieceName];

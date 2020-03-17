@@ -257,17 +257,7 @@ export const loops = {
       gravity(arg);
       hyperSoftDrop(arg);
       hardDrop(arg);
-      switch (arg.piece.dynamicLockType) {
-        case 'e':
-          extendedLockdown(arg);
-          break;
-        case 'c':
-          classicLockdown(arg);
-          break;
-        default:
-          infiniteLockdown(arg);
-          break;
-      }
+      classicLockdown(arg);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
         hold(arg);
@@ -276,38 +266,27 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10 + 1);
-      const calcLevel = Math.min(29, game.stat.level - 1);
+      game.stat.level = Math.min(5, Math.floor(game.stat.line / 20 + 1));
+      const calcLevel = game.stat.level - 1;
       const SPEED_TABLE = [
-        5, 3, 2, 1, 1/2,
-        1/3, 1/5, 1/20, 0, 0,
-        0, 0, 10, 1, 1,
-        0, 0, 250, 240, 230,
-        221, 212, 204, 196, 188,
-        180, 173, 166, 159, 153];
+        1, 1/2, 1/5, 1/20, 1/20];
       game.piece.gravity = framesToMs(SPEED_TABLE[calcLevel]);
       const DELAY_TABLE = [
-        1500, 1200, 1000, 900, 800,
-        700, 600, 500, 450, 425,
-        400, 350, 500, 300, 200,
-        350, 340, 250, 240, 230,
-        221, 212, 204, 196, 188,
-        180, 173, 166, 159, 153];
+        500, 475, 450, 375, 350];
       game.piece.lockDelayLimit = DELAY_TABLE[calcLevel];
-      const LOCK_TABLE = [
-        'i', 'i', 'i', 'i', 'i',
-        'i', 'i', 'i', 'i', 'i',
-        'i', 'i', 'e', 'e', 'e',
-        'e', 'e', 'e', 'e', 'e',
-        116, 109, 103, 96, 91,
-        85, 80, 75, 71, 65];
-      game.piece.dynamicLockType = LOCK_TABLE[calcLevel];
+      const NEXT_TABLE = [
+        6, 3, 1, 0, 0];
+      game.next.nextLimit = NEXT_TABLE[calcLevel];
+      if (calcLevel >= 4 && !game.hold.isDisabled) {
+        game.hold.isDisabled = true;
+        game.hold.isDirty = true;
+      }
       levelUpdate(game);
     },
     onInit: (game) => {
       game.stat.level = 1;
       lastLevel = 1;
-      game.prefixes.level = 'PRO ';
+      game.prefixes.level = 'MACH ';
       game.smallStats.level = true;
       game.resize();
       updateFallSpeed(game);

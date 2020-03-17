@@ -147,11 +147,6 @@ export default class Game {
     game.stack.makeAllDirty();
     game.isDirty = true;
     $('#stats').innerHTML = '';
-    if (game.hold.isDisabled) {
-      $('#hold-container').classList.add('hidden');
-    } else {
-      $('#hold-container').classList.remove('hidden');
-    }
     for (const statName of game.stats) {
       const stat = document.createElement('div');
       stat.classList.add('stat-group');
