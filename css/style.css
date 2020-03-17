@@ -92,7 +92,8 @@ body {
 {
   display: none;
 }
-#hold-container.hidden {
+#hold-container.hidden,
+#main-next-container.hidden {
   opacity: 0;
 }
 

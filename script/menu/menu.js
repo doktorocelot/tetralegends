@@ -483,6 +483,11 @@ class Menu {
       case 'controls':
         this.load('controls', 'controls');
         break;
+      case 'daspreset':
+        settings.changeSetting('DAS', this.selectedData.delay);
+        settings.changeSetting('ARR', this.selectedData.rate);
+        this.back();
+        break;
       case 'functionClearControls':
         for (const key of Object.keys(settings.controls)) {
           settings.controls[key] = [];
