@@ -50,5 +50,13 @@
   "ready": {
     "message": "Ready?",
     "description": "Good options are: 'Get Ready!', 'Are you ready?'"
+  },
+  "start": {
+    "message": "Start!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
+  },
+  "go": {
+    "message": "Go!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   }
 }
