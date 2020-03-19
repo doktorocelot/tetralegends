@@ -32,13 +32,13 @@
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Variante díficil del rompecabezas para jugadores avanzados"
+    "message": "Variante difícil del rompecabezas para jugadores avanzados"
   },
   "settingsOverline": {
     "message": "Configuraciones"
   },
   "tuningLabel": {
-    "message": "Movimiento"
+    "message": "Gameplay"
   },
   "tuningDescription": {
     "message": "Cambia cómo se siente el juego"
