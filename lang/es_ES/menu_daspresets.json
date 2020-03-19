@@ -1,41 +1,41 @@
 {
   "defaultLabel": {
-    "message": "Default"
+    "message": "Por defecto"
   },
   "defaultDescription": {
-    "message": "The default settings that come with the game"
+    "message": "Los ajustes por defecto que vienen con el juego"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "Estándar"
   },
   "guidelineDescription": {
-    "message": "Standard settings found in most versions"
+    "message": "Configuración estándar encontrada en la mayoría de versiones"
   },
   "pptLabel": {
     "message": "PPT",
     "description": "Based on Puyo Puyo Tetris"
   },
   "pptDescription": {
-    "message": "A slightly quicker version of the standard settings"
+    "message": "Una versión un poco más rápida de la configuración estándar"
   },
   "tetraOnlineLabel": {
     "message": "Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
-    "message": "Matches the autoshift settings of Tetra Online",
+    "message": "Hace coincidir con la configuración de Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "quickLabel": {
-    "message": "Quick"
+    "message": "Rápido"
   },
   "quickDescription": {
-    "message": "A quicker presets that requires some control"
+    "message": "Una configuración rápida que requiere algo de control"
   },
   "proLabel": {
-    "message": "Pro"
+    "message": "Profesional"
   },
   "proDescription": {
-    "message": "A hyperspeed preset that requires high-level control"
+    "message": "Una configuración súper rápida que requiere control de alto nivel"
   }
 }
