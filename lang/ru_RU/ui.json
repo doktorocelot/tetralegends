@@ -1,0 +1,46 @@
+{
+  "level": {
+    "message": "Level",
+    "description": "The level (usually affects the speed of the game)"
+  },
+  "score": {
+    "message": "Score",
+    "description": "The amount of points the player has"
+  },
+  "line": {
+    "message": "Lines",
+    "description": "The amount of lines the player has cleared"
+  },
+  "piece": {
+    "message": "Pieces",
+    "description": "The amount of pieces the player has placed"
+  },
+  "time": {
+    "message": "Time",
+    "description": "How much time has passed since the start of the game"
+  },
+  "fallspeed": {
+    "message": "Fall Speed",
+    "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
+  },
+  "entrydelay": {
+    "message": "Entry Delay",
+    "description": "The amount of time in between piece placements, also known as 'ARE'"
+  },
+  "next": {
+    "message": "Next",
+    "description": "The label for the next piece in the queue"
+  },
+  "hold": {
+    "message": "Hold",
+    "description": "The label for the piece in the hold queue"
+  },
+  "skip": {
+    "message": "Skip",
+    "description": "The label that indicates that you can discard or skip a piece"
+  },
+  "secrow": {
+    "message": "sec/row",
+    "description": "The unit label for 'seconds per row'"
+  }
+}
