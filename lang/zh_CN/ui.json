@@ -36,11 +36,11 @@
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
-    "message": "Skip",
+    "message": "跳过",
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "sec/row",
+    "message": "秒/行",
     "description": "The unit label for 'seconds per row'"
   }
 }
