@@ -26,5 +26,21 @@
   "entrydelay": {
     "message": "Entry Delay",
     "description": "The amount of time in between the piece's lockdown and then the next piece; also known as 'ARE'"
+  },
+  "next": {
+    "message": "Next",
+    "description": "The label for the next piece in the queue"
+  },
+  "hold": {
+    "message": "Hold",
+    "description": "The label for the piece in the hold queue"
+  },
+  "skip": {
+    "message": "Skip",
+    "description": "The label that indicates that you can discard or skip a piece"
+  },
+  "secrow": {
+    "message": "sec/row",
+    "description": "The unit label for 'seconds per row'"
   }
 }
