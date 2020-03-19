@@ -1,0 +1,55 @@
+{
+  "nextLengthLabel": {
+    "message": "Next Queue Length"
+  },
+  "nextLengthDescription": {
+    "message": "The amount of pieces the player can see up ahead in the next queue"
+  },
+  "lockdownBarLabel": {
+    "message": "Lockdown Bar",
+    "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
+  },
+  "lockdownBarDescription": {
+    "message": "Allow the ability to see additional information on lock delay and move limits"
+  },
+  "swayScaleLabel": {
+    "message": "Matrix Sway Scale",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
+  },
+  "swayScaleDescription": {
+    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "swaySpeedLabel": {
+    "message": "Matrix Sway Speed",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
+  },
+  "swaySpeedDescription": {
+    "message": "How fast the matrix returns to its neutral position in percentage",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "particlesLabel": {
+    "message": "Particles"
+  },
+  "particlesDescription": {
+    "message": "Whether particles should be drawn"
+  },
+  "particleLimitLabel": {
+    "message": "Particle Limit"
+  },
+  "particleLimitDescription": {
+    "message": "How many particles can appear on screen at one time"
+  },
+  "particleSizeLabel": {
+    "message": "Particle Size"
+  },
+  "particleSizeDescription": {
+    "message": "How large the particles will appear"
+  },
+  "particleVolumeLabel": {
+    "message": "Particle Volume"
+  },
+  "particleVolumeDescription": {
+    "message": "How many particles will generate"
+  }
+}
