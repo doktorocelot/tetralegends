@@ -28,19 +28,19 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "next": {
-    "message": "Next",
+    "message": "Próximo",
     "description": "The label for the next piece in the queue"
   },
   "hold": {
-    "message": "Hold",
+    "message": "Sostener",
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
-    "message": "Skip",
+    "message": "Omitir",
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "sec/row",
+    "message": "seg/fila",
     "description": "The unit label for 'seconds per row'"
   }
 }
