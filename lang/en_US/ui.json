@@ -74,5 +74,13 @@
   "topOut": {
     "message": "Top Out",
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
+  },
+  "timeOut": {
+    "messages": "Time Up",
+    "description": "Displays when the time runs out"
+  },
+  "excellent": {
+    "message": "Excellent!",
+    "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   }
 }
