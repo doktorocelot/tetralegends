@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Don't hesistate! Clear the line goal as quick as you can in this high-speed mode.",
+    "message": "Don't hesitate! Clear the line goal as quick as you can in this high-speed mode.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
