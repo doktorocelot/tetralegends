@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Limpiar",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Limpia todos los controles para tener un espacio de trabajo en blanco"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Por defecto",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Restablecer todos los controles a sus valores por defecto"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Desplazar izquierda"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Mueve una pieza a la izquierda o sostener para autoshift"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Desplazar derecha"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Mueve una pieza a la derecha o sostener para autoshift"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Caída inmediata"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Suelta una pieza instantáneamente al suelo. (puede actuar diferente o ser deshabilitado en algunos modos de juego)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Caída rápida"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Acelera el descenso de una pieza (puede actuar de forma diferente en algunos modos de juego)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Rotar a la izquierda",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Rotar una pieza a 90° en sentido contra-horario."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Rotar a la derecha",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Rotar una pieza a 90° en sentido horario."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Rotar 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Rotar una pieza en 180° (podría ser deshabilitado en algunos modos de juego)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Sostener"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Guarda una pieza (podría ser deshabilitado en algunos modos de juego)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Reintentar",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Haz otro intento al instante"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pausar"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Pausa el juego"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Configuración de control",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Pulse cualquier tecla que desea para esta acción",
     "description": "Displays on the popup when you add a control binding"
   }
 }
