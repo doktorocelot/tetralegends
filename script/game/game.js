@@ -14,6 +14,7 @@ import Hold from './hold.js';
 import sound from '../sound.js';
 import Particle from './particle.js';
 import GameModule from './game-module.js';
+import locale from '../lang.js';
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
@@ -152,7 +153,7 @@ export default class Game {
       stat.classList.add('stat-group');
       const label = document.createElement('label');
       const number = document.createElement('div');
-      label.textContent = statName;
+      label.textContent = locale.getString('ui', statName);
       number.innerHTML = game.stat[statName];
       number.id = `stat-${statName}`;
       if (!game.smallStats[statName]) {
