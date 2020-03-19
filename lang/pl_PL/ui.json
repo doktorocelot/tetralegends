@@ -58,5 +58,13 @@
   "go": {
     "message": "Go!",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
+  },
+  "gameover": {
+    "message": "Game Over",
+    "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
+  },
+  "blockOut": {
+    "message": "Block Out",
+    "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
   }
 }
