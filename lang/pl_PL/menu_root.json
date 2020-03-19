@@ -1,74 +1,74 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "Szybka gra",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "Zacznij grę \"Maraton\" z domyślnymi ustawieniami"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "Style gry",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
     "message": "Guideline"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "Standardowy wariant zasad gry, który można znaleźć w większości współczesnych gier"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Niestandardowy wariant gry, zaprojektowany dla Tetra-X"
   },
   "retroLabel": {
     "message": "Retro"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "Klasyczny wariant gry kochanej przez starszych graczy"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "Trudniejszy wariant gry kochanej przez doświadczonych graczy"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "Ustawienia"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "Opóźnienia"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "Zmień prędkość przesuwania bloków"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "Sterowanie"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "Zmień sterowanie"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "Dźwięk"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "Zmień ustawienia dźwięku"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "Obraz"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "Zmień ustawienia obrazu"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "Inne",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "Ścieżka dźwiękowa"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Posłuchaj oryginalnej ścieżki dźwiękowej"
   }
 }
