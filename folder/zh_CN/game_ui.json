@@ -1,0 +1,9 @@
+{
+  "level": "Level",
+  "score": "Score",
+  "line": "Lines",
+  "piece": "Pieces",
+  "time": "Time",
+  "fallspeed": "Fall Speed",
+  "entrydelay": "Entry Delay"
+}
