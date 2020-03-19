@@ -42,5 +42,13 @@
   "secrow": {
     "message": "秒/行",
     "description": "The unit label for 'seconds per row'"
+  },
+  "pause": {
+    "message": "Pause",
+    "description": "Displays on screen when the game is paused"
+  },
+  "ready": {
+    "message": "Ready?",
+    "description": "Good options are: 'Get Ready!', 'Are you ready?'"
   }
 }
