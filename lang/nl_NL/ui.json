@@ -1,46 +1,46 @@
 {
   "level": {
-    "message": "Level",
+    "message": "Niveau",
     "description": "The level (usually affects the speed of the game)"
   },
   "score": {
-    "message": "Score",
+    "message": "Resultaat",
     "description": "The amount of points the player has"
   },
   "line": {
-    "message": "Lines",
+    "message": "Lijnen",
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Pieces",
+    "message": "Blokken",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
-    "message": "Time",
+    "message": "Tijd",
     "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
-    "message": "Fall Speed",
+    "message": "Val Snelheid",
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
-    "message": "Entry Delay",
+    "message": "Entree Vertraging",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "next": {
-    "message": "Next",
+    "message": "Volgende",
     "description": "The label for the next piece in the queue"
   },
   "hold": {
-    "message": "Hold",
+    "message": "Hou",
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
-    "message": "Skip",
+    "message": "Overslaan",
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "sec/row",
+    "message": "seconden/rij",
     "description": "The unit label for 'seconds per row'"
   }
 }
