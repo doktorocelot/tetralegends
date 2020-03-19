@@ -145,6 +145,8 @@ export default class Game {
       game[element].width = game[element].clientWidth;
       game[element].height = game[element].clientHeight;
     }
+    $('#hold-label').textContent = locale.getString('ui', 'hold');
+    $('#next-label').textContent = locale.getString('ui', 'next');
     game.stack.makeAllDirty();
     game.isDirty = true;
     $('#stats').innerHTML = '';

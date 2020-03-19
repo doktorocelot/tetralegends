@@ -3,6 +3,7 @@ import $, {negativeMod} from '../shortcuts.js';
 import gameHandler from '../game/game-handler.js';
 import settings from '../settings.js';
 import input from '../input.js';
+import locale from '../lang.js';
 const isSelectable = (type) => {
   if (
     type == null ||
@@ -59,8 +60,9 @@ class Menu {
           this.current.properties = menu.properties;
           if (this.current.properties.parent != null) {
             const back = {
-              'label': 'Back',
-              'description': 'Go back to the previous menu',
+              'string': 'backLabel',
+              'stringDesc': 'backDescription',
+              'useGeneral': true,
               'action': 'back',
             };
             this.current.data.unshift(back);
@@ -179,14 +181,14 @@ class Menu {
       }
       if (currentData.type === 'control') {
         const label = document.createElement('div');
-        label.textContent = currentData.label;
+        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
         label.classList.add('label');
         element.appendChild(label);
         element.appendChild(sub);
       } else if (currentData.type === 'slider') {
         element.onclick = () => {};
         const label = document.createElement('div');
-        label.textContent = currentData.label;
+        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
         label.classList.add('setting-text');
         const value = document.createElement('div');
         value.id = `${currentData.settingType}-${currentData.setting}-value`;
@@ -216,7 +218,7 @@ class Menu {
         element.appendChild(value);
       } else if (currentData.type === 'toggle') {
         const label = document.createElement('div');
-        label.textContent = currentData.label;
+        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
         label.classList.add('setting-text');
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
@@ -229,14 +231,18 @@ class Menu {
         element.appendChild(bubble);
         element.appendChild(value);
       } else {
-        element.textContent = currentData.label;
+        if (currentData.useGeneral) {
+          element.textContent = locale.getString(`menu_general`, currentData.string);
+        } else {
+          element.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+        }
       }
       if (currentData.disabled) {
         element.classList.add('disabled');
       }
       if (currentData.default) {
         element.classList.add('selected');
-        $('#description').textContent = currentData.description;
+        $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
       }
       $('#menu').appendChild(element);
     }
@@ -292,10 +298,10 @@ class Menu {
             try {
               if (settings.settings[key] === true) {
                 element.classList.add('enabled');
-                $(`#setting-${key}-value`).textContent = 'Enabled';
+                $(`#setting-${key}-value`).textContent = locale.getString('menu_general', 'enabled');
               } else {
                 element.classList.remove('enabled');
-                $(`#setting-${key}-value`).textContent = 'Disabled';
+                $(`#setting-${key}-value`).textContent = locale.getString('menu_general', 'disabled');
               }
             } catch (e) {
               // I REALLY AM AN IDIOT
@@ -348,6 +354,8 @@ class Menu {
       element.onclick = () => {
         this.waitingKey = element.getAttribute('parent');
         $('#key-popup').classList.remove('hidden');
+        $('#key-popup .header').textContent = locale.getString('menu_controls', 'configPopupHeader')
+        $('#key-popup .body').textContent = locale.getString('menu_controls', 'configPopupDescription')
         this.listenForNewKey();
       };
       element.onmouseenter = () => {
@@ -369,7 +377,11 @@ class Menu {
     if (!mouseOver) {
       $(`#option-${number}`).scrollIntoView({block: 'center'});
     }
-    $('#description').textContent = this.current.data[number].description;
+        if (this.current.data[number].useGeneral) {
+          $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
+        } else {
+          $('#description').textContent = locale.getString(`menu_${this.current.name}`, this.current.data[number].stringDesc);
+        }
   }
   up() {
     if (this.isLocked) {

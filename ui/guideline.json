@@ -4,6 +4,8 @@
   },
   "data": [
     {
+      "string": "marathonLabel",
+      "stringDesc": "marathonDescription",
       "label": "Marathon",
       "default": true,
       "description": "The standard mode loved by players!",
@@ -11,6 +13,8 @@
       "game": "marathon"
     },
     {
+      "string": "masterLabel",
+      "stringDesc": "masterDescription",
       "label": "Master",
       "description": "Insanely fast stacking action!",
       "action": "game",

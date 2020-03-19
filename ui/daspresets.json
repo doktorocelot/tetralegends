@@ -4,6 +4,8 @@
   },
   "data": [
     {
+      "string": "defaultLabel",
+      "stringDesc": "defaultDescription",
       "label": "Default",
       "default": true,
       "description": "The default settings that come with the game - 170, 30",
@@ -12,6 +14,8 @@
       "rate": 30
     },
     {
+      "string": "guidelineLabel",
+      "stringDesc": "guidelineDescription",
       "label": "Guideline",
       "description": "Standard settings found in most versions - 200, 33",
       "action": "daspreset",
@@ -19,6 +23,8 @@
       "rate": 33
     },
     {
+      "string": "pptLabel",
+      "stringDesc": "pptDescription",
       "label": "PPT",
       "description": "A slightly quicker version of the standard settings - 165, 33",
       "action": "daspreset",
@@ -26,6 +32,8 @@
       "rate": 33
     },
     {
+      "string": "tetraOnlineLabel",
+      "stringDesc": "tetraOnlineDescription",
       "label": "Tetraonline",
       "description": "Matches the autoshift settings of Tetraonline - 135, 31",
       "action": "daspreset",
@@ -33,6 +41,8 @@
       "rate": 31
     },
     {
+      "string": "quickLabel",
+      "stringDesc": "quickDescription",
       "label": "Quick",
       "description": "A quicker preset that requires some control - 150, 15",
       "action": "daspreset",
@@ -40,6 +50,8 @@
       "rate": 15
     },
     {
+      "string": "proLabel",
+      "stringDesc": "proDescription",
       "label": "Pro",
       "description": "A hyperspeed preset that requires excellent control - 100, Instant",
       "action": "daspreset",

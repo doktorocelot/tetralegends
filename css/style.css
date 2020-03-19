@@ -7,12 +7,6 @@
 @font-face {
   font-family: 'Noto Sans CJK JP';
   src: url(../font/NotoSansCJKjp-Light.otf);
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-DemiLight.otf);
   font-weight: 300;
   font-style: normal;
 }
@@ -49,12 +43,6 @@
 @font-face {
   font-family: 'Noto Sans CJK SC';
   src: url(../font/NotoSansCJKsc-Light.otf);
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-DemiLight.otf);
   font-weight: 300;
   font-style: normal;
 }
@@ -401,7 +389,7 @@ body {
   font-size: .8em;
   font-weight: 300;
   display: inline-block;
-  padding: .4em .7em;
+  padding: .4em 0em;
   box-sizing: border-box;
   cursor: pointer;
   margin-bottom: .4em;
@@ -684,6 +672,9 @@ body {
   top: 0;
   left: 0;
 }
+.hold-container {
+  text-align: right;
+}
 .hold-container,
 .main-next-container {
   padding-left: 1em;
@@ -716,6 +707,7 @@ body {
   font-size: 2em;
   font-weight: 500;
   letter-spacing: .3em;
+  text-transform: uppercase;
 }
 .next-label {
   text-align: left;
