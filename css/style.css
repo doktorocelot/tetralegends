@@ -1,7 +1,91 @@
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Thin.otf);
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Light.otf);
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-DemiLight.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Medium.otf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Black.otf);
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Thin.otf);
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Light.otf);
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-DemiLight.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Medium.otf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Black.otf);
+  font-weight: 800;
+  font-style: normal;
+}
 :root {
   --current-background: url("../img/bg/main-menu.png");
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
-  --main-font: 'Roboto', sans-serif;
+  --main-font: 'Roboto', 'Noto Sans CJK JP', sans-serif;
   --cell-size: (2em);
   --peek-zone: .25;
   --matrix-width: 10;
