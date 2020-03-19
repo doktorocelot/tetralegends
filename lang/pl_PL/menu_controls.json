@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Wyczyść",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Wyczyść wszystkie klawisze kontrolne, pozostawiając puste miejsca"
   },
   "resetLabel": {
     "message": "Reset",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Przywróć wszystkie ustawienia domyślne"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Przesunięcie w lewo"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Przesuń blok jeden raz w lewo lub przytrzymaj w celu przesuwania automatycznego"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Przesunięcie w prawo"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Przesuń blok jeden raz w prawo lub przytrzymaj w celu przesuwania automatycznego"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Upuść i zablokuj"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Upuść blok natychmiast na podłogę. (może działać inaczej lub być wyłączona w niektórych trybach)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Upuść"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Przyspiesz opadanie bloku (może działać inaczej w niektórych trybach)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Obróć w lewo",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Obróć blok o 90° przeciwnie do ruchu wskazówek zegara."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Obróć w prawo",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Obróć część 90° zgodnie z ruchem wskazówek zegara."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Obróć o 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Obróć blok o 180° (może być wyłączone w niektórych trybach)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Przytrzymaj"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Chowa blok do schowka (może być wyłączone w niektórych trybach)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Spróbuj ponownie",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Natychmiast podejmij kolejną próbę"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pauza"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Wstrzymaj grę"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Konfiguracja sterowania",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Naciśnij klawisz, którego chcesz użyć dla tej akcji",
     "description": "Displays on the popup when you add a control binding"
   }
 }
