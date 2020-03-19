@@ -25,7 +25,7 @@
   },
   "entrydelay": {
     "message": "Entry Delay",
-    "description": "The amount of time in between piece placements, also known as 'ARE'"
+    "description": "The amount of time in between the piece's lockdown and then the next piece; also known as 'ARE'"
   },
   "next": {
     "message": "Next",
