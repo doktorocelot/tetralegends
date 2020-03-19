@@ -42,7 +42,7 @@
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Rotate a piece 90° anti-clockwise."
   },
   "rotateRightLabel": {
     "message": "Rotate Right",
