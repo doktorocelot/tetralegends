@@ -17,7 +17,7 @@
   },
   "time": {
     "message": "Time",
-    "description": "How much time has passed since the start of the "
+    "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
     "message": "Fall Speed",
