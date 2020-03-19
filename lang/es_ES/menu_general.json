@@ -1,17 +1,17 @@
 {
   "backLabel": {
-    "message": "Back",
+    "message": "Volver",
     "description": "Go back to the previous menu"
   },
   "backDescription": {
-    "message": "Go back to the previous menu"
+    "message": "Volver al menú anterior"
   },
   "enabled": {
-    "message": "Enabled",
+    "message": "Habilitado",
     "description": "Turned on, enabled"
   },
   "disabled": {
-    "message": "Disabled",
+    "message": "Deshabilitado",
     "description": "Turned off, disabled"
   }
 }
