@@ -70,5 +70,17 @@
   },
   "soundtrackDescription": {
     "message": "聆听游戏的原声带"
+  },
+  "translateLabel": {
+    "message": "Translate"
+  },
+  "translateDescription": {
+    "message": "Contribute translations to the game"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
   }
 }
