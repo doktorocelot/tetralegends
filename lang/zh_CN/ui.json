@@ -1,30 +1,30 @@
 {
   "level": {
-    "message": "Level",
+    "message": "等级",
     "description": "The level (usually affects the speed of the game)"
   },
   "score": {
-    "message": "Score",
+    "message": "得分",
     "description": "The amount of points the player has"
   },
   "line": {
-    "message": "Lines",
+    "message": "消除行数",
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Pieces",
+    "message": "使用块数",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
-    "message": "Time",
+    "message": "时间",
     "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
-    "message": "Fall Speed",
+    "message": "下落速度",
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
-    "message": "Entry Delay",
+    "message": "生成延迟",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   }
 }
