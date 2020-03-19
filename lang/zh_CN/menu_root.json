@@ -1,74 +1,74 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "快速游戏",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "以默认设置开始马拉松模式"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "游戏风格",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "标准"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "和大多数现代方块游戏一样的标准模式"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "为本游戏特别设计的玩法变种"
   },
   "retroLabel": {
-    "message": "Retro"
+    "message": "经典"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "老玩家们喜欢的经典变种"
   },
   "arcadeLabel": {
-    "message": "Arcade"
+    "message": "街机"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "面向硬核玩家的困难变种"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "设置"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "游戏参数"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "改变游戏的操作手感"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "控制"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "更改游戏的操作"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "音频"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "更改音乐与音效"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "视频"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "更改皮肤和其他视觉效果"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "其他",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "原声带"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "聆听游戏的原声带"
   }
 }
