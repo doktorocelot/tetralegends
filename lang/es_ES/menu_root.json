@@ -72,15 +72,15 @@
     "message": "Escucha a la composición original"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "Traducir"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Contribuye con traducciones al juego"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "Únete a Discord para discutir sobre el juego, actualizarte y contribuir ideas y traducciones"
   }
 }
