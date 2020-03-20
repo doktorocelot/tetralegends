@@ -1,7 +1,7 @@
 import menu from './menu/menu.js';
 import sound from './sound.js';
 import locale from './lang.js';
-const SETTINGS_VERSION = 4;
+const SETTINGS_VERSION = 5;
 class Settings {
   constructor() {
     this.defaultSettings = {
