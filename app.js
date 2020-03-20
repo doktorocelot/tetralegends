@@ -8,7 +8,6 @@ import {PIECE_SETS} from './script/consts.js';
 import $, {hzToMs, framesToMs} from './script/shortcuts.js';
 import locale from './script/lang.js';
 
-
 input.addMany([
   'menuUp',
   'menuDown',
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   locale.loadAll()
       .then((test) => {
-        console.log(locale.getString('ui', 'level'));
+        locale.updateFonts();
         menu.load('root');
         menu.show();
         window.onblur = () => {
