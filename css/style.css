@@ -170,7 +170,7 @@
 :root {
   --current-background: url("../img/bg/main-menu.png");
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
-  --main-font: 'Roboto', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
+  --main-font: "Roboto", sans-serif;
   --cell-size: (2em);
   --peek-zone: .25;
   --matrix-width: 10;
