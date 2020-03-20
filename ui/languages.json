@@ -33,7 +33,7 @@
       "lang": "ja_JP"
     },
     {
-      "label": "中文",
+      "label": "中文（简体）",
       "fixedText": true,
       "description": "",
       "action": "lang",
