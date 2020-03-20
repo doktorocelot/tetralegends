@@ -178,18 +178,18 @@ export default class Game {
     }
   }
   drawLockdown() {
-    if (!this.userSettings.useLockdownBar) {
-      $('#pip-grid').classList.add('hidden');
-      $('#lockdown').classList.add('hidden');
-      $('#delay').classList.add('hidden');
-      return;
-    }
     $('#pip-grid').innerHTML = '';
     for (let i = this.piece.manipulationLimit; i > 0; i--) {
       const pip = document.createElement('div');
       pip.classList.add('manip-pip');
       pip.id = `pip-${i}`;
       $('#pip-grid').appendChild(pip);
+    }
+    if (!this.userSettings.useLockdownBar) {
+      $('#pip-grid').classList.add('hidden');
+      $('#lockdown').classList.add('hidden');
+      $('#delay').classList.add('hidden');
+      return;
     }
     switch (this.piece.lockdownType) {
       case 'extended':
