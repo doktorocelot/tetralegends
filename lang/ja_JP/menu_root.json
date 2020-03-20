@@ -1,74 +1,86 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "クイックプレイ",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "デフォルト設定でマラソンをプレイ"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "モード選択",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "ガイドライン"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "現代のほとんどのゲームに見られるパズルの標準バリアント"
   },
   "tetraxLabel": {
-    "message": "Tetra-X"
+    "message": "テトラX"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "このゲーム用に元々設計されたカスタムバリアント"
   },
   "retroLabel": {
-    "message": "Retro"
+    "message": "レトロ"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "過去からの古典的なバリアント"
   },
   "arcadeLabel": {
-    "message": "Arcade"
+    "message": "アーケード"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "プロプレイヤー向けの難しいバリエーション"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "設定"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "チューニング"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "ゲームプレイスタイルを変更する"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "コントロール"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "ゲームの制御方法を変更する"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "オーディオ"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "さまざまなサウンド設定を変更します"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "ビデオ"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "ゲームの外観を変更します"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "その他",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "サウンドトラック"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "ゲームのオリジナルサウンドトラックを聴く"
+  },
+  "translateLabel": {
+    "message": "訳す"
+  },
+  "translateDescription": {
+    "message": "ゲームに翻訳を貢献します"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Discordサーバーに参加して、ゲームのディスカッションや、アイデアや翻訳の更新や貢献のために"
   }
 }

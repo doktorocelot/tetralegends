@@ -1,0 +1,16 @@
+{
+  "sfxLabel": {
+    "message": "SE",
+    "description": "Also known as 'SE' or 'SFX'"
+  },
+  "sfxDescription": {
+    "message": "さまざまな効果音の音量"
+  },
+  "musicLabel": {
+    "message": "BGM",
+    "description": "Also known as 'BGM'"
+  },
+  "musicDescription": {
+    "message": "ゲーム内BGMのボリューム"
+  }
+}

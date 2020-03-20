@@ -1,0 +1,41 @@
+{
+  "defaultLabel": {
+    "message": "Por defecto"
+  },
+  "defaultDescription": {
+    "message": "Los ajustes por defecto que vienen con el juego"
+  },
+  "guidelineLabel": {
+    "message": "Estándar"
+  },
+  "guidelineDescription": {
+    "message": "Configuración estándar encontrada en la mayoría de versiones"
+  },
+  "pptLabel": {
+    "message": "PPT",
+    "description": "Based on Puyo Puyo Tetris"
+  },
+  "pptDescription": {
+    "message": "Una versión un poco más rápida de la configuración estándar"
+  },
+  "tetraOnlineLabel": {
+    "message": "Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "tetraOnlineDescription": {
+    "message": "Hace coincidir con la configuración de Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "quickLabel": {
+    "message": "Rápido"
+  },
+  "quickDescription": {
+    "message": "Una configuración rápida que requiere algo de control"
+  },
+  "proLabel": {
+    "message": "Profesional"
+  },
+  "proDescription": {
+    "message": "Una configuración súper rápida que requiere control de alto nivel"
+  }
+}

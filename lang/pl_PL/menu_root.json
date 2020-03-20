@@ -70,5 +70,17 @@
   },
   "soundtrackDescription": {
     "message": "Posłuchaj oryginalnej ścieżki dźwiękowej"
+  },
+  "translateLabel": {
+    "message": "Przetłumacz"
+  },
+  "translateDescription": {
+    "message": "Wspomóż tłumaczenie gry"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Dołącz do Discorda, zeby przedyskutować grę, otrzymywać aktualizacje, podawać pomysły oraz tłumaczenia"
   }
 }

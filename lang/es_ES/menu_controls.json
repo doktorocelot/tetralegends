@@ -1,0 +1,88 @@
+{
+  "clearLabel": {
+    "message": "Limpiar",
+    "description": "Erase all controls"
+  },
+  "clearDescription": {
+    "message": "Limpia todos los controles para tener un espacio de trabajo en blanco"
+  },
+  "resetLabel": {
+    "message": "Por defecto",
+    "description": "Reset the controls to the defaults. Could also be translated as 'default'"
+  },
+  "resetDescription": {
+    "message": "Restablecer todos los controles a sus valores por defecto"
+  },
+  "shiftLeftLabel": {
+    "message": "Desplazar izquierda"
+  },
+  "shiftLeftDescription": {
+    "message": "Mueve una pieza a la izquierda o sostener para autoshift"
+  },
+  "shiftRightLabel": {
+    "message": "Desplazar derecha"
+  },
+  "shiftRightDescription": {
+    "message": "Mueve una pieza a la derecha o sostener para autoshift"
+  },
+  "hardDropLabel": {
+    "message": "Caída inmediata"
+  },
+  "hardDropDescription": {
+    "message": "Suelta una pieza instantáneamente al suelo. (puede actuar diferente o ser deshabilitado en algunos modos de juego)"
+  },
+  "softDropLabel": {
+    "message": "Caída rápida"
+  },
+  "softDropDescription": {
+    "message": "Acelera el descenso de una pieza (puede actuar de forma diferente en algunos modos de juego)"
+  },
+  "rotateLeftLabel": {
+    "message": "Rotar a la izquierda",
+    "description": "Could also be called 'rotate counter-clockwise'"
+  },
+  "rotateLeftDescription": {
+    "message": "Rotar una pieza a 90° en sentido contra-horario."
+  },
+  "rotateRightLabel": {
+    "message": "Rotar a la derecha",
+    "description": "Could also be called 'rotate clockwise'"
+  },
+  "rotateRightDescription": {
+    "message": "Rotar una pieza a 90° en sentido horario."
+  },
+  "rotateDoubleLabel": {
+    "message": "Rotar 180°",
+    "description": "Could also be referred to as a 'double rotation'"
+  },
+  "rotateDoubleDescription": {
+    "message": "Rotar una pieza en 180° (podría ser deshabilitado en algunos modos de juego)"
+  },
+  "holdLabel": {
+    "message": "Reserva"
+  },
+  "holdDescription": {
+    "message": "Guarda una pieza (podría ser deshabilitado en algunos modos de juego)"
+  },
+  "retryLabel": {
+    "message": "Reintentar",
+    "description": "You press this bind to restart the game instantly"
+  },
+  "retryDescription": {
+    "message": "Haz otro intento al instante"
+  },
+  "pauseLabel": {
+    "message": "Pausar"
+  },
+  "pauseDescription": {
+    "message": "Pausa el juego"
+  },
+  "configPopupHeader": {
+    "message": "Configuración de control",
+    "description": "Displays as a header on a popup window when you add a control binding"
+  },
+  "configPopupDescription": {
+    "message": "Pulse cualquier tecla que desea para esta acción",
+    "description": "Displays on the popup when you add a control binding"
+  }
+}

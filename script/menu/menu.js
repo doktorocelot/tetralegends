@@ -234,15 +234,26 @@ class Menu {
         if (currentData.useGeneral) {
           element.textContent = locale.getString(`menu_general`, currentData.string);
         } else {
-          element.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+          if (!currentData.fixedText) {
+            element.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+          } else {
+            element.textContent = currentData.label;
+          }
         }
+      }
+      if (currentData.useIcon) {
+        element.classList.add('icon');
       }
       if (currentData.disabled) {
         element.classList.add('disabled');
       }
       if (currentData.default) {
         element.classList.add('selected');
-        $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
+        if (!currentData.fixedText) {
+          $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
+        } else {
+          $('#description').textContent = currentData.description;
+        }
       }
       $('#menu').appendChild(element);
     }
@@ -259,27 +270,6 @@ class Menu {
       this.drawSettings();
     }
     this.drawSettings();
-
-    return;
-    for (let i = 0; i < this.current.data.length; i++) {
-      const currentData = this.current.data[i];
-      const element = document.createElement('li');
-      element.id = `option-${i}`;
-      element.textContent = currentData.label;
-      element.onmouseenter = () => {
-        this.select(i, true);
-      };
-      element.onclick = () => {
-        this.ok();
-      };
-      if (currentData.default) {
-        element.classList.add('selected');
-        $('#description').textContent = currentData.description;
-      }
-      $('#vertical-menu').appendChild(element);
-    }
-    const spaceRemianing = window.innerHeight - $('#vertical-menu').getBoundingClientRect().y;
-    $('#vertical-menu').style.height = `${spaceRemianing - 80}px`;
   }
   listenForNewKey() {
     this.isLocked = true;
@@ -354,8 +344,8 @@ class Menu {
       element.onclick = () => {
         this.waitingKey = element.getAttribute('parent');
         $('#key-popup').classList.remove('hidden');
-        $('#key-popup .header').textContent = locale.getString('menu_controls', 'configPopupHeader')
-        $('#key-popup .body').textContent = locale.getString('menu_controls', 'configPopupDescription')
+        $('#key-popup .header').textContent = locale.getString('menu_controls', 'configPopupHeader');
+        $('#key-popup .body').textContent = locale.getString('menu_controls', 'configPopupDescription');
         this.listenForNewKey();
       };
       element.onmouseenter = () => {
@@ -377,11 +367,15 @@ class Menu {
     if (!mouseOver) {
       $(`#option-${number}`).scrollIntoView({block: 'center'});
     }
-        if (this.current.data[number].useGeneral) {
-          $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
-        } else {
-          $('#description').textContent = locale.getString(`menu_${this.current.name}`, this.current.data[number].stringDesc);
-        }
+    if (this.current.data[number].useGeneral) {
+      $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
+    } else {
+      if (!this.current.data[number].fixedText) {
+        $('#description').textContent = locale.getString(`menu_${this.current.name}`, this.current.data[number].stringDesc);
+      } else {
+        $('#description').textContent = this.current.data.description;
+      }
+    }
   }
   up() {
     if (this.isLocked) {
@@ -518,6 +512,10 @@ class Menu {
         settings.resetControls();
         menu.drawControls();
         settings.saveControls();
+        break;
+      case 'lang':
+        locale.changeLang(this.selectedData.lang);
+        this.back();
         break;
       default:
         // TODO wtf error

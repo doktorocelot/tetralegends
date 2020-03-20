@@ -136,7 +136,6 @@ export function* deluxe(pieces, unfavored = []) {
         continue;
       }
     }
-    console.log();
     yield pieces[generated];
   }
 }

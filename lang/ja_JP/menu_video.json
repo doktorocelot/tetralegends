@@ -1,0 +1,55 @@
+{
+  "nextLengthLabel": {
+    "message": "NEXTブロック"
+  },
+  "nextLengthDescription": {
+    "message": "表示される次のピースの量"
+  },
+  "lockdownBarLabel": {
+    "message": "ロックダウンバー",
+    "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
+  },
+  "lockdownBarDescription": {
+    "message": "遅延に関する情報を表示します"
+  },
+  "swayScaleLabel": {
+    "message": "フィールドスウェイスケール",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
+  },
+  "swayScaleDescription": {
+    "message": "フィールドがピースの力にどれだけ移動するか。 0を選択して無効にします",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "swaySpeedLabel": {
+    "message": "フィールド移動",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
+  },
+  "swaySpeedDescription": {
+    "message": "フィールドが中立位置に戻る速度",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "particlesLabel": {
+    "message": "粒子"
+  },
+  "particlesDescription": {
+    "message": "粒子を描画するかどうか"
+  },
+  "particleLimitLabel": {
+    "message": "粒子制限"
+  },
+  "particleLimitDescription": {
+    "message": "一度に画面に表示できる粒子の数"
+  },
+  "particleSizeLabel": {
+    "message": "粒子サイズ"
+  },
+  "particleSizeDescription": {
+    "message": "粒子のサイズ"
+  },
+  "particleVolumeLabel": {
+    "message": "粒子体積"
+  },
+  "particleVolumeDescription": {
+    "message": "生成される粒子の数"
+  }
+}

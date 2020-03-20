@@ -4,6 +4,14 @@
   },
   "data": [
     {
+      "label": "translate",
+      "fixedText": true,
+      "useIcon": true,
+      "description": "",
+      "action": "submenu",
+      "submenu": "languages"
+    },
+    {
       "string": "quickLabel",
       "stringDesc": "quickDescription",
       "label": "Quick Play",

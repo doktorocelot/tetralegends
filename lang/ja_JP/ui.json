@@ -40,7 +40,55 @@
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "sec/row",
+    "message": "秒/行",
     "description": "The unit label for 'seconds per row'"
+  },
+  "pause": {
+    "message": "ポーズ",
+    "description": "Displays on screen when the game is paused"
+  },
+  "ready": {
+    "message": "READY",
+    "description": "Good options are: 'Get Ready!', 'Are you ready?'"
+  },
+  "start": {
+    "message": "START!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
+  },
+  "go": {
+    "message": "GO!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
+  },
+  "gameover": {
+    "message": "Game Over",
+    "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
+  },
+  "blockOut": {
+    "message": "Block Out",
+    "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
+  },
+  "lockOut": {
+    "message": "Lock Out",
+    "description": "Displays as a failure message when the piece was locked above the skyline/ceiling"
+  },
+  "topOut": {
+    "message": "Top Out",
+    "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
+  },
+  "timeOut": {
+    "message": "Time Up",
+    "description": "Displays when the time runs out"
+  },
+  "excellent": {
+    "message": "Excellent!",
+    "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
+  },
+  "newRecord": {
+    "message": "New Record!",
+    "description": "Displays when the user beats their previous score or time"
+  },
+  "returnToMenu": {
+    "message": "メニューに戻る",
+    "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   }
 }

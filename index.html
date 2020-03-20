@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tetra Legends</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -30,6 +32,11 @@
 
     </div>
     <div id="game-container" class="hidden">
+      <div id="end-message-container" class="end-message-container hidden">
+        <div id="end-message" class="end-message">BLOCK OUT</div>
+        <div class="icon">keyboard_backspace</div>
+        <div id="return-to-menu" class="return">Return to Menu</div>
+      </div>
       <div id="game" class="game">
         <div class="game-left">
           <div class="hold-container" id="hold-container">

@@ -1,0 +1,88 @@
+{
+  "clearLabel": {
+    "message": "Wyczyść",
+    "description": "Erase all controls"
+  },
+  "clearDescription": {
+    "message": "Wyczyść wszystkie klawisze kontrolne, pozostawiając puste miejsca"
+  },
+  "resetLabel": {
+    "message": "Reset",
+    "description": "Reset the controls to the defaults. Could also be translated as 'default'"
+  },
+  "resetDescription": {
+    "message": "Przywróć wszystkie ustawienia domyślne"
+  },
+  "shiftLeftLabel": {
+    "message": "Przesunięcie w lewo"
+  },
+  "shiftLeftDescription": {
+    "message": "Przesuń blok jeden raz w lewo lub przytrzymaj w celu przesuwania automatycznego"
+  },
+  "shiftRightLabel": {
+    "message": "Przesunięcie w prawo"
+  },
+  "shiftRightDescription": {
+    "message": "Przesuń blok jeden raz w prawo lub przytrzymaj w celu przesuwania automatycznego"
+  },
+  "hardDropLabel": {
+    "message": "Upuść i zablokuj"
+  },
+  "hardDropDescription": {
+    "message": "Upuść blok natychmiast na podłogę. (może działać inaczej lub być wyłączona w niektórych trybach)"
+  },
+  "softDropLabel": {
+    "message": "Upuść"
+  },
+  "softDropDescription": {
+    "message": "Przyspiesz opadanie bloku (może działać inaczej w niektórych trybach)"
+  },
+  "rotateLeftLabel": {
+    "message": "Obróć w lewo",
+    "description": "Could also be called 'rotate counter-clockwise'"
+  },
+  "rotateLeftDescription": {
+    "message": "Obróć blok o 90° przeciwnie do ruchu wskazówek zegara."
+  },
+  "rotateRightLabel": {
+    "message": "Obróć w prawo",
+    "description": "Could also be called 'rotate clockwise'"
+  },
+  "rotateRightDescription": {
+    "message": "Obróć część 90° zgodnie z ruchem wskazówek zegara."
+  },
+  "rotateDoubleLabel": {
+    "message": "Obróć o 180°",
+    "description": "Could also be referred to as a 'double rotation'"
+  },
+  "rotateDoubleDescription": {
+    "message": "Obróć blok o 180° (może być wyłączone w niektórych trybach)"
+  },
+  "holdLabel": {
+    "message": "Przytrzymaj"
+  },
+  "holdDescription": {
+    "message": "Chowa blok do schowka (może być wyłączone w niektórych trybach)"
+  },
+  "retryLabel": {
+    "message": "Spróbuj ponownie",
+    "description": "You press this bind to restart the game instantly"
+  },
+  "retryDescription": {
+    "message": "Natychmiast podejmij kolejną próbę"
+  },
+  "pauseLabel": {
+    "message": "Pauza"
+  },
+  "pauseDescription": {
+    "message": "Wstrzymaj grę"
+  },
+  "configPopupHeader": {
+    "message": "Konfiguracja sterowania",
+    "description": "Displays as a header on a popup window when you add a control binding"
+  },
+  "configPopupDescription": {
+    "message": "Naciśnij klawisz, którego chcesz użyć dla tej akcji",
+    "description": "Displays on the popup when you add a control binding"
+  }
+}

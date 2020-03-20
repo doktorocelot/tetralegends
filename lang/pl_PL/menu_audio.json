@@ -1,0 +1,16 @@
+{
+  "sfxLabel": {
+    "message": "Głośność efektów dźwiękowych",
+    "description": "Also known as 'SE' or 'SFX'"
+  },
+  "sfxDescription": {
+    "message": "Głośność różnych efektów dźwiękowych w procentach"
+  },
+  "musicLabel": {
+    "message": "Głośność muzyki",
+    "description": "Also known as 'BGM'"
+  },
+  "musicDescription": {
+    "message": "Głośność muzyki w procentach"
+  }
+}

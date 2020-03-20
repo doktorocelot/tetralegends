@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "parent": "root"
+  },
+  "data": [
+    {
+      "label": "American English",
+      "default": true,
+      "fixedText": true,
+      "description": "",
+      "action": "lang",
+      "lang": "en_US"
+    },
+    {
+      "label": "British English",
+      "fixedText": true,
+      "description": "",
+      "action": "lang",
+      "lang": "en_GB"
+    },
+    {
+      "label": "Español",
+      "fixedText": true,
+      "description": "",
+      "action": "lang",
+      "lang": "es_ES"
+    },
+    {
+      "label": "日本語",
+      "fixedText": true,
+      "description": "",
+      "action": "lang",
+      "lang": "ja_JP"
+    }
+  ]
+}

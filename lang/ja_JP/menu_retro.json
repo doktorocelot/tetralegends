@@ -1,0 +1,30 @@
+{
+  "variationsOverline": {
+    "message": "バリエーション",
+    "description": "Variation, Version, Type"
+  },
+  "consoleLabel": {
+    "message": "コンソール",
+    "description": "A mode based on NES Tet"
+  },
+  "consoleDescription": {
+    "message": "最も競争力のある、クラシックモード",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "handheldLabel": {
+    "message": "ハンドヘルド",
+    "description": "A mode based on the GB version of Tet"
+  },
+  "handheldDescription": {
+    "message": "多くの人がハンドヘルドデバイスで再生する、ペースの遅いノスタルジックなバージョン",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "deluxeLabel": {
+    "message": "デラックス",
+    "description": "A mode based on the GBC version of Tet"
+  },
+  "deluxeDescription": {
+    "message": "古いと新しいゲームの組み合わせ",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  }
+}

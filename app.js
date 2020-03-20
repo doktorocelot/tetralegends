@@ -28,10 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   locale.loadAll()
       .then((test) => {
-        console.log(locale.getString('ui', 'level'))
+        console.log(locale.getString('ui', 'level'));
         menu.load('root');
         menu.show();
-      })
+        window.onblur = () => {
+          gameHandler.game.pause();
+        };
+      });
   // TEMP BELOW
   // gameHandler.newGame('marathon');
 });

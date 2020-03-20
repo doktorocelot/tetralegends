@@ -33,6 +33,7 @@ export default class Game {
     this.last = this.timestamp();
     this.stats = [];
     this.request;
+    this.noUpdate = false;
     this.isDead = false;
     this.isPaused = false;
     this.isDirty = true;
@@ -69,7 +70,8 @@ export default class Game {
         .then((gameData) => {
           this.show();
           menu.close();
-
+          $('#game').classList.remove('dead');
+          $('#end-message-container').classList.add('hidden');
           this.settings = gameData.settings;
           this.stats = gameData.stats;
           sound.load(this.settings.soundbank);
@@ -98,7 +100,7 @@ export default class Game {
           sound.killBgm();
           sound.loadBgm(this.settings.music, gametype);
           sound.add('ready');
-          $('#message').textContent = 'READY';
+          $('#message').textContent = locale.getString('ui', 'ready');
           $('#message').classList.remove('dissolve');
           this.onPieceSpawn(this);
           window.onresize = this.resize;
@@ -116,6 +118,7 @@ export default class Game {
   }
   pause() {
     if (this.isPaused) {return;}
+    $('#pause-label').textContent = locale.getString('ui', 'pause');
     sound.add('pause');
     this.isPaused = true;
     $('.game').classList.add('paused');
@@ -134,6 +137,14 @@ export default class Game {
   kill() {
     cancelAnimationFrame(this.request);
     this.isDead = true;
+  }
+  end() {
+    this.noUpdate = true;
+    sound.add('ko');
+    sound.killBgm();
+    $('#game').classList.add('dead');
+    $('#end-message-container').classList.remove('hidden');
+    $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
   }
   resize() {
     const game = gameHandler.game;
@@ -294,13 +305,15 @@ export default class Game {
           if (game.piece.startingAre < game.piece.startingAreLimit) {
             game.piece.startingAre += game.deltaTime * 1000;
           }
-          game.loop({
-            ms: game.deltaTime * 1000,
-            piece: game.piece,
-            stack: game.stack,
-            hold: game.hold,
-            particle: game.particle,
-          });
+          if (!game.noUpdate) {
+            game.loop({
+              ms: game.deltaTime * 1000,
+              piece: game.piece,
+              stack: game.stack,
+              hold: game.hold,
+              particle: game.particle,
+            });
+          }
           game.particle.update();
           game.updateMatrix();
           const modules = ['piece', 'stack', 'next', 'hold', 'particle'];
@@ -320,7 +333,7 @@ export default class Game {
           game.drawLockdown();
         }
         game.piece.lockdownTypeLast = game.piece.lockdownType;
-        if (input.getGamePress('pause')) {
+        if (input.getGamePress('pause') && !game.noUpdate) {
           if (game.isPaused) {
             game.unpause();
           } else {

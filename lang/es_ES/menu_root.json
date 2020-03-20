@@ -32,13 +32,13 @@
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Variante díficil del rompecabezas para jugadores avanzados"
+    "message": "Variante difícil del rompecabezas para jugadores avanzados"
   },
   "settingsOverline": {
     "message": "Configuraciones"
   },
   "tuningLabel": {
-    "message": "Movimiento"
+    "message": "Gameplay"
   },
   "tuningDescription": {
     "message": "Cambia cómo se siente el juego"
@@ -70,5 +70,17 @@
   },
   "soundtrackDescription": {
     "message": "Escucha a la composición original"
+  },
+  "translateLabel": {
+    "message": "Traducir"
+  },
+  "translateDescription": {
+    "message": "Contribuye con traducciones al juego"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Únete a Discord para discutir sobre el juego, actualizarte y contribuir ideas y traducciones"
   }
 }
