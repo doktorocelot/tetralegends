@@ -249,8 +249,8 @@ class Menu {
       }
       $('#menu').appendChild(element);
       if (currentData.default) {
-        this.select(i - nonOptions);
         element.classList.add('selected');
+        element.scrollIntoView({block: 'center'});
       }
     }
     const newData = [];

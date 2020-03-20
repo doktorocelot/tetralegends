@@ -64,22 +64,20 @@
       "type": "overline"
     },
     {
-      "string": "tuningLabel",
-      "stringDesc": "tuningDescription",
-      "label": "Tuning",
-      "width": "half",
-      "description": "Change how the game feels",
-      "action": "submenu",
-      "submenu": "tuning"
-    },
-    {
       "string": "controlsLabel",
       "stringDesc": "controlsDescription",
       "label": "Controls",
-      "width": "half",
       "description": "Change how the game controls",
       "action": "submenu",
       "submenu": "controls"
+    },
+    {
+      "string": "tuningLabel",
+      "stringDesc": "tuningDescription",
+      "label": "Tuning",
+      "description": "Change how the game feels",
+      "action": "submenu",
+      "submenu": "tuning"
     },
     {
       "string": "audioLabel",
