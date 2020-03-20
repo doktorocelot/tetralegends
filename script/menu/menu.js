@@ -251,6 +251,11 @@ class Menu {
       if (currentData.default) {
         element.classList.add('selected');
         element.scrollIntoView({block: 'center'});
+        if (!currentData.fixedText) {
+          $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
+        } else {
+          $('#description').textContent = currentData.description;
+        }
       }
     }
     const newData = [];
@@ -369,7 +374,7 @@ class Menu {
       if (!this.current.data[number].fixedText) {
         $('#description').textContent = locale.getString(`menu_${this.current.name}`, this.current.data[number].stringDesc);
       } else {
-        $('#description').textContent = this.current.data.description;
+        $('#description').textContent = this.current.data[number].description;
       }
     }
   }
