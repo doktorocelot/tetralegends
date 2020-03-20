@@ -64,8 +64,14 @@ export default class Piece extends GameModule {
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
     if (this.parent.stat.piece === 0 && this.parent.hold.pieceName == null) {
-      sound.add('start');
-      $('#message').textContent = locale.getString('ui', 'start');
+      if (this.parent.isRaceMode) {
+        sound.add('go');
+        $('#message').textContent = locale.getString('ui', 'go');
+      } else {
+        sound.add('start');
+        $('#message').textContent = locale.getString('ui', 'start');
+      }
+
       $('#message').classList.add('dissolve');
       sound.playBgm(this.parent.settings.music, this.parent.type);
     }
