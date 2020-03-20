@@ -101,7 +101,7 @@ export default class Stack extends GameModule {
       }
     }
     if (passedLockOut >= shape.length) {
-      $('#end-message').textContent = locale.getString('ui', 'lockOut');
+      $('#kill-message').textContent = locale.getString('ui', 'lockOut');
       this.parent.end();
     }
 

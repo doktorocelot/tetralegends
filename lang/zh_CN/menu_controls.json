@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "清空",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "清空所有已绑定的操作以从头开始设置"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "重置",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "重置所有控制设置为默认值"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "左移"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "向左移动方块。长按以自动移动"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "右移"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "向右移动方块。长按以自动移动"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "硬降"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "将方块立刻下落到最底。（在不同模式中行为可能不同，或者被禁用）"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "软降"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "加速方块的下落。（在不同模式中可能有不同的行为）"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "向左旋转",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "将方块逆时针旋转90°。"
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "向右旋转",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "将方块顺时针旋转90°。"
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "180°旋转",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "将方块旋转180°。（在部分模式中可能被禁用）"
   },
   "holdLabel": {
     "message": "Hold"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "将一个方块送至Hold以便稍后使用（在部分模式中可能被禁用）"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "重试",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "立刻重新开始游戏"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "暂停"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "暂停游戏"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "控制设置",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "按下您想要用于该操作的按键",
     "description": "Displays on the popup when you add a control binding"
   }
 }

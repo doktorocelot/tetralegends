@@ -1,34 +1,34 @@
 {
   "marathonLabel": {
-    "message": "Marathon",
+    "message": "马拉松",
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Clear the goal! Stack up and clear lines, but watch out, as the game gets faster the further you go!",
+    "message": "消除指定的行数，但要注意方块的下落会越来越快！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
-    "message": "Master",
+    "message": "大师",
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Insanely fast stacking action! The game will take no prisoners as you attempt to survive the cruel speeds until the end.",
+    "message": "在最高下落速度进行极限堆叠！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
-    "message": "Sprint",
+    "message": "冲刺",
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Don't hesitate! Clear the line goal as quick as you can in this high-speed mode.",
+    "message": "不要犹豫！在这个快节奏的模式里尽快消除指定行数。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
-    "message": "Ultra",
+    "message": "限时",
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Every line clear counts! Carefully and quickly assemble setups to clear as many points as possible until the time runs out!",
+    "message": "在规定的时间内仔细而快速地堆叠以获取最多的分数！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

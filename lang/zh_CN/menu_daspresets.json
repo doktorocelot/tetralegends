@@ -1,41 +1,41 @@
 {
   "defaultLabel": {
-    "message": "Default"
+    "message": "默认"
   },
   "defaultDescription": {
-    "message": "The default settings that come with the game"
+    "message": "本游戏的默认设置"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "标准"
   },
   "guidelineDescription": {
-    "message": "Standard settings found in most versions"
+    "message": "在大多数游戏中的标准设置"
   },
   "pptLabel": {
-    "message": "PPT",
+    "message": "气泡方块",
     "description": "Based on Puyo Puyo Tetris"
   },
   "pptDescription": {
-    "message": "A slightly quicker version of the standard settings"
+    "message": "比标准设置略快的设置"
   },
   "tetraOnlineLabel": {
-    "message": "Tetra Online",
+    "message": "方块在线",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
-    "message": "Matches the autoshift settings of Tetra Online",
+    "message": "匹配方块在线的自动移动设置",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "quickLabel": {
-    "message": "Quick"
+    "message": "快速"
   },
   "quickDescription": {
-    "message": "A quicker presets that requires some control"
+    "message": "需要一些控制技巧的快速预设"
   },
   "proLabel": {
-    "message": "Pro"
+    "message": "专家"
   },
   "proDescription": {
-    "message": "A hyperspeed preset that requires high-level control"
+    "message": "需要高阶控制技巧的极速预设"
   }
 }

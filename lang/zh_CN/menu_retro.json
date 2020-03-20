@@ -1,30 +1,30 @@
 {
   "variationsOverline": {
-    "message": "Variations",
+    "message": "变种",
     "description": "Variation, Version, Type"
   },
   "consoleLabel": {
-    "message": "Console",
+    "message": "家用机",
     "description": "A mode based on NES Tet"
   },
   "consoleDescription": {
-    "message": "The most competitively-used, classic version of the puzzle in the world!",
+    "message": "竞技玩家常用的传统版本",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {
-    "message": "Handheld",
+    "message": "掌上游戏机",
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "A slow-paced, nostalgic version that many played on handheld devices",
+    "message": "许多人在掌上游戏机玩过的慢速怀旧版本",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
-    "message": "Deluxe",
+    "message": "豪华版",
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "A nice blend of classic and modern elements",
+    "message": "传统和现代元素的结合",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

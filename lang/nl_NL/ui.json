@@ -44,11 +44,11 @@
     "description": "The unit label for 'seconds per row'"
   },
   "pause": {
-    "message": "Pause",
+    "message": "Pauze",
     "description": "Displays on screen when the game is paused"
   },
   "ready": {
-    "message": "Ready?",
+    "message": "Klaar?",
     "description": "Good options are: 'Get Ready!', 'Are you ready?'"
   },
   "start": {
