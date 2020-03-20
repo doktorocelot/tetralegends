@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Clear the goal! Stack up and clear lines, but watch out, as the game gets faster the further you go!",
+    "message": "Completa l'obiettivo! Impila e distruggi le righe, ma fa attenzione, perchè la partita diventa più veloce man mano che prosegui!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Insanely fast stacking action! The game will take no prisoners as you attempt to survive the cruel speeds until the end.",
+    "message": "Accumulo veloce! Questa modalità non fa sconti: dovrai sopravvivere alle crudeli velocità fino alla fine.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Don't hesitate! Clear the line goal as quick as you can in this high-speed mode.",
+    "message": "Completa il tuo obiettivo più velocemente possibile in questa modalità ad alta velocità.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Every line clear counts! Carefully and quickly assemble setups to clear as many points as possible until the time runs out!",
+    "message": "Ogni linea che cancelli conta! Organizza velocemente e con cura i vari tetramini per ottenere più punti possibili prima che il tempo finisca!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

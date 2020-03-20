@@ -1,48 +1,48 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Pulisci",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Pulisci tutti i controlli in modo da avere uno spazio vuoto"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Ripristina",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Reimposta tutti i controlli ai valori predefiniti"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Muovi a sinistra"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Muovi un tetramino a sinistra, se premuto una volta. Tieni premuto per uno spostamento automatico"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Muovi a destra"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Muovi un tetramino a destra, se premuto una volta. Tieni premuto per uno spostamento automatico"
   },
   "hardDropLabel": {
     "message": "Hard Drop"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Trascina a terra un tetramino istantaneamente (potrebbe avere diversi effetti, o essere disabilitato in alcune modalità)"
   },
   "softDropLabel": {
     "message": "Soft Drop"
   },
   "softDropDescription": {
-    "message": "Velocizza la velocità di un pezzo (potrebbe avere effetti differenti in base alla modalità di gioco)"
+    "message": "Velocizza la velocità di discesa dei tetramini (potrebbe avere effetti differenti in base alla modalità di gioco)"
   },
   "rotateLeftLabel": {
     "message": "Ruota a sinistra",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Ruota un pezzo di 90° in senso antiorario."
+    "message": "Ruota un tetramino di 90° in senso antiorario."
   },
   "rotateRightLabel": {
     "message": "Ruota a destra",
@@ -56,13 +56,13 @@
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Ruota un pezzo 180° (potrebbe essere disabilitato in alcune modalità)"
+    "message": "Ruota un tetramino di 180° (potrebbe essere disabilitato in alcune modalità)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Riserva"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Manda un tetramino nella riserva (potrebbe essere disabilitato in alcune modalità)"
   },
   "retryLabel": {
     "message": "Riprova",

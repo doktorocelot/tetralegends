@@ -4,38 +4,45 @@
   },
   "data": [
     {
-      "label": "American English",
+      "label": "English (US)",
       "default": true,
       "fixedText": true,
-      "description": "",
+      "description": "Dr Ocelot",
       "action": "lang",
       "lang": "en_US"
     },
     {
-      "label": "British English",
+      "label": "English (UK)",
       "fixedText": true,
-      "description": "",
+      "description": "Dr Ocelot",
       "action": "lang",
       "lang": "en_GB"
     },
     {
       "label": "Español",
       "fixedText": true,
-      "description": "",
+      "description": "Mine, YuNoGuy123",
       "action": "lang",
       "lang": "es_ES"
     },
     {
+      "label": "Italiano",
+      "fixedText": true,
+      "description": "Esingar",
+      "action": "lang",
+      "lang": "it_IT"
+    },
+    {
       "label": "日本語",
       "fixedText": true,
-      "description": "",
+      "description": "MattMayuga",
       "action": "lang",
       "lang": "ja_JP"
     },
     {
       "label": "中文（简体）",
       "fixedText": true,
-      "description": "",
+      "description": "User670",
       "action": "lang",
       "lang": "zh_CN"
     }
