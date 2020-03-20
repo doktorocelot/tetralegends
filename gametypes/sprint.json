@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "width": 10,
+    "height": 20,
+    "hiddenHeight": 20,
+    "pieces": "standard",
+    "unfavored": "standardUnfavored",
+    "randomizer": "bag",
+    "rotationSystem": "srs",
+    "skin": "srsx",
+    "soundbank": "standard",
+    "music": "sprint",
+    "scoreTable": "guideline",
+    "background": "marathon.jpg"
+  },
+  "piece": {
+    "areLimit": 100,
+    "areLineLimit": 166.666666667,
+    "areLimitLineModifier": 166.666666667,
+    "spinDetectionType": "3corner"
+  },
+  "stats": [
+    "score",
+    "line",
+    "piece"
+  ]
+}

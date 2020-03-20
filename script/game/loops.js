@@ -89,6 +89,73 @@ export const loops = {
       game.updateStats();
     },
   },
+  sprint: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      softDrop(arg, 70);
+      hardDrop(arg);
+      extendedLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+    },
+    onInit: (game) => {
+      game.lineGoal = 40;
+      game.reverseLineStat = true;
+      game.piece.gravity = 1000;
+      updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
+  ultra: {
+    update: (arg) => {
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      softDrop(arg, 70);
+      hardDrop(arg);
+      extendedLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+    },
+    onInit: (game) => {
+      game.timeGoal = 120000;
+      game.piece.gravity = 1000;
+      updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
   standardx: {
     update: (arg) => {
       collapse(arg);
@@ -233,6 +300,7 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      game.lineGoal = 300;
       game.stat.level = 1;
       lastLevel = 1;
       game.prefixes.level = 'M';

@@ -1,8 +1,8 @@
 import input from '../../input.js';
 
-export default function softDrop(arg) {
+export default function softDrop(arg, multiplier = 20) {
   if (input.getGameDown('softDrop')) {
-    arg.piece.gravityMultiplier = 20;
+    arg.piece.gravityMultiplier = multiplier;
     if (!arg.piece.isLanded) {
       arg.piece.genPieceParticles();
     }

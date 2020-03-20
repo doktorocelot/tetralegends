@@ -13,6 +13,18 @@
       "game": "marathon"
     },
     {
+      "string": "sprintLabel",
+      "stringDesc": "sprintDescription",
+      "action": "game",
+      "game": "sprint"
+    },
+    {
+      "string": "ultraLabel",
+      "stringDesc": "ultraDescription",
+      "action": "game",
+      "game": "ultra"
+    },
+    {
       "string": "masterLabel",
       "stringDesc": "masterDescription",
       "label": "Master",
