@@ -117,6 +117,7 @@ export const loops = {
     },
     onInit: (game) => {
       game.lineGoal = 40;
+      game.isRaceMode = true;
       game.reverseLineStat = true;
       game.piece.gravity = 1000;
       updateFallSpeed(game);
@@ -151,6 +152,7 @@ export const loops = {
     },
     onInit: (game) => {
       game.timeGoal = 120000;
+      game.isRaceMode = true;
       game.piece.gravity = 1000;
       updateFallSpeed(game);
       game.updateStats();
