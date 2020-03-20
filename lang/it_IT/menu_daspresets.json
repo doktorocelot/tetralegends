@@ -1,12 +1,12 @@
 {
   "defaultLabel": {
-    "message": "Default"
+    "message": "Predefinito"
   },
   "defaultDescription": {
     "message": "The default settings that come with the game"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "Guida"
   },
   "guidelineDescription": {
     "message": "Standard settings found in most versions"

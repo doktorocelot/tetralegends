@@ -790,6 +790,49 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
   background-color: #fff;
 }
+@keyframes death-message {
+  0% {opacity: 0; transform: scale(2);}
+  15% {opacity: 1; transform: scale(1);}
+  30% {filter: brightness(1)}
+  40% {filter: brightness(0.2)}
+  50% {filter: brightness(1)}
+  60% {filter: brightness(0.2)}
+  70% {filter: brightness(1)}
+  80% {opacity: 1; filter: brightness(0.2)}
+  90% {filter: brightness(1)}
+  100% {opacity: 0; filter: brightness(0.2)}
+}
+.kill-message-container {
+  position: absolute;
+  color: #fff;
+  left: 50%;
+  margin-left: -10em;
+  top: 50%;
+  margin-top: -2em;
+  width: 20em;
+  height: 4em;
+  z-index: 200;
+  font-size: 2em;
+  opacity: 1;
+  animation-name: death-message;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+}
+.kill-message-container.hidden {
+  display: none;
+}
+.kill-message-container .kill-message {
+  border-color: #fff;
+  border-radius: 0.2em;
+  border-style: solid;
+  border-width: 0.04em;
+  padding: .2em .8em;
+  font-size: 1.8em;
+  font-weight: 100;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
 .end-message-container {
   position: absolute;
   color: #fff;

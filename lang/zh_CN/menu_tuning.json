@@ -1,30 +1,30 @@
 {
   "presetsLabel": {
-    "message": "Delay/Rate Presets",
+    "message": "自动移动速率预设",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
-    "message": "Select from a variety of different presets for the autoshift"
+    "message": "从不同的预设中选择自动移动的配置"
   },
   "dasLabel": {
-    "message": "Autoshift Delay",
+    "message": "自动移动延迟",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
-    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
+    "message": "按住左右方向键时，方块开始自动移动前的时间（毫秒）。又称DAS。"
   },
   "arrLabel": {
-    "message": "Autoshift Rate",
+    "message": "自动移动速率",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
+    "message": "按住左右方向键时，方块自动移动的间隔（毫秒）。又称ARR。"
   },
   "dasPreloadLabel": {
-    "message": "Autoshift Preload",
+    "message": "自动移动预加载",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
+    "message": "如果在生成延迟中按住左右方向键则直接开始自动移动"
   }
 }

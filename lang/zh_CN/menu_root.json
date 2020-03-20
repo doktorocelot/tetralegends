@@ -72,15 +72,15 @@
     "message": "聆听游戏的原声带"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "翻译"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "为游戏贡献翻译"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "加入Discord来讨论游戏，获得更新并提供意见和翻译。如果您在中国大陆，您可能无法访问该服务。"
   }
 }

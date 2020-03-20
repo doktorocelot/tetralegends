@@ -1,17 +1,17 @@
 {
   "backLabel": {
-    "message": "Back",
+    "message": "返回",
     "description": "Go back to the previous menu"
   },
   "backDescription": {
-    "message": "Go back to the previous menu"
+    "message": "返回上一级菜单"
   },
   "enabled": {
-    "message": "Enabled",
+    "message": "已启用",
     "description": "Turned on, enabled"
   },
   "disabled": {
-    "message": "Disabled",
+    "message": "已禁用",
     "description": "Turned off, disabled"
   }
 }

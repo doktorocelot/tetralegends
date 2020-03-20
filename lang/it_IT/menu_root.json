@@ -1,17 +1,17 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "Partita veloce",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "Inizia subito una partita in Maratona con le impostazioni predefinite"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "Modalità",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "Guida"
   },
   "guidelineDescription": {
     "message": "Standard variant of the puzzle found in most modern games"
@@ -23,7 +23,7 @@
     "message": "A custom variant of the puzzle originally designed for this game"
   },
   "retroLabel": {
-    "message": "Retro"
+    "message": "Retrò"
   },
   "retroDescription": {
     "message": "Classic variant of the puzzle loved by oldschool players"
@@ -35,19 +35,19 @@
     "message": "Difficult variant of the puzzle loved by hardcore players"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "Impostazioni"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "Ottimizzazione"
   },
   "tuningDescription": {
     "message": "Change how the game feels"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "Controlli"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "Cambia i controlli del gioco"
   },
   "audioLabel": {
     "message": "Audio"
@@ -59,28 +59,28 @@
     "message": "Video"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "Cambia l'aspetto del gioco"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "Varie",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
     "message": "Soundtrack"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Ascolta la colonna sonora originale"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "Traduci"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Contribuisci alle traduzioni del gioco"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "Entra su Discord per discutere del gioco, ricevere nuovi aggiornamenti, contribuire con nuove idee e migliorare le traduzioni"
   }
 }

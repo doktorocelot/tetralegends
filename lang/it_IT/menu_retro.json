@@ -1,6 +1,6 @@
 {
   "variationsOverline": {
-    "message": "Variations",
+    "message": "Variazioni",
     "description": "Variation, Version, Type"
   },
   "consoleLabel": {
@@ -24,7 +24,7 @@
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "A nice blend of classic and modern elements",
+    "message": "Un bell'insieme di elementi classici e moderni",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

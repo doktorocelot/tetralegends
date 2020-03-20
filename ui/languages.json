@@ -31,6 +31,13 @@
       "description": "",
       "action": "lang",
       "lang": "ja_JP"
+    },
+    {
+      "label": "中文",
+      "fixedText": true,
+      "description": "",
+      "action": "lang",
+      "lang": "zh_CN"
     }
   ]
 }

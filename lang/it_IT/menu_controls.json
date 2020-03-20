@@ -35,28 +35,28 @@
     "message": "Soft Drop"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Velocizza la velocità di un pezzo (potrebbe avere effetti differenti in base alla modalità di gioco)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Ruota a sinistra",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Ruota un pezzo di 90° in senso antiorario."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Ruota a destra",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Ruota un pezzo di 90° in senso orario."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Ruota di 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Ruota un pezzo 180° (potrebbe essere disabilitato in alcune modalità)"
   },
   "holdLabel": {
     "message": "Hold"
@@ -65,24 +65,24 @@
     "message": "Send a piece to the hold queue (may be disabled in some modes)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Riprova",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Riprova subito"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pausa"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Pausa il gioco"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Configurazione dei controlli",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Premi il tasto che desideri utilizzare per questa azione",
     "description": "Displays on the popup when you add a control binding"
   }
 }

@@ -15,6 +15,7 @@ import sound from '../sound.js';
 import Particle from './particle.js';
 import GameModule from './game-module.js';
 import locale from '../lang.js';
+let endScreenTimeout = null;
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
@@ -70,8 +71,10 @@ export default class Game {
         .then((gameData) => {
           this.show();
           menu.close();
+          clearTimeout(endScreenTimeout);
           $('#game').classList.remove('dead');
           $('#end-message-container').classList.add('hidden');
+          $('#kill-message-container').classList.add('hidden');
           this.settings = gameData.settings;
           this.stats = gameData.stats;
           sound.load(this.settings.soundbank);
@@ -140,11 +143,16 @@ export default class Game {
   }
   end() {
     this.noUpdate = true;
+    $('#kill-message-container').classList.remove('hidden');
     sound.add('ko');
     sound.killBgm();
     $('#game').classList.add('dead');
-    $('#end-message-container').classList.remove('hidden');
-    $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
+    endScreenTimeout = setTimeout(() => {
+      $('#kill-message-container').classList.add('hidden');
+      $('#end-message').textContent = locale.getString('ui', 'gameover');
+      $('#end-message-container').classList.remove('hidden');
+      $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
+    }, 1000);
   }
   resize() {
     const game = gameHandler.game;

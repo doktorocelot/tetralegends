@@ -102,7 +102,7 @@ export default class Piece extends GameModule {
       this.genDropParticles();
     }
     if (this.isStuck) {
-      $('#end-message').textContent = locale.getString('ui', 'blockOut');
+      $('#kill-message').textContent = locale.getString('ui', 'blockOut');
       this.parent.end();
       // gameHandler.reset();
     }
