@@ -709,11 +709,12 @@ body {
   display: inline-block;
   padding: 2em;
   margin: auto;
-  transition-property: filter;
+  transition-property: filter transform;
   transition-duration: .8s;
 }
 .game.dead {
-  filter: grayscale(100%) brightness(0.3);
+  filter: grayscale(100%) brightness(0.3) blur(.5em);
+  transform: scale(0.8);
 }
 .game.paused canvas {
   opacity: 0;
@@ -903,13 +904,11 @@ progress[value]::-moz-progress-bar {
   0% {opacity: 0; transform: scale(2);}
   15% {opacity: 1; transform: scale(1);}
   30% {filter: brightness(1)}
-  40% {filter: brightness(0.2)}
+  40% {filter: brightness(0.5)}
   50% {filter: brightness(1)}
-  60% {filter: brightness(0.2)}
+  60% {filter: brightness(0.5)}
   70% {filter: brightness(1)}
-  80% {opacity: 1; filter: brightness(0.2)}
-  90% {filter: brightness(1)}
-  100% {opacity: 0; filter: brightness(0.2)}
+  80% {filter: brightness(0.5)}
 }
 .kill-message-container {
   position: absolute;
@@ -943,20 +942,26 @@ progress[value]::-moz-progress-bar {
 }
 
 .end-message-container {
+  text-align: center;
   position: absolute;
   color: #fff;
   left: 50%;
   margin-left: -10em;
   top: 50%;
-  margin-top: -4em;
+  margin-top: -6em;
   width: 20em;
-  height: 8em;
+  height: 12em;
   z-index: 200;
   font-size: 2em;
   opacity: 1;
   transition-duration: .4s;
   transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
   transition-property: opacity transform filter;
+}
+.end-message-container .end-stats {
+  text-align: right;
+  width: 10em;
+  margin: auto;
 }
 .end-message-container.hidden {
   /* display: none; */
@@ -1034,6 +1039,6 @@ progress[value]::-moz-progress-bar {
 }
 @keyframes dissolve {
   0% {transform: scale(1);}
-  20% {opacity: 1;}
-  100% {opacity: 0; transform: scale(5); display: none;}
+  20% {opacity: 1; filter: blur(0)}
+  100% {opacity: 0; transform: scale(5); display: none; filter: blur(.25em)}
 }

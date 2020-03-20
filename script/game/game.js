@@ -53,6 +53,12 @@ export default class Game {
       fallspeed: true,
       entrydelay: true,
     };
+    this.endingStats = {
+      score: true,
+      level: true,
+      piece: true,
+      line: true,
+    };
     this.b2b = 0;
     this.combo = -1;
     this.matrix = {
@@ -123,9 +129,10 @@ export default class Game {
     $('.game').classList.remove('paused');
   }
   pause() {
-    if (this.isPaused) {return;}
+    if (this.isPaused || this.noUpdate) {return;}
     $('#pause-label').textContent = locale.getString('ui', 'pause');
     sound.add('pause');
+    sound.playSeQueue();
     this.isPaused = true;
     $('.game').classList.add('paused');
   }
@@ -146,6 +153,15 @@ export default class Game {
   }
   end() {
     this.noUpdate = true;
+    $('#end-stats').innerHTML = '';
+    for (const statName of this.stats) {
+      if (this.endingStats[statName]) {
+        $('#end-stats').innerHTML += `<b>${locale.getString('ui', statName)}:</b> ${this.stat[statName]}<br>`;
+      }
+    }
+    if (this.timeGoal == null) {
+      $('#end-stats').innerHTML += `<b>${locale.getString('ui', 'time')}:</b> ${msToTime(this.timePassed)}<br>`;
+    }
     $('#kill-message-container').classList.remove('hidden');
     sound.add('ko');
     sound.killBgm();
