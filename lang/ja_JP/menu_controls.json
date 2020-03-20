@@ -1,0 +1,88 @@
+{
+  "clearLabel": {
+    "message": "クリア",
+    "description": "Erase all controls"
+  },
+  "clearDescription": {
+    "message": "すべてのコントロールバインディングをクリアし、ゼロから始めます"
+  },
+  "resetLabel": {
+    "message": "リセット",
+    "description": "Reset the controls to the defaults. Could also be translated as 'default'"
+  },
+  "resetDescription": {
+    "message": "すべてのコントロールをデフォルトにリセットします"
+  },
+  "shiftLeftLabel": {
+    "message": "左"
+  },
+  "shiftLeftDescription": {
+    "message": "ピースを左に移動します"
+  },
+  "shiftRightLabel": {
+    "message": "右"
+  },
+  "shiftRightDescription": {
+    "message": "ピースを右に移動します"
+  },
+  "hardDropLabel": {
+    "message": "ハードドロップ"
+  },
+  "hardDropDescription": {
+    "message": "ピースで床に落とします。（機能が異なる場合や、一部のモードで使用できない場合があります）"
+  },
+  "softDropLabel": {
+    "message": "ソフトドロップ"
+  },
+  "softDropDescription": {
+    "message": "ピースの落下速度を上げます（一部のモードでは機能が異なる場合があります）"
+  },
+  "rotateLeftLabel": {
+    "message": "回転（左）",
+    "description": "Could also be called 'rotate counter-clockwise'"
+  },
+  "rotateLeftDescription": {
+    "message": "ピースを反時計回りに90°回転させます"
+  },
+  "rotateRightLabel": {
+    "message": "回転（右）",
+    "description": "Could also be called 'rotate clockwise'"
+  },
+  "rotateRightDescription": {
+    "message": "ピースを時計回りに90°回転させます"
+  },
+  "rotateDoubleLabel": {
+    "message": "180°回転",
+    "description": "Could also be referred to as a 'double rotation'"
+  },
+  "rotateDoubleDescription": {
+    "message": "ピースを180°回転させます。 一部のモードでのみ使用できます"
+  },
+  "holdLabel": {
+    "message": "ホールド"
+  },
+  "holdDescription": {
+    "message": "後で使用するためにピースを保存します。 一部のモードでは使用できない場合があります"
+  },
+  "retryLabel": {
+    "message": "リトライ",
+    "description": "You press this bind to restart the game instantly"
+  },
+  "retryDescription": {
+    "message": "ゲームを再起動します"
+  },
+  "pauseLabel": {
+    "message": "一時停止"
+  },
+  "pauseDescription": {
+    "message": "ゲームを一時停止します"
+  },
+  "configPopupHeader": {
+    "message": "コントロール構成",
+    "description": "Displays as a header on a popup window when you add a control binding"
+  },
+  "configPopupDescription": {
+    "message": "このアクションに使用するキーを押します",
+    "description": "Displays on the popup when you add a control binding"
+  }
+}

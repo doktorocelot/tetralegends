@@ -1,0 +1,55 @@
+{
+  "nextLengthLabel": {
+    "message": "Longitud de la cola \"siguiente\""
+  },
+  "nextLengthDescription": {
+    "message": "La cantidad de piezas que el jugador puede ver en la cola siguiente"
+  },
+  "lockdownBarLabel": {
+    "message": "Barra de bloqueo",
+    "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
+  },
+  "lockdownBarDescription": {
+    "message": "Permite ver información adicional sobre el retraso de bloqueo y los límites de movimientos"
+  },
+  "swayScaleLabel": {
+    "message": "Escala de movimiento de la matriz",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
+  },
+  "swayScaleDescription": {
+    "message": "Qué tan lejos la matriz se mueve por la fuerza de las piezas en porcentaje. Seleccionando 0 deshabilita el efecto completamente",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "swaySpeedLabel": {
+    "message": "Velocidad de movimiento de matriz",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
+  },
+  "swaySpeedDescription": {
+    "message": "Qué tan rápido la matriz retorna a su posición natural en porcentaje",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "particlesLabel": {
+    "message": "Partículas"
+  },
+  "particlesDescription": {
+    "message": "Si las partículas deben ser dibujadas"
+  },
+  "particleLimitLabel": {
+    "message": "Límite de partículas"
+  },
+  "particleLimitDescription": {
+    "message": "Cuántas partículas pueden aparecer en la pantalla a la vez"
+  },
+  "particleSizeLabel": {
+    "message": "Tamaño de partículas"
+  },
+  "particleSizeDescription": {
+    "message": "Qué tan grandes aparecerán las partículas"
+  },
+  "particleVolumeLabel": {
+    "message": "Volumen de partículas"
+  },
+  "particleVolumeDescription": {
+    "message": "Cuantas partículas se generarán"
+  }
+}

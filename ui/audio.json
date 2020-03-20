@@ -4,6 +4,8 @@
   },
   "data": [
     {
+      "string": "sfxLabel",
+      "stringDesc": "sfxDescription",
       "label": "SFX Volume",
       "default": true,
       "description": "The volume of the various sound effects in percentage",
@@ -16,6 +18,8 @@
       "settingType": "setting"
     },
     {
+      "string": "musicLabel",
+      "stringDesc": "musicDescription",
       "label": "Music Volume",
       "description": "The volume of the music in percentage",
       "type": "slider",

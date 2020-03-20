@@ -1,0 +1,41 @@
+{
+  "defaultLabel": {
+    "message": "デフォルト"
+  },
+  "defaultDescription": {
+    "message": "ゲームのデフォルト設定"
+  },
+  "guidelineLabel": {
+    "message": "ガイドライン"
+  },
+  "guidelineDescription": {
+    "message": "ほとんどのバージョンにある標準設定"
+  },
+  "pptLabel": {
+    "message": "ぷよテト",
+    "description": "Based on Puyo Puyo Tetris"
+  },
+  "pptDescription": {
+    "message": "標準設定のやや速いタイプ"
+  },
+  "tetraOnlineLabel": {
+    "message": "テトラオンライン",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "tetraOnlineDescription": {
+    "message": "テトラオンラインのオートシフト設定に一致するプリセット",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "quickLabel": {
+    "message": "もっと早く"
+  },
+  "quickDescription": {
+    "message": "いくつかの制御を必要とするより速いプリセット"
+  },
+  "proLabel": {
+    "message": "プロフェッショナル"
+  },
+  "proDescription": {
+    "message": "高レベルの制御を必要とする非常に高速なプリセット"
+  }
+}

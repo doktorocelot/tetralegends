@@ -1,0 +1,86 @@
+{
+  "quickLabel": {
+    "message": "Partida rápida",
+    "description": "Button to start a game of marathon"
+  },
+  "quickDescription": {
+    "message": "Inicia directamente un juego de Maratón con las configuraciones predeterminadas"
+  },
+  "gameStylesOverline": {
+    "message": "Estilos de juego",
+    "description": "Header for the various types of games (Guideline, Retro, etc)"
+  },
+  "guidelineLabel": {
+    "message": "Estándar"
+  },
+  "guidelineDescription": {
+    "message": "Variante estándar del rompecabezas encontrado en la mayoría de los juegos modernos"
+  },
+  "tetraxLabel": {
+    "message": "Tetra-X"
+  },
+  "tetraxDescription": {
+    "message": "Una variante personalizada nueva diseñada para este juego"
+  },
+  "retroLabel": {
+    "message": "Retro"
+  },
+  "retroDescription": {
+    "message": "Variante clásica del rompecabezas amado por jugadores de la vieja escuela"
+  },
+  "arcadeLabel": {
+    "message": "Arcade"
+  },
+  "arcadeDescription": {
+    "message": "Variante difícil del rompecabezas para jugadores avanzados"
+  },
+  "settingsOverline": {
+    "message": "Configuraciones"
+  },
+  "tuningLabel": {
+    "message": "Gameplay"
+  },
+  "tuningDescription": {
+    "message": "Cambia cómo se siente el juego"
+  },
+  "controlsLabel": {
+    "message": "Controles"
+  },
+  "controlsDescription": {
+    "message": "Cambia como el juego se controla"
+  },
+  "audioLabel": {
+    "message": "Audio"
+  },
+  "audioDescription": {
+    "message": "Cambia como el juego se escucha"
+  },
+  "videoLabel": {
+    "message": "Vídeo"
+  },
+  "videoDescription": {
+    "message": "Cambia como el juego luce"
+  },
+  "miscOverline": {
+    "message": "Otros",
+    "description": "Miscellaneous, other"
+  },
+  "soundtrackLabel": {
+    "message": "Música"
+  },
+  "soundtrackDescription": {
+    "message": "Escucha a la composición original"
+  },
+  "translateLabel": {
+    "message": "Traducir"
+  },
+  "translateDescription": {
+    "message": "Contribuye con traducciones al juego"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Únete a Discord para discutir sobre el juego, actualizarte y contribuir ideas y traducciones"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "level": {
+    "message": "Nivel",
+    "description": "The level (usually affects the speed of the game)"
+  },
+  "score": {
+    "message": "Puntaje",
+    "description": "The amount of points the player has"
+  },
+  "line": {
+    "message": "Líneas",
+    "description": "The amount of lines the player has cleared"
+  },
+  "piece": {
+    "message": "Piezas",
+    "description": "The amount of pieces the player has placed"
+  },
+  "time": {
+    "message": "Tiempo",
+    "description": "How much time has passed since the start of the game"
+  },
+  "fallspeed": {
+    "message": "Rapidez de caída",
+    "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
+  },
+  "entrydelay": {
+    "message": "Retraso de entrada",
+    "description": "The amount of time in between piece placements, also known as 'ARE'"
+  },
+  "next": {
+    "message": "Siguiente",
+    "description": "The label for the next piece in the queue"
+  },
+  "hold": {
+    "message": "Reserva",
+    "description": "The label for the piece in the hold queue"
+  },
+  "skip": {
+    "message": "Omitir",
+    "description": "The label that indicates that you can discard or skip a piece"
+  },
+  "secrow": {
+    "message": "seg/fila",
+    "description": "The unit label for 'seconds per row'"
+  },
+  "pause": {
+    "message": "Pausa",
+    "description": "Displays on screen when the game is paused"
+  },
+  "ready": {
+    "message": "¿Listos?",
+    "description": "Good options are: 'Get Ready!', 'Are you ready?'"
+  },
+  "start": {
+    "message": "¡Empieza!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
+  },
+  "go": {
+    "message": "¡Ya!",
+    "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
+  },
+  "gameover": {
+    "message": "Fin del juego",
+    "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
+  },
+  "blockOut": {
+    "message": "Bloqueado",
+    "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
+  },
+  "lockOut": {
+    "message": "Apresado",
+    "description": "Displays as a failure message when the piece was locked above the skyline/ceiling"
+  },
+  "topOut": {
+    "message": "Fuera de límites",
+    "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
+  },
+  "timeOut": {
+    "message": "Tiempo agotado",
+    "description": "Displays when the time runs out"
+  },
+  "excellent": {
+    "message": "¡Excelente!",
+    "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
+  },
+  "newRecord": {
+    "message": "¡Nuevo récord!",
+    "description": "Displays when the user beats their previous score or time"
+  },
+  "returnToMenu": {
+    "message": "Volver al menú",
+    "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
+  }
+}

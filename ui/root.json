@@ -4,28 +4,45 @@
   },
   "data": [
     {
+      "label": "translate",
+      "fixedText": true,
+      "useIcon": true,
+      "description": "",
+      "action": "submenu",
+      "submenu": "languages"
+    },
+    {
+      "string": "quickLabel",
+      "stringDesc": "quickDescription",
       "label": "Quick Play",
       "default": true,
       "description": "Jump right into a game of Marathon",
       "action": "quick"
     },
     {
+      "string": "gameStylesOverline",
       "label": "Game Styles",
       "type": "overline"
     },
     {
+      "string": "guidelineLabel",
+      "stringDesc": "guidelineDescription",
       "label": "Guideline",
       "description": "Standard variant of the puzzle found in modern games",
       "action": "submenu",
       "submenu": "guideline"
     },
     {
+      "string": "tetraxLabel",
+      "stringDesc": "tetraxDescription",
       "label": "Tetra-X",
       "description": "Custom variant founded by this game",
       "action": "submenu",
       "submenu": "tetrax"
     },
     {
+      "string": "retroLabel",
+      "stringDesc": "retroDescription",
       "label": "Retro",
       "width": "half",
       "description": "Classic variant loved by oldschool players",
@@ -33,6 +50,8 @@
       "submenu": "retro"
     },
     {
+      "string": "arcadeLabel",
+      "stringDesc": "arcadeDescription",
       "label": "Arcade",
       "disabled": true,
       "width": "half",
@@ -40,10 +59,13 @@
       "action": "submenu"
     },
     {
+      "string": "settingsOverline",
       "label": "Settings",
       "type": "overline"
     },
     {
+      "string": "tuningLabel",
+      "stringDesc": "tuningDescription",
       "label": "Tuning",
       "width": "half",
       "description": "Change how the game feels",
@@ -51,6 +73,8 @@
       "submenu": "tuning"
     },
     {
+      "string": "controlsLabel",
+      "stringDesc": "controlsDescription",
       "label": "Controls",
       "width": "half",
       "description": "Change how the game controls",
@@ -58,6 +82,8 @@
       "submenu": "controls"
     },
     {
+      "string": "audioLabel",
+      "stringDesc": "audioDescription",
       "label": "Audio",
       "width": "half",
       "description": "Change how the game sounds",
@@ -65,6 +91,8 @@
       "submenu": "audio"
     },
     {
+      "string": "videoLabel",
+      "stringDesc": "videoDescription",
       "label": "Video",
       "width": "half",
       "description": "Change how the game looks",
@@ -72,10 +100,13 @@
       "submenu": "video"
     },
     {
+      "string": "miscOverline",
       "label": "Misc",
       "type": "overline"
     },
     {
+      "string": "soundtrackLabel",
+      "stringDesc": "soundtrackDescription",
       "label": "Soundtrack",
       "disabled": true,
       "description": "Listen to the original soundtrack (coming soon!)",

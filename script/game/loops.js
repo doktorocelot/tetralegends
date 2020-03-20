@@ -236,6 +236,7 @@ export const loops = {
       game.stat.level = 1;
       lastLevel = 1;
       game.prefixes.level = 'M';
+      game.stat.entrydelay = '400ms';
       game.piece.gravity = framesToMs(1 / 20);
       updateFallSpeed(game);
       game.updateStats();
@@ -275,7 +276,7 @@ export const loops = {
         500, 475, 450, 375, 350];
       game.piece.lockDelayLimit = DELAY_TABLE[calcLevel];
       const NEXT_TABLE = [
-        6, 3, 1, 0, 0];
+        6, 3, 2, 1, 1];
       game.next.nextLimit = NEXT_TABLE[calcLevel];
       if (calcLevel >= 4 && !game.hold.isDisabled) {
         game.hold.isDisabled = true;

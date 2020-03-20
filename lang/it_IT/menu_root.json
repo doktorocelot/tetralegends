@@ -1,0 +1,86 @@
+{
+  "quickLabel": {
+    "message": "Quick Play",
+    "description": "Button to start a game of marathon"
+  },
+  "quickDescription": {
+    "message": "Jump right into a game of Marathon with the default settings"
+  },
+  "gameStylesOverline": {
+    "message": "Game Styles",
+    "description": "Header for the various types of games (Guideline, Retro, etc)"
+  },
+  "guidelineLabel": {
+    "message": "Guideline"
+  },
+  "guidelineDescription": {
+    "message": "Standard variant of the puzzle found in most modern games"
+  },
+  "tetraxLabel": {
+    "message": "Tetra-X"
+  },
+  "tetraxDescription": {
+    "message": "A custom variant of the puzzle originally designed for this game"
+  },
+  "retroLabel": {
+    "message": "Retro"
+  },
+  "retroDescription": {
+    "message": "Classic variant of the puzzle loved by oldschool players"
+  },
+  "arcadeLabel": {
+    "message": "Arcade"
+  },
+  "arcadeDescription": {
+    "message": "Difficult variant of the puzzle loved by hardcore players"
+  },
+  "settingsOverline": {
+    "message": "Settings"
+  },
+  "tuningLabel": {
+    "message": "Tuning"
+  },
+  "tuningDescription": {
+    "message": "Change how the game feels"
+  },
+  "controlsLabel": {
+    "message": "Controls"
+  },
+  "controlsDescription": {
+    "message": "Change how the game controls"
+  },
+  "audioLabel": {
+    "message": "Audio"
+  },
+  "audioDescription": {
+    "message": "Change how the game sounds"
+  },
+  "videoLabel": {
+    "message": "Video"
+  },
+  "videoDescription": {
+    "message": "Change how the game looks"
+  },
+  "miscOverline": {
+    "message": "Misc",
+    "description": "Miscellaneous, other"
+  },
+  "soundtrackLabel": {
+    "message": "Soundtrack"
+  },
+  "soundtrackDescription": {
+    "message": "Listen to the original soundtrack"
+  },
+  "translateLabel": {
+    "message": "Translate"
+  },
+  "translateDescription": {
+    "message": "Contribute translations to the game"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+  }
+}

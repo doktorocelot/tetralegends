@@ -4,12 +4,16 @@
   },
   "data": [
     {
+      "string": "presetsLabel",
+      "stringDesc": "presetDescription",
       "label": "Delay/Rate Presets",
       "description": "Select from a variety of different presets for the autoshift",
       "action": "submenu",
       "submenu": "daspresets"
     },
     {
+      "string": "dasLabel",
+      "stringDesc": "dasDescription",
       "label": "Autoshift Delay",
       "default": true,
       "description": "(DAS) The amount of time in milliseconds before a piece will automatically shift",
@@ -22,6 +26,8 @@
       "settingType": "setting"
     },
     {
+      "string": "arrLabel",
+      "stringDesc": "arrDescription",
       "label": "Autoshift Rate",
       "description": "(ARR) The amount of time in milliseconds in between each automatic shift",
       "type": "slider",
@@ -33,6 +39,8 @@
       "settingType": "setting"
     },
     {
+      "string": "dasPreloadLabel",
+      "stringDesc": "dasPreloadDescription",
       "label": "Autoshift Preload",
       "description": "Automatically fully charge the autoshift when a shift key is pressed during entry delay",
       "type": "toggle",

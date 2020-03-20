@@ -1,0 +1,41 @@
+{
+  "defaultLabel": {
+    "message": "Domyślne"
+  },
+  "defaultDescription": {
+    "message": "Domyślne ustawienia"
+  },
+  "guidelineLabel": {
+    "message": "Guideline"
+  },
+  "guidelineDescription": {
+    "message": "Ustawienia standardowe, które można znaleźć w większości wersji"
+  },
+  "pptLabel": {
+    "message": "PPT",
+    "description": "Based on Puyo Puyo Tetris"
+  },
+  "pptDescription": {
+    "message": "Nieco szybsza wersja standardowych ustawień"
+  },
+  "tetraOnlineLabel": {
+    "message": "Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "tetraOnlineDescription": {
+    "message": "Ustawienia pasujące do gry Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "quickLabel": {
+    "message": "Szybkie"
+  },
+  "quickDescription": {
+    "message": "Szybsze ustawienia, które wymagają lepszej kontroli"
+  },
+  "proLabel": {
+    "message": "Pro"
+  },
+  "proDescription": {
+    "message": "Najszybsze ustawienia, które wymagają jeszcze lepszej kontroli"
+  }
+}

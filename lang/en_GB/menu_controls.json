@@ -1,0 +1,88 @@
+{
+  "clearLabel": {
+    "message": "Clear",
+    "description": "Erase all controls"
+  },
+  "clearDescription": {
+    "message": "Clear all of the control bindings so you have a blank workspace"
+  },
+  "resetLabel": {
+    "message": "Reset",
+    "description": "Reset the controls to the defaults. Could also be translated as 'default'"
+  },
+  "resetDescription": {
+    "message": "Reset all of the controls back to their defaults"
+  },
+  "shiftLeftLabel": {
+    "message": "Shift Left"
+  },
+  "shiftLeftDescription": {
+    "message": "Move a piece to the left once or hold for autoshift"
+  },
+  "shiftRightLabel": {
+    "message": "Shift Right"
+  },
+  "shiftRightDescription": {
+    "message": "Move a piece to the right once or hold for autoshift"
+  },
+  "hardDropLabel": {
+    "message": "Hard Drop"
+  },
+  "hardDropDescription": {
+    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+  },
+  "softDropLabel": {
+    "message": "Soft Drop"
+  },
+  "softDropDescription": {
+    "message": "Speed up a piece's descent (may act differently in some modes)"
+  },
+  "rotateLeftLabel": {
+    "message": "Rotate Left",
+    "description": "Could also be called 'rotate counter-clockwise'"
+  },
+  "rotateLeftDescription": {
+    "message": "Rotate a piece 90° anti-clockwise."
+  },
+  "rotateRightLabel": {
+    "message": "Rotate Right",
+    "description": "Could also be called 'rotate clockwise'"
+  },
+  "rotateRightDescription": {
+    "message": "Rotate a piece 90° clockwise."
+  },
+  "rotateDoubleLabel": {
+    "message": "Rotate 180°",
+    "description": "Could also be referred to as a 'double rotation'"
+  },
+  "rotateDoubleDescription": {
+    "message": "Rotate a piece 180° (may be disabled in some modes)"
+  },
+  "holdLabel": {
+    "message": "Hold"
+  },
+  "holdDescription": {
+    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+  },
+  "retryLabel": {
+    "message": "Retry",
+    "description": "You press this bind to restart the game instantly"
+  },
+  "retryDescription": {
+    "message": "Instantly have another attempt"
+  },
+  "pauseLabel": {
+    "message": "Pause"
+  },
+  "pauseDescription": {
+    "message": "Pause the game"
+  },
+  "configPopupHeader": {
+    "message": "Control Configuration",
+    "description": "Displays as a header on a popup window when you add a control binding"
+  },
+  "configPopupDescription": {
+    "message": "Press the key you wish to use for this action",
+    "description": "Displays on the popup when you add a control binding"
+  }
+}

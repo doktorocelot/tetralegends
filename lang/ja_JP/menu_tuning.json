@@ -1,0 +1,30 @@
+{
+  "presetsLabel": {
+    "message": "DASプリセット",
+    "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
+  },
+  "presetDescription": {
+    "message": "オートシフトのプリセットを選択します"
+  },
+  "dasLabel": {
+    "message": "DAS",
+    "description": "Also known as 'DAS'"
+  },
+  "dasDescription": {
+    "message": "ピースが自動的にシフトするまでの時間（ミリ秒）"
+  },
+  "arrLabel": {
+    "message": "ARR",
+    "description": "Also known as 'ARR'"
+  },
+  "arrDescription": {
+    "message": "各自動シフト間のミリ秒単位の時間"
+  },
+  "dasPreloadLabel": {
+    "message": "DASプリロード",
+    "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
+  },
+  "dasPreloadDescription": {
+    "message": "入力遅延中に移動キーが押されると、オートシフトを自動的に完全に充電します"
+  }
+}

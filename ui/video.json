@@ -4,6 +4,8 @@
   },
   "data": [
     {
+      "string": "nextLengthLabel",
+      "stringDesc": "nextLengthDescription",
       "label": "Next Queue Length",
       "default": true,
       "description": "The amount of pieces the player can see up ahead",
@@ -16,6 +18,8 @@
       "settingType": "setting"
     },
     {
+      "string": "lockdownBarLabel",
+      "stringDesc": "lockdownBarDescription",
       "label": "Lockdown Bar",
       "description": "Allow the ability to see additional information on lock delay and move limits",
       "type": "toggle",
@@ -24,6 +28,8 @@
       "settingType": "setting"
     },
     {
+      "string": "swayScaleLabel",
+      "stringDesc": "swayScaleDescription",
       "label": "Matrix Sway Scale",
       "description": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
       "type": "slider",
@@ -35,6 +41,8 @@
       "settingType": "setting"
     },
     {
+      "string": "swaySpeedLabel",
+      "stringDesc": "swaySpeedDescription",
       "label": "Matrix Sway Speed",
       "description": "How fast the matrix returns to its neutral position in percentage",
       "type": "slider",
@@ -46,6 +54,8 @@
       "settingType": "setting"
     },
     {
+      "string": "particlesLabel",
+      "stringDesc": "particlesDescription",
       "label": "Particles",
       "description": "Whether particles should be drawn",
       "type": "toggle",
@@ -54,6 +64,8 @@
       "settingType": "setting"
     },
     {
+      "string": "particleLimitLabel",
+      "stringDesc": "particleLimitDescription",
       "label": "Particle Limit",
       "description": "How many particles can appear on screen at one time",
       "type": "slider",
@@ -65,6 +77,8 @@
       "settingType": "setting"
     },
     {
+      "string": "particleSizeLabel",
+      "stringDesc": "particleSizeDescription",
       "label": "Particle Size",
       "description": "How large the particles will appear",
       "type": "slider",
@@ -76,6 +90,8 @@
       "settingType": "setting"
     },
     {
+      "string": "particleVolumeLabel",
+      "stringDesc": "particleVolumeDescription",
       "label": "Particle Volume",
       "description": "How many particles will generate",
       "type": "slider",

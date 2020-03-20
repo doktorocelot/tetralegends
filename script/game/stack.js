@@ -1,6 +1,7 @@
 import GameModule from './game-module.js';
-import {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
+import $, {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
 import sound from '../sound.js';
+import locale from '../lang.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -62,6 +63,7 @@ export default class Stack extends GameModule {
     this.flashX = [];
     this.flashY = [];
     this.flashTime = 0;
+    let passedLockOut = shape.length;
     for (let y = 0; y < shape.length; y++) {
       for (let x = 0; x < shape[y].length; x++) {
         const isFilled = shape[y][x];
@@ -84,6 +86,9 @@ export default class Stack extends GameModule {
           });
           const xLocation = x + passedX;
           const yLocation = y + passedY + this.hiddenHeight;
+          if (yLocation - this.hiddenHeight >= 0) {
+            passedLockOut--;
+          }
           if (this.parent.piece.useSpecialI && this.parent.piece.name === 'I') {
             this.grid[xLocation][yLocation] = 'i' + shape[y][x];
           } else {
@@ -94,6 +99,10 @@ export default class Stack extends GameModule {
           this.flashY.unshift(yLocation);
         }
       }
+    }
+    if (passedLockOut >= shape.length) {
+      $('#end-message').textContent = locale.getString('ui', 'lockOut');
+      this.parent.end();
     }
 
     for (let y = 0; y < this.grid[0].length; y++) {

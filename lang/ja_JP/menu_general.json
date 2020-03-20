@@ -1,0 +1,17 @@
+{
+  "backLabel": {
+    "message": "戻る",
+    "description": "Go back to the previous menu"
+  },
+  "backDescription": {
+    "message": "前のメニューに戻る"
+  },
+  "enabled": {
+    "message": "ON",
+    "description": "Turned on, enabled"
+  },
+  "disabled": {
+    "message": "OFF",
+    "description": "Turned off, disabled"
+  }
+}

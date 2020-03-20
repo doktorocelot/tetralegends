@@ -1,0 +1,86 @@
+{
+  "quickLabel": {
+    "message": "Szybka gra",
+    "description": "Button to start a game of marathon"
+  },
+  "quickDescription": {
+    "message": "Zacznij grę \"Maraton\" z domyślnymi ustawieniami"
+  },
+  "gameStylesOverline": {
+    "message": "Style gry",
+    "description": "Header for the various types of games (Guideline, Retro, etc)"
+  },
+  "guidelineLabel": {
+    "message": "Guideline"
+  },
+  "guidelineDescription": {
+    "message": "Standardowy wariant zasad gry, który można znaleźć w większości współczesnych gier"
+  },
+  "tetraxLabel": {
+    "message": "Tetra-X"
+  },
+  "tetraxDescription": {
+    "message": "Niestandardowy wariant gry, zaprojektowany dla Tetra-X"
+  },
+  "retroLabel": {
+    "message": "Retro"
+  },
+  "retroDescription": {
+    "message": "Klasyczny wariant gry kochanej przez starszych graczy"
+  },
+  "arcadeLabel": {
+    "message": "Arcade"
+  },
+  "arcadeDescription": {
+    "message": "Trudniejszy wariant gry kochanej przez doświadczonych graczy"
+  },
+  "settingsOverline": {
+    "message": "Ustawienia"
+  },
+  "tuningLabel": {
+    "message": "Opóźnienia"
+  },
+  "tuningDescription": {
+    "message": "Zmień prędkość przesuwania bloków"
+  },
+  "controlsLabel": {
+    "message": "Sterowanie"
+  },
+  "controlsDescription": {
+    "message": "Zmień sterowanie"
+  },
+  "audioLabel": {
+    "message": "Dźwięk"
+  },
+  "audioDescription": {
+    "message": "Zmień ustawienia dźwięku"
+  },
+  "videoLabel": {
+    "message": "Obraz"
+  },
+  "videoDescription": {
+    "message": "Zmień ustawienia obrazu"
+  },
+  "miscOverline": {
+    "message": "Inne",
+    "description": "Miscellaneous, other"
+  },
+  "soundtrackLabel": {
+    "message": "Ścieżka dźwiękowa"
+  },
+  "soundtrackDescription": {
+    "message": "Posłuchaj oryginalnej ścieżki dźwiękowej"
+  },
+  "translateLabel": {
+    "message": "Przetłumacz"
+  },
+  "translateDescription": {
+    "message": "Wspomóż tłumaczenie gry"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Dołącz do Discorda, zeby przedyskutować grę, otrzymywać aktualizacje, podawać pomysły oraz tłumaczenia"
+  }
+}

@@ -4,6 +4,7 @@ import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
 import settings from '../settings.js';
 import gameHandler from './game-handler.js';
 import sound from '../sound.js';
+import locale from '../lang.js';
 export default class Piece extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -64,7 +65,7 @@ export default class Piece extends GameModule {
     const rotSys = this.parent.rotationSystem;
     if (this.parent.stat.piece === 0 && this.parent.hold.pieceName == null) {
       sound.add('start');
-      $('#message').textContent = 'START';
+      $('#message').textContent = locale.getString('ui', 'start');
       $('#message').classList.add('dissolve');
       sound.playBgm(this.parent.settings.music, this.parent.type);
     }
@@ -101,8 +102,9 @@ export default class Piece extends GameModule {
       this.genDropParticles();
     }
     if (this.isStuck) {
-      sound.add('ko');
-      gameHandler.reset();
+      $('#end-message').textContent = locale.getString('ui', 'blockOut');
+      this.parent.end();
+      // gameHandler.reset();
     }
     this.color = this.parent.colors[this.name];
     this.rotatedX = null;

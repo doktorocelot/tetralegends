@@ -1,9 +1,11 @@
 import menu from './menu/menu.js';
 import sound from './sound.js';
+import locale from './lang.js';
 const SETTINGS_VERSION = 4;
 class Settings {
   constructor() {
     this.defaultSettings = {
+      language: 'en_US',
       // Tuning
       DAS: 170,
       ARR: 30,
@@ -42,6 +44,15 @@ class Settings {
       sfxVolume: 50,
       musicVolume: 50,
     };
+    console.log(navigator.language.substr(0, 2));
+    switch (navigator.language.substr(0, 2)) {
+      case 'es':
+        this.defaultSettings.language = 'es_ES';
+        break;
+      case 'ja':
+        this.defaultSettings.language = 'ja_JP';
+        break;
+    }
     this.settingInfo = {
       // Tuning
       DAS: {

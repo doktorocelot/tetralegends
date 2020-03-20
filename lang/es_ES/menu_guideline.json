@@ -1,0 +1,34 @@
+{
+  "marathonLabel": {
+    "message": "Maratón",
+    "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
+  },
+  "marathonDescription": {
+    "message": "¡Alcanza el objetivo! Construye y limpia líneas, pero con cuidado, ¡el juego se hace más rápido!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "masterLabel": {
+    "message": "Maestro",
+    "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
+  },
+  "masterDescription": {
+    "message": "¡Acción increíblemente rápida! El juego no tendrá piedad mientras intentas sobrevivir las crueles velocidades hasta el final.",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "sprintLabel": {
+    "message": "Carrera",
+    "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
+  },
+  "sprintDescription": {
+    "message": "¡No te detengas! Llega al objetivo de líneas lo más rápido que puedas en este modo de alta velocidad.",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "ultraLabel": {
+    "message": "Ultra",
+    "description": "A guideline mode where you have to score as many points as possible before the time runs out"
+  },
+  "ultraDescription": {
+    "message": "¡Cada línea cuenta! ¡Cuidadosamente y rapidamente planifica para hacer la mayor cantidad de puntos posibles en el límite de tiempo!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  }
+}

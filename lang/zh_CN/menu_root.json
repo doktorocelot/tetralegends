@@ -1,0 +1,86 @@
+{
+  "quickLabel": {
+    "message": "快速游戏",
+    "description": "Button to start a game of marathon"
+  },
+  "quickDescription": {
+    "message": "以默认设置开始马拉松模式"
+  },
+  "gameStylesOverline": {
+    "message": "游戏风格",
+    "description": "Header for the various types of games (Guideline, Retro, etc)"
+  },
+  "guidelineLabel": {
+    "message": "标准"
+  },
+  "guidelineDescription": {
+    "message": "和大多数现代方块游戏一样的标准模式"
+  },
+  "tetraxLabel": {
+    "message": "Tetra-X"
+  },
+  "tetraxDescription": {
+    "message": "为本游戏特别设计的玩法变种"
+  },
+  "retroLabel": {
+    "message": "经典"
+  },
+  "retroDescription": {
+    "message": "老玩家们喜欢的经典变种"
+  },
+  "arcadeLabel": {
+    "message": "街机"
+  },
+  "arcadeDescription": {
+    "message": "面向硬核玩家的困难变种"
+  },
+  "settingsOverline": {
+    "message": "设置"
+  },
+  "tuningLabel": {
+    "message": "游戏参数"
+  },
+  "tuningDescription": {
+    "message": "改变游戏的操作手感"
+  },
+  "controlsLabel": {
+    "message": "控制"
+  },
+  "controlsDescription": {
+    "message": "更改游戏的操作"
+  },
+  "audioLabel": {
+    "message": "音频"
+  },
+  "audioDescription": {
+    "message": "更改音乐与音效"
+  },
+  "videoLabel": {
+    "message": "视频"
+  },
+  "videoDescription": {
+    "message": "更改皮肤和其他视觉效果"
+  },
+  "miscOverline": {
+    "message": "其他",
+    "description": "Miscellaneous, other"
+  },
+  "soundtrackLabel": {
+    "message": "原声带"
+  },
+  "soundtrackDescription": {
+    "message": "聆听游戏的原声带"
+  },
+  "translateLabel": {
+    "message": "Translate"
+  },
+  "translateDescription": {
+    "message": "Contribute translations to the game"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+  }
+}

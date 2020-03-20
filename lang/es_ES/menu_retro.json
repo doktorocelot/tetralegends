@@ -1,0 +1,30 @@
+{
+  "variationsOverline": {
+    "message": "Variaciones",
+    "description": "Variation, Version, Type"
+  },
+  "consoleLabel": {
+    "message": "Consola",
+    "description": "A mode based on NES Tet"
+  },
+  "consoleDescription": {
+    "message": "¡La versión clásica del rompecabezas más competitivamente usada en el mundo!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "handheldLabel": {
+    "message": "Portatil",
+    "description": "A mode based on the GB version of Tet"
+  },
+  "handheldDescription": {
+    "message": "Una versión nostálgica y lenta que muchos jugaron en dispositivos portátiles",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "deluxeLabel": {
+    "message": "Deluxe",
+    "description": "A mode based on the GBC version of Tet"
+  },
+  "deluxeDescription": {
+    "message": "Una buena mezcla de elementos clásicos y modernos",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  }
+}

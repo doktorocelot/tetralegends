@@ -1,7 +1,79 @@
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Thin.otf);
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Medium.otf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url(../font/NotoSansCJKjp-Black.otf);
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Thin.otf);
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Medium.otf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans CJK SC';
+  src: url(../font/NotoSansCJKsc-Black.otf);
+  font-weight: 800;
+  font-style: normal;
+}
 :root {
   --current-background: url("../img/bg/main-menu.png");
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
-  --main-font: 'Roboto', sans-serif;
+  --main-font: 'Roboto', 'Noto Sans CJK JP', sans-serif;
   --cell-size: (2em);
   --peek-zone: .25;
   --matrix-width: 10;
@@ -53,6 +125,7 @@
   animation-duration: .1s;
   */
 body {
+  user-select: none;
   margin: 0;
   padding: 0;
   font-family: var(--main-font);
@@ -317,7 +390,7 @@ body {
   font-size: .8em;
   font-weight: 300;
   display: inline-block;
-  padding: .4em .7em;
+  padding: .4em 0em;
   box-sizing: border-box;
   cursor: pointer;
   margin-bottom: .4em;
@@ -475,8 +548,10 @@ body {
   color: white;
   width: 0;
 }
-#button-hint-container table .icon {
+#button-hint-container table .icon,
+#menu > .btn.icon {
   font-family: 'Material Icons';
+  text-transform: lowercase;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -525,7 +600,11 @@ body {
   display: inline-block;
   padding: 2em;
   margin: auto;
-  
+  transition-property: filter;
+  transition-duration: .8s;
+}
+.game.dead {
+  filter: grayscale(100%) brightness(0.3);
 }
 .game.paused canvas {
   opacity: 0;
@@ -600,6 +679,9 @@ body {
   top: 0;
   left: 0;
 }
+.hold-container {
+  text-align: right;
+}
 .hold-container,
 .main-next-container {
   padding-left: 1em;
@@ -632,6 +714,7 @@ body {
   font-size: 2em;
   font-weight: 500;
   letter-spacing: .3em;
+  text-transform: uppercase;
 }
 .next-label {
   text-align: left;
@@ -706,6 +789,43 @@ progress[value]::-webkit-progress-value {
 /* Firefox */
 progress[value]::-moz-progress-bar {
   background-color: #fff;
+}
+.end-message-container {
+  position: absolute;
+  color: #fff;
+  left: 50%;
+  margin-left: -10em;
+  top: 50%;
+  margin-top: -4em;
+  width: 20em;
+  height: 8em;
+  z-index: 200;
+  font-size: 2em;
+  opacity: 1;
+  transition-duration: .4s;
+  transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  transition-property: opacity transform filter;
+}
+.end-message-container.hidden {
+  /* display: none; */
+  opacity: 0;
+  transform: scale(2);
+  filter: blur(0.2em);
+}
+.end-message-container .end-message {
+  font-size: 1.8em;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.end-message-container .icon {
+  font-family: 'Material Icons';
+  border-color: white;
+  border-style: solid;
+  border-width: .1em;
+  border-radius: .2em;
+  display: inline-block;
+  width: 3em;
+  margin-top: 2em;
 }
 .game .pause {
   display: none;

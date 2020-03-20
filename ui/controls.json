@@ -4,18 +4,24 @@
   },
   "data": [
     {
+      "string": "clearLabel",
+      "stringDesc": "clearDescription",
       "label": "Clear",
       "width": "half",
       "description": "Clear all the controls so you have a blank workspace",
       "action": "functionClearControls"
     },
     {
+      "string": "resetLabel",
+      "stringDesc": "resetDescription",
       "label": "Reset",
       "width": "half",
       "description": "Reset all controls back to their defaults",
       "action": "functionResetControls"
     },
     {
+      "string": "shiftLeftLabel",
+      "stringDesc": "shiftLeftDescription",
       "label": "Shift Left",
       "default": true,
       "description": "Move a piece left once or hold for autoshift",
@@ -24,6 +30,8 @@
       "control": "moveLeft"
     },
     {
+      "string": "shiftRightLabel",
+      "stringDesc": "shiftRightDescription",
       "label": "Shift Right",
       "description": "Move a piece right once or hold for autoshift",
       "type": "control",
@@ -31,6 +39,8 @@
       "control": "moveRight"
     },
     {
+      "string": "hardDropLabel",
+      "stringDesc": "hardDropDescription",
       "label": "Hard Drop",
       "description": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)",
       "type": "control",
@@ -38,6 +48,8 @@
       "control": "hardDrop"
     },
     {
+      "string": "softDropLabel",
+      "stringDesc": "softDropDescription",
       "label": "Soft Drop",
       "description": "Speed up a piece's descent (may act differently in some modes)",
       "type": "control",
@@ -45,6 +57,8 @@
       "control": "softDrop"
     },
     {
+      "string": "rotateLeftLabel",
+      "stringDesc": "rotateLeftDescription",
       "label": "Rotate Left",
       "description": "Rotate a piece 90° counter-clockwise.",
       "type": "control",
@@ -52,6 +66,8 @@
       "control": "rotateLeft"
     },
     {
+      "string": "rotateRightLabel",
+      "stringDesc": "rotateRightDescription",
       "label": "Rotate Right",
       "description": "Rotate a piece 90° clockwise.",
       "type": "control",
@@ -59,6 +75,8 @@
       "control": "rotateRight"
     },
     {
+      "string": "rotateDoubleLabel",
+      "stringDesc": "rotateDoubleDescription",
       "label": "Rotate 180°",
       "description": "Rotate a piece 180° (may be disabled in some modes)",
       "type": "control",
@@ -66,6 +84,8 @@
       "control": "rotate180"
     },
     {
+      "string": "holdLabel",
+      "stringDesc": "holdDescription",
       "label": "Hold",
       "description": "Send a piece to the hold queue (may be disabled in some modes)",
       "type": "control",
@@ -73,6 +93,8 @@
       "control": "hold"
     },
     {
+      "string": "retryLabel",
+      "stringDesc": "retryDescription",
       "label": "Retry",
       "description": "Instantly have another attempt",
       "type": "control",
@@ -80,6 +102,8 @@
       "control": "retry"
     },
     {
+      "string": "pauseLabel",
+      "stringDesc": "pauseDescription",
       "label": "Pause",
       "description": "Pause the game",
       "type": "control",
