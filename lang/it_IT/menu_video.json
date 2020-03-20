@@ -1,55 +1,55 @@
 {
   "nextLengthLabel": {
-    "message": "Next Queue Length"
+    "message": "Lunghezza coda successivi"
   },
   "nextLengthDescription": {
-    "message": "The amount of pieces the player can see up ahead in the next queue"
+    "message": "La quantità di tetramini che il giocatore può vedere nella coda dei successivi"
   },
   "lockdownBarLabel": {
-    "message": "Lockdown Bar",
+    "message": "Barra di lockdown",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Allow the ability to see additional information on lock delay and move limits"
+    "message": "Permette di vedere ulteriori informazioni riguardo il tempo di blocco e sui limiti di movimento di un tetramino"
   },
   "swayScaleLabel": {
-    "message": "Matrix Sway Scale",
+    "message": "Forza oscillazione",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "message": "A che distanza, in percentuale, il campo da gioco si muove, in relazione alla forza dei pezzi. Selezionare 0 disattiva completamente l'effetto",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Matrix Sway Speed",
+    "message": "Oscillazione campo da gioco",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "How fast the matrix returns to its neutral position in percentage",
+    "message": "Quanto velocemente il campo da gioco torna alla sua posizione di partenza, in percentuale",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
-    "message": "Particles"
+    "message": "Particelle"
   },
   "particlesDescription": {
-    "message": "Whether particles should be drawn"
+    "message": "Attiva/Disattiva le particelle"
   },
   "particleLimitLabel": {
-    "message": "Particle Limit"
+    "message": "Limite delle particelle"
   },
   "particleLimitDescription": {
-    "message": "How many particles can appear on screen at one time"
+    "message": "Quante particelle alla volta possonoapparire sullo schermo"
   },
   "particleSizeLabel": {
-    "message": "Particle Size"
+    "message": "Dimensione delle particelle"
   },
   "particleSizeDescription": {
-    "message": "How large the particles will appear"
+    "message": "Quanto risulteranno grandi le particelle"
   },
   "particleVolumeLabel": {
-    "message": "Particle Volume"
+    "message": "Volume particelle"
   },
   "particleVolumeDescription": {
-    "message": "How many particles will generate"
+    "message": "Quantità di particelle generate"
   }
 }

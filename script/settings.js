@@ -46,6 +46,9 @@ class Settings {
     };
     console.log(navigator.language.substr(0, 2));
     switch (navigator.language.substr(0, 2)) {
+      case 'it':
+        this.defaultSettings.language = 'it_IT';
+        break;
       case 'zh':
         this.defaultSettings.language = 'zh_CN';
         break;

@@ -1,30 +1,30 @@
 {
   "presetsLabel": {
-    "message": "Delay/Rate Presets",
+    "message": "Preset spostamento automatico",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
-    "message": "Select from a variety of different presets for the autoshift"
+    "message": "Seleziona diversi preset per l'auto spostamento"
   },
   "dasLabel": {
-    "message": "Autoshift Delay",
+    "message": "Ritardo spostamento",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
-    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
+    "message": "La quantità di tempo in millisecondi prima che un tetramino inizi a spostarsi automaticamente (DAS)"
   },
   "arrLabel": {
-    "message": "Autoshift Rate",
+    "message": "Velocità spostamento automatico",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
+    "message": "La quantità di tempo in millisecondi tra ogni spostamento automatico (ARR)"
   },
   "dasPreloadLabel": {
-    "message": "Autoshift Preload",
+    "message": "Precarica spostamento automatico",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
+    "message": "Carica automaticamente lo spostamento automatico quando un tasto di movimento viene premuto durante il ritardo d'ingresso"
   }
 }

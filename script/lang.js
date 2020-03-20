@@ -4,7 +4,7 @@ import settings from './settings.js';
 
 class Locale {
   constructor() {
-    this.languages = ['en_US', 'en_GB', 'es_ES', 'ja_JP', 'pl_PL', 'zh_CN'];
+    this.languages = ['en_US', 'en_GB', 'es_ES', 'ja_JP', 'pl_PL', 'zh_CN', 'it_IT'];
     // this.languages = ['en_US']
     this.files = ['ui', 'menu_general', 'menu_root', 'menu_guideline', 'menu_tetrax', 'menu_retro', 'menu_controls', 'menu_tuning', 'menu_daspresets', 'menu_audio', 'menu_video'];
     this.test = new Promise(

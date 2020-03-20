@@ -14,25 +14,25 @@
     "message": "Guida"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "Variante standard della modalità presente in tutti i giochi moderni"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Una variante personalizzata della modalità originariamente pensata per questo gioco"
   },
   "retroLabel": {
     "message": "Retrò"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "Classica variante del puzzle amato dai giocatori nostalgici"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "Difficile variante della modalità amata dai giocatori hardcore"
   },
   "settingsOverline": {
     "message": "Impostazioni"
@@ -41,7 +41,7 @@
     "message": "Ottimizzazione"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "Cambia la percezione del gioco"
   },
   "controlsLabel": {
     "message": "Controlli"
@@ -53,7 +53,7 @@
     "message": "Audio"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "Cambia il suono del gioco"
   },
   "videoLabel": {
     "message": "Video"
@@ -66,7 +66,7 @@
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "Colonna sonora"
   },
   "soundtrackDescription": {
     "message": "Ascolta la colonna sonora originale"

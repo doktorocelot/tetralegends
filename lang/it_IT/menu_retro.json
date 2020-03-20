@@ -8,7 +8,7 @@
     "description": "A mode based on NES Tet"
   },
   "consoleDescription": {
-    "message": "The most competitively-used, classic version of the puzzle in the world!",
+    "message": "La versione del puzzle più competitiva e più classica del mondo!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {
@@ -16,7 +16,7 @@
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "A slow-paced, nostalgic version that many played on handheld devices",
+    "message": "Una versione nostalgica a scorrimento lento che molti hanno giocato sui propri dispositivi mobili",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
@@ -24,7 +24,7 @@
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "Un bell'insieme di elementi classici e moderni",
+    "message": "Una bella fusione tra elementi classici e moderni",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
