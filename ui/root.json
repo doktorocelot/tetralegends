@@ -105,6 +105,18 @@
       "type": "overline"
     },
     {
+      "string": "translateLabel",
+      "stringDesc": "translateDescription",
+      "action": "link",
+      "url": "https://crowdin.com/project/tetra-legends"
+    },
+    {
+      "string": "discordLabel",
+      "stringDesc": "discordDescription",
+      "action": "link",
+      "url": "https://discordapp.com/invite/7hMx5r2"
+    },
+    {
       "string": "soundtrackLabel",
       "stringDesc": "soundtrackDescription",
       "label": "Soundtrack",
