@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.load('root');
         menu.show();
         window.onblur = () => {
-          gameHandler.game.pause();
+          try {
+            gameHandler.game.pause();
+          } catch (error) {
+            // game isn't running yet; no big deal
+          }
         };
       });
   // TEMP BELOW

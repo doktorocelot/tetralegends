@@ -67,3 +67,19 @@ export function resetAnimation(selector, className) {
   void $(selector).offsetWidth;
   $(selector).classList.add(className);
 }
+function pad(num, size) {
+  const s = '000000000' + num;
+  return s.substr(s.length - size);
+}
+export function msToTime(duration) {
+  const milliseconds = pad(parseInt((duration % 1000) / 10), 2);
+  let seconds = Math.floor((duration / 1000) % 60);
+  let minutes = Math.floor((duration / (1000 * 60)) % 60);
+  let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? '0' + hours : hours;
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+  return hours + ':' + minutes + ':' + seconds + '.' + milliseconds;
+}

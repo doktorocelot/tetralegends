@@ -3,7 +3,7 @@ import {PIECE_SETS, PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
-import $, {toCtx} from '../shortcuts.js';
+import $, {toCtx, msToTime} from '../shortcuts.js';
 import {loops} from './loops.js';
 import gameHandler from './game-handler.js';
 import Next from './next.js';
@@ -67,10 +67,13 @@ export default class Game {
         down: 0,
       },
     };
+    this.startingTime = 0;
+    this.timePassed = 0;
     loadGameType(gametype)
         .then((gameData) => {
           this.show();
           menu.close();
+          this.startingTime = this.timestamp();
           clearTimeout(endScreenTimeout);
           $('#game').classList.remove('dead');
           $('#end-message-container').classList.add('hidden');
@@ -228,7 +231,11 @@ export default class Game {
       if (this.appends[statName]) {
         append = this.appends[statName];
       }
-      $(`#stat-${statName}`).innerHTML = `${prefix}${this.stat[statName]}${append}`;
+      let value = this.stat[statName];
+      if (statName === 'line' && this.lineGoal != null && this.reverseLineStat != null) {
+        value = this.lineGoal - value;
+      }
+      $(`#stat-${statName}`).innerHTML = `${prefix}${value}${append}`;
     }
   }
   shiftMatrix(direction) {
@@ -314,6 +321,25 @@ export default class Game {
             game.piece.startingAre += game.deltaTime * 1000;
           }
           if (!game.noUpdate) {
+            if (!game.piece.inAre) {
+              game.timePassed += game.deltaTime * 1000;
+            }
+            // GOALS
+            if (game.lineGoal != null) {
+              if (game.stat.line >= game.lineGoal) {
+                $('#kill-message').textContent = locale.getString('ui', 'excellent');
+                game.end();
+              }
+            }
+            if (game.timeGoal != null) {
+              if (game.timePassed >= game.timeGoal) {
+                game.timePassed = 0;
+                game.timeGoal = null;
+                $('#kill-message').textContent = locale.getString('ui', 'timeOut');
+                game.end();
+              }
+            }
+
             game.loop({
               ms: game.deltaTime * 1000,
               piece: game.piece,
@@ -360,6 +386,16 @@ export default class Game {
         updateKeys();
         if (game.mustReset) {
           game.isDead = true;
+        }
+        if (game.piece.inAre || game.isPaused) {
+          $('#timer').classList.add('paused');
+        } else {
+          $('#timer').classList.remove('paused');
+        }
+        if (game.timeGoal != null) {
+          $('#timer').textContent = msToTime(game.timeGoal - game.timePassed);
+        } else {
+          $('#timer').textContent = msToTime(game.timePassed);
         }
         game.last = game.now;
       }

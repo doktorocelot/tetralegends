@@ -1014,6 +1014,24 @@ progress[value]::-moz-progress-bar {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+.game .timer {
+  color: #fff;
+  position: absolute;
+  top: 31em;
+  font-size: 1.4em;
+  width: 100%;
+}
+@keyframes paused-timer {
+  from {opacity: 0.6}
+  to {opacity: 0.4}
+}
+.game .timer.paused {
+  animation-name: paused-timer;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
 @keyframes dissolve {
   0% {transform: scale(1);}
   20% {opacity: 1;}
