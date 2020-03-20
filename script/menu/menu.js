@@ -247,15 +247,11 @@ class Menu {
       if (currentData.disabled) {
         element.classList.add('disabled');
       }
-      if (currentData.default) {
-        element.classList.add('selected');
-        if (!currentData.fixedText) {
-          $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
-        } else {
-          $('#description').textContent = currentData.description;
-        }
-      }
       $('#menu').appendChild(element);
+      if (currentData.default) {
+        this.select(i - nonOptions);
+        element.classList.add('selected');
+      }
     }
     const newData = [];
     for (const data of this.current.data) {
@@ -365,7 +361,7 @@ class Menu {
     }
     $(`#option-${number}`).classList.add('selected');
     if (!mouseOver) {
-      $(`#option-${number}`).scrollIntoView({block: 'center'});
+      $(`#option-${number}`).scrollIntoView({block: 'center', behavior: 'smooth'});
     }
     if (this.current.data[number].useGeneral) {
       $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
@@ -516,6 +512,9 @@ class Menu {
       case 'lang':
         locale.changeLang(this.selectedData.lang);
         this.back();
+        break;
+      case 'link':
+        window.open(this.selectedData.url, '_blank');
         break;
       default:
         // TODO wtf error
