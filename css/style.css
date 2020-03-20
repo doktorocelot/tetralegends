@@ -1,79 +1,176 @@
+
+/* noto-sans-jp-100 - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Thin.otf);
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 100;
-  font-style: normal;
+  src: local('Noto Sans Japanese Thin'), local('NotoSansJapanese-Thin'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-jp-300 - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Light.otf);
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
+  src: local('Noto Sans Japanese Light'), local('NotoSansJapanese-Light'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-jp-regular - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Regular.otf);
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 400;
-  font-style: normal;
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-jp-500 - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Medium.otf);
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 500;
-  font-style: normal;
+  src: local('Noto Sans Japanese Medium'), local('NotoSansJapanese-Medium'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-jp-700 - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Bold.otf);
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 700;
-  font-style: normal;
+  src: local('Noto Sans Japanese Bold'), local('NotoSansJapanese-Bold'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-jp-900 - latin_japanese */
 @font-face {
-  font-family: 'Noto Sans CJK JP';
-  src: url(../font/NotoSansCJKjp-Black.otf);
-  font-weight: 800;
+  font-family: 'Noto Sans JP';
   font-style: normal;
+  font-weight: 900;
+  src: local('Noto Sans Japanese Black'), local('NotoSansJapanese-Black'),
+       url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-sc-100 - chinese-simplified_latin */
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Thin.otf);
+  font-family: 'Noto Sans SC';
+  font-style: normal;
   font-weight: 100;
-  font-style: normal;
+  src: local('Noto Sans SC Thin'), local('NotoSansSC-Thin'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-sc-300 - chinese-simplified_latin */
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Light.otf);
+  font-family: 'Noto Sans SC';
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
+  src: local('Noto Sans SC Light'), local('NotoSansSC-Light'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-sc-regular - chinese-simplified_latin */
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Regular.otf);
+  font-family: 'Noto Sans SC';
+  font-style: normal;
   font-weight: 400;
-  font-style: normal;
+  src: local('Noto Sans SC Regular'), local('NotoSansSC-Regular'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-sc-500 - chinese-simplified_latin */
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Medium.otf);
+  font-family: 'Noto Sans SC';
+  font-style: normal;
   font-weight: 500;
-  font-style: normal;
+  src: local('Noto Sans SC Medium'), local('NotoSansSC-Medium'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* noto-sans-sc-700 - chinese-simplified_latin */
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Bold.otf);
+  font-family: 'Noto Sans SC';
+  font-style: normal;
   font-weight: 700;
+  src: local('Noto Sans SC Bold'), local('NotoSansSC-Bold'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* noto-sans-sc-900 - chinese-simplified_latin */
+@font-face {
+  font-family: 'Noto Sans SC';
   font-style: normal;
+  font-weight: 900;
+  src: local('Noto Sans SC Black'), local('NotoSansSC-Black'),
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-100 - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300 - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-regular - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700 - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-900 - latin-ext_latin_cyrillic-ext_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Roboto Black'), local('Roboto-Black'),
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: 'Noto Sans CJK SC';
-  src: url(../font/NotoSansCJKsc-Black.otf);
-  font-weight: 800;
+  font-family: 'Material Icons';
   font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/material-icons.woff2') format('woff2');
 }
 :root {
   --current-background: url("../img/bg/main-menu.png");
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
-  --main-font: 'Roboto', 'Noto Sans CJK JP', sans-serif;
+  --main-font: 'Roboto', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
   --cell-size: (2em);
   --peek-zone: .25;
   --matrix-width: 10;
