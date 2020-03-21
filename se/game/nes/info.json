@@ -2,11 +2,13 @@
   "files": [
     "erase4",
     "erasenot4",
+    "excellent",
     "garbage",
     "harddrop",
     "hold",
     "initialhold",
     "initialrotate",
+    "ko",
     "levelup",
     "locknohd",
     "move",
