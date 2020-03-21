@@ -237,6 +237,22 @@ export default class Stack extends GameModule {
     });
     this.toCollapse = [];
     this.lineClear = 0;
+    let pc = true;
+    for (let x = 0; x < this.grid.length; x++) {
+      if (!pc) {
+        break;
+      }
+      for (let y = 0; y < this.grid[x].length; y++) {
+        const isFilled = this.grid[x][y];
+        if (isFilled) {
+          pc = false;
+          break;
+        }
+      }
+    }
+    if (pc) {
+      sound.add('bravo');
+    }
     this.isDirty = true;
   }
   new() {
