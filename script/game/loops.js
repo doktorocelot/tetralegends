@@ -1,4 +1,4 @@
-import {framesToMs} from '../shortcuts.js';
+import $, {framesToMs, resetAnimation} from '../shortcuts.js';
 import {gravity, classicGravity, deluxeGravity} from './loop-modules/gravity.js';
 import {KICK_TABLES, PIECE_COLORS} from '../consts.js';
 import collapse from './loop-modules/collapse.js';
@@ -27,6 +27,7 @@ import {extendedLockdown, retroLockdown, infiniteLockdown, classicLockdown} from
 import updateFallSpeed from './loop-modules/update-fallspeed.js';
 let lastLevel = 0;
 let garbageTimer = 0;
+let shown20GMessage = false;
 const levelUpdate = (game) => {
   if (game.stat.level !== lastLevel) {
     sound.add('levelup');
@@ -187,10 +188,10 @@ export const loops = {
     onPieceSpawn: (game) => {
       game.stat.level = Math.floor(game.stat.line / 10 + 1);
       const x = game.stat.level;
-      const gravityEquation = (0.8 - ((x - 1) * 0.007)) ** (x - 1);
+      const gravityEquation = (0.9 - ((x - 1) * 0.001)) ** (x - 1);
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
-      if (game.stat.level >= 20) {
-        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 20, 0.8)))));
+      if (game.stat.level >= 40) {
+        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 40, 0.8)))));
       } else {
         game.piece.lockDelayLimit = 500;
       }
@@ -339,24 +340,34 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.min(5, Math.floor(game.stat.line / 20 + 1));
+      game.stat.level = Math.min(10, Math.floor(game.stat.line / 20 + 1));
       const calcLevel = game.stat.level - 1;
       const SPEED_TABLE = [
-        1, 1/2, 1/5, 1/20, 1/20];
+        1, 1 / 2, 1 / 5, 1 / 20, 1 / 20,
+        1 / 20, 1 / 20, 1 / 20, 1 / 20, 1 / 20];
       game.piece.gravity = framesToMs(SPEED_TABLE[calcLevel]);
       const DELAY_TABLE = [
-        500, 475, 450, 375, 350];
+        500, 475, 450, 375, 350,
+        325, 300, 275, 250, 225];
       game.piece.lockDelayLimit = DELAY_TABLE[calcLevel];
       const NEXT_TABLE = [
-        6, 3, 2, 1, 1];
+        6, 5, 4, 3, 2,
+        1, 1, 1, 1, 1];
       game.next.nextLimit = NEXT_TABLE[calcLevel];
-      if (calcLevel >= 4 && !game.hold.isDisabled) {
+      if (calcLevel >= 3 && !shown20GMessage) {
+        $('#message').textContent = '20G';
+        resetAnimation('#message', 'dissolve');
+        shown20GMessage = true;
+      }
+      if (calcLevel >= 8 && !game.hold.isDisabled) {
         game.hold.isDisabled = true;
         game.hold.isDirty = true;
       }
       levelUpdate(game);
     },
     onInit: (game) => {
+      shown20GMessage = false;
+      game.lineGoal = 200;
       game.stat.level = 1;
       lastLevel = 1;
       game.prefixes.level = 'MACH ';
