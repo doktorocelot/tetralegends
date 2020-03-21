@@ -151,7 +151,7 @@ export default class Game {
     cancelAnimationFrame(this.request);
     this.isDead = true;
   }
-  end() {
+  end(victory = false) {
     this.noUpdate = true;
     $('#end-stats').innerHTML = '';
     for (const statName of this.stats) {
@@ -163,15 +163,20 @@ export default class Game {
       $('#end-stats').innerHTML += `<b>${locale.getString('ui', 'time')}:</b> ${msToTime(this.timePassed)}<br>`;
     }
     $('#kill-message-container').classList.remove('hidden');
-    sound.add('ko');
+    if (victory) {
+      sound.add('excellent');
+    } else {
+      sound.add('ko');
+    }
     sound.killBgm();
     $('#game').classList.add('dead');
     endScreenTimeout = setTimeout(() => {
       $('#kill-message-container').classList.add('hidden');
+      sound.add('gameover');
       $('#end-message').textContent = locale.getString('ui', 'gameover');
       $('#end-message-container').classList.remove('hidden');
       $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
-    }, 1000);
+    }, 1700);
   }
   resize() {
     const game = gameHandler.game;
@@ -344,7 +349,7 @@ export default class Game {
             if (game.lineGoal != null) {
               if (game.stat.line >= game.lineGoal) {
                 $('#kill-message').textContent = locale.getString('ui', 'excellent');
-                game.end();
+                game.end(true);
               }
             }
             if (game.timeGoal != null) {
