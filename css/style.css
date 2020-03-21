@@ -1022,7 +1022,7 @@ progress[value]::-moz-progress-bar {
 .game .timer {
   color: #fff;
   position: absolute;
-  top: 31em;
+  bottom: -3.2em;
   font-size: 1.4em;
   width: 100%;
 }
