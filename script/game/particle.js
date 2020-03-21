@@ -13,6 +13,7 @@ class SingleParticle {
     this.yVelocity = yVelocity;
        */
     // this.yAccel = -0.11;
+    this.HZ_MATCH_MULTIPLIER = .5 / 60 * 1000;
     this.xDampening = 1;
     this.yDampening = 1;
     this.xFlurry = 0;
@@ -30,19 +31,21 @@ class SingleParticle {
     }
     const lifeGen = getRandomInt(this.lifeVariance * 100) / 100;
     this.maxlife += this.lifeVariance / 2 - lifeGen;
+    this.maxlife *= this.HZ_MATCH_MULTIPLIER;
   }
-  update() {
+  update(ms) {
+    const multiplier = ms / 8;
     const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
     const yFlurryGen = getRandomInt(this.yFlurry * 100) / 100;
-    this.xVelocity += this.xFlurry / 2 - xFlurryGen;
-    this.yVelocity += this.yFlurry / 2 - yFlurryGen;
-    this.lifetime++;
-    this.x += this.xVelocity;
-    this.y -= this.yVelocity;
-    this.y += this.gravity;
-    this.gravity *= this.gravityAcceleration;
-    this.xVelocity /= this.xDampening;
-    this.yVelocity /= this.yDampening;
+    this.xVelocity += (this.xFlurry / 2 - xFlurryGen) * multiplier;
+    this.yVelocity += (this.yFlurry / 2 - yFlurryGen) * multiplier;
+    this.lifetime += this.HZ_MATCH_MULTIPLIER * multiplier;
+    this.x += this.xVelocity * multiplier;
+    this.y -= this.yVelocity * multiplier;
+    this.y += this.gravity * multiplier;
+    this.gravity *= 1 + (this.gravityAcceleration - 1) * multiplier;
+    this.xVelocity /= 1 + (this.xDampening - 1) * multiplier;
+    this.yVelocity /= 1 + (this.yDampening - 1) * multiplier;
     if (this.lifetime >= this.maxlife) {
       return true;
     }
@@ -94,15 +97,14 @@ export default class Particle extends GameModule {
       this.add(finalProperties);
     }
   }
-  update() {
+  update(ms) {
     const limit = settings.settings.particleLimit;
     while (this.particles.length > limit) {
       this.particles.splice(getRandomInt(limit - 1), 1);
     }
     for (let i = 0; i < this.particles.length; i++) {
       const particle = this.particles[i];
-      particle.update();
-      if (particle.update()) {
+      if (particle.update(ms)) {
         this.particles.splice(i, 1);
         i--;
       }

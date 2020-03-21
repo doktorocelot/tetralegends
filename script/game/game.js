@@ -1,5 +1,5 @@
 import {loadGameType} from '../loaders.js';
-import {PIECE_SETS, PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
+import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
@@ -8,18 +8,15 @@ import {loops} from './loops.js';
 import gameHandler from './game-handler.js';
 import Next from './next.js';
 import settings from '../settings.js';
-import updateKeys from './loop-modules/update-keys.js';
 import input from '../input.js';
 import Hold from './hold.js';
 import sound from '../sound.js';
 import Particle from './particle.js';
-import GameModule from './game-module.js';
 import locale from '../lang.js';
 let endScreenTimeout = null;
 export default class Game {
   constructor(gametype) {
     this.userSettings = {...settings.settings};
-    const modules = ['stack'];
     this.type = gametype;
     this.pieceCanvas = $('#piece');
     this.stackCanvas = $('#stack');
@@ -337,13 +334,14 @@ export default class Game {
       if (typeof game.loop === 'function') {
         game.now = game.timestamp();
         game.deltaTime = (game.now - game.last) / 1000;
+        const msPassed = game.deltaTime * 1000;
         if (!game.isPaused) {
           if (game.piece.startingAre < game.piece.startingAreLimit) {
-            game.piece.startingAre += game.deltaTime * 1000;
+            game.piece.startingAre += msPassed;
           }
           if (!game.noUpdate) {
             if (!game.piece.inAre) {
-              game.timePassed += game.deltaTime * 1000;
+              game.timePassed += msPassed;
             }
             // GOALS
             if (game.lineGoal != null) {
@@ -362,14 +360,14 @@ export default class Game {
             }
 
             game.loop({
-              ms: game.deltaTime * 1000,
+              ms: msPassed,
               piece: game.piece,
               stack: game.stack,
               hold: game.hold,
               particle: game.particle,
             });
           }
-          game.particle.update();
+          game.particle.update(msPassed);
           game.updateMatrix();
           const modules = ['piece', 'stack', 'next', 'hold', 'particle'];
           for (const moduleName of modules) {
@@ -404,7 +402,7 @@ export default class Game {
           game.mustReset = true;
         }
         sound.playSeQueue();
-        updateKeys();
+        input.updateGameInput();
         if (game.mustReset) {
           game.isDead = true;
         }
