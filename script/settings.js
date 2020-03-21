@@ -44,7 +44,6 @@ class Settings {
       sfxVolume: 50,
       musicVolume: 50,
     };
-    console.log(navigator.language.substr(0, 2));
     switch (navigator.language.substr(0, 2)) {
       case 'it':
         this.defaultSettings.language = 'it_IT';

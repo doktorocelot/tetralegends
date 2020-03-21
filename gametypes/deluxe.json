@@ -11,6 +11,7 @@
     "soundbank": "deluxe",
     "music": "korobeiniki",
     "scoreTable": "retro",
+    "disableDefaultSkinLoad": true,
     "background": "handheld.png"
   },
   "piece": {

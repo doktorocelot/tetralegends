@@ -11,6 +11,7 @@
     "soundbank": "handheld",
     "music": "mono",
     "scoreTable": "retro",
+    "disableDefaultSkinLoad": true,
     "background": "handheld.png"
   },
   "piece": {

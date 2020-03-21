@@ -11,6 +11,7 @@
     "soundbank": "nes",
     "music": "retro",
     "scoreTable": "retro",
+    "disableDefaultSkinLoad": true,
     "background": "handheld.png"
   },
   "piece": {

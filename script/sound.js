@@ -2,7 +2,6 @@ import {loadSoundbank} from './loaders.js';
 import settings from './settings.js';
 class Sound {
   constructor() {
-    console.log();
     this.sounds = [];
     this.music = {};
     this.toPlay = {};

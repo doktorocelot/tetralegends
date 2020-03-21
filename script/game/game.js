@@ -31,6 +31,7 @@ export default class Game {
     this.last = this.timestamp();
     this.stats = [];
     this.request;
+    this.loadFinished = false;
     this.noUpdate = false;
     this.isDead = false;
     this.isPaused = false;
@@ -79,6 +80,7 @@ export default class Game {
           this.startingTime = this.timestamp();
           clearTimeout(endScreenTimeout);
           $('#game').classList.remove('dead');
+          $('#ready-meter').classList.remove('hidden');
           $('#end-message-container').classList.add('hidden');
           $('#kill-message-container').classList.add('hidden');
           this.settings = gameData.settings;
@@ -91,7 +93,9 @@ export default class Game {
           this.hold = new Hold(this, toCtx(this.holdCanvas));
           this.particle = new Particle(this, toCtx(this.particleCanvas));
           // SET UP SETTINGS
-          this.makeSprite();
+          if (!this.settings.disableDefaultSkinLoad) {
+            this.makeSprite();
+          }
           this.rotationSystem = this.settings.rotationSystem;
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
@@ -109,8 +113,8 @@ export default class Game {
           sound.killBgm();
           sound.loadBgm(this.settings.music, gametype);
           sound.add('ready');
-          $('#message').textContent = locale.getString('ui', 'ready');
           $('#message').classList.remove('dissolve');
+          $('#message').textContent = locale.getString('ui', 'ready');
           this.onPieceSpawn(this);
           window.onresize = this.resize;
           $('.game').classList.remove('paused');
@@ -187,6 +191,7 @@ export default class Game {
     }
     $('#hold-label').textContent = locale.getString('ui', 'hold');
     $('#next-label').textContent = locale.getString('ui', 'next');
+    $('#load-message').textContent = locale.getString('ui', 'loading');
     game.stack.makeAllDirty();
     game.isDirty = true;
     $('#stats').innerHTML = '';
@@ -309,7 +314,6 @@ export default class Game {
         this.matrix.velocity[directions[1]] === 0
       ) {
         const speed = 1.033 + ((settings.settings.matrixSwaySpeed / 100) ** 2) / 3.75;
-        console.log(speed);
         this.matrix.position[directions[2]] /= 1 + (speed - 1) * multiplier;
       } else {
         for (let i = 0; i < 2; i++) {
@@ -338,7 +342,9 @@ export default class Game {
         game.deltaTime = (game.now - game.last) / 1000;
         const msPassed = game.deltaTime * 1000;
         if (!game.isPaused) {
-          if (game.piece.startingAre < game.piece.startingAreLimit) {
+          if (game.piece.startingAre < game.piece.startingAreLimit && game.loadFinished) {
+            $('#ready-meter').max = game.piece.startingAreLimit;
+            $('#ready-meter').value = game.piece.startingAreLimit - game.piece.startingAre;
             game.piece.startingAre += msPassed;
           }
           if (!game.noUpdate) {
@@ -435,21 +441,30 @@ export default class Game {
       types = ['mino', 'ghost', 'stack'],
       skin = this.settings.skin
   ) {
+    this.loadFinished = false;
     $('#sprite').innerHTML = '';
+    $('#load-message').classList.remove('hidden');
+    const toLoad = colors.length * types.length;
+    let loaded = 0;
     for (const type of types) {
       for (const color of colors) {
         const img = document.createElement('img');
         img.src = `img/skin/${skin}/${type}-${color}.svg`;
         img.id = `${type}-${color}`;
         $('#sprite').appendChild(img);
-        const loaded = () => {
+        const onLoad = () => {
+          loaded++;
+          if (loaded >= toLoad) {
+            this.loadFinished = true;
+            $('#load-message').classList.add('hidden');
+          }
           this.isDirty = true;
         };
 
         if (img.complete) {
-          loaded();
+          onLoad();
         } else {
-          img.addEventListener('load', loaded);
+          img.addEventListener('load', onLoad);
           img.addEventListener('error', function() {
             // alert('error');
           });

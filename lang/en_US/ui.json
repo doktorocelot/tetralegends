@@ -90,5 +90,9 @@
   "returnToMenu": {
     "message": "Return to Menu",
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Displays under 'READY' while the game loads the assets"
   }
 }

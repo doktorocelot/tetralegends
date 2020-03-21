@@ -865,6 +865,14 @@ body {
   left: -.5em;
   bottom: -2em;
 }
+.ready-meter {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 22em;
+}
+
+.ready-meter.hidden,
 .lockdown-meter.hidden,
 .manip-grid.hidden,
 .delay-time.hidden {
@@ -999,6 +1007,25 @@ progress[value]::-moz-progress-bar {
   position: absolute;
   top: 2em;
   width: 100%;
+}
+.game .load-message {
+  animation-name: pulse-opacity;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: .3em;
+  position: absolute;
+  top: 19em;
+  width: 100%;
+}
+.game .load-message.hidden {
+  display: none;
 }
 .game .main-message {
   animation-name: pulse-opacity;

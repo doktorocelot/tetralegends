@@ -71,7 +71,7 @@ export default class Piece extends GameModule {
         sound.add('start');
         $('#message').textContent = locale.getString('ui', 'start');
       }
-
+      $('#ready-meter').classList.add('hidden');
       $('#message').classList.add('dissolve');
       sound.playBgm(this.parent.settings.music, this.parent.type);
     }

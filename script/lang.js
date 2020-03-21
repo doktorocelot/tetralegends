@@ -51,7 +51,6 @@ class Locale {
     const root = document.documentElement;
     switch (this.currentLanguage) {
       case 'zh_CN':
-        console.log('here');
         root.style.setProperty('--main-font', '"Roboto", "Noto Sans SC", "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif');
         break;
       case 'ja_JP':
