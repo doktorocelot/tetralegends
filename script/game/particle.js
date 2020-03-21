@@ -34,7 +34,7 @@ class SingleParticle {
     this.maxlife *= this.HZ_MATCH_MULTIPLIER;
   }
   update(ms) {
-    const multiplier = ms / 8;
+    const multiplier = ms / 8.33333333333;
     const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
     const yFlurryGen = getRandomInt(this.yFlurry * 100) / 100;
     this.xVelocity += (this.xFlurry / 2 - xFlurryGen) * multiplier;

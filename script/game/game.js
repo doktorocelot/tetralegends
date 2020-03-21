@@ -282,7 +282,8 @@ export default class Game {
         break;
     }
   }
-  updateMatrix() {
+  updateMatrix(ms) {
+    const multiplier = ms / 16.666666666666;
     const matrixPush = (direction) => {
       const axis =
         direction === 'right' || direction === 'left' ?
@@ -292,9 +293,9 @@ export default class Game {
           1 : -1;
       this.matrix.velocity[direction] = Math.min(this.matrix.velocity[direction], 1);
       if (Math.abs(this.matrix.position[axis]) < 0.5) {
-        this.matrix.position[axis] += 0.2 * modifier;
+        this.matrix.position[axis] += 0.2 * modifier * multiplier;
       }
-      this.matrix.velocity[direction] -= 0.2;
+      this.matrix.velocity[direction] -= 0.2 * multiplier;
       this.matrix.velocity[direction] = Math.max(this.matrix.velocity[direction], 0);
     };
     for (const direction of ['x', 'y']) {
@@ -308,7 +309,8 @@ export default class Game {
         this.matrix.velocity[directions[1]] === 0
       ) {
         const speed = 1.033 + ((settings.settings.matrixSwaySpeed / 100) ** 2) / 3.75;
-        this.matrix.position[directions[2]] /= speed;
+        console.log(speed);
+        this.matrix.position[directions[2]] /= 1 + (speed - 1) * multiplier;
       } else {
         for (let i = 0; i < 2; i++) {
           const direction = directions[i];
@@ -368,7 +370,7 @@ export default class Game {
             });
           }
           game.particle.update(msPassed);
-          game.updateMatrix();
+          game.updateMatrix(msPassed);
           const modules = ['piece', 'stack', 'next', 'hold', 'particle'];
           for (const moduleName of modules) {
             const currentModule = game[moduleName];
