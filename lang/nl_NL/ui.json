@@ -40,8 +40,8 @@
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "seconden/rij",
-    "description": "The unit label for 'seconds per row'"
+    "message": "%1 sec/row",
+    "description": "The unit label for 'seconds per row'. %1 is the amount of seconds"
   },
   "pause": {
     "message": "Pauze",
@@ -60,7 +60,7 @@
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   },
   "gameover": {
-    "message": "Game Over",
+    "message": "Het spel is over",
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
@@ -90,5 +90,9 @@
   "returnToMenu": {
     "message": "Return to Menu",
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Displays under 'READY' while the game loads the assets"
   }
 }

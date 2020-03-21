@@ -4,9 +4,9 @@ import settings from './settings.js';
 
 class Locale {
   constructor() {
-    this.languages = ['en_US', 'en_GB', 'es_ES', 'ja_JP', 'pl_PL', 'zh_CN', 'it_IT'];
-    // this.languages = ['en_US']
-    this.files = ['ui', 'menu_general', 'menu_root', 'menu_guideline', 'menu_tetrax', 'menu_retro', 'menu_controls', 'menu_tuning', 'menu_daspresets', 'menu_audio', 'menu_video'];
+    this.languages = ['en_US', 'en_GB', 'es_ES', 'ja_JP', 'pl_PL', 'zh_CN', 'it_IT', 'vi_VN'];
+    // this.languages = ['en_US'];
+    this.files = ['ui', 'menu_general', 'menu_root', 'menu_guideline', 'menu_tetrax', 'menu_retro', 'menu_controls', 'menu_tuning', 'menu_daspresets', 'menu_audio', 'menu_video', 'action-text'];
     this.test = new Promise(
         function(resolve, reject) {
           resolve('test');
@@ -14,8 +14,15 @@ class Locale {
     );
     this.currentLanguage = 'en_US';
   }
-  getString(file, name) {
-    return this[file][this.currentLanguage][name].message;
+  getString(file, name, vars = []) {
+    let str = this[file][this.currentLanguage][name].message;
+    for (let i = 0; i < vars.length; i++) {
+      const replacement = vars[i];
+      const placeholderString = `%${i + 1}`;
+      const placeholder = new RegExp(placeholderString, 'g');
+      str = str.replace(placeholder, replacement);
+    }
+    return str;
   }
   loadAll() {
     const load = new Promise((resolve) => {

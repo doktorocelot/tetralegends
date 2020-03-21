@@ -28,6 +28,14 @@
       "settingType": "setting"
     },
     {
+      "string": "actionTextLabel",
+      "stringDesc": "actionTextDescription",
+      "type": "toggle",
+      "action": "toggle",
+      "setting": "displayActionText",
+      "settingType": "setting"
+    },
+    {
       "string": "swayScaleLabel",
       "stringDesc": "swayScaleDescription",
       "label": "Matrix Sway Scale",

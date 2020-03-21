@@ -1,0 +1,17 @@
+{
+  "backLabel": {
+    "message": "Quay lại",
+    "description": "Go back to the previous menu"
+  },
+  "backDescription": {
+    "message": "Quay trở lại về menu trước"
+  },
+  "enabled": {
+    "message": "Bật",
+    "description": "Turned on, enabled"
+  },
+  "disabled": {
+    "message": "Tắt",
+    "description": "Turned off, disabled"
+  }
+}

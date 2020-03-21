@@ -40,8 +40,8 @@
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "sec/row",
-    "description": "The unit label for 'seconds per row'"
+    "message": "%1 sec/row",
+    "description": "The unit label for 'seconds per row'. %1 is the amount of seconds"
   },
   "pause": {
     "message": "Pause",

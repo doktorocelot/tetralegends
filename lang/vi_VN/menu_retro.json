@@ -1,0 +1,30 @@
+{
+  "variationsOverline": {
+    "message": "Thể loại",
+    "description": "Variation, Version, Type"
+  },
+  "consoleLabel": {
+    "message": "NES",
+    "description": "A mode based on NES Tet"
+  },
+  "consoleDescription": {
+    "message": "Thể loại cổ điển được dùng nhiều nhất trong đối kháng ở các phiên bản xếp gạch cổ điển trên thế giới!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "handheldLabel": {
+    "message": "Cầm tay",
+    "description": "A mode based on the GB version of Tet"
+  },
+  "handheldDescription": {
+    "message": "Thể loại chậm rãi, nhưng mang nhiều kỉ niệm trong các máy chơi game cầm tay",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "deluxeLabel": {
+    "message": "Hỗn hợp",
+    "description": "A mode based on the GBC version of Tet"
+  },
+  "deluxeDescription": {
+    "message": "Thể loại hài hòa giữa các yếu tố hiện đại và cổ điển",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  }
+}

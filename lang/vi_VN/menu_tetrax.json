@@ -1,0 +1,18 @@
+{
+  "standardLabel": {
+    "message": "Thường",
+    "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
+  },
+  "standardDescription": {
+    "message": "Xếp cho đến khi bạn rớt! Lấp càng nhiều hàng càng tốt trước khi tốc độ game lấn át bạn",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "proLabel": {
+    "message": "Chuyên",
+    "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
+  },
+  "proDescription": {
+    "message": "Đây là nơi mà các bậc thầy thử thách bản thân. Tốc độ game trong chế độ này rất nhanh, nhắm mắt một phát là bạn đang gặp nguy rồi đấy!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  }
+}

@@ -33,6 +33,13 @@
       "lang": "it_IT"
     },
     {
+      "label": "Tiếng Việt",
+      "fixedText": true,
+      "description": "Shard Nguyễn",
+      "action": "lang",
+      "lang": "vi_VN"
+    },
+    {
       "label": "日本語",
       "fixedText": true,
       "description": "MattMayuga",

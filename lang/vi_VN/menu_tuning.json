@@ -1,0 +1,30 @@
+{
+  "presetsLabel": {
+    "message": "Các bộ độ nhạy",
+    "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
+  },
+  "presetDescription": {
+    "message": "Lựa chọn một trong các bộ độ nhạy"
+  },
+  "dasLabel": {
+    "message": "DAS",
+    "description": "Also known as 'DAS'"
+  },
+  "dasDescription": {
+    "message": "Lượng thời gian tính theo mili giây trước khi gạch bắt đầu tự di chuyển"
+  },
+  "arrLabel": {
+    "message": "ARR",
+    "description": "Also known as 'ARR'"
+  },
+  "arrDescription": {
+    "message": "Lượng thời gian tính theo mili giây cho một lần tự động di chuyển"
+  },
+  "dasPreloadLabel": {
+    "message": "ARR tức thì",
+    "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
+  },
+  "dasPreloadDescription": {
+    "message": "Tự động bỏ qua DAS khi giữ phím di chuyển trong khoảng thời gian tạo gạch trong bảng"
+  }
+}

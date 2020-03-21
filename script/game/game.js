@@ -3,7 +3,7 @@ import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
-import $, {toCtx, msToTime} from '../shortcuts.js';
+import $, {toCtx, msToTime, capitalizeFirstLetter} from '../shortcuts.js';
 import {loops} from './loops.js';
 import gameHandler from './game-handler.js';
 import Next from './next.js';
@@ -178,6 +178,43 @@ export default class Game {
       $('#end-message-container').classList.remove('hidden');
       $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
     }, 1700);
+  }
+  calculateActionText(lineClear, isSpin, isMini, b2b) {
+    if (!settings.settings.displayActionText) {
+      return;
+    }
+    const clearName = ['', 'single', 'double', 'triple', 'tetra'][lineClear];
+    let spinName = '';
+    let miniName = '';
+    let b2bName = '';
+    if (isSpin) {
+      spinName = 'spin';
+    }
+    if (isMini) {
+      miniName = 'mini';
+    }
+    if (b2b > 1) {
+      b2bName = `<br>${locale.getString('action-text', 'b2b')}`;
+    }
+    const finalLabel = `${spinName}${clearName}${miniName}`;
+    if (finalLabel === '') {
+      return;
+    }
+    this.displayActionText(locale.getString('action-text', finalLabel, [`<b>${this.piece.name}</b>`]) + b2bName);
+  }
+  displayActionText(text) {
+    if (!settings.settings.displayActionText) {
+      return;
+    }
+    const id = `at-${performance.now()}`;
+    const element = document.createElement('div');
+    element.innerHTML = text;
+    element.classList.add('action-text');
+    element.id = id;
+    $('#game-center').appendChild(element);
+    setTimeout(() => {
+      element.parentNode.removeChild(element);
+    }, 2000);
   }
   resize() {
     const game = gameHandler.game;

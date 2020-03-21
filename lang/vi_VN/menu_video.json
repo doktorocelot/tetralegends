@@ -1,0 +1,55 @@
+{
+  "nextLengthLabel": {
+    "message": "Số lượng gạch trong cột \"Tiếp\""
+  },
+  "nextLengthDescription": {
+    "message": "Số lượng miếng mà người chơi sẽ thấy trong cột \"Tiếp\""
+  },
+  "lockdownBarLabel": {
+    "message": "Thanh khóa gạch",
+    "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
+  },
+  "lockdownBarDescription": {
+    "message": "Cho phép game cung cấp thông tin khác như là thời gian còn lại trước khi miếng khóa tự động và số lượng di chuyển còn lại"
+  },
+  "swayScaleLabel": {
+    "message": "Độ chuyển động của bảng",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
+  },
+  "swayScaleDescription": {
+    "message": "Cài đặt độ nhạy của bảng khi có gạch va chạm vào các mép bảng. Để về 0 sẽ tắt hiệu ứng này hoàn toàn",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "swaySpeedLabel": {
+    "message": "Tốc độ chuyển động của bảng",
+    "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
+  },
+  "swaySpeedDescription": {
+    "message": "Điều chỉnh tốc độ của bảng về lại vị trí ban đầu",
+    "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "particlesLabel": {
+    "message": "Các chi tiết nhỏ"
+  },
+  "particlesDescription": {
+    "message": "Lựa chọn nếu bạn muốn các chi tiết hiển thị trong game"
+  },
+  "particleLimitLabel": {
+    "message": "Giới hạn"
+  },
+  "particleLimitDescription": {
+    "message": "Lựa chọn bao nhiêu chi tiết nhỏ sẽ hiển thị trên màn hình cùng một lúc"
+  },
+  "particleSizeLabel": {
+    "message": "Độ lớn"
+  },
+  "particleSizeDescription": {
+    "message": "Điều chỉnh độ lớn của các chi tiết nhỏ"
+  },
+  "particleVolumeLabel": {
+    "message": "Số lượng"
+  },
+  "particleVolumeDescription": {
+    "message": "Điều chỉnh số lượng các chi tiết mà game sẽ tạo"
+  }
+}

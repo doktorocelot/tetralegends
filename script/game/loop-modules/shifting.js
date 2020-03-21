@@ -1,5 +1,5 @@
 import input from '../../input.js';
-import {capitalizeFirstLetter} from '../../shortcuts.js';
+import {capitalizeFirstLetter, framesToMs} from '../../shortcuts.js';
 
 export default function shifting(arg) {
   const piece = arg.piece;
@@ -60,10 +60,16 @@ export default function shifting(arg) {
       if (piece.arrLimit <= 0) {
         while (piece[`canShift${capitalizeFirstLetter(piece.shiftDir)}`]) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
+          if (piece.gravity <= framesToMs(1 / 20)) {
+            piece.sonicDrop();
+          }
         }
       } else {
         while (piece.arr >= piece.arrLimit) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
+          if (piece.gravity <= framesToMs(1 / 20)) {
+            piece.sonicDrop();
+          }
           piece.arr -= piece.arrLimit;
         }
       }

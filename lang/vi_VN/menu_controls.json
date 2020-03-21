@@ -1,0 +1,88 @@
+{
+  "clearLabel": {
+    "message": "Xóa",
+    "description": "Erase all controls"
+  },
+  "clearDescription": {
+    "message": "Xóa tất cả các phím được cài đặt trong đây"
+  },
+  "resetLabel": {
+    "message": "Đặt lại",
+    "description": "Reset the controls to the defaults. Could also be translated as 'default'"
+  },
+  "resetDescription": {
+    "message": "Đặt lại tất cả trong đây về cài đặt mặc định"
+  },
+  "shiftLeftLabel": {
+    "message": "Di chuyển trái"
+  },
+  "shiftLeftDescription": {
+    "message": "Di chuyển trái một lần hoặc giữ để tự di chuyển"
+  },
+  "shiftRightLabel": {
+    "message": "Di chuyển phải"
+  },
+  "shiftRightDescription": {
+    "message": "Di chuyển phải một lần hoặc giữ để tự di chuyển"
+  },
+  "hardDropLabel": {
+    "message": "Thả mạnh"
+  },
+  "hardDropDescription": {
+    "message": "Thả gạch xuống tức thì (có thể bị thay đổi hoặc bị tắt trong một số chế độ)"
+  },
+  "softDropLabel": {
+    "message": "Thả nhẹ"
+  },
+  "softDropDescription": {
+    "message": "Tăng tốc độ rơi của miếng gạch (có thể bị thay đổi trong một số chế độ)"
+  },
+  "rotateLeftLabel": {
+    "message": "Xoay trái",
+    "description": "Could also be called 'rotate counter-clockwise'"
+  },
+  "rotateLeftDescription": {
+    "message": "Xoay gạch 90 độ ngược kim đồng hồ"
+  },
+  "rotateRightLabel": {
+    "message": "Xoay phải",
+    "description": "Could also be called 'rotate clockwise'"
+  },
+  "rotateRightDescription": {
+    "message": "Xoay gạch 90 độ theo chiều kim đồng hồ"
+  },
+  "rotateDoubleLabel": {
+    "message": "Xoay 180 độ",
+    "description": "Could also be referred to as a 'double rotation'"
+  },
+  "rotateDoubleDescription": {
+    "message": "Xoay gạch 180 độ (có thể bị tắt trong một số chế độ)"
+  },
+  "holdLabel": {
+    "message": "Giữ"
+  },
+  "holdDescription": {
+    "message": "Đưa gạch hiện tại vào ô giữ (có thể bị tắt ở một số chế độ)"
+  },
+  "retryLabel": {
+    "message": "Thử lại",
+    "description": "You press this bind to restart the game instantly"
+  },
+  "retryDescription": {
+    "message": "Chơi lại ván tức thì"
+  },
+  "pauseLabel": {
+    "message": "Tạm dừng"
+  },
+  "pauseDescription": {
+    "message": "Tạm dừng game"
+  },
+  "configPopupHeader": {
+    "message": "Cài đặt điều khiển",
+    "description": "Displays as a header on a popup window when you add a control binding"
+  },
+  "configPopupDescription": {
+    "message": "Chọn phím mà bạn muốn để thêm vào chức năng này",
+    "description": "Displays on the popup when you add a control binding"
+  }
+}

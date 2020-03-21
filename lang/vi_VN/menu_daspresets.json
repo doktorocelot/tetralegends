@@ -1,0 +1,41 @@
+{
+  "defaultLabel": {
+    "message": "Mặc định"
+  },
+  "defaultDescription": {
+    "message": "Cài đặt theo cài đặt mặc định của game"
+  },
+  "guidelineLabel": {
+    "message": "Hiện đại"
+  },
+  "guidelineDescription": {
+    "message": "Bộ nhạy chuẩn, có ở hầu hết các phiên bản"
+  },
+  "pptLabel": {
+    "message": "Puyo Puyo Tetris",
+    "description": "Based on Puyo Puyo Tetris"
+  },
+  "pptDescription": {
+    "message": "Bộ nhạy gần giống bộ nhạy chuẩn, nhưng hơi nhanh hơn"
+  },
+  "tetraOnlineLabel": {
+    "message": "Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "tetraOnlineDescription": {
+    "message": "Sử dụng bộ nhạy theo game Tetra Online",
+    "description": "Avoid changing the name 'Tetra Online'"
+  },
+  "quickLabel": {
+    "message": "Nhanh"
+  },
+  "quickDescription": {
+    "message": "Một bộ nhạy cao hơn, cần một chút điều khiển"
+  },
+  "proLabel": {
+    "message": "Chuyên"
+  },
+  "proDescription": {
+    "message": "Bộ nhạy rất cao, cần sự điều khiển cấp độ cao"
+  }
+}

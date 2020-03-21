@@ -40,11 +40,15 @@ class Settings {
       particleSize: 3,
       particleScale: 2,
       useLockdownBar: true,
+      displayActionText: true,
       // Audio
       sfxVolume: 50,
       musicVolume: 50,
     };
     switch (navigator.language.substr(0, 2)) {
+      case 'vi':
+        this.defaultSettings.language = 'vi_VN';
+        break;
       case 'it':
         this.defaultSettings.language = 'it_IT';
         break;
@@ -163,8 +167,8 @@ class Settings {
       if (loaded === null || parseInt(localStorage.getItem('tetraVersion')) !== SETTINGS_VERSION) {
         this[`reset${index}`]();
       } else {
-        this[index.toLowerCase()] = loaded;
-        this[index.toLowerCase()] = {...this[`default${index}`], ...this[index.toLowerCase()]};
+        this[index.toLowerCase()] = JSON.parse(JSON.stringify(loaded));
+        this[index.toLowerCase()] = {...JSON.parse(JSON.stringify(this[`default${index}`])), ...JSON.parse(JSON.stringify(this[index.toLowerCase()]))};
       }
     }
     this.saveAll();

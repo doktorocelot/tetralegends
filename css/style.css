@@ -187,6 +187,7 @@
   --peek-zone: .25;
   --matrix-width: 10;
   --matrix-height-base: 20;
+  --combo-flash-speed: 0.5s;
 }
 @media only screen and (max-width: 800px) {
   :root {
@@ -780,7 +781,6 @@ body {
 }
 .game-right {
   text-align: left;
-
 }
 .game-canvas {
   width: 100%;
@@ -801,7 +801,6 @@ body {
 .main-next-canvas {
   width: calc(4 * var(--cell-size));
   height: calc(4 * var(--cell-size));
-
 }
 
 .sub-next-container {
@@ -1027,6 +1026,26 @@ progress[value]::-moz-progress-bar {
 .game .load-message.hidden {
   display: none;
 }
+@keyframes action-text {
+  0% {transform: translate(0, 0); opacity: 0;}
+  3% {opacity: 1;}
+  100% {transform: translate(0, -25em); opacity: 0}
+}
+.game .action-text {
+  animation-name: action-text;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.635, 0.005, 0.940, 0.080);
+  display: block;
+  color: white;
+  font-size: 2.3em;
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 9em;
+  width: 100%;
+}
 .game .main-message {
   animation-name: pulse-opacity;
   animation-duration: .2s;
@@ -1068,4 +1087,25 @@ progress[value]::-moz-progress-bar {
   0% {transform: scale(1);}
   20% {opacity: 1; filter: blur(0)}
   100% {opacity: 0; transform: scale(5); display: none; filter: blur(.25em)}
+}
+.combo-counter-container {
+  color: #fff;
+  position: absolute;
+  bottom: 8em;
+  margin-left: 1.2em;
+  animation-name: pulse-opacity;
+  animation-duration: var(--combo-flash-speed);
+  animation-iteration-count: infinite;
+}
+.combo-counter {
+  font-size: 1.5em;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  transition-property: letter-spacing opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+.combo-counter-container.hidden .combo-counter {
+  letter-spacing: -.6em;
+  opacity: 0;
 }

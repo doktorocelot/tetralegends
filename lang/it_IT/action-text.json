@@ -1,0 +1,70 @@
+{
+  "single": {
+    "message": "Single",
+    "description": "Displays in the screen when one line is cleared"
+  },
+  "double": {
+    "message": "Double",
+    "description": "Displays in the screen when two lines are cleared at the same time"
+  },
+  "triple": {
+    "message": "Triple",
+    "description": "Displays in the screen when three lines are cleared at the same time"
+  },
+  "tetra": {
+    "message": "Tetra",
+    "description": "Displays in the screen when four lines are cleared at the same time. Do not use copyrighted terms"
+  },
+  "spin": {
+    "message": "%1-Spin",
+    "description": "Displays when a spin is created but no lines are cleared. %1 is the name of the piece ('T', 'S')"
+  },
+  "spinsingle": {
+    "message": "%1-Spin Single",
+    "description": "Displays when a spin clears 1 line. %1 is the name of the piece ('T', 'S')"
+  },
+  "spindouble": {
+    "message": "%1-Spin Double",
+    "description": "Displays when a spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "spintriple": {
+    "message": "%1-Spin Triple",
+    "description": "Displays when a spin clears 3 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "spintetra": {
+    "message": "%1-Spin Tetra",
+    "description": "Displays when a spin clears 4 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "spinmini": {
+    "message": "Mini %1-Spin",
+    "description": "Displays when a mini spin is created but no lines are cleared. %1 is the name of the piece ('T', 'S')"
+  },
+  "spinsinglemini": {
+    "message": "Mini %1-Spin Single",
+    "description": "Displays when a mini spin clears 1 line. %1 is the name of the piece ('T', 'S')"
+  },
+  "spindoublemini": {
+    "message": "Mini %1-Spin Double",
+    "description": "Displays when a mini spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "spintriplemini": {
+    "message": "Mini %1-Spin Triple",
+    "description": "Displays when a mini spin clears 3 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "spintetramini": {
+    "message": "Mini %1-Spin Tetra",
+    "description": "Displays when a mini spin clears 4 lines. %1 is the name of the piece ('T', 'S')"
+  },
+  "b2b": {
+    "message": "(Back to Back)",
+    "description": "Displays when a tetra or spin line clear is performed when the previous one was also a tetra or spin line clear"
+  },
+  "combo": {
+    "message": "%1 Combo",
+    "description": "Displays on clearing rows successively"
+  },
+  "pc": {
+    "message": "Perfect clear",
+    "description": "Displays when the entire board is erased"
+  }
+}

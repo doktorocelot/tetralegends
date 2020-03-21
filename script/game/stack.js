@@ -2,6 +2,7 @@ import GameModule from './game-module.js';
 import $, {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
+import settings from '../settings.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -158,10 +159,7 @@ export default class Stack extends GameModule {
       if (this.parent.b2b > 1) {
         sound.add('b2b');
       }
-      if (this.parent.combo > 0) {
-        sound.add(`ren${this.parent.combo}`);
-        this.parent.addScore('combo', this.parent.combo);
-      }
+
       if (isSpin) {
         this.parent.addScore(`tspin${this.lineClear}`);
       }
@@ -172,11 +170,23 @@ export default class Stack extends GameModule {
         this.parent.addScore('tspin0');
       }
     }
+    if (this.parent.combo > 0) {
+      sound.add(`ren${this.parent.combo}`);
+      this.parent.addScore('combo', this.parent.combo);
+      if (settings.settings.displayActionText) {
+        $('#combo-counter-container').classList.remove('hidden');
+        $('#combo-counter').innerHTML = locale.getString('action-text', 'combo', [`<b>${this.parent.combo}</b>`]);
+        document.documentElement.style.setProperty('--combo-flash-speed', Math.max(0.5 - (0.485 * ((this.parent.combo) / 18)), 0.041) + 's');
+      }
+    } else {
+      $('#combo-counter-container').classList.add('hidden');
+    }
     if (this.parent.piece.areLineLimit === 0) {
       this.collapse();
     }
     // console.log(this.highest, this.skyToFloor);
     // console.log(this.skyToFloor);
+    this.parent.calculateActionText(this.lineClear, isSpin, isMini, this.parent.b2b);
     this.alarmCheck();
   }
   alarmCheck() {
@@ -252,6 +262,7 @@ export default class Stack extends GameModule {
     }
     if (pc) {
       sound.add('bravo');
+      this.parent.displayActionText(locale.getString('action-text', 'pc'));
     }
     this.isDirty = true;
   }

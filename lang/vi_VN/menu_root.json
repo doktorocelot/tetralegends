@@ -1,0 +1,86 @@
+{
+  "quickLabel": {
+    "message": "Chơi nhanh",
+    "description": "Button to start a game of marathon"
+  },
+  "quickDescription": {
+    "message": "Chơi chế độ Marathon với cài đặt mặc định"
+  },
+  "gameStylesOverline": {
+    "message": "Các chế độ",
+    "description": "Header for the various types of games (Guideline, Retro, etc)"
+  },
+  "guidelineLabel": {
+    "message": "Hiện đại"
+  },
+  "guidelineDescription": {
+    "message": "Phiên bản chuẩn của game, được thấy ở hầu hết tất cả các game xếp gạch hiện đại"
+  },
+  "tetraxLabel": {
+    "message": "Tetra-X"
+  },
+  "tetraxDescription": {
+    "message": "Phiên bản tự làm, được thiết kế cho game này"
+  },
+  "retroLabel": {
+    "message": "Cổ điển"
+  },
+  "retroDescription": {
+    "message": "Phiên bản cổ điển, được ưa thích bởi những người chơi thời 9x"
+  },
+  "arcadeLabel": {
+    "message": "Điên rồ"
+  },
+  "arcadeDescription": {
+    "message": "Phiên bản khó hơn, thích hợp cho những người muốn thách thức bản thân"
+  },
+  "settingsOverline": {
+    "message": "Cài đặt"
+  },
+  "tuningLabel": {
+    "message": "Độ nhạy"
+  },
+  "tuningDescription": {
+    "message": "Thay đổi độ nhạy của các miếng gạch khi di chuyển"
+  },
+  "controlsLabel": {
+    "message": "Điều khiển"
+  },
+  "controlsDescription": {
+    "message": "Thay đổi cách điều khiển game"
+  },
+  "audioLabel": {
+    "message": "Âm thanh"
+  },
+  "audioDescription": {
+    "message": "Thay đổi âm thanh của game"
+  },
+  "videoLabel": {
+    "message": "Hình ảnh"
+  },
+  "videoDescription": {
+    "message": "Thay đổi chất lượng hình ảnh"
+  },
+  "miscOverline": {
+    "message": "Khác",
+    "description": "Miscellaneous, other"
+  },
+  "soundtrackLabel": {
+    "message": "Nhạc nền"
+  },
+  "soundtrackDescription": {
+    "message": "Nghe phiên bản gốc của nhạc trong game"
+  },
+  "translateLabel": {
+    "message": "Dịch"
+  },
+  "translateDescription": {
+    "message": "Đóng góp bản dịch cho game"
+  },
+  "discordLabel": {
+    "message": "Discord"
+  },
+  "discordDescription": {
+    "message": "Tham gia Discord của game để bàn luận, cập nhật tin tức của game, đóng góp ý tưởng và bản dịch của game"
+  }
+}

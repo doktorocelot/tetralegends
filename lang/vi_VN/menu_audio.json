@@ -1,0 +1,16 @@
+{
+  "sfxLabel": {
+    "message": "Hiệu ứng âm thanh",
+    "description": "Also known as 'SE' or 'SFX'"
+  },
+  "sfxDescription": {
+    "message": "Điều chỉnh độ lớn của các hiệu ứng âm thanh theo phần trăm"
+  },
+  "musicLabel": {
+    "message": "Nhạc",
+    "description": "Also known as 'BGM'"
+  },
+  "musicDescription": {
+    "message": "Điều chỉnh độ to của nhạc theo phần trăm"
+  }
+}

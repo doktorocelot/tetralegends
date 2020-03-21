@@ -11,7 +11,7 @@
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guida"
+    "message": "Standard"
   },
   "guidelineDescription": {
     "message": "Variante standard della modalità presente in tutti i giochi moderni"
@@ -38,7 +38,7 @@
     "message": "Impostazioni"
   },
   "tuningLabel": {
-    "message": "Ottimizzazione"
+    "message": "Personalizzazione"
   },
   "tuningDescription": {
     "message": "Cambia la percezione del gioco"

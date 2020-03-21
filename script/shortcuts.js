@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {String} selector
+ * @return {Element}
+ */
 export default function $(selector) {
   const selection = document.querySelectorAll(selector);
   switch (selection.length) {

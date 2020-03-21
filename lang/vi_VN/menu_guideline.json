@@ -1,34 +1,34 @@
 {
   "marathonLabel": {
-    "message": "Maraton",
+    "message": "Marathon",
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Staw czoła wyzwaniu! Czyść linie, ale uważaj, bo gra jest szybsza z każdym poziomem!",
+    "message": "Xếp gạch và lấp hàng, ăn điểm càng nhiều càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
-    "message": "Mistrz",
+    "message": "Bậc thầy",
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Niesamowicie szybka akcja! Gra nie da Tobie ani chwili wytchnienia, gdy próbujesz przetrwać jej okrutną prędkość aż do końca.",
+    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn môt tí nào, khi bạn cố gắng sống sót tốc độ chơi kinh hoàng đến lúc kết thúc",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
-    "message": "Sprint",
+    "message": "Chạy dòng",
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Nie wahaj się! Wyczyść linie tak szybko jak potrafisz w tym trybie gry.",
+    "message": "Đừng chần chừ! Hoàn thành mục tiêu càng nhanh càng tốt trong chế độ chơi nhanh này",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
-    "message": "Ultra",
+    "message": "Chạy điểm",
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Każda sekunda się liczy! Ostrożnie i szybko układaj tetromina, aby zdobyć jak najwięcej punktów!",
+    "message": "Hàng nào cũng quan trọng! Cẩn thận, xếp một cách thông minh và nhanh nhẹn để nhận điểm nhiều nhất có thể đến khi hết thời gian",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
