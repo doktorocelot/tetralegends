@@ -51,5 +51,12 @@
   },
   "particleVolumeDescription": {
     "message": "操作生成的粒子数量"
+  },
+  "actionTextLabel": {
+    "message": "Action Text",
+    "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
+  },
+  "actionTextDescription": {
+    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
   }
 }
