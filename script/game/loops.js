@@ -378,7 +378,7 @@ export const loops = {
     update: (arg) => {
       collapse(arg);
       if (arg.piece.inAre) {
-        handheldDasAre(arg);
+        handheldDasAre(arg, framesToMs(9), framesToMs(3));
         arg.piece.are += arg.ms;
       } else {
         rotate(arg);
@@ -424,7 +424,7 @@ export const loops = {
     update: (arg) => {
       collapse(arg);
       if (arg.piece.inAre) {
-        handheldDasAre(arg);
+        handheldDasAre(arg, framesToMs(23), 150);
         arg.piece.are += arg.ms;
       } else {
         rotate(arg);
@@ -475,7 +475,7 @@ export const loops = {
         arg.stack.levelUpAnimation += arg.ms;
       }
       if (arg.piece.inAre) {
-        handheldDasAre(arg);
+        handheldDasAre(arg, framesToMs(16), framesToMs(6));
         arg.piece.are += arg.ms;
       } else {
         rotate(arg);
