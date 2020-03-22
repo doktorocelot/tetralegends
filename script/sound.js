@@ -11,20 +11,26 @@ class Sound {
     this.amountOfTimesEnded = {};
     this.fadedSounds = {};
     this.mustWait = false;
+    this.bgmName = null;
     this.dangerBgmName = null;
     this.dangerBgmIsRaised = false;
+    this.paceBgmName = null;
+    this.paceBgmIsRaised = false;
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
       if (this.fadedSounds[key] != null) {
         this.sounds[key].volume(settings.settings.sfxVolume / 100 * 0.5);
-        break;
+        continue;
       }
       this.sounds[key].volume(settings.settings.sfxVolume / 100);
     }
     for (const key of Object.keys(this.music)) {
       if (key.includes('danger') && !this.dangerBgmIsRaised) {
-        break;
+        continue;
+      }
+      if (key.includes('pace') && !this.paceBgmIsRaised) {
+        continue;
       }
       this.music[key].volume(settings.settings.musicVolume / 100);
     }
@@ -70,9 +76,11 @@ class Sound {
       src: [`./bgm/${type}/${name}-loop.ogg`],
       volume: settings.settings.musicVolume / 100,
       loop: true,
+      onplay: () => {
+        this.syncBgm();
+      },
     });
     if (gameHandler.game.settings.hasDangerBgm) {
-      this.dangerBgmName = `${type}-${name}-danger`;
       this.dangerBgmIsRaised = false;
       this.music[`${type}-${name}-danger-start`] = new Howl({
         src: [`./bgm/${type}/${name}-danger-start.ogg`],
@@ -87,12 +95,47 @@ class Sound {
         loop: true,
       });
     }
+    if (gameHandler.game.settings.hasPaceBgm) {
+      this.paceBgmIsRaised = false;
+      this.music[`${type}-${name}-pace-start`] = new Howl({
+        src: [`./bgm/${type}/${name}-pace-start.ogg`],
+        volume: 0,
+        onend: () => {
+          this.music[`${type}-${name}-pace-loop`].play();
+        },
+      });
+      this.music[`${type}-${name}-pace-loop`] = new Howl({
+        src: [`./bgm/${type}/${name}-pace-loop.ogg`],
+        volume: 0,
+        loop: true,
+      });
+    }
+  }
+  syncBgm() {
+    try {
+      if (gameHandler.game.settings.hasDangerBgm) {
+        this.music[`${this.dangerBgmName}-start`].seek(this.music[`${this.bgmName}-start`].seek());
+        this.music[`${this.dangerBgmName}-loop`].seek(this.music[`${this.bgmName}-loop`].seek());
+      }
+      if (gameHandler.game.settings.hasPaceBgm) {
+        this.music[`${this.paceBgmName}-start`].seek(this.music[`${this.bgmName}-start`].seek());
+        this.music[`${this.paceBgmName}-loop`].seek(this.music[`${this.bgmName}-loop`].seek());
+      }
+    } catch (error) {
+
+    }
   }
   playBgm(name, type) {
     this.killBgm();
+    this.bgmName = `${type}-${name}`;
+    this.dangerBgmName = `${type}-${name}-danger`;
+    this.paceBgmName = `${type}-${name}-pace`;
     this.music[`${type}-${name}-start`].play();
     if (gameHandler.game.settings.hasDangerBgm) {
       this.music[`${type}-${name}-danger-start`].play();
+    }
+    if (gameHandler.game.settings.hasPaceBgm) {
+      this.music[`${type}-${name}-pace-start`].play();
     }
   }
   killBgm() {
@@ -118,6 +161,26 @@ class Sound {
       this.music[`${this.dangerBgmName}-start`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.music[`${this.dangerBgmName}-loop`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.dangerBgmIsRaised = false;
+    }
+  }
+  raisePaceBgm() {
+    if (!gameHandler.game.settings.hasPaceBgm) {
+      return;
+    }
+    if (!this.paceBgmIsRaised) {
+      this.music[`${this.paceBgmName}-start`].fade(0, settings.settings.musicVolume / 100, 500);
+      this.music[`${this.paceBgmName}-loop`].fade(0, settings.settings.musicVolume / 100, 500);
+      this.paceBgmIsRaised = true;
+    }
+  }
+  lowerPaceBgm() {
+    if (!gameHandler.game.settings.hasPaceBgm) {
+      return;
+    }
+    if (this.paceBgmIsRaised) {
+      this.music[`${this.paceBgmName}-start`].fade(settings.settings.musicVolume / 100, 0, 500);
+      this.music[`${this.paceBgmName}-loop`].fade(settings.settings.musicVolume / 100, 0, 500);
+      this.paceBgmIsRaised = false;
     }
   }
   startSeLoop(name) {

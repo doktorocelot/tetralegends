@@ -22,6 +22,8 @@
     "lockforce",
     "locknohd",
     "move",
+    "offpace",
+    "onpace",
     "pause",
     "prespin",
     "prespinmini",

@@ -7,7 +7,6 @@
       "string": "clearLabel",
       "stringDesc": "clearDescription",
       "label": "Clear",
-      "width": "half",
       "description": "Clear all the controls so you have a blank workspace",
       "action": "functionClearControls"
     },
@@ -15,7 +14,6 @@
       "string": "resetLabel",
       "stringDesc": "resetDescription",
       "label": "Reset",
-      "width": "half",
       "description": "Reset all controls back to their defaults",
       "action": "functionResetControls"
     },

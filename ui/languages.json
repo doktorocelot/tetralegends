@@ -33,6 +33,13 @@
       "lang": "it_IT"
     },
     {
+      "label": "Deutsch",
+      "fixedText": true,
+      "description": "kivi",
+      "action": "lang",
+      "lang": "de_DE"
+    },
+    {
       "label": "Tiếng Việt",
       "fixedText": true,
       "description": "Shard Nguyễn",

@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Leeren",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Alle Kontrollzuordnungen leeren, damit Sie einen leeren Arbeitsbereich haben"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Zurücksetzen",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Alle Kontrollzuordnungen auf ihre Standardwerte zurücksetzen"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Nach links bewegen"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Bewege ein Teil einmal nach links oder halte es für Autoshift"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Nach rechts bewegen"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Bewege ein Teil einmal nach rechts oder halte es für Autoshift"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Harter Fall"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Lege ein Teil sofort auf den Boden. (kann anders handeln oder in einigen Modusen deaktiviert werden)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Weicher Fall"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Beschleunige den Fall eines Teils (kann in manchen Modusen anders handeln)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Nach links drehen",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Ein Teil 90° gegen den Uhrzeigersinn drehen."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Nach rechts drehen",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Ein Teil 90° mit dem Uhrzeigersinn drehen."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "180° drehen",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Ein Teil 180° drehen (kann in einigen Modusen deaktiviert werden)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Halten"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Sende ein Teil an die Halte Warteschlange (kann in manchen Modus deaktiviert werden)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Neustarten",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Sofort einen neuen Versuch haben"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pausieren"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Spiel pausieren"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Steuerungseinstellungen",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Drücken Sie die Taste, die Sie für diese Aktion verwenden möchten",
     "description": "Displays on the popup when you add a control binding"
   }
 }

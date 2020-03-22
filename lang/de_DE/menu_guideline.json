@@ -4,15 +4,15 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Clear the goal! Stack up and clear lines, but watch out, as the game gets faster the further you go!",
+    "message": "Erziele punkte, Staple Linien auf, aber pass auf! je weiter du kommst, je schneller geht das Spiel!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
-    "message": "Master",
+    "message": "Meister",
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Insanely fast stacking action! The game will take no prisoners as you attempt to survive the cruel speeds until the end.",
+    "message": "Verrückt schnelle stapel Aktion! Das Spiel wird ohne gnade weitergehen, während du die grausamen Geschwindigkeiten bis zum Ende überleben zu versuchst.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Don't hesitate! Clear the line goal as quick as you can in this high-speed mode.",
+    "message": "Zögern Sie nicht! Leeren Sie in diesem Hochgeschwindigkeitsmodus das Linienziel so schnell wie möglich.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Every line clear counts! Carefully and quickly assemble setups to clear as many points as possible until the time runs out!",
+    "message": "Jede Zeile zählt! Vorsichtig und schnell Setups zusammenstellen, um so viele Punkte wie möglich zu löschen, bis die Zeit abläuft!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

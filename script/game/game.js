@@ -37,6 +37,8 @@ export default class Game {
     this.isPaused = false;
     this.isDirty = true;
     this.isVisible = false;
+    this.onPaceTime = 0;
+    this.startedOnPaceEvent = false;
     this.background = '';
     this.stat = {
       level: 0,
@@ -50,6 +52,7 @@ export default class Game {
       score: true,
       fallspeed: true,
       entrydelay: true,
+      pace: true,
     };
     this.endingStats = {
       score: true,
@@ -405,6 +408,27 @@ export default class Game {
                 $('#kill-message').textContent = locale.getString('ui', 'timeOut');
                 game.end();
               }
+            }
+            game.pps = game.stat.piece / (game.timePassed / 1000);
+            if (game.pps >= 2 && game.settings.hasPaceBgm) {
+              if (!game.startedOnPaceEvent) {
+                game.onPaceTime = game.timePassed;
+                game.startedOnPaceEvent = true;
+              }
+              if (game.timePassed - game.onPaceTime >= 3000) {
+                if (!sound.paceBgmIsRaised) {
+                  sound.add('onpace');
+                }
+                sound.raisePaceBgm();
+                $('#timer').classList.add('pace');
+              }
+            } else {
+              if (sound.paceBgmIsRaised) {
+                sound.add('offpace');
+              }
+              game.startedOnPaceEvent = false;
+              sound.lowerPaceBgm();
+              $('#timer').classList.remove('pace');
             }
             if (game.stack.alarmIsOn) {
               const cellSize = game.cellSize;

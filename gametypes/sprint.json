@@ -11,6 +11,7 @@
     "soundbank": "standard",
     "music": "sprint",
     "hasDangerBgm": true,
+    "hasPaceBgm": true,
     "scoreTable": "guideline",
     "background": "marathon.jpg"
   },

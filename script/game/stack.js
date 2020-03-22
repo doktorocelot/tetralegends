@@ -55,6 +55,7 @@ export default class Stack extends GameModule {
     return lineClear;
   }
   add(passedX, passedY, shape, color) {
+    sound.syncBgm();
     if (!this.parent.piece.hasHardDropped) {
       sound.add('locknohd');
     }

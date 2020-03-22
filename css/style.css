@@ -200,6 +200,10 @@
   from {filter: brightness(1)}
   to {filter: brightness(0)}
 }
+@keyframes pulse-darkness-light {
+  from {filter: brightness(1)}
+  to {filter: brightness(.5)}
+}
 @keyframes pulse {
   from {filter: brightness(1.1)}
   to {filter: brightness(0.9)}
@@ -1108,6 +1112,18 @@ progress[value]::-moz-progress-bar {
   bottom: -3.2em;
   font-size: 1.4em;
   width: 100%;
+}
+@keyframes pace-timer {
+  from {color: #FF8C00}
+  to {color: #ffd700}
+}
+.game .timer.pace {
+  color: #ffd700;
+  animation-name: pace-timer;
+  animation-duration: .08s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 @keyframes paused-timer {
   from {opacity: 0.6}
