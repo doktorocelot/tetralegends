@@ -25,6 +25,7 @@ export default class Stack extends GameModule {
     this.levelUpAnimation = 0;
     this.levelUpAnimationLimit = 0;
     this.flashOnTetris = false;
+    this.alarmIsOn = false;
   }
   makeAllDirty() {
     for (let x = 0; x < this.grid.length; x++) {
@@ -32,6 +33,26 @@ export default class Stack extends GameModule {
         this.dirtyCells.push([x, y]);
       }
     }
+  }
+  wouldCauseLineClear() {
+    const finalBlocks = this.parent.piece.getFinalBlockLocations();
+    const newGrid = JSON.parse(JSON.stringify(this.grid));
+    let lineClear = 0;
+    for (const finalBlock of finalBlocks) {
+      newGrid[finalBlock[0]][finalBlock[1] + this.hiddenHeight] = 'test';
+    }
+    for (let y = 0; y < newGrid[0].length; y++) {
+      for (let x = 0; x <= newGrid.length; x++) {
+        if (x === newGrid.length) {
+          lineClear++;
+          break;
+        }
+        if (newGrid[x][y] == null) {
+          break;
+        }
+      }
+    }
+    return lineClear;
   }
   add(passedX, passedY, shape, color) {
     if (!this.parent.piece.hasHardDropped) {
@@ -104,6 +125,7 @@ export default class Stack extends GameModule {
     if (passedLockOut >= shape.length) {
       $('#kill-message').textContent = locale.getString('ui', 'lockOut');
       this.parent.end();
+      return;
     }
 
     for (let y = 0; y < this.grid[0].length; y++) {
@@ -193,13 +215,32 @@ export default class Stack extends GameModule {
     if (
       this.height - this.highest < 2 ||
       (
-        this.height - this.highest < 6 &&
+        (this.height - this.highest < 5 && !this.alarmIsOn ||
+        this.height - this.highest < 8 && this.alarmIsOn) &&
         this.skyToFloor - this.hiddenHeight < this.height - 4
       )
     ) {
+      this.startAlarm();
     } else {
-
+      this.endAlarm();
     }
+  }
+  startAlarm() {
+    if (this.alarmIsOn) {
+      return;
+    }
+    sound.raiseDangerBgm();
+    sound.startSeLoop('alarm');
+    document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross-danger.svg")');
+    document.documentElement.style.setProperty('--tetrion-color', '#f00');
+    this.alarmIsOn = true;
+  }
+  endAlarm() {
+    sound.lowerDangerBgm();
+    sound.stopSeLoop('alarm');
+    this.alarmIsOn = false;
+    document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross.svg")');
+    document.documentElement.style.setProperty('--tetrion-color', '#fff');
   }
   spawnBrokenLine() {
     sound.add('garbage');
@@ -264,6 +305,7 @@ export default class Stack extends GameModule {
       sound.add('bravo');
       this.parent.displayActionText(locale.getString('action-text', 'pc'));
     }
+    this.alarmCheck();
     this.isDirty = true;
   }
   new() {

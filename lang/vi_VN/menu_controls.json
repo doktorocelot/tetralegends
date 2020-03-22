@@ -11,7 +11,7 @@
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Đặt lại tất cả trong đây về cài đặt mặc định"
+    "message": "Đặt lại tất cả các phím trong đây về cài đặt mặc định"
   },
   "shiftLeftLabel": {
     "message": "Di chuyển trái"

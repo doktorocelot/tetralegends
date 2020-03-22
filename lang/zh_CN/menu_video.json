@@ -53,10 +53,10 @@
     "message": "操作生成的粒子数量"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "动作文本",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+    "message": "当您消除或完成技巧时显示文字（例如 Double 或 T-Spin ）。也会显示连击计数器。"
   }
 }

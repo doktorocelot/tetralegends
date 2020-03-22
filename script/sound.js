@@ -1,18 +1,31 @@
 import {loadSoundbank} from './loaders.js';
 import settings from './settings.js';
+import gameHandler from './game/game-handler.js';
 class Sound {
   constructor() {
     this.sounds = [];
     this.music = {};
     this.toPlay = {};
     this.files = [];
+    this.playingSeLoops = {};
+    this.amountOfTimesEnded = {};
+    this.fadedSounds = {};
     this.mustWait = false;
+    this.dangerBgmName = null;
+    this.dangerBgmIsRaised = false;
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
+      if (this.fadedSounds[key] != null) {
+        this.sounds[key].volume(settings.settings.sfxVolume / 100 * 0.5);
+        break;
+      }
       this.sounds[key].volume(settings.settings.sfxVolume / 100);
     }
     for (const key of Object.keys(this.music)) {
+      if (key.includes('danger') && !this.dangerBgmIsRaised) {
+        break;
+      }
       this.music[key].volume(settings.settings.musicVolume / 100);
     }
   }
@@ -23,9 +36,17 @@ class Sound {
           this.files = soundData.files;
           this.ren = soundData.ren;
           for (const soundName of this.files) {
+            this.amountOfTimesEnded[soundName] = 0;
             this.sounds[soundName] = new Howl({
               src: [`./se/game/${name}/${soundName}.ogg`],
               volume: settings.settings.sfxVolume / 100,
+              onend: () => {
+                this.amountOfTimesEnded[soundName]++;
+                if (this.amountOfTimesEnded[soundName] > 2 && this.playingSeLoops[soundName] != null && this.fadedSounds[soundName] == null) {
+                  this.fadedSounds[soundName] = true;
+                  this.sounds[soundName].fade(settings.settings.sfxVolume / 100, (settings.settings.sfxVolume / 100) * 0.5, 500);
+                }
+              },
             });
           }
           for (const ren of this.ren) {
@@ -50,14 +71,75 @@ class Sound {
       volume: settings.settings.musicVolume / 100,
       loop: true,
     });
+    if (gameHandler.game.settings.hasDangerBgm) {
+      this.dangerBgmName = `${type}-${name}-danger`;
+      this.dangerBgmIsRaised = false;
+      this.music[`${type}-${name}-danger-start`] = new Howl({
+        src: [`./bgm/${type}/${name}-danger-start.ogg`],
+        volume: 0,
+        onend: () => {
+          this.music[`${type}-${name}-danger-loop`].play();
+        },
+      });
+      this.music[`${type}-${name}-danger-loop`] = new Howl({
+        src: [`./bgm/${type}/${name}-danger-loop.ogg`],
+        volume: 0,
+        loop: true,
+      });
+    }
   }
   playBgm(name, type) {
     this.killBgm();
     this.music[`${type}-${name}-start`].play();
+    if (gameHandler.game.settings.hasDangerBgm) {
+      this.music[`${type}-${name}-danger-start`].play();
+    }
   }
   killBgm() {
     for (const name of Object.keys(this.music)) {
       this.music[name].stop();
+    }
+  }
+  raiseDangerBgm() {
+    if (!gameHandler.game.settings.hasDangerBgm) {
+      return;
+    }
+    if (!this.dangerBgmIsRaised) {
+      this.music[`${this.dangerBgmName}-start`].fade(0, settings.settings.musicVolume / 100, 500);
+      this.music[`${this.dangerBgmName}-loop`].fade(0, settings.settings.musicVolume / 100, 500);
+      this.dangerBgmIsRaised = true;
+    }
+  }
+  lowerDangerBgm() {
+    if (!gameHandler.game.settings.hasDangerBgm) {
+      return;
+    }
+    if (this.dangerBgmIsRaised) {
+      this.music[`${this.dangerBgmName}-start`].fade(settings.settings.musicVolume / 100, 0, 500);
+      this.music[`${this.dangerBgmName}-loop`].fade(settings.settings.musicVolume / 100, 0, 500);
+      this.dangerBgmIsRaised = false;
+    }
+  }
+  startSeLoop(name) {
+    if (this.playingSeLoops[name] != null) {
+      return;
+    }
+    if (this.files.indexOf(name) !== -1) {
+      this.sounds[name].loop(true);
+      this.sounds[name].play();
+      this.playingSeLoops[name] = true;
+    }
+  }
+  stopSeLoop(name) {
+    if (this.playingSeLoops[name] == null) {
+      return;
+    }
+    if (this.files.indexOf(name) !== -1) {
+      this.sounds[name].loop(false);
+      this.sounds[name].volume(settings.settings.sfxVolume / 100);
+      this.sounds[name].stop();
+      delete this.fadedSounds[name];
+      delete this.playingSeLoops[name];
     }
   }
   playSeQueue() {

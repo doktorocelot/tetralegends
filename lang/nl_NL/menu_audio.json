@@ -1,16 +1,16 @@
 {
   "sfxLabel": {
-    "message": "Sound Effects Volume",
+    "message": "Geluidseffecten Volume",
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "The volume of the various sound effects in percentage"
+    "message": "Het volume van de verschillende geluidseffecten in procenten"
   },
   "musicLabel": {
-    "message": "Music Volume",
+    "message": "Muziek Volume",
     "description": "Also known as 'BGM'"
   },
   "musicDescription": {
-    "message": "The volume of the music in percentage"
+    "message": "Het volume van de muziek in procenten"
   }
 }

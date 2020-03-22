@@ -1,41 +1,41 @@
 {
   "defaultLabel": {
-    "message": "Default"
+    "message": "Standaard"
   },
   "defaultDescription": {
-    "message": "The default settings that come with the game"
+    "message": "De standaardinstellingen die bij het spel komen"
   },
   "guidelineLabel": {
     "message": "Guideline"
   },
   "guidelineDescription": {
-    "message": "Standard settings found in most versions"
+    "message": "Standaard instellingen gevonden in de meeste versies"
   },
   "pptLabel": {
     "message": "PPT",
     "description": "Based on Puyo Puyo Tetris"
   },
   "pptDescription": {
-    "message": "A slightly quicker version of the standard settings"
+    "message": "Iets snellere versie van de standaard instellingen"
   },
   "tetraOnlineLabel": {
     "message": "Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
-    "message": "Matches the autoshift settings of Tetra Online",
+    "message": "Komt overeen met de instellingen van het spel Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "quickLabel": {
-    "message": "Quick"
+    "message": "Snel"
   },
   "quickDescription": {
-    "message": "A quicker presets that requires some control"
+    "message": "Een snellere voorinstelling die wat meer controle vereist"
   },
   "proLabel": {
     "message": "Pro"
   },
   "proDescription": {
-    "message": "A hyperspeed preset that requires high-level control"
+    "message": "Een instelling voor hoge snelheid die het meeste controle vereist"
   }
 }

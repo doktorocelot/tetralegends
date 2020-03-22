@@ -53,10 +53,10 @@
     "message": "Điều chỉnh số lượng các chi tiết mà game sẽ tạo"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "Hiển thị loại dọn hàng",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+    "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc là khi bạn tạo cú xoay. Ví dụ: \"Đôi\", \"Cú xoay T đơn\", ..."
   }
 }

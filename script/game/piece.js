@@ -217,7 +217,19 @@ export default class Piece extends GameModule {
   draw() {
     const ctx = this.ctx;
     clearCtx(ctx);
+    if (this.parent.stack.alarmIsOn) {
+      const cellSize = this.parent.cellSize;
+      ctx.beginPath();
+      const y = cellSize * this.parent.bufferPeek;
+      ctx.moveTo(0, y);
+      ctx.lineTo(this.parent.settings.width * cellSize, y);
+      ctx.lineWidth = cellSize / 20;
+      ctx.strokeStyle = '#f00';
+      ctx.stroke();
+    }
     if (this.isDead) {
+      $('#warning-message-container-hold').classList.add('hidden');
+      $('#warning-message-container').classList.add('hidden');
       return;
     }
     if (this.ghostIsVisible) {
@@ -234,6 +246,7 @@ export default class Piece extends GameModule {
       ctx.strokeStyle = '#f00';
       ctx.stroke();
     }
+
     if (this.hasSpun) {
       if (this.hasSpunMini) {
         this.parent.pieceCanvas.classList.add('spin-pulse-mini');
@@ -244,6 +257,121 @@ export default class Piece extends GameModule {
       this.parent.pieceCanvas.classList.remove('spin-pulse');
       this.parent.pieceCanvas.classList.remove('spin-pulse-mini');
     }
+    this.showBlockOutHold();
+    if (!this.showLockOut()) {
+      this.showBlockOut();
+    }
+    this.parent.stack.wouldCauseLineClear();
+  }
+  showLockOut() {
+    const finalBlocks = this.getFinalBlockLocations();
+    const toCheck = finalBlocks.length;
+    let failed = 0;
+    for (const finalBlock of finalBlocks) {
+      if (finalBlock[1] < 0) {
+        failed++;
+      }
+    }
+    if (failed >= toCheck) {
+      $('#warning-message').textContent = locale.getString('ui', 'lockOut');
+      $('#warning-message-container').classList.remove('hidden');
+      return true;
+    }
+    $('#warning-message-container').classList.add('hidden');
+  }
+  showBlockOutHold() {
+    const holdBlocks = this.getHoldPieceBlocks();
+    for (const nextBlock of holdBlocks) {
+      const currentX = nextBlock[0];
+      const currentY = nextBlock[1];
+      if (
+        (currentX < 0 || currentX >= this.parent.settings.width || currentY >= this.parent.settings.height) ||
+        (this.parent.stack.grid[currentX][currentY + this.parent.settings.hiddenHeight])
+      ) {
+        $('#warning-message-hold').textContent = locale.getString('ui', 'blockOut');
+        $('#warning-message-container-hold').classList.remove('hidden');
+        return true;
+      }
+    }
+    $('#warning-message-container-hold').classList.add('hidden');
+  }
+  showBlockOut() {
+    const lineClear = this.parent.stack.wouldCauseLineClear();
+    const finalBlocks = this.getFinalBlockLocations();
+    const nextBlocks = this.getNextPieceBlocks();
+    const arraysEqual = (a1, a2) => {
+      /* WARNING: arrays must not contain {objects} or behavior may be undefined */
+      return JSON.stringify(a1) == JSON.stringify(a2);
+    };
+    for (const nextBlock of nextBlocks) {
+      const currentX = nextBlock[0];
+      const currentY = nextBlock[1] - lineClear;
+      if (
+        (currentX < 0 || currentX >= this.parent.settings.width || currentY >= this.parent.settings.height) ||
+        (this.parent.stack.grid[currentX][currentY + this.parent.settings.hiddenHeight])
+      ) {
+        $('#warning-message').textContent = locale.getString('ui', 'blockOut');
+        $('#warning-message-container').classList.remove('hidden');
+        return true;
+      }
+      for (const finalBlock of finalBlocks) {
+        if (arraysEqual(finalBlock, nextBlock)) {
+          $('#warning-message').textContent = locale.getString('ui', 'blockOut');
+          $('#warning-message-container').classList.remove('hidden');
+          return true;
+        }
+      }
+    }
+    $('#warning-message-container').classList.add('hidden');
+  }
+  getFinalBlockLocations() {
+    const finalBlocks = [];
+    const currentX = this.x;
+    const currentY = this.yFloor + this.getDrop();
+    for (let y = 0; y < this.shape.length; y++) {
+      for (let x = 0; x < this.shape[y].length; x++) {
+        const isFilled = this.shape[y][x];
+        if (isFilled) {
+          const finalX = currentX + x;
+          const finalY = currentY + y;
+          finalBlocks.push([finalX, finalY]);
+        }
+      }
+    }
+    return finalBlocks;
+  }
+  getNextPieceBlocks() {
+    const nextBlocks = [];
+    const nextPiece = this.parent.next.queue[0];
+    const nextPieceShape = PIECES[nextPiece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]];
+    const spawnOffsets = SPAWN_OFFSETS[this.parent.rotationSystem][nextPiece];
+    for (let y = 0; y < nextPieceShape.length; y++) {
+      for (let x = 0; x < nextPieceShape[y].length; x++) {
+        const isFilled = nextPieceShape[y][x];
+        if (isFilled) {
+          nextBlocks.push([x + spawnOffsets[0], y + spawnOffsets[1]]);
+        }
+      }
+    }
+    return nextBlocks;
+  }
+  getHoldPieceBlocks() {
+    const holdBlocks = [];
+    let holdPiece = this.parent.hold.pieceName;
+    if (holdPiece == null) {
+      holdPiece = this.parent.next.queue[0];
+    }
+    const holdPieceShape = PIECES[holdPiece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][holdPiece]];
+    const spawnOffsets = SPAWN_OFFSETS[this.parent.rotationSystem][holdPiece];
+    for (let y = 0; y < holdPieceShape.length; y++) {
+      for (let x = 0; x < holdPieceShape[y].length; x++) {
+        const isFilled = holdPieceShape[y][x];
+        if (isFilled) {
+          holdBlocks.push([x + spawnOffsets[0], y + spawnOffsets[1]]);
+        }
+      }
+    }
+    return holdBlocks;
   }
   moveValid(passedX, passedY, shape) {
     if (this.isDead) {

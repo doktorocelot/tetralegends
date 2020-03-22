@@ -2,6 +2,7 @@ import Game from './game.js';
 
 class GameHandler {
   constructor() {
+    /** @type {Game} */
     this.game = null;
   }
   newGame(gametype) {

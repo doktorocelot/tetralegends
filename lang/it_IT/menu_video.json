@@ -53,7 +53,7 @@
     "message": "Quantità di particelle generate"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "Testo combo",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {

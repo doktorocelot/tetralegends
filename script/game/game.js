@@ -92,6 +92,7 @@ export default class Game {
           this.next = new Next(this, toCtx(this.nextCanvas), toCtx(this.nextSubCanvas));
           this.hold = new Hold(this, toCtx(this.holdCanvas));
           this.particle = new Particle(this, toCtx(this.particleCanvas));
+          this.stack.endAlarm();
           // SET UP SETTINGS
           if (!this.settings.disableDefaultSkinLoad) {
             this.makeSprite();
@@ -153,6 +154,7 @@ export default class Game {
     this.isDead = true;
   }
   end(victory = false) {
+    this.stack.endAlarm();
     this.noUpdate = true;
     $('#end-stats').innerHTML = '';
     for (const statName of this.stats) {
@@ -172,6 +174,7 @@ export default class Game {
     sound.killBgm();
     $('#game').classList.add('dead');
     endScreenTimeout = setTimeout(() => {
+      sound.stopSeLoop('alarm');
       $('#kill-message-container').classList.add('hidden');
       sound.add('gameover');
       $('#end-message').textContent = locale.getString('ui', 'gameover');
@@ -403,7 +406,49 @@ export default class Game {
                 game.end();
               }
             }
-
+            if (game.stack.alarmIsOn) {
+              const cellSize = game.cellSize;
+              const redLineParticleSettings = {
+                amount: 1,
+                y: cellSize * game.bufferPeek,
+                xRange: 1,
+                yRange: 1,
+                yVelocity: 0,
+                xVariance: 2,
+                yVariance: .2,
+                yFlurry: .2,
+                xDampening: .99,
+                lifeVariance: 80,
+                red: 255,
+                blue: 51,
+                green: 28,
+              };
+              game.particle.generate({
+                x: 0,
+                xVelocity: 2,
+                ...redLineParticleSettings,
+              });
+              game.particle.generate({
+                x: game.stack.width * cellSize,
+                xVelocity: -2,
+                ...redLineParticleSettings,
+              });
+              game.particle.generate({
+                amount: 1,
+                x: 0,
+                y: cellSize * (game.bufferPeek + game.stack.height),
+                xRange: game.stack.width * cellSize,
+                yRange: 1,
+                xVelocity: 0,
+                yVelocity: 2,
+                xVariance: 3,
+                yVariance: 1,
+                xFlurry: .2,
+                yFlurry: .2,
+                lifeVariance: 80,
+                maxlife: 500,
+              });
+            }
             game.loop({
               ms: msPassed,
               piece: game.piece,

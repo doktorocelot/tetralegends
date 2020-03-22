@@ -181,6 +181,8 @@
 }
 :root {
   --current-background: url("../img/bg/main-menu.png");
+  --grid-image: url("../img/tetrion/grid-bg-cross.svg");
+  --tetrion-color: #fff;
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
   --main-font: "Roboto", sans-serif;
   --cell-size: (2em);
@@ -697,6 +699,7 @@ body {
   background: transparent;
 }
 #game-container {
+  margin-top: .3em;
   --matrix-height: calc(var(--matrix-height-base) + var(--peek-zone));
   font-size: calc(var(--cell-size)/2);
   text-align: center;
@@ -753,11 +756,15 @@ body {
 }
 .stats label {
   display: inline-block;
-  background-color: #fff;
-  font-weight: bold;;
+  background-color: var(--tetrion-color);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
   font-size: 1.2em;
   padding: .2em 1em;
   margin-bottom: .4em;
+  margin-right: -.1em;
   color: #111;
   text-transform: uppercase;
 }
@@ -773,9 +780,12 @@ body {
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
   background-color: #000e;
-  background-image: url(../img/tetrion/grid-bg-cross.svg);
+  background-image: var(--grid-image);
   background-position: left bottom;
-  outline-color: #fff;
+  outline-color: var(--tetrion-color);
+  transition-property: outline-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
   outline-style: solid;
   outline-width: .5em;
 }
@@ -907,6 +917,29 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
   background-color: #fff;
 }
+.warning-message-container,
+.warning-message-container-hold {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  animation-name: pulse-darkness;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.warning-message-container {
+    margin-top: -2em;
+}
+.warning-message-container-hold {
+  position: absolute;
+  top: .4em;
+}
+.warning-message-container .warning-message,
+.warning-message-container-hold .warning-message,
+.warning-message-container img {
+  display: inline-block;
+}
 @keyframes death-message {
   0% {opacity: 0; transform: scale(2);}
   15% {opacity: 1; transform: scale(1);}
@@ -917,6 +950,7 @@ progress[value]::-moz-progress-bar {
   70% {filter: brightness(1)}
   80% {filter: brightness(0.5)}
 }
+
 .kill-message-container {
   position: absolute;
   color: #fff;
@@ -933,7 +967,10 @@ progress[value]::-moz-progress-bar {
   animation-duration: 0.8s;
   animation-timing-function: ease-in-out;
 }
-.kill-message-container.hidden {
+
+.kill-message-container.hidden,
+.warning-message-container-hold.hidden,
+.warning-message-container.hidden {
   display: none;
 }
 .kill-message-container .kill-message {

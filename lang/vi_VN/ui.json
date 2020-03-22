@@ -12,7 +12,7 @@
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Miếng",
+    "message": "Số gạch",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
@@ -40,7 +40,7 @@
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "%1 sec/row",
+    "message": "%1 giây/hàng",
     "description": "The unit label for 'seconds per row'. %1 is the amount of seconds"
   },
   "pause": {
@@ -92,7 +92,7 @@
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   },
   "loading": {
-    "message": "Loading...",
+    "message": "Đang tải...",
     "description": "Displays under 'READY' while the game loads the assets"
   }
 }

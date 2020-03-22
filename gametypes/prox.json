@@ -10,6 +10,7 @@
     "skin": "standard",
     "soundbank": "standard",
     "music": "../master/master",
+    "hasDangerBgm": true,
     "scoreTable": "tetrax",
     "background": "marathon.jpg"
   },

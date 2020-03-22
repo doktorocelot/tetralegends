@@ -1,6 +1,7 @@
 import GameModule from './game-module.js';
 import {clearCtx} from '../shortcuts.js';
 import settings from '../settings.js';
+import gameHandler from './game-handler.js';
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -34,14 +35,16 @@ class SingleParticle {
     this.maxlife *= this.HZ_MATCH_MULTIPLIER;
   }
   update(ms) {
+    const widthMultiplier = gameHandler.game.particle.ctx.canvas.clientWidth / 400;
     const multiplier = ms / 8.33333333333;
+    const multiplierWithWidth = ms / 8.33333333333 * widthMultiplier;
     const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
     const yFlurryGen = getRandomInt(this.yFlurry * 100) / 100;
     this.xVelocity += (this.xFlurry / 2 - xFlurryGen) * multiplier;
     this.yVelocity += (this.yFlurry / 2 - yFlurryGen) * multiplier;
     this.lifetime += this.HZ_MATCH_MULTIPLIER * multiplier;
-    this.x += this.xVelocity * multiplier;
-    this.y -= this.yVelocity * multiplier;
+    this.x += this.xVelocity * multiplierWithWidth;
+    this.y -= this.yVelocity * multiplierWithWidth;
     this.y += this.gravity * multiplier;
     this.gravity *= 1 + (this.gravityAcceleration - 1) * multiplier;
     this.xVelocity /= 1 + (this.xDampening - 1) * multiplier;
@@ -52,8 +55,9 @@ class SingleParticle {
   }
   draw(ctx) {
     const opacity = (this.maxlife - this.lifetime) / this.maxlife;
-    ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    ctx.fillRect(this.x, this.y, settings.settings.particleSize, settings.settings.particleSize);
+    ctx.fillStyle = `rgba(${this.red}, ${this.blue}, ${this.green}, ${opacity})`;
+    const size = gameHandler.game.particle.ctx.canvas.clientWidth / 400 * settings.settings.particleSize;
+    ctx.fillRect(this.x, this.y, size, size);
   }
 }
 export default class Particle extends GameModule {
@@ -73,6 +77,9 @@ export default class Particle extends GameModule {
     }
     const p = {
       amount: 1,
+      red: 255,
+      blue: 255,
+      green: 255,
       xVariance: 0,
       yVariance: 0,
       xVelocity: 0,
