@@ -2,6 +2,7 @@ import GameModule from './game-module.js';
 import $, {clearCtx} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
 import {PIECE_SETS, PIECES, INITIAL_ORIENTATION} from '../consts.js';
+import sound from '../sound.js';
 
 export default class Next extends GameModule {
   constructor(parent, ctx, ctxSub) {
@@ -26,6 +27,7 @@ export default class Next extends GameModule {
   next() {
     this.generate();
     this.isDirty = true;
+    sound.add(`piece${this.queue[1]}`);
     return this.queue.shift();
   }
   generate() {
