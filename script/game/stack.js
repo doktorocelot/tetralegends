@@ -3,6 +3,7 @@ import $, {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
 import settings from '../settings.js';
+import {SCORE_TABLES} from '../consts.js';
 export default class Stack extends GameModule {
   constructor(parent, ctx) {
     super(parent);
@@ -164,7 +165,9 @@ export default class Stack extends GameModule {
       resetAnimation('#stack', 'tetris-flash');
     }
     if (this.lineClear > 0) { // TODO mini tspin and clean this up
-      this.parent.combo++;
+      if (SCORE_TABLES[this.parent.settings.scoreTable].hasCombo) {
+        this.parent.combo++;
+      }
       let type = 'erase';
       if (isSpin) {
         type = 'tspin';

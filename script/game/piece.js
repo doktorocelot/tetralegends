@@ -280,6 +280,10 @@ export default class Piece extends GameModule {
     $('#warning-message-container').classList.add('hidden');
   }
   showBlockOutHold() {
+    if (this.parent.hold.isDisabled) {
+      $('#warning-message-container-hold').classList.add('hidden');
+      return false;
+    }
     const holdBlocks = this.getHoldPieceBlocks();
     for (const nextBlock of holdBlocks) {
       const currentX = nextBlock[0];
