@@ -118,9 +118,9 @@
       "string": "soundtrackLabel",
       "stringDesc": "soundtrackDescription",
       "label": "Soundtrack",
-      "disabled": true,
       "description": "Listen to the original soundtrack (coming soon!)",
-      "action": "submenu"
+      "action": "link",
+      "url": "https://soundcloud.com/user-276150341/sets/tetra-legends-soundtrack"
     }
   ]
 }

@@ -10,6 +10,7 @@
     "skin": "retro",
     "soundbank": "handheld",
     "music": "mono",
+    "hasDangerBgm": true,
     "scoreTable": "retro",
     "disableDefaultSkinLoad": true,
     "background": "handheld.png"
