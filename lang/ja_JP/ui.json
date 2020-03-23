@@ -27,6 +27,10 @@
     "message": "入場遅延",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
+  "maxcombo": {
+    "message": "最大REN",
+    "description": "The highest combo obtained"
+  },
   "next": {
     "message": "Next",
     "description": "The label for the next piece in the queue"

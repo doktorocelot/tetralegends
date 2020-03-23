@@ -25,6 +25,13 @@ import updateFallSpeed from './loop-modules/update-fallspeed.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
+const create4w = (grid) => {
+  for (const x of [0, 1, 2, 7, 8, 9]) {
+    for (let y = 22; y < grid[0].length; y++) {
+      grid[x][y] = 'white';
+    }
+  }
+};
 const levelUpdate = (game) => {
   if (game.stat.level !== lastLevel) {
     sound.add('levelup');
@@ -89,6 +96,27 @@ export const loops = {
   },
   sprint: {
     update: (arg) => {
+      const game = gameHandler.game;
+      if (game.pps >= 2 && game.settings.hasPaceBgm) {
+        if (!game.startedOnPaceEvent) {
+          game.onPaceTime = game.timePassed;
+          game.startedOnPaceEvent = true;
+        }
+        if (game.timePassed - game.onPaceTime >= 3000) {
+          if (!sound.paceBgmIsRaised) {
+            sound.add('onpace');
+          }
+          sound.raisePaceBgm();
+          $('#timer').classList.add('pace');
+        }
+      } else {
+        if (sound.paceBgmIsRaised) {
+          sound.add('offpace');
+        }
+        game.startedOnPaceEvent = false;
+        sound.lowerPaceBgm();
+        $('#timer').classList.remove('pace');
+      }
       collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
@@ -125,6 +153,17 @@ export const loops = {
   },
   ultra: {
     update: (arg) => {
+      const game = gameHandler.game;
+      if (game.timePassed >= game.timeGoal - 30000) {
+        if (!game.playedHurryUp) {
+          sound.add('hurryup');
+          $('#timer').classList.add('hurry-up');
+          game.playedHurryUp = true;
+        }
+        sound.raisePaceBgm();
+      } else {
+        game.playedHurryUp = false;
+      }
       collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
@@ -156,6 +195,60 @@ export const loops = {
       updateFallSpeed(game);
       game.stat.level = 1;
       game.updateStats();
+    },
+  },
+  combo: {
+    update: (arg) => {
+      const game = gameHandler.game;
+      if (game.timePassed >= game.timeGoal - 10000) {
+        if (!game.playedHurryUp) {
+          sound.add('hurryup');
+          $('#timer').classList.add('hurry-up');
+          game.playedHurryUp = true;
+        }
+        sound.raisePaceBgm();
+      } else {
+        game.playedHurryUp = false;
+      }
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      softDrop(arg, 70);
+      hardDrop(arg);
+      extendedLockdown(arg);
+      if (!arg.piece.inAre) {
+        respawnPiece(arg);
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+    },
+    onInit: (game) => {
+      game.timeGoal = 30000;
+      game.isRaceMode = true;
+      game.piece.gravity = 1000;
+      updateFallSpeed(game);
+      game.stat.level = 1;
+      game.updateStats();
+      console.log(JSON.stringify(game.stack.grid));
+      game.stack.grid[0][game.stack.height + game.stack.hiddenHeight - 1] = 'white';
+      game.stack.grid[0][game.stack.height + game.stack.hiddenHeight - 2] = 'white';
+      if (game.next.queue[0] === 'J') {
+        game.stack.grid[1][game.stack.height + game.stack.hiddenHeight - 1] = 'white';
+      } else {
+        game.stack.grid[1][game.stack.height + game.stack.hiddenHeight - 2] = 'white';
+      }
     },
   },
   standardx: {

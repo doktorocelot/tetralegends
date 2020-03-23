@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Verwijder",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Verwijder alle control bindings zodat je een lege werkruimte hebt"
   },
   "resetLabel": {
     "message": "Reset",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Alle controls terugzetten naar hun standaardinstellingen"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Naar links verplaatsen"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Verplaats een stuk een keer naar links of houd vast voor autoshift"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Naar rechts verplaatsen"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Verplaats een stuk een keer naar rechts of houd vast voor autoshift"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Harde drop"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Sleep een stuk direct naar de vloer. (kan anders handelen of uitgeschakeld zijn in sommige modes)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Zachte Drop"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Sleep het blok naar beneden iets sneller. (kan anders handelen in sommige modes)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Draai Links",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Draai 90° stuk linksom om."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Draai rechts",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Draai 90° stuk rechtsom om."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "180° draaien",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Draai een stuk 180° (kan uitgeschakeld zijn in sommige modes)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Hou"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Stuur een stuk naar de wachtrij (kan uitgeschakeld zijn in sommige modes)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Probeer opnieuw",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Direct een nieuwe poging"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pauze"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Pauzeer het spel"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Configuratie beheren",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Druk op de toets die u wilt gebruiken voor deze actie",
     "description": "Displays on the popup when you add a control binding"
   }
 }

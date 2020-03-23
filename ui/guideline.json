@@ -6,9 +6,7 @@
     {
       "string": "marathonLabel",
       "stringDesc": "marathonDescription",
-      "label": "Marathon",
       "default": true,
-      "description": "The standard mode loved by players!",
       "action": "game",
       "game": "marathon"
     },
@@ -31,6 +29,12 @@
       "description": "Insanely fast stacking action!",
       "action": "game",
       "game": "master"
+    },
+    {
+      "string": "comboLabel",
+      "stringDesc": "comboDescription",
+      "action": "game",
+      "game": "combo"
     }
   ]
 }

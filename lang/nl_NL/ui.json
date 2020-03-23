@@ -27,6 +27,10 @@
     "message": "Entree Vertraging",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
+  "maxcombo": {
+    "message": "Max Combo",
+    "description": "The highest combo obtained"
+  },
   "next": {
     "message": "Volgende",
     "description": "The label for the next piece in the queue"
@@ -84,15 +88,15 @@
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
-    "message": "New Record!",
+    "message": "Nieuwe Record!",
     "description": "Displays when the user beats their previous score or time"
   },
   "returnToMenu": {
-    "message": "Return to Menu",
+    "message": "Terug naar menu",
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   },
   "loading": {
-    "message": "Loading...",
+    "message": "Laden...",
     "description": "Displays under 'READY' while the game loads the assets"
   }
 }

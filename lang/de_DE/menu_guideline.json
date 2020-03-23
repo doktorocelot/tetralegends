@@ -30,5 +30,13 @@
   "ultraDescription": {
     "message": "Jede Zeile zählt! Vorsichtig und schnell Setups zusammenstellen, um so viele Punkte wie möglich zu löschen, bis die Zeit abläuft!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "comboLabel": {
+    "message": "Combo Challenge",
+    "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
+  },
+  "comboDescription": {
+    "message": "No time to spare! Try and clear as many successive line clears as you can before the time runs out!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

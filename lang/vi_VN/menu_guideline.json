@@ -30,5 +30,13 @@
   "ultraDescription": {
     "message": "Hàng nào cũng quan trọng! Cẩn thận, xếp một cách thông minh và nhanh nhẹn để nhận nhiều điểm nhất có thể đến khi hết thời gian",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "comboLabel": {
+    "message": "Thử thách Combo",
+    "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
+  },
+  "comboDescription": {
+    "message": "Thời gian không có nhiều đâu! Cố gắng dọn hàng càng liên tục càng tốt trước khi hết thời gian!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

@@ -37,6 +37,7 @@ export default class Game {
     this.isPaused = false;
     this.isDirty = true;
     this.isVisible = false;
+    this.musicLinePointCleared = [];
     this.onPaceTime = 0;
     this.startedOnPaceEvent = false;
     this.background = '';
@@ -45,6 +46,7 @@ export default class Game {
       score: 0,
       line: 0,
       piece: 0,
+      maxcombo: 0,
     };
     this.appends = {};
     this.prefixes = {};
@@ -59,6 +61,7 @@ export default class Game {
       level: true,
       piece: true,
       line: true,
+      maxcombo: true,
     };
     this.b2b = 0;
     this.combo = -1;
@@ -82,6 +85,8 @@ export default class Game {
           menu.close();
           this.startingTime = this.timestamp();
           clearTimeout(endScreenTimeout);
+          $('#timer').classList.remove('pace');
+          $('#timer').classList.remove('hurry-up');
           $('#game').classList.remove('dead');
           $('#ready-meter').classList.remove('hidden');
           $('#end-message-container').classList.add('hidden');
@@ -115,6 +120,15 @@ export default class Game {
           this.resize();
           loops[gametype].onInit(this);
           sound.killBgm();
+          if (this.settings.musicLinePoints != null) {
+            for (const point of this.settings.musicLinePoints) {
+              this.musicLinePointCleared.push(false);
+            }
+          }
+          {if (typeof this.settings.music === 'string') {
+            const string = this.settings.music;
+            this.settings.music = [string];
+          }}
           sound.loadBgm(this.settings.music, gametype);
           sound.add('ready');
           $('#message').classList.remove('dissolve');
@@ -158,6 +172,9 @@ export default class Game {
   }
   end(victory = false) {
     this.stack.endAlarm();
+    endScreenTimeout = setTimeout(() => {
+      sound.stopSeLoop('topoutwarning');
+    }, 100);
     this.noUpdate = true;
     $('#end-stats').innerHTML = '';
     for (const statName of this.stats) {
@@ -232,7 +249,9 @@ export default class Game {
       game[element].width = game[element].clientWidth;
       game[element].height = game[element].clientHeight;
     }
-    $('#hold-label').textContent = locale.getString('ui', 'hold');
+    let holdLabelSelection = 'hold';
+    if (game.hold.useSkip) {holdLabelSelection = 'skip';}
+    $('#hold-label').textContent = locale.getString('ui', holdLabelSelection);
     $('#next-label').textContent = locale.getString('ui', 'next');
     $('#load-message').textContent = locale.getString('ui', 'loading');
     game.stack.makeAllDirty();
@@ -376,6 +395,22 @@ export default class Game {
     const base = Math.min(window.innerWidth, window.innerHeight);
     return Math.floor(base / 1.2 / this.settings.height * this.userSettings.size / 100);
   }
+  updateMusic() {
+    if (this.settings.musicLinePoints != null) {
+      for (let i = 0; i < this.musicLinePointCleared.length; i++) {
+        const bool = this.musicLinePointCleared[i];
+        if (!bool) {
+          if (this.stat.line >= this.settings.musicLinePoints[i]) {
+            sound.killBgm();
+            sound.playBgm(this.settings.music[i + 1], this.type);
+            this.musicLinePointCleared[i] = true;
+            continue;
+          }
+          break;
+        }
+      }
+    }
+  }
   gameLoop() {
     const game = gameHandler.game;
     if (!game.isDead) {
@@ -394,6 +429,7 @@ export default class Game {
             if (!game.piece.inAre) {
               game.timePassed += msPassed;
             }
+
             // GOALS
             if (game.lineGoal != null) {
               if (game.stat.line >= game.lineGoal) {
@@ -410,26 +446,6 @@ export default class Game {
               }
             }
             game.pps = game.stat.piece / (game.timePassed / 1000);
-            if (game.pps >= 2 && game.settings.hasPaceBgm) {
-              if (!game.startedOnPaceEvent) {
-                game.onPaceTime = game.timePassed;
-                game.startedOnPaceEvent = true;
-              }
-              if (game.timePassed - game.onPaceTime >= 3000) {
-                if (!sound.paceBgmIsRaised) {
-                  sound.add('onpace');
-                }
-                sound.raisePaceBgm();
-                $('#timer').classList.add('pace');
-              }
-            } else {
-              if (sound.paceBgmIsRaised) {
-                sound.add('offpace');
-              }
-              game.startedOnPaceEvent = false;
-              sound.lowerPaceBgm();
-              $('#timer').classList.remove('pace');
-            }
             if (game.stack.alarmIsOn) {
               const cellSize = game.cellSize;
               const redLineParticleSettings = {

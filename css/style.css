@@ -600,6 +600,15 @@ body {
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
 }
+.skip-amount {
+  text-align: right;
+  color: #fff;
+  font-size: 5em;
+  font-weight: 100;
+  position: absolute;
+  top: .5em;
+  right: .5em;
+}
 #vertical-menu li.control-name {
   text-transform: uppercase;
   font-size: 0.8em;
@@ -774,6 +783,7 @@ body {
 }
 .game-left,
 .game-right {
+  position: relative;
   margin-top: -.5em;
 }
 .game-center {
@@ -921,6 +931,7 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
   background-color: #fff;
 }
+
 .warning-message-container,
 .warning-message-container-hold {
   color: white;
@@ -933,11 +944,13 @@ progress[value]::-moz-progress-bar {
   animation-timing-function: linear;
 }
 .warning-message-container {
-    margin-top: -2em;
+  width: 120%;
+  margin-left: -10%;
+  margin-top: -2em;
 }
 .warning-message-container-hold {
   position: absolute;
-  top: .4em;
+  top: -1.45em;
 }
 .warning-message-container .warning-message,
 .warning-message-container-hold .warning-message,
@@ -1113,6 +1126,18 @@ progress[value]::-moz-progress-bar {
   font-size: 1.4em;
   width: 100%;
 }
+@keyframes hurry-up-timer {
+  from {color: #f00}
+  to {color: #a00}
+}
+.game .timer.hurry-up {
+  color: #f00;
+  animation-name: hurry-up-timer;
+  animation-duration: .4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
 @keyframes pace-timer {
   from {color: #FF8C00}
   to {color: #ffd700}
@@ -1125,6 +1150,7 @@ progress[value]::-moz-progress-bar {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes paused-timer {
   from {opacity: 0.6}
   to {opacity: 0.4}

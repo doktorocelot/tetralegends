@@ -12,20 +12,38 @@ export default class Hold extends GameModule {
     this.isLocked = false;
     this.ihs = false;
     this.isDisabled = false;
+    this.useSkip = false;
+    this.hasHeld = false;
+    this.holdAmount = 0;
+    this.holdAmountLimit = 0;
+    this.gainHoldOnPlacement = false;
   }
   hold() {
-    if (this.isLocked || this.isDisabled) {
+    if ((this.isLocked && !this.useSkip) || this.isDisabled ||
+      (this.holdAmount <= 0 && this.holdAmountLimit > 0)) {
       return;
     }
+    if (this.holdAmountLimit > 0) {
+      this.holdAmount--;
+    }
+    this.hasHeld = true;
     if (this.ihs) {
-      sound.add('initialhold');
+      if (this.useSkip) {
+        sound.add('initialskip');
+      } else {
+        sound.add('initialhold');
+      }
     } else {
-      sound.add('hold');
+      if (this.useSkip) {
+        sound.add('skip');
+      } else {
+        sound.add('hold');
+      }
     }
     this.ihs = false;
     const swapPiece = this.pieceName;
     this.pieceName = this.parent.piece.name;
-    if (swapPiece == null) {
+    if (swapPiece == null || this.useSkip) {
       this.parent.piece.new();
     } else {
       this.parent.piece.new(swapPiece);
@@ -40,10 +58,16 @@ export default class Hold extends GameModule {
     } else {
       $('#hold-container').classList.remove('hidden');
     }
+    if (this.useSkip) {
+      $('#skip-amount').textContent = this.holdAmount;
+      return;
+    } else {
+      $('#skip-amount').textContent = '';
+    }
     if (this.pieceName === null) {
       return;
     }
-    if (this.isLocked) {
+    if (this.isLocked || this.useSkip) {
       $('#hold').classList.add('locked');
     } else {
       $('#hold').classList.remove('locked');

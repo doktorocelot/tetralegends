@@ -30,5 +30,13 @@
   "ultraDescription": {
     "message": "¡Cada línea cuenta! ¡Cuidadosamente y rapidamente planifica para hacer la mayor cantidad de puntos posibles en el límite de tiempo!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "comboLabel": {
+    "message": "Desafío de Combo",
+    "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
+  },
+  "comboDescription": {
+    "message": "¡No hay tiempo que perder! ¡Intenta limpiar cuantas más líneas consecutivas puedas antes que acabe el tiempo!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

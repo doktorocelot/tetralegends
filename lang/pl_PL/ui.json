@@ -27,6 +27,10 @@
     "message": "Opóźnienie wejścia",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
+  "maxcombo": {
+    "message": "Max Combo",
+    "description": "The highest combo obtained"
+  },
   "next": {
     "message": "Następne",
     "description": "The label for the next piece in the queue"

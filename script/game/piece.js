@@ -63,7 +63,7 @@ export default class Piece extends GameModule {
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
-    if (this.parent.stat.piece === 0 && this.parent.hold.pieceName == null) {
+    if (this.parent.stat.piece === 0 && !this.parent.hold.hasHeld) {
       if (this.parent.isRaceMode) {
         sound.add('go');
         $('#message').textContent = locale.getString('ui', 'go');
@@ -73,9 +73,10 @@ export default class Piece extends GameModule {
       }
       $('#ready-meter').classList.add('hidden');
       $('#message').classList.add('dissolve');
-      sound.playBgm(this.parent.settings.music, this.parent.type);
+      sound.playBgm(this.parent.settings.music[0], this.parent.type);
     }
     this.parent.onPieceSpawn(this.parent);
+    this.parent.updateMusic();
     this.parent.updateStats();
     $('#delay').innerHTML = `${this.lockDelayLimit} <b>ms</b>`;
     this.hasLineDelay = false;
@@ -261,7 +262,12 @@ export default class Piece extends GameModule {
     if (!this.showLockOut()) {
       this.showBlockOut();
     }
-    this.parent.stack.wouldCauseLineClear();
+    if (!$('#warning-message-container-hold').classList.contains('hidden') ||
+      !$('#warning-message-container').classList.contains('hidden')) {
+      sound.startSeLoop('topoutwarning');
+    } else {
+      sound.stopSeLoop('topoutwarning');
+    }
   }
   showLockOut() {
     const finalBlocks = this.getFinalBlockLocations();
@@ -353,7 +359,7 @@ export default class Piece extends GameModule {
       for (let x = 0; x < nextPieceShape[y].length; x++) {
         const isFilled = nextPieceShape[y][x];
         if (isFilled) {
-          nextBlocks.push([x + spawnOffsets[0], y + spawnOffsets[1]]);
+          nextBlocks.push([x + spawnOffsets[0] + this.xSpawnOffset, y + spawnOffsets[1]]);
         }
       }
     }
@@ -371,7 +377,7 @@ export default class Piece extends GameModule {
       for (let x = 0; x < holdPieceShape[y].length; x++) {
         const isFilled = holdPieceShape[y][x];
         if (isFilled) {
-          holdBlocks.push([x + spawnOffsets[0], y + spawnOffsets[1]]);
+          holdBlocks.push([x + spawnOffsets[0] + this.xSpawnOffset, y + spawnOffsets[1]]);
         }
       }
     }

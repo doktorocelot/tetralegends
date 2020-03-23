@@ -27,6 +27,10 @@
     "message": "Retraso de entrada",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
+  "maxcombo": {
+    "message": "Combo Récord",
+    "description": "The highest combo obtained"
+  },
   "next": {
     "message": "Siguiente",
     "description": "The label for the next piece in the queue"

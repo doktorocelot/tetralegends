@@ -27,6 +27,10 @@
     "message": "Thời gian tạo gạch",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
+  "maxcombo": {
+    "message": "Combo cao nhất",
+    "description": "The highest combo obtained"
+  },
   "next": {
     "message": "Tiếp",
     "description": "The label for the next piece in the queue"

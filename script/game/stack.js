@@ -75,10 +75,14 @@ export default class Stack extends GameModule {
     this.parent.shiftMatrix('down');
     this.parent.stat.piece++;
     this.parent.piece.last = this.parent.piece.name;
-    this.parent.updateStats();
     this.lineClear = 0;
     if (this.parent.hold.isLocked) {
       this.parent.hold.isLocked = false;
+      this.parent.hold.isDirty = true;
+    }
+    if (this.parent.hold.gainHoldOnPlacement &&
+      this.parent.hold.holdAmount < this.parent.hold.holdAmountLimit) {
+      this.parent.hold.holdAmount++;
       this.parent.hold.isDirty = true;
     }
     for (let i = 0; i < this.flashX.length; i++) {
@@ -167,6 +171,7 @@ export default class Stack extends GameModule {
     if (this.lineClear > 0) { // TODO mini tspin and clean this up
       if (SCORE_TABLES[this.parent.settings.scoreTable].hasCombo) {
         this.parent.combo++;
+        this.parent.stat.maxcombo = Math.max(this.parent.combo, this.parent.stat.maxcombo);
       }
       let type = 'erase';
       if (isSpin) {
@@ -214,6 +219,7 @@ export default class Stack extends GameModule {
     // console.log(this.skyToFloor);
     this.parent.calculateActionText(this.lineClear, isSpin, isMini, this.parent.b2b);
     this.alarmCheck();
+    this.parent.updateStats();
   }
   alarmCheck() {
     if (

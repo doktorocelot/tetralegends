@@ -36,6 +36,9 @@ class Sound {
     }
   }
   load(name = 'standard') {
+    for (const key of Object.keys(this.playingSeLoops)) {
+      this.stopSeLoop(key);
+    }
     this.mustWait = true;
     loadSoundbank(name)
         .then((soundData) => {
@@ -65,50 +68,52 @@ class Sound {
         });
   }
   loadBgm(name, type) {
-    this.music[`${type}-${name}-start`] = new Howl({
-      src: [`./bgm/${type}/${name}-start.ogg`],
-      volume: settings.settings.musicVolume / 100,
-      onend: () => {
-        this.music[`${type}-${name}-loop`].play();
-      },
-    });
-    this.music[`${type}-${name}-loop`] = new Howl({
-      src: [`./bgm/${type}/${name}-loop.ogg`],
-      volume: settings.settings.musicVolume / 100,
-      loop: true,
-      onplay: () => {
-        this.syncBgm();
-      },
-    });
-    if (gameHandler.game.settings.hasDangerBgm) {
-      this.dangerBgmIsRaised = false;
-      this.music[`${type}-${name}-danger-start`] = new Howl({
-        src: [`./bgm/${type}/${name}-danger-start.ogg`],
-        volume: 0,
+    for (const currentName of name) {
+      this.music[`${type}-${currentName}-start`] = new Howl({
+        src: [`./bgm/${type}/${currentName}-start.ogg`],
+        volume: settings.settings.musicVolume / 100,
         onend: () => {
-          this.music[`${type}-${name}-danger-loop`].play();
+          this.music[`${type}-${currentName}-loop`].play();
         },
       });
-      this.music[`${type}-${name}-danger-loop`] = new Howl({
-        src: [`./bgm/${type}/${name}-danger-loop.ogg`],
-        volume: 0,
+      this.music[`${type}-${currentName}-loop`] = new Howl({
+        src: [`./bgm/${type}/${currentName}-loop.ogg`],
+        volume: settings.settings.musicVolume / 100,
         loop: true,
-      });
-    }
-    if (gameHandler.game.settings.hasPaceBgm) {
-      this.paceBgmIsRaised = false;
-      this.music[`${type}-${name}-pace-start`] = new Howl({
-        src: [`./bgm/${type}/${name}-pace-start.ogg`],
-        volume: 0,
-        onend: () => {
-          this.music[`${type}-${name}-pace-loop`].play();
+        onplay: () => {
+          this.syncBgm();
         },
       });
-      this.music[`${type}-${name}-pace-loop`] = new Howl({
-        src: [`./bgm/${type}/${name}-pace-loop.ogg`],
-        volume: 0,
-        loop: true,
-      });
+      if (gameHandler.game.settings.hasDangerBgm) {
+        this.dangerBgmIsRaised = false;
+        this.music[`${type}-${currentName}-danger-start`] = new Howl({
+          src: [`./bgm/${type}/${currentName}-danger-start.ogg`],
+          volume: 0,
+          onend: () => {
+            this.music[`${type}-${currentName}-danger-loop`].play();
+          },
+        });
+        this.music[`${type}-${currentName}-danger-loop`] = new Howl({
+          src: [`./bgm/${type}/${currentName}-danger-loop.ogg`],
+          volume: 0,
+          loop: true,
+        });
+      }
+      if (gameHandler.game.settings.hasPaceBgm) {
+        this.paceBgmIsRaised = false;
+        this.music[`${type}-${currentName}-pace-start`] = new Howl({
+          src: [`./bgm/${type}/${currentName}-pace-start.ogg`],
+          volume: 0,
+          onend: () => {
+            this.music[`${type}-${currentName}-pace-loop`].play();
+          },
+        });
+        this.music[`${type}-${currentName}-pace-loop`] = new Howl({
+          src: [`./bgm/${type}/${currentName}-pace-loop.ogg`],
+          volume: 0,
+          loop: true,
+        });
+      }
     }
   }
   syncBgm() {
@@ -132,9 +137,17 @@ class Sound {
     this.paceBgmName = `${type}-${name}-pace`;
     this.music[`${type}-${name}-start`].play();
     if (gameHandler.game.settings.hasDangerBgm) {
+      if (this.dangerBgmIsRaised) {
+        this.music[`${type}-${name}-danger-start`].volume(settings.settings.musicVolume / 100);
+        this.music[`${type}-${name}-danger-loop`].volume(settings.settings.musicVolume / 100);
+      }
       this.music[`${type}-${name}-danger-start`].play();
     }
     if (gameHandler.game.settings.hasPaceBgm) {
+      if (this.paceBgmIsRaised) {
+        this.music[`${type}-${name}-pace-start`].volume(settings.settings.musicVolume / 100);
+        this.music[`${type}-${name}-pace-loop`].volume(settings.settings.musicVolume / 100);
+      }
       this.music[`${type}-${name}-pace-start`].play();
     }
   }
