@@ -28,7 +28,7 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Max Combo",
+    "message": "最大连击",
     "description": "The highest combo obtained"
   },
   "next": {

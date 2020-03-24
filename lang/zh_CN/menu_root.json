@@ -69,7 +69,7 @@
     "message": "原声带"
   },
   "soundtrackDescription": {
-    "message": "聆听游戏的原声带"
+    "message": "聆听游戏的原声带。如果您在中国大陆，您可能无法访问该服务。"
   },
   "translateLabel": {
     "message": "翻译"

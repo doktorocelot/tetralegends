@@ -1,30 +1,30 @@
 {
   "presetsLabel": {
-    "message": "Delay/Rate Presets",
+    "message": "Ustawienia Opóźnienia",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
-    "message": "Select from a variety of different presets for the autoshift"
+    "message": "Wybierz z różnych ustawień dla autoshiftu"
   },
   "dasLabel": {
-    "message": "Autoshift Delay",
+    "message": "DAS",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
-    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
+    "message": "Ilość czasu w milisekundach przed automatycznym przesunięciem bloku (DAS)"
   },
   "arrLabel": {
-    "message": "Autoshift Rate",
+    "message": "ARR",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
+    "message": "Ilość czasu w milisekundach pomięedzy automatycznymi przesunięciemi bloku (ARR)"
   },
   "dasPreloadLabel": {
-    "message": "Autoshift Preload",
+    "message": "Wstępne ładowanie DAS'u",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
+    "message": "Automatycznie naładuj DAS po naciśnięciu klawisza ruchu podczas opóźnienia wejścia bloku"
   }
 }

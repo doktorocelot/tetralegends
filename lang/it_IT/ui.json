@@ -28,7 +28,7 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Max Combo",
+    "message": "Combo massima",
     "description": "The highest combo obtained"
   },
   "next": {

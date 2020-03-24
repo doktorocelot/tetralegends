@@ -7,13 +7,6 @@ function getRandomInt(max) {
 }
 class SingleParticle {
   constructor(properties) {
-    /*
-    this.x = x;
-    this.y = y;
-    this.xVelocity = xVelocity;
-    this.yVelocity = yVelocity;
-       */
-    // this.yAccel = -0.11;
     this.HZ_MATCH_MULTIPLIER = .5 / 60 * 1000;
     this.xDampening = 1;
     this.yDampening = 1;

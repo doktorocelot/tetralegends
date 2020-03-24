@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Supprimer",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Effacer toutes les liaisons de contrôle pour avoir un espace de travail vide"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Réinitialiser",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Réinitialiser tous les contrôles à leurs valeurs par défaut"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Déplacement vers la gauche"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Déplacez une pièce à gauche une fois ou maintenez enfoncé pour DAS"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Déplacement vers la droite"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Déplacez une pièce à droite une fois ou maintenez enfoncé pour DAS"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Chute instantanée"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Déposez une pièce instantanément sur le sol. (peut agir différemment ou être désactivé dans certains modes)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Chute rapide"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Accélérer la descente d'une pièce (peut agir différemment dans certains modes)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Rotation vers la gauche",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Faire pivoter une pièce de 90° dans le sens anti-horaire."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Rotation vers la droite",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Faire pivoter une pièce de 90° dans le sens horaire."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Rotation de 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Faire pivoter une pièce de 180° (peut être désactivée dans certains modes)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Réserve"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Envoyer une pièce dans la réserve (peut être désactivée dans certains modes)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Réessayer",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Immédiatement faire une nouvelle tentative"
   },
   "pauseLabel": {
     "message": "Pause"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Mettre le jeu en pause"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Configuration des contrôles",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Appuyez sur la touche à utiliser pour cette action",
     "description": "Displays on the popup when you add a control binding"
   }
 }
