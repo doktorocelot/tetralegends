@@ -4,7 +4,7 @@
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "デフォルト設定でマラソンをプレイ"
+    "message": "現在の設定でマラソンをプレイ"
   },
   "gameStylesOverline": {
     "message": "モード選択",
