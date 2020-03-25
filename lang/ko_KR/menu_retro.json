@@ -1,30 +1,30 @@
 {
   "variationsOverline": {
-    "message": "Variations",
+    "message": "종류",
     "description": "Variation, Version, Type"
   },
   "consoleLabel": {
-    "message": "Console",
+    "message": "NES",
     "description": "A mode based on NES Tet"
   },
   "consoleDescription": {
-    "message": "The most competitively-used, classic version of the puzzle in the world!",
+    "message": "전세계적으로 널리 사랑받는 1989년 고전 스타일",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {
-    "message": "Handheld",
+    "message": "GB",
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "A slow-paced, nostalgic version that many played on handheld devices",
+    "message": "여럿이 휴대용 기기에서 즐겼던, 느긋한 스타일",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
-    "message": "Deluxe",
+    "message": "GBC",
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "A nice blend of classic and modern elements",
+    "message": "고전적, 현대적 느낌이 혼합된 스타일",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

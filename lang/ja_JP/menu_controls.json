@@ -4,26 +4,26 @@
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "すべてのコントロールバインディングをクリアし、ゼロから始めます"
+    "message": "すべての操作設定をクリアし、最初から始めます。"
   },
   "resetLabel": {
     "message": "リセット",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "すべてのコントロールをデフォルトにリセットします"
+    "message": "すべての操作設定を初期状態に戻します。"
   },
   "shiftLeftLabel": {
     "message": "左"
   },
   "shiftLeftDescription": {
-    "message": "ピースを左に移動します"
+    "message": "ピースを左に移動します。"
   },
   "shiftRightLabel": {
     "message": "右"
   },
   "shiftRightDescription": {
-    "message": "ピースを右に移動します"
+    "message": "ピースを右に移動します。"
   },
   "hardDropLabel": {
     "message": "ハードドロップ"
@@ -42,14 +42,14 @@
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "ピースを反時計回りに90°回転させます"
+    "message": "ピースを反時計回りに90°回転させます。"
   },
   "rotateRightLabel": {
     "message": "回転（右）",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "ピースを時計回りに90°回転させます"
+    "message": "ピースを時計回りに90°回転させます。"
   },
   "rotateDoubleLabel": {
     "message": "180°回転",
@@ -62,27 +62,27 @@
     "message": "ホールド"
   },
   "holdDescription": {
-    "message": "後で使用するためにピースを保存します。 一部のモードでは使用できない場合があります"
+    "message": "後で使用するためにピースを保存します。 (一部のモードでは使用できない場合があります)"
   },
   "retryLabel": {
     "message": "リトライ",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "ゲームを再起動します"
+    "message": "ゲームを最初からやり直します。"
   },
   "pauseLabel": {
-    "message": "一時停止"
+    "message": "ポーズ"
   },
   "pauseDescription": {
-    "message": "ゲームを一時停止します"
+    "message": "ゲームを一時停止します。"
   },
   "configPopupHeader": {
-    "message": "コントロール構成",
+    "message": "操作設定",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "このアクションに使用するキーを押します",
+    "message": "この操作に使用するキーを押してください。",
     "description": "Displays on the popup when you add a control binding"
   }
 }

@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "レベル目標に到達し、可能な限り最高のスコアを取得します。",
+    "message": "ピースを積み上げ、ラインを揃えることで、より高いスコアの獲得を目指します。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "非常に高速なモード！ レベルM30の高さまで移動し、できるだけ長く線をクリアし続けます。",
+    "message": "非常に高速なモード！ 速さに耐え、できるだけ長く生き延びられるか？",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "ラインゴールをできるだけ早くクリアします",
+    "message": "規定のライン数をできるだけ早く消去しましょう。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "時間がなくなる前に最高のスコアを取得します",
+    "message": "時間がなくなるまで、ラインを消去し続け、より高いスコアを目指そう。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {
@@ -36,7 +36,7 @@
     "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
   },
   "comboDescription": {
-    "message": "時間がなくなる前に、できるだけ多くの連続するラインをクリアします",
+    "message": "時間がなくなるまでに、できるだけ多くのコンボを繋げよう！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "注意！！ ラインは下から上がっています。 あなたがそれらを片付けることができないならば、あなたは負けます！",
+    "message": "注意！！ ラインは下からせり上がってきます。うまく処理できないと、窒息します！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

@@ -4,13 +4,13 @@
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "The volume of the various sound effects in percentage"
+    "message": "효과음 음량 조절 (백분율)"
   },
   "musicLabel": {
     "message": "배경음 음량",
     "description": "Also known as 'BGM'"
   },
   "musicDescription": {
-    "message": "The volume of the music in percentage"
+    "message": "배경음 음량 조절 (백분율)"
   }
 }

@@ -1,18 +1,18 @@
 {
   "standardLabel": {
-    "message": "Standard",
+    "message": "일반",
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "Stack until you drop! Try to clear as many lines as you can before the speed overwhelms you.",
+    "message": "무한히 빨라지는 속도를 버티면서 최대한 많은 줄을 없애세요.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {
-    "message": "Pro",
+    "message": "고급",
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "This is where puzzle masters come to die. The speed in this mode is super fast; blink and you may game over!",
+    "message": "진정한 퍼즐 고수들을 위한 모드입니다. 조금의 망설임도 허용하지 않는 속도 앞에서 살아남을 수 있습니까?",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

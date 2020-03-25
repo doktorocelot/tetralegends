@@ -1,31 +1,31 @@
 {
   "nextLengthLabel": {
-    "message": "NEXTブロック"
+    "message": "NEXT数"
   },
   "nextLengthDescription": {
-    "message": "表示される次のピースの量"
+    "message": "NEXTキューに表示されるピースの数"
   },
   "lockdownBarLabel": {
-    "message": "ロックダウンバー",
+    "message": "ロックダウン バー",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "遅延に関する情報を表示します"
+    "message": "ロックダウン時間、移動制限に関する情報を表示します"
   },
   "swayScaleLabel": {
-    "message": "フィールドスウェイスケール",
+    "message": "フィールドの振動量",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "フィールドがピースの力にどれだけ移動するか。 0を選択して無効にします",
+    "message": "ピースの移動や落下がフィールドにどれだけ影響を及ぼすか。 0の場合は無効。",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "フィールド移動",
+    "message": "フィールドの振動速度",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "フィールドが中立位置に戻る速度",
+    "message": "フィールドが中心に戻る速度",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
@@ -35,19 +35,19 @@
     "message": "粒子を描画するかどうか"
   },
   "particleLimitLabel": {
-    "message": "粒子制限"
+    "message": "粒子の最大数"
   },
   "particleLimitDescription": {
     "message": "一度に画面に表示できる粒子の数"
   },
   "particleSizeLabel": {
-    "message": "粒子サイズ"
+    "message": "粒子の大きさ"
   },
   "particleSizeDescription": {
-    "message": "粒子のサイズ"
+    "message": "表示される粒子の大きさ"
   },
   "particleVolumeLabel": {
-    "message": "粒子体積"
+    "message": "粒子の数"
   },
   "particleVolumeDescription": {
     "message": "生成される粒子の数"
@@ -57,6 +57,6 @@
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "「ダブル」や「Tスピン」などのアクションを実行するときにメッセージを表示します。 RENカウンターも表示します"
+    "message": "「ダブル」や「Tスピン」などのアクションを実行するときにメッセージを表示します。 RENカウンターも表示します。"
   }
 }

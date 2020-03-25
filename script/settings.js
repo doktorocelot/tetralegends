@@ -70,6 +70,9 @@ class Settings {
       case 'ja':
         this.defaultSettings.language = 'ja_JP';
         break;
+      case 'ko':
+        this.defaultSettings.language = 'ko_KR';
+        break;
     }
     this.settingInfo = {
       // Tuning

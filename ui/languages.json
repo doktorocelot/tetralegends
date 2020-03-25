@@ -63,9 +63,16 @@
     {
       "label": "日本語",
       "fixedText": true,
-      "description": "MattMayuga",
+      "description": "hebo-MAI, MattMayuga",
       "action": "lang",
       "lang": "ja_JP"
+    },
+    {
+      "label": "조선말",
+      "fixedText": true,
+      "description": "Casquade",
+      "action": "lang",
+      "lang": "ko_KR"
     },
     {
       "label": "中文（简体）",

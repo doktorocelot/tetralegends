@@ -1,86 +1,86 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "빠른 플레이",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "기본 설정과 함께 마라톤 게임을 바로 즐기세요."
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "게임 종류",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "일반"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "현대 버전 대부분 게임에서 찾아볼 수 있는 일반 모드들"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Tetra Legends에 맞춰서 제작된 전용 모드들"
   },
   "retroLabel": {
-    "message": "Retro"
+    "message": "고전"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "과거의 향수를 자극하는 고전 모드들"
   },
   "arcadeLabel": {
-    "message": "Arcade"
+    "message": "아케이드"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "진정한 고수들을 위한 고난이도 모드들"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "설정"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "튜닝"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "게임의 조작 속도를 조절합니다."
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "컨트롤"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "게임의 조작법을 설정합니다."
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "음량"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "게임 내 소리를 조절합니다."
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "비디오"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "게임 내 시각 효과를 설정합니다."
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "기타",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "사운드트랙"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Tetra Legends의 오리지널 배경음을 즐기세요."
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "번역"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Tetra Legends의 번역을 도와 주세요."
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "디스코드 서버에 참여합니다. 게임에 대한 이야기와 업데이트 소식, 게임 아이디어 제공과 번역 제공을 하실 수 있습니다."
   }
 }

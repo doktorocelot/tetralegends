@@ -1,62 +1,62 @@
 {
   "nextLengthLabel": {
-    "message": "Next Queue Length"
+    "message": "Długość kolejki"
   },
   "nextLengthDescription": {
-    "message": "The amount of pieces the player can see up ahead in the next queue"
+    "message": "Ilość bloków, które gracz może zobaczyć w kolejce"
   },
   "lockdownBarLabel": {
-    "message": "Lockdown Bar",
+    "message": "Pasek blokady",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Allow the ability to see additional information on lock delay and move limits"
+    "message": "Pozwól na wyświetlanie dodatkowych informacji o opóźnieniu blokowania i limitach przesuwania bloków"
   },
   "swayScaleLabel": {
-    "message": "Matrix Sway Scale",
+    "message": "Skala Ruchu Matrixa",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "message": "Jak bardzo matrix się przesuwa w procentach. Wybieranie O całkowicie wyłącza efekt",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Matrix Sway Speed",
+    "message": "Skala Prędkości Matrixa",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "How fast the matrix returns to its neutral position in percentage",
+    "message": "Jak szybko matrix wraca do neutralnej pozycji w procentach",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
-    "message": "Particles"
+    "message": "Cząsteczki"
   },
   "particlesDescription": {
-    "message": "Whether particles should be drawn"
+    "message": "Czy cząsteczki powinny być rysowane"
   },
   "particleLimitLabel": {
-    "message": "Particle Limit"
+    "message": "Limit cząsteczek"
   },
   "particleLimitDescription": {
-    "message": "How many particles can appear on screen at one time"
+    "message": "Ile cząsteczek może pojawić się na ekranie jednocześnie"
   },
   "particleSizeLabel": {
-    "message": "Particle Size"
+    "message": "Wielkość cząsteczek"
   },
   "particleSizeDescription": {
-    "message": "How large the particles will appear"
+    "message": "Jak duże będą cząsteczki"
   },
   "particleVolumeLabel": {
-    "message": "Particle Volume"
+    "message": "Objętość cząsteczek"
   },
   "particleVolumeDescription": {
-    "message": "How many particles will generate"
+    "message": "Ile cząsteczek będzie się generować"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "Tekst akcji",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+    "message": "Wyświetlaj wiadomości, gdy wyczyścisz linie i wykonasz sztuczki, takie jak 'Double' i 'T-Spin'. Wyświetli również licznik kombosa"
   }
 }

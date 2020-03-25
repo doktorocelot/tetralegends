@@ -14,25 +14,25 @@
     "message": "ガイドライン"
   },
   "guidelineDescription": {
-    "message": "現代のほとんどのゲームに見られるパズルの標準バリアント"
+    "message": "現代のほとんどのゲームに見られるパズルの標準モード"
   },
   "tetraxLabel": {
     "message": "テトラX"
   },
   "tetraxDescription": {
-    "message": "このゲーム用に元々設計されたカスタムバリアント"
+    "message": "このゲーム用に設計された独自のモード"
   },
   "retroLabel": {
     "message": "レトロ"
   },
   "retroDescription": {
-    "message": "過去からの古典的なバリアント"
+    "message": "旧来のプレイヤーから愛されている古典的なモード"
   },
   "arcadeLabel": {
     "message": "アーケード"
   },
   "arcadeDescription": {
-    "message": "プロプレイヤー向けの難しいバリエーション"
+    "message": "マニア向けの難しいモード"
   },
   "settingsOverline": {
     "message": "設定"
@@ -44,19 +44,19 @@
     "message": "ゲームプレイスタイルを変更する"
   },
   "controlsLabel": {
-    "message": "コントロール"
+    "message": "操作設定"
   },
   "controlsDescription": {
-    "message": "ゲームの制御方法を変更する"
+    "message": "ゲームの操作設定を変更します"
   },
   "audioLabel": {
-    "message": "オーディオ"
+    "message": "サウンド"
   },
   "audioDescription": {
     "message": "さまざまなサウンド設定を変更します"
   },
   "videoLabel": {
-    "message": "ビデオ"
+    "message": "グラフィック"
   },
   "videoDescription": {
     "message": "ゲームの外観を変更します"
@@ -69,18 +69,18 @@
     "message": "サウンドトラック"
   },
   "soundtrackDescription": {
-    "message": "ゲームのオリジナルサウンドトラックを聴く"
+    "message": "ゲームのオリジナルサウンドトラックを試聴する"
   },
   "translateLabel": {
-    "message": "訳す"
+    "message": "翻訳に協力する"
   },
   "translateDescription": {
-    "message": "ゲームに翻訳を貢献します"
+    "message": "ゲームの翻訳に協力します"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Discordサーバーに参加して、ゲームのディスカッションや、アイデアや翻訳の更新や貢献のために"
+    "message": "Discordサーバーに参加して、ゲームの議論や、アイデア、翻訳の更新に協力をしましょう"
   }
 }
