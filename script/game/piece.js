@@ -99,11 +99,6 @@ export default class Piece extends GameModule {
     for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
       this.shiftDown();
     }
-    if (this.gravity <= framesToMs(1 / 20)) {
-      sound.add('land');
-      this.sonicDrop();
-      this.genDropParticles();
-    }
     if (this.isStuck) {
       $('#kill-message').textContent = locale.getString('ui', 'blockOut');
       this.parent.end();
@@ -128,8 +123,12 @@ export default class Piece extends GameModule {
       }
       this.rotate(this.ire, ireDirection, false);
     }
-
     this.ire = 0;
+    if (this.gravity <= framesToMs(1 / 20)) {
+      sound.add('land');
+      this.sonicDrop();
+      this.genDropParticles();
+    }
     this.isDirty = true;
   }
   die() {
