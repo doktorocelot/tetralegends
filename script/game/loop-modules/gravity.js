@@ -52,6 +52,12 @@ export function classicGravity(arg) {
   }
   const oldY = piece.y;
   piece.y += Math.min(distance);
+  if (!piece.isLanded) {
+    if (!piece.checkFall(distance)) {
+      piece.sonicDrop();
+      piece.mustLock = true;
+    }
+  }
   if (piece.isStuck) {
     piece.y = oldY;
     piece.sonicDrop();

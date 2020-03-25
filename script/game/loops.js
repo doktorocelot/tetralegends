@@ -592,7 +592,7 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10 + 19);
+      game.stat.level = Math.floor(game.stat.line / 10);
       const SPEED_TABLE = [
         48, 43, 38, 33, 28,
         23, 18, 13, 8, 5,
