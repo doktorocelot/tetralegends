@@ -382,7 +382,6 @@ export default class Piece extends GameModule {
     $('#warning-message-container-hold').classList.add('hidden');
   }
   showBlockOut() {
-    console.log('new');
     const lineClear = this.parent.stack.wouldCauseLineClear();
     const finalBlocks = this.getFinalBlockLocations();
     const nextBlocks = this.getNextPieceBlocks();
@@ -407,7 +406,6 @@ export default class Piece extends GameModule {
       }
       for (const finalBlock of finalBlocks) {
         finalBlock[1] -= garbageAdd;
-        console.log(finalBlock, nextBlock);
         if (arraysEqual(finalBlock, nextBlock)) {
           $('#warning-message').textContent = locale.getString('ui', 'blockOut');
           $('#warning-message-container').classList.remove('hidden');

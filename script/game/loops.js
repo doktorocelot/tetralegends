@@ -241,7 +241,6 @@ export const loops = {
       updateFallSpeed(game);
       game.stat.level = 1;
       game.updateStats();
-      console.log(JSON.stringify(game.stack.grid));
       game.stack.grid[0][game.stack.height + game.stack.hiddenHeight - 1] = 'white';
       game.stack.grid[0][game.stack.height + game.stack.hiddenHeight - 2] = 'white';
       if (game.next.queue[0] === 'J') {
