@@ -236,10 +236,10 @@ export default class Stack extends GameModule {
     }
     if (this.useGarbageSending) {
       garbageToClear += [0, 0, 1, 2, 4][this.lineClear];
-      if (isSpin) {
+      if (isSpin && !isMini) {
         garbageToClear += [0, 2, 3, 4, 5][this.lineClear];
       }
-      if (this.parent.b2b > 1) {
+      if (this.parent.b2b > 1 && this.lineClear) {
         garbageToClear++;
       }
       const comboIncreaseTable = [2, 5, 7, 9, 12];
