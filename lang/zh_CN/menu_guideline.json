@@ -40,11 +40,11 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
-    "message": "Survival",
+    "message": "生存",
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
+    "message": "垃圾行会不时从底部上升。通过反击来抵消垃圾行，或者挖掘来化解危机！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

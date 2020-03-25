@@ -405,8 +405,8 @@ export default class Piece extends GameModule {
         return true;
       }
       for (const finalBlock of finalBlocks) {
-        finalBlock[1] -= garbageAdd;
-        if (arraysEqual(finalBlock, nextBlock)) {
+        const newNext = [nextBlock[0], nextBlock[1] + garbageAdd];
+        if (arraysEqual(finalBlock, newNext)) {
           $('#warning-message').textContent = locale.getString('ui', 'blockOut');
           $('#warning-message-container').classList.remove('hidden');
           return true;

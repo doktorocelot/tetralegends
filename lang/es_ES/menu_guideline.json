@@ -40,11 +40,11 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
-    "message": "Survival",
+    "message": "Supervivencia",
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
+    "message": "¡Precaución! Líneas basuras han empezada a subir desde abajo. ¡Si no puedes mantener el ritmo, vas a fallar!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

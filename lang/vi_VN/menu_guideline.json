@@ -40,11 +40,11 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
-    "message": "Survival",
+    "message": "Sinh tồn",
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
+    "message": "Hãy cẩn thận trong chế độ này! Hàng rác sẽ từ từ dâng lên ở đáy bảng chơi. Nếu bạn không thể xử lí kịp, chắc chắn bạn sẽ thua!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
