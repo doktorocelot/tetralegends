@@ -49,7 +49,14 @@ export default function shiftingNes(arg) {
   ) {
     piece.shiftDir = 'none';
   }
-
+  if (
+    (
+      (input.getGamePress('moveLeft') && !piece.canShiftLeft) ||
+      (input.getGamePress('moveRight') && !piece.canShiftRight)
+    ) && !piece.isStuck
+  ) {
+    piece.retroDas = dasLimit;
+  }
   if (piece.shiftDir !== 'none' && !input.getGameDown('softDrop')) {
     if (piece.shiftReleased) {
       piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
@@ -61,13 +68,5 @@ export default function shiftingNes(arg) {
       piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
       piece.retroDas -= 100;
     }
-  }
-  if (
-    (
-      (input.getGameDown('moveLeft') && !piece.canShiftLeft) ||
-      (input.getGameDown('moveRight') && !piece.canShiftRight)
-    ) && !piece.isStuck
-  ) {
-    piece.retroDas = dasLimit;
   }
 }
