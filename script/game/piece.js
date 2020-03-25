@@ -60,6 +60,11 @@ export default class Piece extends GameModule {
     this.lastKickIndex = 0;
     this.resetGravityOnKick = false;
     this.resetDelayOnKick = false;
+    this.retroDas = 0;
+    this.holdingTime = 0;
+    this.holdingTimeLimit = 0;
+    this.breakHoldingTimeOnSoftDrop = true;
+    this.resetHoldingTime = false;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;

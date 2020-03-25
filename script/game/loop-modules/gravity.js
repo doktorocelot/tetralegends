@@ -43,6 +43,9 @@ export function gravity(arg) {
 }
 export function classicGravity(arg) {
   const piece = arg.piece;
+  if (piece.holdingTime < piece.holdingTimeLimit) {
+    return;
+  }
   let distance = arg.ms / (piece.gravity / piece.gravityMultiplier);
   if (piece.gravityOverride) {
     distance = arg.ms / piece.gravityOverride;

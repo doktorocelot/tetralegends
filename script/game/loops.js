@@ -18,10 +18,13 @@ import shifting from './loop-modules/shifting.js';
 import shiftingRetro from './loop-modules/shifting-retro.js';
 import softDrop from './loop-modules/soft-drop.js';
 import softDropRetro from './loop-modules/soft-drop-retro.js';
+import softDropNes from './loop-modules/soft-drop-nes.js';
 import sound from '../sound.js';
 import updateLasts from './loop-modules/update-lasts.js';
 import {extendedLockdown, retroLockdown, classicLockdown} from './loop-modules/lockdown.js';
 import updateFallSpeed from './loop-modules/update-fallspeed.js';
+import shiftingNes from './loop-modules/shifting-nes.js';
+import nesDasAre from './loop-modules/nes-das-are.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
@@ -572,15 +575,16 @@ export const loops = {
         arg.stack.levelUpAnimation += arg.ms;
       }
       if (arg.piece.inAre) {
-        handheldDasAre(arg, framesToMs(16), framesToMs(6));
+        nesDasAre(arg);
         arg.piece.are += arg.ms;
       } else {
+        shiftingNes(arg);
         rotate(arg);
-        shiftingRetro(arg, framesToMs(16), framesToMs(6));
+        classicGravity(arg);
+        softDropNes(arg);
+        retroLockdown(arg, true);
+        arg.piece.holdingTime += arg.ms;
       }
-      classicGravity(arg);
-      softDropRetro(arg, 33.3333333333);
-      retroLockdown(arg, true);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
       }
@@ -588,7 +592,7 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10);
+      game.stat.level = Math.floor(game.stat.line / 10 + 19);
       const SPEED_TABLE = [
         48, 43, 38, 33, 28,
         23, 18, 13, 8, 5,
@@ -601,6 +605,7 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      game.piece.holdingTimeLimit = 1600;
       game.stat.level = 0;
       game.redrawOnLevelUp = true;
       lastLevel = 0;
