@@ -1,41 +1,41 @@
 {
   "defaultLabel": {
-    "message": "Default"
+    "message": "기본값"
   },
   "defaultDescription": {
-    "message": "The default settings that come with the game"
+    "message": "게임을 최초 실행할 때의 기본값"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "가이드라인"
   },
   "guidelineDescription": {
-    "message": "Standard settings found in most versions"
+    "message": "대부분 게임에서와 같은 일반 설정"
   },
   "pptLabel": {
-    "message": "PPT",
+    "message": "뿌요테트",
     "description": "Based on Puyo Puyo Tetris"
   },
   "pptDescription": {
-    "message": "A slightly quicker version of the standard settings"
+    "message": "일반 설정보다 약간 빠른 변형"
   },
   "tetraOnlineLabel": {
-    "message": "Tetra Online",
+    "message": "테트라 온라인",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
-    "message": "Matches the autoshift settings of Tetra Online",
+    "message": "Tetra Online에서와 같은 속도 설정",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "quickLabel": {
-    "message": "Quick"
+    "message": "고속"
   },
   "quickDescription": {
-    "message": "A quicker presets that requires some control"
+    "message": "적당한 숙련도가 필요한 조금 빠른 설정"
   },
   "proLabel": {
-    "message": "Pro"
+    "message": "프로"
   },
   "proDescription": {
-    "message": "A hyperspeed preset that requires high-level control"
+    "message": "높은 숙련도가 필요한 매우 빠른 설정"
   }
 }

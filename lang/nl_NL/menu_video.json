@@ -6,7 +6,7 @@
     "message": "De hoeveelheid stukjes die de speler vooruit kan zien in de wachtrij"
   },
   "lockdownBarLabel": {
-    "message": "Lockdown balk",
+    "message": "Lockdown-balk",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
@@ -35,13 +35,13 @@
     "message": "Of particles getekend moeten worden"
   },
   "particleLimitLabel": {
-    "message": "Particle limiet"
+    "message": "Particle-limiet"
   },
   "particleLimitDescription": {
-    "message": "Hoeveel particles er in één keer op het scherm kunnen verschijnen"
+    "message": "Hoeveel particles er tegelijk op het scherm kunnen verschijnen"
   },
   "particleSizeLabel": {
-    "message": "Particle grootte"
+    "message": "Particle-grootte"
   },
   "particleSizeDescription": {
     "message": "Hoe groot de particles zullen verschijnen"
@@ -53,10 +53,10 @@
     "message": "Hoeveel particles zullen genereren"
   },
   "actionTextLabel": {
-    "message": "Actie tekst",
+    "message": "Actietekst",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Laat berichten zien wanneer je lijnen verwijdert en trucs uitvoert, zoals 'Dubbel' en 'T-Spin'. Zal ook een combo teller weergeven"
+    "message": "Laat berichten zien wanneer je lijnen verwijdert en trucs uitvoert, zoals 'Double' en 'T-Draai'. Zal ook een combo teller weergeven"
   }
 }

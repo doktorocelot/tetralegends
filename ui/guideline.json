@@ -31,6 +31,12 @@
       "game": "master"
     },
     {
+      "string": "survivalLabel",
+      "stringDesc": "survivalDescription",
+      "action": "game",
+      "game": "survival"
+    },
+    {
       "string": "comboLabel",
       "stringDesc": "comboDescription",
       "action": "game",

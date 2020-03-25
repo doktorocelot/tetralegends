@@ -26,6 +26,13 @@
       "lang": "es_ES"
     },
     {
+      "label": "Français",
+      "fixedText": true,
+      "description": "Light",
+      "action": "lang",
+      "lang": "fr_FR"
+    },
+    {
       "label": "Italiano",
       "fixedText": true,
       "description": "Esingar",
@@ -38,6 +45,13 @@
       "description": "kivi",
       "action": "lang",
       "lang": "de_DE"
+    },
+    {
+      "label": "Nederlands",
+      "fixedText": true,
+      "description": "osk, micwoj92",
+      "action": "lang",
+      "lang": "nl_NL"
     },
     {
       "label": "Tiếng Việt",

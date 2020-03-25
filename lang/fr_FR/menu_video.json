@@ -1,62 +1,62 @@
 {
   "nextLengthLabel": {
-    "message": "Next Queue Length"
+    "message": "Longueur de la file d'attente suivante"
   },
   "nextLengthDescription": {
-    "message": "The amount of pieces the player can see up ahead in the next queue"
+    "message": "Le nombre de pièces que le joueur peut voir dans la file d'attente"
   },
   "lockdownBarLabel": {
-    "message": "Lockdown Bar",
+    "message": "Barre de blocage",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Allow the ability to see additional information on lock delay and move limits"
+    "message": "Autoriser la possibilité de voir des informations supplémentaires sur le délai de verrouillage et les limites de déplacement"
   },
   "swayScaleLabel": {
-    "message": "Matrix Sway Scale",
+    "message": "Ampleur des tremblements de l'écran",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "message": "Comment la matrice se déplace à la force exercée par les pièces en pourcentage. Sélectionner O désactive complètement l'effet",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Matrix Sway Speed",
+    "message": "Vitesse de tremblements de l'écran",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "How fast the matrix returns to its neutral position in percentage",
+    "message": "À quelle vitesse la matrice retourne à sa position initiale en pourcentage",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
-    "message": "Particles"
+    "message": "Particules"
   },
   "particlesDescription": {
-    "message": "Whether particles should be drawn"
+    "message": "Si les particules doivent apparaître ou non"
   },
   "particleLimitLabel": {
-    "message": "Particle Limit"
+    "message": "Limite de particules"
   },
   "particleLimitDescription": {
-    "message": "How many particles can appear on screen at one time"
+    "message": "Combien de particules peuvent apparaître à l'écran au même moment"
   },
   "particleSizeLabel": {
-    "message": "Particle Size"
+    "message": "Taille des particules"
   },
   "particleSizeDescription": {
-    "message": "How large the particles will appear"
+    "message": "Quelle sera la taille des particules qui apparaissent"
   },
   "particleVolumeLabel": {
-    "message": "Particle Volume"
+    "message": "Volume de particules"
   },
   "particleVolumeDescription": {
-    "message": "How many particles will generate"
+    "message": "Combien de particules seront générées"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "Texte d'action",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+    "message": "Afficher les messages lorsque vous complétez des lignes et effectuez des techniques, telles que 'Double' et 'T-Spin'. Affichera également le compteur de combo"
   }
 }

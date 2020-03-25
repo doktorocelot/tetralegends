@@ -16,6 +16,7 @@ class Sound {
     this.dangerBgmIsRaised = false;
     this.paceBgmName = null;
     this.paceBgmIsRaised = false;
+    this.lastLoaded = null;
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
@@ -39,9 +40,15 @@ class Sound {
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
+
+    if (name === this.lastLoaded) {
+      return;
+    }
     this.mustWait = true;
+    Howler.unload();
     loadSoundbank(name)
         .then((soundData) => {
+          this.lastLoaded = name;
           this.files = soundData.files;
           this.ren = soundData.ren;
           for (const soundName of this.files) {
@@ -81,7 +88,7 @@ class Sound {
         volume: settings.settings.musicVolume / 100,
         loop: true,
         onplay: () => {
-          this.syncBgm();
+          // this.syncBgm();
         },
       });
       if (gameHandler.game.settings.hasDangerBgm) {
@@ -117,6 +124,7 @@ class Sound {
     }
   }
   syncBgm() {
+    // return;
     try {
       if (gameHandler.game.settings.hasDangerBgm) {
         this.music[`${this.dangerBgmName}-start`].seek(this.music[`${this.bgmName}-start`].seek());
@@ -161,6 +169,7 @@ class Sound {
       return;
     }
     if (!this.dangerBgmIsRaised) {
+      this.syncBgm();
       this.music[`${this.dangerBgmName}-start`].fade(0, settings.settings.musicVolume / 100, 500);
       this.music[`${this.dangerBgmName}-loop`].fade(0, settings.settings.musicVolume / 100, 500);
       this.dangerBgmIsRaised = true;
@@ -171,6 +180,7 @@ class Sound {
       return;
     }
     if (this.dangerBgmIsRaised) {
+      this.syncBgm();
       this.music[`${this.dangerBgmName}-start`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.music[`${this.dangerBgmName}-loop`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.dangerBgmIsRaised = false;
@@ -181,6 +191,7 @@ class Sound {
       return;
     }
     if (!this.paceBgmIsRaised) {
+      this.syncBgm();
       this.music[`${this.paceBgmName}-start`].fade(0, settings.settings.musicVolume / 100, 500);
       this.music[`${this.paceBgmName}-loop`].fade(0, settings.settings.musicVolume / 100, 500);
       this.paceBgmIsRaised = true;
@@ -191,6 +202,7 @@ class Sound {
       return;
     }
     if (this.paceBgmIsRaised) {
+      this.syncBgm();
       this.music[`${this.paceBgmName}-start`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.music[`${this.paceBgmName}-loop`].fade(settings.settings.musicVolume / 100, 0, 500);
       this.paceBgmIsRaised = false;

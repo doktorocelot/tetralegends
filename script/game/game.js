@@ -76,6 +76,10 @@ export default class Game {
         up: 0,
         down: 0,
       },
+      shakeVelocity: {
+        x: 0,
+        y: 0,
+      },
     };
     this.startingTime = 0;
     this.timePassed = 0;
@@ -85,6 +89,7 @@ export default class Game {
           menu.close();
           this.startingTime = this.timestamp();
           clearTimeout(endScreenTimeout);
+          $('#garbage-counter').textContent = '';
           $('#timer').classList.remove('pace');
           $('#timer').classList.remove('hurry-up');
           $('#game').classList.remove('dead');
@@ -349,6 +354,10 @@ export default class Game {
         break;
     }
   }
+  shakeMatrix(power = 1) {
+    this.matrix.shakeVelocity.x = power;
+    this.matrix.shakeVelocity.y = power / 2;
+  }
   updateMatrix(ms) {
     const multiplier = ms / 16.666666666666;
     const matrixPush = (direction) => {
@@ -385,6 +394,11 @@ export default class Game {
           }
         }
       }
+    }
+    for (const direction of ['x', 'y']) {
+      const modifier = Math.random() * 2 - 1;
+      this.matrix.position[direction] += this.matrix.shakeVelocity[direction] * modifier;
+      this.matrix.shakeVelocity[direction] /= 1.1;
     }
     for (const element of ['#game-center', '#stats']) {
       const scale = 6 - Math.sqrt(25 *(settings.settings.matrixSwayScale / 100));

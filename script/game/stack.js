@@ -27,6 +27,8 @@ export default class Stack extends GameModule {
     this.levelUpAnimationLimit = 0;
     this.flashOnTetris = false;
     this.alarmIsOn = false;
+    this.isInvisible = false;
+    this.waitingGarbage = 0;
   }
   makeAllDirty() {
     for (let x = 0; x < this.grid.length; x++) {
@@ -56,6 +58,7 @@ export default class Stack extends GameModule {
     return lineClear;
   }
   add(passedX, passedY, shape, color) {
+    let garbageToClear = 0;
     sound.syncBgm();
     if (!this.parent.piece.hasHardDropped) {
       sound.add('locknohd');
@@ -218,15 +221,76 @@ export default class Stack extends GameModule {
     // console.log(this.highest, this.skyToFloor);
     // console.log(this.skyToFloor);
     this.parent.calculateActionText(this.lineClear, isSpin, isMini, this.parent.b2b);
+    let pc = true;
+    for (let x = 0; x < this.grid.length; x++) {
+      if (!pc) {
+        break;
+      }
+      for (let y = 0; y < this.grid[x].length; y++) {
+        const isFilled = this.grid[x][y];
+        if (isFilled) {
+          pc = false;
+          break;
+        }
+      }
+    }
+    if (this.useGarbageSending) {
+      garbageToClear += [0, 0, 1, 2, 4][this.lineClear];
+      if (isSpin) {
+        garbageToClear += [0, 2, 3, 4, 5][this.lineClear];
+      }
+      if (this.parent.b2b > 1) {
+        garbageToClear++;
+      }
+      const comboIncreaseTable = [2, 5, 7, 9, 12];
+      for (const condition of comboIncreaseTable) {
+        if (this.parent.combo >= condition) {
+          garbageToClear++;
+        }
+      }
+      if (pc) {
+        sound.add('bravo');
+        this.parent.displayActionText('<br><br>' + locale.getString('action-text', 'pc'));
+        garbageToClear += 10;
+      }
+    }
+    if (Math.max(0, this.waitingGarbage) - garbageToClear < 0 && this.showGarbageSendAnimation) {
+      const selectedStartingType = Math.floor(Math.random() * 2);
+      const element = document.createElement('div');
+      switch (selectedStartingType) {
+        case 0:
+          element.style.setProperty('--starting-value-left', '0%');
+          break;
+        case 1:
+          element.style.setProperty('--starting-value-right', '100%');
+          break;
+      }
+      const startingPositionOpposite = Math.random() * 100;
+      element.style.setProperty('--starting-value-top', `${startingPositionOpposite}%`);
+      const id = `gb-${performance.now()}`;
+      element.classList.add('garbage-particle');
+      element.classList.add('send');
+      element.id = id;
+      $('#game').appendChild(element);
+      sound.add('garbagesend');
+      setTimeout(() => {
+        element.parentNode.removeChild(element);
+      }, 330);
+    }
+    this.waitingGarbage = Math.max(-4, this.waitingGarbage - garbageToClear);
+    if (this.waitingGarbage > 0 && !this.lineClear) {
+      this.spawnBrokenLine(this.waitingGarbage);
+      this.waitingGarbage = 0;
+    }
     this.alarmCheck();
     this.parent.updateStats();
   }
   alarmCheck() {
     if (
-      this.height - this.highest < 2 ||
+      this.height - this.highest - Math.max(0, this.waitingGarbage) < 2 ||
       (
-        (this.height - this.highest < 5 && !this.alarmIsOn ||
-        this.height - this.highest < 8 && this.alarmIsOn) &&
+        (this.height - this.highest - Math.max(0, this.waitingGarbage) < 5 && !this.alarmIsOn ||
+        this.height - this.highest - Math.max(0, this.waitingGarbage) < 8 && this.alarmIsOn) &&
         this.skyToFloor - this.hiddenHeight < this.height - 4
       )
     ) {
@@ -252,9 +316,68 @@ export default class Stack extends GameModule {
     document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross.svg")');
     document.documentElement.style.setProperty('--tetrion-color', '#fff');
   }
-  spawnBrokenLine() {
+  addGarbageToCounter(amount = 1) {
+    const selectedStartingType = Math.floor(Math.random() * 2);
+    const element = document.createElement('div');
+    switch (selectedStartingType) {
+      case 0:
+        element.style.setProperty('--starting-value-left', '0%');
+        break;
+      case 1:
+        element.style.setProperty('--starting-value-right', '100%');
+        break;
+    }
+    const startingPositionOpposite = Math.random() * 100;
+    element.style.setProperty('--starting-value-top', `${startingPositionOpposite}%`);
+    const id = `gb-${performance.now()}`;
+    element.classList.add('garbage-particle');
+    element.id = id;
+    $('#game').appendChild(element);
+    sound.add('garbagefly');
+    setTimeout(() => {
+      this.waitingGarbage += amount;
+      this.parent.piece.isDirty = true;
+      this.parent.shakeMatrix();
+      sound.add('garbagereceive');
+      this.alarmCheck();
+      element.parentNode.removeChild(element);
+    }, 330);
+  }
+  spawnBrokenLine(amount = 1) {
     sound.add('garbage');
     this.parent.shiftMatrix('up');
+    let topOut = false;
+    const randomHole = Math.floor(Math.random() * this.grid.length);
+    for (let i = 0; i < amount; i++) {
+      for (let i = 0; i < this.flashY.length; i++) {
+        this.flashY[i]--;
+      }
+      for (let x = 0; x < this.grid.length; x++) {
+        if (this.grid[x][0]) {
+          topOut = true;
+        }
+        for (let shiftY = 0; shiftY < this.grid[0].length; shiftY++) {
+          this.grid[x][shiftY] = this.grid[x][shiftY + 1];
+        }
+
+        if (x === randomHole) {
+          continue;
+        }
+        this.grid[x][this.grid[0].length - 1] = 'black';
+      }
+      if (this.parent.piece.isStuck) {
+        this.parent.piece.y--;
+      }
+      this.alarmCheck();
+    }
+    this.makeAllDirty();
+    this.isDirty = true;
+    this.parent.piece.isDirty = true;
+    if (topOut) {
+      $('#kill-message').textContent = locale.getString('ui', 'topOut');
+      this.parent.end();
+      return;
+    }
   }
   collapse() {
     if (this.toCollapse.length === 0) {
@@ -298,23 +421,6 @@ export default class Stack extends GameModule {
     });
     this.toCollapse = [];
     this.lineClear = 0;
-    let pc = true;
-    for (let x = 0; x < this.grid.length; x++) {
-      if (!pc) {
-        break;
-      }
-      for (let y = 0; y < this.grid[x].length; y++) {
-        const isFilled = this.grid[x][y];
-        if (isFilled) {
-          pc = false;
-          break;
-        }
-      }
-    }
-    if (pc) {
-      sound.add('bravo');
-      this.parent.displayActionText(locale.getString('action-text', 'pc'));
-    }
     this.alarmCheck();
     this.isDirty = true;
   }
@@ -334,6 +440,17 @@ export default class Stack extends GameModule {
           highest = Math.max(highest, iReverse);
           break;
         }
+      }
+    }
+    return highest;
+  }
+  getHighestOfColumn(x) {
+    let highest = 0;
+    for (let i = 0; i < this.grid[x].length; i++) {
+      if (this.grid[x][i] != null) {
+        const iReverse = this.grid[x].length - i;
+        highest = Math.max(highest, iReverse);
+        break;
       }
     }
     return highest;
@@ -406,7 +523,7 @@ export default class Stack extends GameModule {
       const x = cell[0];
       const y = cell[1];
       const isFilled = this.grid[x][y];
-      if (isFilled) {
+      if (isFilled && !this.isInvisible) {
         const color = this.grid[x][y];
         let name = 'stack';
         if (this.useMinoSkin) {

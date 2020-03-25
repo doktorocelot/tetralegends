@@ -87,11 +87,7 @@ export default class Piece extends GameModule {
     this.lockDelay = 0;
     this.name = name;
     this.orientation = INITIAL_ORIENTATION[rotSys][name];
-    if (this.ire !== 0) {
-      sound.add('initialrotate');
-    }
-    this.orientation = (this.orientation + this.ire) % 4;
-    this.ire = 0;
+
     this.piece = PIECES[name].shape;
     this.shape = this.piece[this.orientation];
     this.x = 0 + SPAWN_OFFSETS[rotSys][name][0] + PIECE_OFFSETS[rotSys][name][this.orientation][0] + this.xSpawnOffset;
@@ -116,6 +112,24 @@ export default class Piece extends GameModule {
     this.color = this.parent.colors[this.name];
     this.rotatedX = null;
     this.rotatedY = null;
+    if (this.ire !== 0) {
+      sound.add('initialrotate');
+      let ireDirection = '';
+      switch (this.ire) {
+        case 1:
+          ireDirection = 'right';
+          break;
+        case 2:
+          ireDirection = 'double';
+          break;
+        case 3:
+          ireDirection = 'left';
+          break;
+      }
+      this.rotate(this.ire, ireDirection, false);
+    }
+
+    this.ire = 0;
     this.isDirty = true;
   }
   die() {
@@ -218,16 +232,52 @@ export default class Piece extends GameModule {
   draw() {
     const ctx = this.ctx;
     clearCtx(ctx);
-    if (this.parent.stack.alarmIsOn) {
-      const cellSize = this.parent.cellSize;
+    const cellSize = this.parent.cellSize;
+    if (this.parent.stack.waitingGarbage) {
+      $('#garbage-counter-container').classList.remove('hidden');
+      $('#garbage-counter').textContent = `${this.parent.stack.waitingGarbage}`;
+      if (this.parent.stack.waitingGarbage < 0) {
+        $('#garbage-counter-container').classList.remove('danger');
+        $('#garbage-counter-container').classList.add('negative');
+      } else if (this.parent.stack.waitingGarbage > this.parent.settings.height / 2) {
+        $('#garbage-counter-container').classList.remove('negative');
+        $('#garbage-counter-container').classList.add('danger');
+      } else {
+        $('#garbage-counter-container').classList.remove('negative');
+        $('#garbage-counter-container').classList.remove('danger');
+      }
+    } else {
+      $('#garbage-counter-container').classList.add('hidden');
+    }
+    if (this.parent.stack.waitingGarbage > 0 && !this.isDead && !this.parent.stack.wouldCauseLineClear()) {
       ctx.beginPath();
-      const y = cellSize * this.parent.bufferPeek;
-      ctx.moveTo(0, y);
-      ctx.lineTo(this.parent.settings.width * cellSize, y);
+      const bottom = this.parent.stack.height + this.parent.bufferPeek;
+      ctx.moveTo(0, bottom * cellSize);
+      const ghostHeightValues = {};
+      for (let i = 0; i < this.parent.stack.grid.length; i++) {
+        ghostHeightValues[i] = 0;
+      }
+      for (const final of this.getFinalBlockLocations()) {
+        ghostHeightValues[final[0]]++;
+      }
+      for (let x = 0; x < this.parent.stack.grid.length; x++) {
+        const highest = this.parent.stack.getHighestOfColumn(x);
+        const y = this.parent.stack.height - highest - this.parent.stack.waitingGarbage + this.parent.bufferPeek - ghostHeightValues[x];
+        ctx.lineTo(x * cellSize, y * cellSize);
+        ctx.lineTo((x + 1) * cellSize, y * cellSize);
+      }
+      ctx.lineTo(this.parent.stack.width * cellSize, bottom * cellSize);
+      ctx.lineTo(0, bottom * cellSize);
       ctx.lineWidth = cellSize / 20;
       ctx.strokeStyle = '#f00';
+      ctx.fillStyle = '#f003';
       ctx.stroke();
+      ctx.fill();
     }
+    ctx.fillStyle = '#f00';
+    ctx.fillRect((this.parent.settings.width - 0.1) * cellSize,
+        (this.parent.settings.height - this.parent.stack.waitingGarbage + this.parent.bufferPeek) * cellSize,
+        cellSize / 10, this.parent.stack.waitingGarbage * cellSize);
     if (this.isDead) {
       $('#warning-message-container-hold').classList.add('hidden');
       $('#warning-message-container').classList.add('hidden');
@@ -237,6 +287,16 @@ export default class Piece extends GameModule {
       this.drawPiece(this.shape, 0, this.getDrop(), 'ghost');
     }
     this.drawPiece(this.shape, 0, 0, 'piece');
+    if (this.parent.stack.alarmIsOn) {
+      ctx.beginPath();
+      const y = cellSize * this.parent.bufferPeek;
+      ctx.moveTo(0, y);
+      ctx.lineTo(this.parent.settings.width * cellSize, y);
+      ctx.lineWidth = cellSize / 20;
+      ctx.strokeStyle = '#f00';
+      ctx.stroke();
+    }
+
     if (this.manipulations >= this.manipulationLimit) {
       const cellSize = this.parent.cellSize;
       ctx.beginPath();
@@ -260,7 +320,9 @@ export default class Piece extends GameModule {
     }
     this.showBlockOutHold();
     if (!this.showLockOut()) {
-      this.showBlockOut();
+      if (!this.showTopOut()) {
+        this.showBlockOut();
+      }
     }
     if (!$('#warning-message-container-hold').classList.contains('hidden') ||
       !$('#warning-message-container').classList.contains('hidden')) {
@@ -268,6 +330,19 @@ export default class Piece extends GameModule {
     } else {
       sound.stopSeLoop('topoutwarning');
     }
+  }
+  showTopOut() {
+    if (this.parent.stack.wouldCauseLineClear()) {
+      return;
+    }
+    if (this.parent.stack.highest + Math.max(0, this.parent.stack.waitingGarbage) >
+      this.parent.stack.height + this.parent.stack.hiddenHeight
+    ) {
+      $('#warning-message').textContent = locale.getString('ui', 'topOut');
+      $('#warning-message-container').classList.remove('hidden');
+      return true;
+    }
+    $('#warning-message-container').classList.add('hidden');
   }
   showLockOut() {
     const finalBlocks = this.getFinalBlockLocations();
@@ -315,7 +390,11 @@ export default class Piece extends GameModule {
     };
     for (const nextBlock of nextBlocks) {
       const currentX = nextBlock[0];
-      const currentY = nextBlock[1] - lineClear;
+      let garbageAdd = 0;
+      if (!this.parent.stack.wouldCauseLineClear()) {
+        garbageAdd = Math.max(0, this.parent.stack.waitingGarbage);
+      }
+      const currentY = nextBlock[1] - lineClear + garbageAdd;
       if (
         (currentX < 0 || currentX >= this.parent.settings.width || currentY >= this.parent.settings.height) ||
         (this.parent.stack.grid[currentX][currentY + this.parent.settings.hiddenHeight])
@@ -563,7 +642,7 @@ export default class Piece extends GameModule {
   shiftDown() {
     this.shift('y', 1, !this.isLanded);
   }
-  rotate(amount, direction) {
+  rotate(amount, direction, playSound = true) {
     const newOrientation = (this.orientation + amount) % 4;
     const rotatedShape = this.piece[newOrientation];
     const kickTable = this.kicks[direction][this.orientation];
@@ -583,7 +662,9 @@ export default class Piece extends GameModule {
         this.shape = rotatedShape;
         this.addManipulation();
         this.isDirty = true;
-        sound.add('rotate');
+        if (playSound) {
+          sound.add('rotate');
+        }
         if (this.isLanded) {
           sound.add('step');
         }

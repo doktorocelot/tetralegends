@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "모두 제거",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "모든 컨트롤 설정을 지웁니다. 빈칸을 직접 채우세요."
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "기본값 설정",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "모든 컨트롤 설정을 기본값으로 되돌립니다."
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "왼쪽 이동"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "블록을 왼쪽으로 한 칸 이동하며, 계속 누르면 자동으로 연속 이동합니다."
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "오른쪽 이동"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "블록을 오른쪽으로 한 칸 이동하며, 계속 누르면 자동으로 연속 이동합니다."
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "하드 드롭"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "블록을 즉시 바닥에 고정시킵니다. (일부 모드에서는 다르게 반응 또는 비활성화)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "소프트 드롭"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "블록을 더 빠르게 하강시킵니다. (일부 모드에서는 다르게 반응 또는 비활성화)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "반시계방향 회전",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "블록을 반시계방향으로 90도 회전합니다."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "시계방향 회전",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "블록을 시계방향으로 90도 회전합니다."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "180도 회전",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "블록을 180도 회전합니다. (일부 모드에서는 비활성화)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "홀드"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "블록을 홀드 대기열에 놓습니다. (일부 모드에서는 비활성화)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "재도전",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "게임 도중 다시 시도합니다."
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "일시정지"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "게임을 일시정지합니다."
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "컨트롤 설정",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "이 행동을 할 때 사용할 키를 누르세요",
     "description": "Displays on the popup when you add a control binding"
   }
 }

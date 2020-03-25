@@ -4,7 +4,7 @@
     "height": 20,
     "hiddenHeight": 20,
     "pieces": "standard",
-    "unfavored": "standardUnfavored",
+    "unfavored": null,
     "randomizer": "bag",
     "rotationSystem": "srs",
     "skin": "srsx",

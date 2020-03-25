@@ -46,6 +46,12 @@ class Settings {
       musicVolume: 50,
     };
     switch (navigator.language.substr(0, 2)) {
+      case 'fr':
+        this.defaultSettings.language = 'fr_FR';
+        break;
+      case 'nl':
+        this.defaultSettings.language = 'nl_NL';
+        break;
       case 'de':
         this.defaultSettings.language = 'de_DE';
         break;

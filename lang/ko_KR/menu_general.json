@@ -1,17 +1,17 @@
 {
   "backLabel": {
-    "message": "Back",
+    "message": "뒤로",
     "description": "Go back to the previous menu"
   },
   "backDescription": {
-    "message": "Go back to the previous menu"
+    "message": "이전 메뉴로 되돌아갑니다."
   },
   "enabled": {
-    "message": "Enabled",
+    "message": "켜짐",
     "description": "Turned on, enabled"
   },
   "disabled": {
-    "message": "Disabled",
+    "message": "꺼짐",
     "description": "Turned off, disabled"
   }
 }

@@ -40,7 +40,6 @@ export default class Hold extends GameModule {
         sound.add('hold');
       }
     }
-    this.ihs = false;
     const swapPiece = this.pieceName;
     this.pieceName = this.parent.piece.name;
     if (swapPiece == null || this.useSkip) {

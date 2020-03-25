@@ -856,6 +856,33 @@ body {
   text-align: right;
   margin-right: -.3em;
 }
+@keyframes float {
+  from {transform: translate(0, -.5);}
+  to {transform: translate(0, .5em);}
+}
+.garbage-counter-container {
+  position: absolute;
+  color: white;
+  text-align: right;
+  font-size: 2.5em;
+  font-weight: 100;
+  bottom: -.7em;
+  right: -1.5em;
+  animation-name: float;
+  animation-duration: .8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: opacity filter;
+  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  text-align: right;
+  width: 1em;
+}
+.garbage-counter-container.hidden {
+  opacity: 0;
+  filter: blur(2em);
+}
 .delay-time {
   position: absolute;
   color: white;
@@ -1130,7 +1157,8 @@ progress[value]::-moz-progress-bar {
   from {color: #f00}
   to {color: #a00}
 }
-.game .timer.hurry-up {
+.game .timer.hurry-up,
+.garbage-counter-container.danger .garbage-counter {
   color: #f00;
   animation-name: hurry-up-timer;
   animation-duration: .4s;
@@ -1142,7 +1170,8 @@ progress[value]::-moz-progress-bar {
   from {color: #FF8C00}
   to {color: #ffd700}
 }
-.game .timer.pace {
+.game .timer.pace,
+.garbage-counter-container.negative .garbage-counter {
   color: #ffd700;
   animation-name: pace-timer;
   animation-duration: .08s;
@@ -1187,4 +1216,31 @@ progress[value]::-moz-progress-bar {
 .combo-counter-container.hidden .combo-counter {
   letter-spacing: -.6em;
   opacity: 0;
+}
+@keyframes garbage-fly {
+  from {left: var(--starting-value-left); top: var(--starting-value-top); filter: blur(.4em)}
+  to {left: 50%; top: 50%; filter: blur(0)}
+}
+.garbage-particle {
+  --starting-value-top: 100%;
+  --starting-value-left: 100%;
+  position: absolute;
+  background-color: #f00;
+  width: 2em;
+  height: 2em;
+  top: 50%;
+  left: 50%;
+  animation-name: garbage-fly;
+  animation-fill-mode: forwards;
+  animation-duration: .33s;
+  animation-timing-function: ease-in;
+  z-index: -10;
+}
+@keyframes garbage-send {
+  from {left: 50%; top: 50%; filter: blur(0)}
+  to {left: var(--starting-value-left); top: var(--starting-value-top); filter: blur(.4em)}
+}
+.garbage-particle.send {
+  background-color: #fff;
+  animation-name: garbage-send;
 }

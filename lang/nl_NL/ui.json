@@ -20,7 +20,7 @@
     "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
-    "message": "Val Snelheid",
+    "message": "Valsnelheid",
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
@@ -28,7 +28,7 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Max Combo",
+    "message": "Hoogste Combo",
     "description": "The highest combo obtained"
   },
   "next": {
@@ -36,7 +36,7 @@
     "description": "The label for the next piece in the queue"
   },
   "hold": {
-    "message": "Hou",
+    "message": "Hold",
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
@@ -64,7 +64,7 @@
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   },
   "gameover": {
-    "message": "Het spel is over",
+    "message": "Game Over",
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
@@ -80,7 +80,7 @@
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
   },
   "timeOut": {
-    "message": "Tijd op",
+    "message": "Tijd om",
     "description": "Displays when the time runs out"
   },
   "excellent": {
@@ -88,7 +88,7 @@
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
-    "message": "Nieuwe Record!",
+    "message": "Nieuw Record!",
     "description": "Displays when the user beats their previous score or time"
   },
   "returnToMenu": {

@@ -4,83 +4,83 @@
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "Start direct een spel in Marathon-modus met standaardinstellingen"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "Spelstijlen",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
     "message": "Guideline"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "Standaardvariant gevonden in de meeste moderne games"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Een aangepaste variant speciaal ontworpen voor dit spel"
   },
   "retroLabel": {
     "message": "Retro"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "Klassieke variant waar ouderwetse spelers dol op zijn"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "Uitdagende variant waar hardcore spelers dol op zijn"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "Instellingen"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "Afstemmen"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "Wijzig hoe het spel voelt"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "Bediening"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "Wijzig hoe het spel bestuurt"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "Geluid"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "Wijzig hoe het spel klinkt"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "Beeld"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "Wijzig hoe het spel eruit ziet"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "Overig",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
     "message": "Soundtrack"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Luister naar de originele soundtrack"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "Vertalen"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Draag bij aan het vertalen van het spel"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "Word lid van de Discord om het spel te bespreken, updates te krijgen en ideeën en vertalingen bij te dragen"
   }
 }

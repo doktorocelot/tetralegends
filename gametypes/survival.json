@@ -5,25 +5,29 @@
     "hiddenHeight": 20,
     "pieces": "standard",
     "unfavored": "standardUnfavored",
-    "randomizer": "tetrax",
-    "rotationSystem": "tetrax",
-    "skin": "standard",
+    "randomizer": "bag",
+    "rotationSystem": "srs",
+    "skin": "srsx",
     "soundbank": "standard",
-    "music": "../marathon/marathon",
-    "scoreTable": "tetrax",
+    "music": "survival",
+    "hasDangerBgm": true,
+    "scoreTable": "guideline",
     "background": "marathon.jpg"
   },
   "piece": {
     "areLimit": 100,
+    "xSpawnOffset": -2,
     "areLineLimit": 166.666666667,
     "areLimitLineModifier": 166.666666667,
-    "spinDetectionType": "immobile",
-    "xSpawnOffset": -2
+    "spinDetectionType": "3corner"
+  },
+  "stack": {
+    "useGarbageSending": true,
+    "showGarbageSendAnimation": true
   },
   "stats": [
     "score",
     "level",
-    "fallspeed",
     "line",
     "piece"
   ]

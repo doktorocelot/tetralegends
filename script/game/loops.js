@@ -296,7 +296,7 @@ export const loops = {
       game.updateStats();
     },
   },
-  survivalx: {
+  survival: {
     update: (arg) => {
       collapse(arg);
       if (arg.piece.inAre) {
@@ -306,18 +306,21 @@ export const loops = {
         arg.piece.are += arg.ms;
       } else {
         garbageTimer += arg.ms;
-        if (garbageTimer > 2000) {
-          garbageTimer -= 2000;
-          arg.stack.spawnBrokenLine();
+        if (garbageTimer > 16.667) {
+          garbageTimer -= 16.667;
+          const randomCheck = Math.floor(Math.random() * 100000) / 100;
+          if (randomCheck < gameHandler.game.garbageRate) {
+            arg.stack.addGarbageToCounter(1);
+          }
         }
         rotate(arg);
         rotate180(arg);
         shifting(arg);
       }
       gravity(arg);
-      hyperSoftDrop(arg);
+      softDrop(arg, 70);
       hardDrop(arg);
-      classicLockdown(arg);
+      extendedLockdown(arg);
       if (!arg.piece.inAre) {
         respawnPiece(arg);
         hold(arg);
@@ -328,17 +331,19 @@ export const loops = {
     onPieceSpawn: (game) => {
       game.stat.level = Math.floor(game.stat.line / 10 + 1);
       const x = game.stat.level;
-      const gravityEquation = (0.8 - ((x - 1) * 0.007)) ** (x - 1);
+      const gravityEquation = (0.99 - ((x - 1) * 0.007)) ** (x - 1);
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
-      if (game.stat.level >= 20) {
-        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 20, 0.8)))));
+      if (game.stat.level >= 30) {
+        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 30, 0.8)))));
       } else {
         game.piece.lockDelayLimit = 500;
       }
+      game.garbageRate = (x ** 0.7) * 2.5;
       updateFallSpeed(game);
       levelUpdate(game);
     },
     onInit: (game) => {
+      game.garbageRate = 0;
       garbageTimer = 0;
       game.stat.level = 1;
       lastLevel = 1;

@@ -59,7 +59,7 @@
     "message": "Draai een stuk 180° (kan uitgeschakeld zijn in sommige modes)"
   },
   "holdLabel": {
-    "message": "Hou"
+    "message": "Hold"
   },
   "holdDescription": {
     "message": "Stuur een stuk naar de wachtrij (kan uitgeschakeld zijn in sommige modes)"
@@ -82,7 +82,7 @@
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Druk op de toets die u wilt gebruiken voor deze actie",
+    "message": "Druk op de toets om te gebruiken voor deze actie",
     "description": "Displays on the popup when you add a control binding"
   }
 }

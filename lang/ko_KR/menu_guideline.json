@@ -1,6 +1,6 @@
 {
   "marathonLabel": {
-    "message": "Marathon",
+    "message": "마라톤",
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
@@ -8,7 +8,7 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
-    "message": "Master",
+    "message": "마스터",
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
@@ -16,7 +16,7 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
-    "message": "Sprint",
+    "message": "스프린트",
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
@@ -24,7 +24,7 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
-    "message": "Ultra",
+    "message": "울트라",
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
@@ -37,6 +37,14 @@
   },
   "comboDescription": {
     "message": "No time to spare! Try and clear as many successive line clears as you can before the time runs out!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "survivalLabel": {
+    "message": "Survival",
+    "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
+  },
+  "survivalDescription": {
+    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
