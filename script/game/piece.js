@@ -258,11 +258,12 @@ export default class Piece extends GameModule {
         ghostHeightValues[i] = 0;
       }
       for (const final of this.getFinalBlockLocations()) {
-        ghostHeightValues[final[0]]++;
+        const highest = this.parent.stack.height - final[1];
+        ghostHeightValues[final[0]] = Math.max(ghostHeightValues[final[0]], highest);
       }
       for (let x = 0; x < this.parent.stack.grid.length; x++) {
         const highest = this.parent.stack.getHighestOfColumn(x);
-        const y = this.parent.stack.height - highest - this.parent.stack.waitingGarbage + this.parent.bufferPeek - ghostHeightValues[x];
+        const y = this.parent.stack.height - Math.max(highest, ghostHeightValues[x]) - this.parent.stack.waitingGarbage + this.parent.bufferPeek;
         ctx.lineTo(x * cellSize, y * cellSize);
         ctx.lineTo((x + 1) * cellSize, y * cellSize);
       }
@@ -381,6 +382,7 @@ export default class Piece extends GameModule {
     $('#warning-message-container-hold').classList.add('hidden');
   }
   showBlockOut() {
+    console.log('new');
     const lineClear = this.parent.stack.wouldCauseLineClear();
     const finalBlocks = this.getFinalBlockLocations();
     const nextBlocks = this.getNextPieceBlocks();
@@ -404,6 +406,8 @@ export default class Piece extends GameModule {
         return true;
       }
       for (const finalBlock of finalBlocks) {
+        finalBlock[1] -= garbageAdd;
+        console.log(finalBlock, nextBlock);
         if (arraysEqual(finalBlock, nextBlock)) {
           $('#warning-message').textContent = locale.getString('ui', 'blockOut');
           $('#warning-message-container').classList.remove('hidden');

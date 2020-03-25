@@ -4,9 +4,8 @@
   },
   "data": [
     {
-      "label": "translate",
+      "label": "文/A",
       "fixedText": true,
-      "useIcon": true,
       "description": "",
       "action": "submenu",
       "submenu": "languages"
