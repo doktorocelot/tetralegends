@@ -356,7 +356,7 @@ export const loops = {
 
     },
     onInit: (game) => {
-      const difficulty = 4;
+      const difficulty = 3;
       game.garbageRateExponent = [1.91, 1.95, 1.97, 2, 2.03, 2.07, 2.1][difficulty];
       game.garbageRateMultiplier = [.005, .01, .02, .03, .05, .08, .1][difficulty];
       game.garbageRateAdditive = [1, 1.5, 2, 2.5, 9, 18, 35][difficulty];
