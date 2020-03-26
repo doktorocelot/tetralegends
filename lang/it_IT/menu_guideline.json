@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Completa l'obiettivo! Impila e distruggi le righe, ma fa attenzione, perchè la partita diventa più veloce man mano che prosegui!",
+    "message": "Completa le linee completando l'obiettivo, ma stai attento al graduale aumento della velocità!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Accumulo veloce! Questa modalità non fa sconti: dovrai sopravvivere alle crudeli velocità fino alla fine.",
+    "message": "Completa velocemente le linee, poiché questa modalità di gioco non fa sconti: dovrai sopravvivere alla crudele velocità di gioco fino alla fine!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Completa il tuo obiettivo più velocemente possibile in questa modalità ad alta velocità.",
+    "message": "In questa modalità ad alta velocità dovrai completare l'obiettivo più velocemente possibile, senza esitare!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Ogni linea che cancelli conta! Organizza velocemente e con cura i vari tetramini per ottenere più punti possibili prima che il tempo finisca!",
+    "message": "Organizza velocemente e con cura i vari tetramini per ottenere più punti possibili prima che il tempo finisca!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {
@@ -36,7 +36,7 @@
     "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
   },
   "comboDescription": {
-    "message": "Non c'è tempo da perdere! Cancella il maggior numero di linee possibile finché non scade il tempo!",
+    "message": "Occhio al tempo! In questa modalità dovrai completare più linee in successione che puoi, prima che il tempo finisca!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
+    "message": "Distruggi le linee che compaiono dal basso del campo da gioco, ma stai attento, se non riuscirai a stare al passo, fallirai di sicuro!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

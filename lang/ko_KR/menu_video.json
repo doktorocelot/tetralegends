@@ -1,62 +1,62 @@
 {
   "nextLengthLabel": {
-    "message": "Next Queue Length"
+    "message": "Next 대기열 길이"
   },
   "nextLengthDescription": {
-    "message": "The amount of pieces the player can see up ahead in the next queue"
+    "message": "Next 대기열에서 볼 수 있는 블록 수"
   },
   "lockdownBarLabel": {
-    "message": "Lockdown Bar",
+    "message": "락다운 바",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Allow the ability to see additional information on lock delay and move limits"
+    "message": "블록이 고정되기 전까지의 시간과 움직임 수 제한을 볼 수 있게 합니다."
   },
   "swayScaleLabel": {
-    "message": "Matrix Sway Scale",
+    "message": "화면 흔들림 비율",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "message": "블록의 움직임에 따라 화면이 얼마나 움직이는지 설정(%). 0으로 설정 시 효과가 꺼집니다.",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Matrix Sway Speed",
+    "message": "화면 흔들림 속도",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "How fast the matrix returns to its neutral position in percentage",
+    "message": "화면이 원위치로 돌아오는 속도 (%)",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
-    "message": "Particles"
+    "message": "입자"
   },
   "particlesDescription": {
-    "message": "Whether particles should be drawn"
+    "message": "화면에 입자 효과 표시"
   },
   "particleLimitLabel": {
-    "message": "Particle Limit"
+    "message": "입자 수 제한"
   },
   "particleLimitDescription": {
-    "message": "How many particles can appear on screen at one time"
+    "message": "화면에 나타나는 입자 수의 최대 제한"
   },
   "particleSizeLabel": {
-    "message": "Particle Size"
+    "message": "입자 크기"
   },
   "particleSizeDescription": {
-    "message": "How large the particles will appear"
+    "message": "화면에 나타나는 입자의 크기"
   },
   "particleVolumeLabel": {
-    "message": "Particle Volume"
+    "message": "입자 생성률"
   },
   "particleVolumeDescription": {
-    "message": "How many particles will generate"
+    "message": "화면에 입자가 만들어지는 정도"
   },
   "actionTextLabel": {
-    "message": "Action Text",
+    "message": "액션 텍스트",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+    "message": "줄을 없애거나 특정 기술을 구사할 시 나타나는 텍스트 표시. ('Double', 'T-Spin' 등) 콤보 횟수 역시 표시합니다."
   }
 }

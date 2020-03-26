@@ -32,7 +32,7 @@
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Difficile variante della modalità amata dai giocatori hardcore"
+    "message": "Difficile variante del puzzle amata dai giocatori hardcore"
   },
   "settingsOverline": {
     "message": "Impostazioni"
@@ -81,6 +81,6 @@
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Entra su Discord per discutere del gioco, ricevere nuovi aggiornamenti, contribuire con nuove idee e migliorare le traduzioni"
+    "message": "Entra su Discord per discutere riguardo il gioco, ricevere nuovi aggiornamenti, contribuire con nuove idee e migliorare le traduzioni"
   }
 }

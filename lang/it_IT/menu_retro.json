@@ -16,7 +16,7 @@
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "Una versione nostalgica a scorrimento lento che molti hanno giocato sui propri dispositivi mobili",
+    "message": "Una versione nostalgica a scorrimento lento ispirata a quella presente su console portatili",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
@@ -24,7 +24,7 @@
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "Una bella fusione tra elementi classici e moderni",
+    "message": "Una piacevole fusione tra elementi classici e moderni",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
