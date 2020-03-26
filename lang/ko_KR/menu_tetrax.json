@@ -4,7 +4,7 @@
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "무한히 빨라지는 속도를 버티면서 최대한 많은 줄을 없애세요.",
+    "message": "무한히 빨라지는 속도를 버티면서 최대한 많은 라인을 없애세요.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {

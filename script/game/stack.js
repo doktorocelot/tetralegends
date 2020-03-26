@@ -29,6 +29,11 @@ export default class Stack extends GameModule {
     this.alarmIsOn = false;
     this.isInvisible = false;
     this.waitingGarbage = 0;
+    this.garbageSwitchRate = 1;
+    this.garbageHoleUsed = 0;
+    this.garbageRandomHole = 0;
+    this.antiGarbageBuffer = 0;
+    this.copyBottomForGarbage = false;
   }
   makeAllDirty() {
     for (let x = 0; x < this.grid.length; x++) {
@@ -277,7 +282,7 @@ export default class Stack extends GameModule {
         element.parentNode.removeChild(element);
       }, 330);
     }
-    this.waitingGarbage = Math.max(-4, this.waitingGarbage - garbageToClear);
+    this.waitingGarbage = Math.max(this.antiGarbageBuffer, this.waitingGarbage - garbageToClear);
     if (this.waitingGarbage > 0 && !this.lineClear) {
       this.spawnBrokenLine(this.waitingGarbage);
       this.waitingGarbage = 0;
@@ -347,8 +352,14 @@ export default class Stack extends GameModule {
     sound.add('garbage');
     this.parent.shiftMatrix('up');
     let topOut = false;
-    const randomHole = Math.floor(Math.random() * this.grid.length);
     for (let i = 0; i < amount; i++) {
+      if (this.garbageHoleUsed >= this.garbageSwitchRate && !this.copyBottomForGarbage) {
+        const last = this.garbageRandomHole;
+        while (this.garbageRandomHole === last) {
+          this.garbageRandomHole = Math.floor(Math.random() * this.grid.length);
+        }
+        this.garbageHoleUsed = 0;
+      }
       for (let i = 0; i < this.flashY.length; i++) {
         this.flashY[i]--;
       }
@@ -359,8 +370,10 @@ export default class Stack extends GameModule {
         for (let shiftY = 0; shiftY < this.grid[0].length; shiftY++) {
           this.grid[x][shiftY] = this.grid[x][shiftY + 1];
         }
-
-        if (x === randomHole) {
+        if (this.copyBottomForGarbage && !this.grid[x][this.grid[0].length - 2]) {
+          continue;
+        }
+        if (x === this.garbageRandomHole && !this.copyBottomForGarbage) {
           continue;
         }
         this.grid[x][this.grid[0].length - 1] = 'black';
@@ -368,8 +381,9 @@ export default class Stack extends GameModule {
       if (this.parent.piece.isStuck) {
         this.parent.piece.y--;
       }
-      this.alarmCheck();
+      this.garbageHoleUsed++;
     }
+    this.alarmCheck();
     this.makeAllDirty();
     this.isDirty = true;
     this.parent.piece.isDirty = true;

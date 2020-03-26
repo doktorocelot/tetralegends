@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "목표를 향하여! 블록을 쌓고 줄을 없애세요. 게임이 진행될수록 속도는 점점 빨라지니 조심!",
+    "message": "목표를 향하여! 블록을 쌓고 라인을 없애세요. 게임이 진행될수록 속도는 점점 빨라지니 조심!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "당신의 본능을 자극하세요! 정해진 만큼의 줄을 빠른 시간 내에 없애세요.",
+    "message": "당신의 본능을 자극하세요! 정해진 만큼의 라인을 빠른 시간 내에 없애세요.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "게임 중 수시로 공격이 들어옵니다. 반격하거나, 올라오는 줄들을 제거하면서 최대한 오래 살아남으세요!",
+    "message": "게임 중 수시로 공격이 들어옵니다. 반격하거나, 올라오는 라인들을 제거하면서 최대한 오래 살아남으세요!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

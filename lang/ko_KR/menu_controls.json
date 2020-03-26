@@ -4,7 +4,7 @@
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "모든 컨트롤 설정을 지웁니다. 빈칸을 직접 채우세요."
+    "message": "모든 컨트롤 설정을 지웁니다."
   },
   "resetLabel": {
     "message": "기본값 설정",

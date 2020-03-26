@@ -733,34 +733,30 @@ body {
   text-transform: lowercase;
 }
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
+  width: .1em;
+  height: .1em;
 }
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border: 2px solid #000;
-  border-radius: 50px;
+  background: #fff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: #fff;
 }
 ::-webkit-scrollbar-thumb:active {
-  background: #bababa;
+  background: #fff;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
-  border: 0px none #ffffff;
-  border-radius: 50px;
+  background: #fff2;
 }
 ::-webkit-scrollbar-track:hover {
-  background: transparent;
+  background: #fff2;
 }
 ::-webkit-scrollbar-track:active {
-  background: transparent;
+  background: #fff2;
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
@@ -1201,11 +1197,16 @@ progress[value]::-moz-progress-bar {
   animation-fill-mode: forwards;
 }
 .game .timer {
+  text-align: right;
   color: #fff;
   position: absolute;
-  bottom: -3.2em;
+  bottom: -2.7em;
+  right: 0em;
   font-size: 1.4em;
-  width: 100%;
+  width: 300%;
+}
+.game .timer-real {
+  bottom: -3.7em;
 }
 @keyframes hurry-up-timer {
   from {color: #f00}

@@ -36,6 +36,7 @@ const create4w = (grid) => {
   }
 };
 const levelUpdate = (game) => {
+  let returnValue = false;
   if (game.stat.level !== lastLevel) {
     sound.add('levelup');
     game.stack.levelUpAnimation = 0;
@@ -44,12 +45,14 @@ const levelUpdate = (game) => {
     } else {
       sound.add('levelupminor');
     }
+    returnValue = true;
   }
   if (game.redrawOnLevelUp && false) {
     game.stack.makeAllDirty();
     game.stack.isDirty = true;
   }
   lastLevel = game.stat.level;
+  return returnValue;
 };
 export const loops = {
   marathon: {
@@ -300,6 +303,8 @@ export const loops = {
   },
   survival: {
     update: (arg) => {
+      const game = gameHandler.game;
+
       collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
@@ -307,17 +312,21 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      if (arg.piece.startingAre >= arg.piece.startingAreLimit &&
+          game.marginTime >= game.marginTimeLimit
+      ) {
         garbageTimer += arg.ms;
         if (garbageTimer > 16.667) {
           garbageTimer -= 16.667;
           const randomCheck = Math.floor(Math.random() * 100000) / 100;
-          if (randomCheck < gameHandler.game.garbageRate) {
+          if (randomCheck < game.garbageRate) {
             arg.stack.addGarbageToCounter(1);
           }
         }
-        rotate(arg);
-        rotate180(arg);
-        shifting(arg);
       }
       gravity(arg);
       softDrop(arg, 70);
@@ -329,23 +338,36 @@ export const loops = {
       }
       lockFlash(arg);
       updateLasts(arg);
-    },
-    onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10 + 1);
+      game.stat.level = Math.floor(game.timePassed / 10000 + 1);
       const x = game.stat.level;
       const gravityEquation = (0.99 - ((x - 1) * 0.007)) ** (x - 1);
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
-      if (game.stat.level >= 30) {
-        game.piece.lockDelayLimit = ~~framesToMs((30 * Math.pow(0.93, (Math.pow(game.stat.level - 30, 0.8)))));
-      } else {
-        game.piece.lockDelayLimit = 500;
+      game.garbageRate = (x ** game.garbageRateExponent) * game.garbageRateMultiplier + game.garbageRateAdditive;
+      if (levelUpdate(game)) {
+        game.updateStats();
       }
-      game.garbageRate = (x ** 0.7) * 2.5;
-      updateFallSpeed(game);
-      levelUpdate(game);
+      if (arg.piece.startingAre >= arg.piece.startingAreLimit &&
+        game.marginTime < game.marginTimeLimit
+      ) {
+        game.marginTime += arg.ms;
+      }
+    },
+    onPieceSpawn: (game) => {
+
     },
     onInit: (game) => {
+      const difficulty = 4;
+      game.garbageRateExponent = [1.91, 1.95, 1.97, 2, 2.03, 2.07, 2.1][difficulty];
+      game.garbageRateMultiplier = [.005, .01, .02, .03, .05, .08, .1][difficulty];
+      game.garbageRateAdditive = [1, 1.5, 2, 2.5, 9, 18, 35][difficulty];
+      game.stack.garbageSwitchRate = [1, 1, 8, 4, 2, 1, 1][difficulty];
+      game.stack.antiGarbageBuffer = [-20, -10, -8, -6, -4, -2, 0][difficulty];
+      if (difficulty <= 1) {
+        game.stack.copyBottomForGarbage = true;
+      }
       game.garbageRate = 0;
+      game.marginTime = 0;
+      game.marginTimeLimit = 5000;
       garbageTimer = 0;
       game.stat.level = 1;
       lastLevel = 1;

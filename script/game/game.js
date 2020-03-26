@@ -3,7 +3,7 @@ import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
-import $, {toCtx, msToTime, capitalizeFirstLetter} from '../shortcuts.js';
+import $, {toCtx, msToTime, capitalizeFirstLetter, resetAnimation} from '../shortcuts.js';
 import {loops} from './loops.js';
 import gameHandler from './game-handler.js';
 import Next from './next.js';
@@ -83,6 +83,7 @@ export default class Game {
     };
     this.startingTime = 0;
     this.timePassed = 0;
+    this.timePassedAre = 0;
     loadGameType(gametype)
         .then((gameData) => {
           this.show();
@@ -188,7 +189,8 @@ export default class Game {
       }
     }
     if (this.timeGoal == null) {
-      $('#end-stats').innerHTML += `<b>${locale.getString('ui', 'time')}:</b> ${msToTime(this.timePassed)}<br>`;
+      $('#end-stats').innerHTML += `<b>${locale.getString('ui', 'inGameTime', [`<span style="font-weight: normal">${msToTime(this.timePassed)}</span>`])}</b><br>`;
+      $('#end-stats').innerHTML += `<b>${locale.getString('ui', 'realTimeAttack', [`<span style="font-weight: normal">${msToTime(this.timePassed + this.timePassedAre)}</span>`])}</b><br>`;
     }
     $('#kill-message-container').classList.remove('hidden');
     if (victory) {
@@ -442,6 +444,8 @@ export default class Game {
           if (!game.noUpdate) {
             if (!game.piece.inAre) {
               game.timePassed += msPassed;
+            } else if (game.piece.startingAre >= game.piece.startingAreLimit) {
+              game.timePassedAre += msPassed;
             }
 
             // GOALS
@@ -453,7 +457,7 @@ export default class Game {
             }
             if (game.timeGoal != null) {
               if (game.timePassed >= game.timeGoal) {
-                game.timePassed = 0;
+                game.timePassed = game.timeGoal;
                 game.timeGoal = null;
                 $('#kill-message').textContent = locale.getString('ui', 'timeOut');
                 game.end();
@@ -550,15 +554,27 @@ export default class Game {
         if (game.mustReset) {
           game.isDead = true;
         }
-        if (game.piece.inAre || game.isPaused) {
+        if (game.isPaused) {
           $('#timer').classList.add('paused');
+          $('#timer-real').classList.add('paused');
         } else {
-          $('#timer').classList.remove('paused');
+          if (game.piece.inAre) {
+            $('#timer').classList.add('paused');
+          } else {
+            $('#timer').classList.remove('paused');
+          }
+          if (game.piece.startingAre < game.piece.startingAreLimit) {
+            $('#timer-real').classList.add('paused');
+          } else {
+            $('#timer-real').classList.remove('paused');
+          }
         }
         if (game.timeGoal != null) {
-          $('#timer').textContent = msToTime(game.timeGoal - game.timePassed);
+          $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timeGoal - game.timePassed)]);
+          $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timePassed + game.timePassedAre)]);
         } else {
-          $('#timer').textContent = msToTime(game.timePassed);
+          $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timePassed)]);
+          $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timePassed + game.timePassedAre)]);
         }
         game.last = game.now;
       }

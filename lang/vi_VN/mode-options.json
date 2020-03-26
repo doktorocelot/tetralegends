@@ -1,0 +1,159 @@
+{
+  "startLabel": {
+    "message": "Chơi",
+    "description": "Appears in the mode selection screen. Clicking it will start the game."
+  },
+  "startDescription": {
+    "message": "Bắt đầu trò chơi!"
+  },
+  "linesUnit": {
+    "message": "%1 hàng",
+    "description": "Unit to describe the amount of lines in various contexts, such as line goal"
+  },
+  "offOption": {
+    "message": "Tắt",
+    "description": "Used in the context to select nothing in an option, such as Level Cap"
+  },
+  "difficultyLabel": {
+    "message": "Độ khó",
+    "description": "Changes 'how difficult' certain modes are"
+  },
+  "difficultyDescription": {
+    "message": "Lựa chọn độ khó theo ý muốn của bạn"
+  },
+  "beginnerDifOption": {
+    "message": "Dễ nhất",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 1 (easiest difficulty)"
+  },
+  "veryEasyDifOption": {
+    "message": "Rất dễ",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 2"
+  },
+  "easyDifOption": {
+    "message": "Dễ",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 3"
+  },
+  "intermediateDifOption": {
+    "message": "Trung bình",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 4 (normal difficulty)"
+  },
+  "hardDifOption": {
+    "message": "Khó",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 5"
+  },
+  "expertDifOption": {
+    "message": "Khó hơn",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 6"
+  },
+  "proDifOption": {
+    "message": "Chuyên gia",
+    "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 7 (hardest difficulty)"
+  },
+  "endlessOption": {
+    "message": "Vô tận",
+    "description": "The term is self explanatory, however the context in which it is used is that it appears as an option under 'line goal' or 'time limit' and the like, therefore you may want to translate it as something lile 'infinite', 'off' or anything that might fit the context better in the language"
+  },
+  "lineGoalLabel": {
+    "message": "Số hàng cần đạt",
+    "description": "Appears in modes where you have an option to change the amount of lines needed to win, such as Marathon or Sprint"
+  },
+  "lineGoalDescription": {
+    "message": "Lựa chọn mục tiêu dọn hàng để hoàn thành game"
+  },
+  "timeLimitLabel": {
+    "message": "Thời gian",
+    "description": "Used to select the amount of time the game will last in games like Ultra or Combo Challenge"
+  },
+  "timeLimitDescription": {
+    "message": "Lựa chọn lượng thời gian để chơi ván"
+  },
+  "useRtaLabel": {
+    "message": "Sử dụng thời gian thực",
+    "description": "Used in modes like 'Ultra' to have the time limit run down from RTA instead of IGT; for example, this will make it so that the timer used for the time limit does not freeze during delays"
+  },
+  "useRtaDescription": {
+    "message": "Sử dụng đồng hồ đếm mà không dừng lại trong lúc tạo gạch hoặc khi dòng đang biến mất"
+  },
+  "startingLevelLabel": {
+    "message": "Level mở màn",
+    "description": "Appears in modes where you can select the starting level, such as Marathon, Master, Retro, etc."
+  },
+  "startingLevelDescription": {
+    "message": "Lựa chọn level mà bạn muốn bắt đầu"
+  },
+  "levelCapLabel": {
+    "message": "Giới hạn Level",
+    "description": "Can also be translated as 'Level Limit'. This option changes at what point the level will stop levelling past; for example, you can select '15' for Marathon and it will not level up beyond that"
+  },
+  "levelCapDescription": {
+    "message": "Thay đổi thời điểm mà game sẽ không tăng thêm level"
+  },
+  "regulationModeLabel": {
+    "message": "Chế độ toàn cầu",
+    "description": "This one may be hard to translate; it is used in Sprint to disable the delays for the purpose making the times comparable with other platforms"
+  },
+  "regulationModeDescription": {
+    "message": "Chế độ mà tắt hết tất cả khoảng thời gian trì trệ để có thời gian dễ so sánh"
+  },
+  "lockdownModeLabel": {
+    "message": "Cách thức khóa",
+    "description": "This option allows the user to select from the ways that the game will lock the piece down, including Infinity, Extended and Classic"
+  },
+  "lockdownModeDescription": {
+    "message": "Lựa chọn chế độ điều khiển cách khóa của các miếng"
+  },
+  "infinityLdOption": {
+    "message": "Vô tận",
+    "description": "Name for the 'infinity' lockdown type; any move/shift or rotation will reset the timer for an unlimited number of times"
+  },
+  "extendedLdOption": {
+    "message": "Có hạn",
+    "description": "Name for the 'extended' lockdown type; any move/shift or rotation will reset the timer for a limited (usually 15) number of times. Having the piece fall to its furthest fallen point will reset the limit"
+  },
+  "classicLdOption": {
+    "message": "Cổ điển",
+    "description": "Name for the 'classic' lockdown type; only having the piece fall will reset the timer"
+  },
+  "matrixWidthLabel": {
+    "message": "Độ rộng của bảng chơi",
+    "description": "'Matrix' in this context can also be known as grid, field, play area; this option determines how wide in blocks the playfield is. The standard amount is 10"
+  },
+  "matrixWidthDescription": {
+    "message": "Dùng để xác định độ rộng của bảng chơi trong khi chơi"
+  },
+  "narrowWidthOption": {
+    "message": "Hẹp",
+    "description": "Used in the context of the playfield's width; 'narrow' means that it has less width than the standard 10. Do not put the number of blocks in this string."
+  },
+  "standardWidthOption": {
+    "message": "Chuẩn",
+    "description": "Used in the context of the playfield's width; 'standard 'means that it is the standard 10-wide. Do not put the number of blocks in this string."
+  },
+  "holdTypeLabel": {
+    "message": "Chức năng nút giữ",
+    "description": "This option is how you can select between 'HOLD' and 'SKIP' for certain modes"
+  },
+  "holdTypeDescription": {
+    "message": "Lựa chọn chức năng của nút giữ"
+  },
+  "holdOption": {
+    "message": "Giữ",
+    "description": "This is used in the context of selecting what pressing hold will do; you may want this to match what you translated in ui.json unless there's a good reason not to"
+  },
+  "skipOption": {
+    "message": "Bỏ qua",
+    "description": "This is used in the context of selecting what pressing hold will do; you may want this to match what you translated in ui.json unless there's a good reason not to"
+  },
+  "mechanicsLabel": {
+    "message": "Cơ chế",
+    "description": "As in 'game mechanics'; this option changes how the overall gameplay will function; it is mainly used in retro modes to select between more classic mechanics (such as Retro DAS, soft drop and others) and modern mechanics (such modern DAS, soft drop and others)"
+  },
+  "accurateOption": {
+    "message": "Chuẩn",
+    "description": "As in 'accurate to the original'; this is used in the Retro modes to select mechanics that intend to match those of the original game"
+  },
+  "modernOption": {
+    "message": "Hiện đại",
+    "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
+  }
+}
