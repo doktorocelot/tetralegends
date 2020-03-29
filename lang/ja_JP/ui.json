@@ -68,15 +68,15 @@
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
-    "message": "窒息",
+    "message": "ブロックアウト",
     "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
   },
   "lockOut": {
-    "message": "Lock Out",
+    "message": "ロックアウト",
     "description": "Displays as a failure message when the piece was locked above the skyline/ceiling"
   },
   "topOut": {
-    "message": "Top Out",
+    "message": "トップアウト",
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
   },
   "timeOut": {
@@ -96,7 +96,7 @@
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   },
   "loading": {
-    "message": "LOADING...",
+    "message": "Loading...",
     "description": "Displays under 'READY' while the game loads the assets"
   },
   "realTimeAttack": {
@@ -106,5 +106,21 @@
   "inGameTime": {
     "message": "ゲーム内時間: %1",
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
+  },
+  "blockOutWarning": {
+    "message": "ブロックアウト警告",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
+  },
+  "blockOutHoldWarning": {
+    "message": "ホールドブロックアウト警告",
+    "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
+  },
+  "lockOutWarning": {
+    "message": "ロックアウト警告",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
+  },
+  "topOutWarning": {
+    "message": "トップアウト警告",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   }
 }

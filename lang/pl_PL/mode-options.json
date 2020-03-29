@@ -4,45 +4,45 @@
     "description": "Appears in the mode selection screen. Clicking it will start the game."
   },
   "startDescription": {
-    "message": "Start the game!"
+    "message": "Rozpocznij grę!"
   },
   "linesUnit": {
-    "message": "%1 lines",
+    "message": "%1 linii",
     "description": "Unit to describe the amount of lines in various contexts, such as line goal"
   },
   "offOption": {
-    "message": "Off",
+    "message": "Wył.",
     "description": "Used in the context to select nothing in an option, such as Level Cap"
   },
   "difficultyLabel": {
-    "message": "Difficulty",
+    "message": "Trudność",
     "description": "Changes 'how difficult' certain modes are"
   },
   "difficultyDescription": {
-    "message": "Selects the level of difficulty you wish to experience"
+    "message": "Wybiera poziom trudności, na którym chcesz zagrać"
   },
   "beginnerDifOption": {
-    "message": "Beginner",
+    "message": "Początkujący",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 1 (easiest difficulty)"
   },
   "veryEasyDifOption": {
-    "message": "Very Easy",
+    "message": "Bardzo łatwy",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 2"
   },
   "easyDifOption": {
-    "message": "Easy",
+    "message": "Łatwy",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 3"
   },
   "intermediateDifOption": {
-    "message": "Intermediate",
+    "message": "Średni",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 4 (normal difficulty)"
   },
   "hardDifOption": {
-    "message": "Hard",
+    "message": "Trudny",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 5"
   },
   "expertDifOption": {
-    "message": "Expert",
+    "message": "Ekspert",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 6"
   },
   "proDifOption": {
@@ -50,110 +50,110 @@
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 7 (hardest difficulty)"
   },
   "endlessOption": {
-    "message": "Endless",
+    "message": "Bez końca",
     "description": "The term is self explanatory, however the context in which it is used is that it appears as an option under 'line goal' or 'time limit' and the like, therefore you may want to translate it as something lile 'infinite', 'off' or anything that might fit the context better in the language"
   },
   "lineGoalLabel": {
-    "message": "Line Goal",
+    "message": "Cel linii",
     "description": "Appears in modes where you have an option to change the amount of lines needed to win, such as Marathon or Sprint"
   },
   "lineGoalDescription": {
-    "message": "Selects the amount of lines needed to win the game"
+    "message": "Wybiera ilość linii potrzebną do przejścia gry"
   },
   "timeLimitLabel": {
-    "message": "Time Limit",
+    "message": "Limit czasowy",
     "description": "Used to select the amount of time the game will last in games like Ultra or Combo Challenge"
   },
   "timeLimitDescription": {
-    "message": "Selects how long the game will last"
+    "message": "Wybiera jak długo rozgrywka będzie trwać"
   },
   "useRtaLabel": {
-    "message": "Use RTA",
+    "message": "Użyj RTA",
     "description": "Used in modes like 'Ultra' to have the time limit run down from RTA instead of IGT; for example, this will make it so that the timer used for the time limit does not freeze during delays"
   },
   "useRtaDescription": {
-    "message": "Uses a timer that does not freeze during entry or line delays to determine the time limit"
+    "message": "Używa czasomierza, który w celu określenia limitu czasowego nie zatrzymuje się podczas wejścia bloków lub opóźnień czyszczenia linii"
   },
   "startingLevelLabel": {
-    "message": "Starting Level",
+    "message": "Poziom startowy",
     "description": "Appears in modes where you can select the starting level, such as Marathon, Master, Retro, etc."
   },
   "startingLevelDescription": {
-    "message": "Selects the level from which you wish to start"
+    "message": "Wybiera poziom, od którego chcesz zacząć"
   },
   "levelCapLabel": {
-    "message": "Level Cap",
+    "message": "Limit poziomów",
     "description": "Can also be translated as 'Level Limit'. This option changes at what point the level will stop levelling past; for example, you can select '15' for Marathon and it will not level up beyond that"
   },
   "levelCapDescription": {
-    "message": "Changes at what point the level will stop increasing"
+    "message": "Zmienia kiedy poziom przestanie wzrastać"
   },
   "regulationModeLabel": {
-    "message": "Regulation Mode",
+    "message": "Tryb regulowania",
     "description": "This one may be hard to translate; it is used in Sprint to disable the delays for the purpose making the times comparable with other platforms"
   },
   "regulationModeDescription": {
-    "message": "Disables the delays for a more comparable ending time"
+    "message": "Wyłącza opóźnienia w celu bardziej porównywalny czasu zakończenia"
   },
   "lockdownModeLabel": {
-    "message": "Lockdown Mode",
+    "message": "Tryb blokowania",
     "description": "This option allows the user to select from the ways that the game will lock the piece down, including Infinity, Extended and Classic"
   },
   "lockdownModeDescription": {
-    "message": "Selects a mode that controls how the piece will lockdown"
+    "message": "Wybiera tryb, który kontroluje jak blok zostanie zablokowany"
   },
   "infinityLdOption": {
-    "message": "Forgiving",
+    "message": "Przebaczający",
     "description": "Name for the 'infinity' lockdown type; any move/shift or rotation will reset the timer for an unlimited number of times"
   },
   "extendedLdOption": {
-    "message": "Limited",
+    "message": "Ograniczony",
     "description": "Name for the 'extended' lockdown type; any move/shift or rotation will reset the timer for a limited (usually 15) number of times. Having the piece fall to its furthest fallen point will reset the limit"
   },
   "classicLdOption": {
-    "message": "Strict",
+    "message": "Srogi",
     "description": "Name for the 'classic' lockdown type; only having the piece fall will reset the timer"
   },
   "matrixWidthLabel": {
-    "message": "Matrix Width",
+    "message": "Szerokość matrycy",
     "description": "'Matrix' in this context can also be known as grid, field, play area; this option determines how wide in blocks the playfield is. The standard amount is 10"
   },
   "matrixWidthDescription": {
-    "message": "Determines how wide the Matrix will be during gameplay"
+    "message": "Określa, jak szeroki będzie Matrix podczas rozgrywki"
   },
   "narrowWidthOption": {
-    "message": "Narrow",
+    "message": "Wąski",
     "description": "Used in the context of the playfield's width; 'narrow' means that it has less width than the standard 10. Do not put the number of blocks in this string."
   },
   "standardWidthOption": {
-    "message": "Standard",
+    "message": "Standardowy",
     "description": "Used in the context of the playfield's width; 'standard 'means that it is the standard 10-wide. Do not put the number of blocks in this string."
   },
   "holdTypeLabel": {
-    "message": "Hold Button Mode",
+    "message": "Tryb przycisku kolejki",
     "description": "This option is how you can select between 'HOLD' and 'SKIP' for certain modes"
   },
   "holdTypeDescription": {
-    "message": "Selects what function the hold button is assigned to"
+    "message": "Wybiera, do jakiej funkcji \"przycisk kolejki\" zostanie przypisany"
   },
   "holdOption": {
-    "message": "Hold",
+    "message": "Przytrzymaj",
     "description": "This is used in the context of selecting what pressing hold will do; you may want this to match what you translated in ui.json unless there's a good reason not to"
   },
   "skipOption": {
-    "message": "Skip",
+    "message": "Pomiń",
     "description": "This is used in the context of selecting what pressing hold will do; you may want this to match what you translated in ui.json unless there's a good reason not to"
   },
   "mechanicsLabel": {
-    "message": "Mechanics",
+    "message": "Mechanika",
     "description": "As in 'game mechanics'; this option changes how the overall gameplay will function; it is mainly used in retro modes to select between more classic mechanics (such as Retro DAS, soft drop and others) and modern mechanics (such modern DAS, soft drop and others)"
   },
   "accurateOption": {
-    "message": "Accurate",
+    "message": "Dokładna",
     "description": "As in 'accurate to the original'; this is used in the Retro modes to select mechanics that intend to match those of the original game"
   },
   "modernOption": {
-    "message": "Modern",
+    "message": "Nowoczesna",
     "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
   }
 }

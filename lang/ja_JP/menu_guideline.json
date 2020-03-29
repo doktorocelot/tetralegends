@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "規定のライン数をできるだけ早く消去しましょう。",
+    "message": "規定のライン数をできるだけ早く消去するモードです。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -36,7 +36,7 @@
     "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
   },
   "comboDescription": {
-    "message": "時間がなくなるまでに、できるだけ多くのコンボを繋げよう！",
+    "message": "制限時間内に、できるだけ長くRENをつなげるゲームです。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "注意！！ ラインは下からせり上がってきます。うまく処理できないと、窒息します！",
+    "message": "灰色のラインが下からせり上がって来るゲームです。うまく処理できないと、窒息してしまいます！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

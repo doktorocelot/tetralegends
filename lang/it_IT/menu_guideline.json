@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Completa le linee completando l'obiettivo, ma stai attento al graduale aumento della velocità!",
+    "message": "Elimina le linee completando l'obiettivo, ma stai attento al graduale aumento della velocità!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Completa velocemente le linee, poiché questa modalità di gioco non fa sconti: dovrai sopravvivere alla crudele velocità di gioco fino alla fine!",
+    "message": "Completa velocemente le linee, perché questa modalità di gioco non fa sconti: dovrai sopravvivere alla crudele velocità di gioco fino alla fine!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {

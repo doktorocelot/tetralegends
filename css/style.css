@@ -1026,8 +1026,14 @@ progress[value]::-moz-progress-bar {
   margin-top: -2em;
 }
 .warning-message-container-hold {
+  text-align: right;
+  width: 20em;
   position: absolute;
   top: -1.45em;
+  right: 1em;
+}
+.warning-message-container img {
+  height: 1em;
 }
 .warning-message-container .warning-message,
 .warning-message-container-hold .warning-message,
@@ -1098,8 +1104,10 @@ progress[value]::-moz-progress-bar {
 }
 .end-message-container .end-stats {
   text-align: right;
-  width: 10em;
+  width: 15em;
   margin: auto;
+  margin-right: 50%;
+  white-space: nowrap;
 }
 .end-message-container.hidden {
   /* display: none; */

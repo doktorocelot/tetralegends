@@ -14,7 +14,7 @@
     "message": "Standard"
   },
   "guidelineDescription": {
-    "message": "Variante standard della modalità presente in tutti i giochi moderni"
+    "message": "Varianti standard delle presenti in tutti i giochi moderni"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
@@ -26,7 +26,7 @@
     "message": "Retrò"
   },
   "retroDescription": {
-    "message": "Classica variante del puzzle amato dai giocatori nostalgici"
+    "message": "Classiche varianti del puzzle, amate dai giocatori nostalgici"
   },
   "arcadeLabel": {
     "message": "Arcade"
@@ -41,7 +41,7 @@
     "message": "Personalizzazione"
   },
   "tuningDescription": {
-    "message": "Cambia la percezione del gioco"
+    "message": "Configura la tua esperienza di gioco"
   },
   "controlsLabel": {
     "message": "Controlli"

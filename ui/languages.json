@@ -42,7 +42,7 @@
     {
       "label": "Deutsch",
       "fixedText": true,
-      "description": "kivi",
+      "description": "kivi, nastyFEETs",
       "action": "lang",
       "lang": "de_DE"
     },
@@ -63,7 +63,7 @@
     {
       "label": "日本語",
       "fixedText": true,
-      "description": "hebo-MAI, MattMayuga",
+      "description": "hebo-MAI, mitsuki0316, MattMayuga",
       "action": "lang",
       "lang": "ja_JP"
     },

@@ -106,5 +106,21 @@
   "inGameTime": {
     "message": "IGT: %1",
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
+  },
+  "blockOutWarning": {
+    "message": "Block Out",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
+  },
+  "blockOutHoldWarning": {
+    "message": "Block Out",
+    "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
+  },
+  "lockOutWarning": {
+    "message": "Lock Out",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
+  },
+  "topOutWarning": {
+    "message": "Top Out",
+    "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   }
 }

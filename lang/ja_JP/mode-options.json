@@ -1,6 +1,6 @@
 {
   "startLabel": {
-    "message": "START!",
+    "message": "スタート！",
     "description": "Appears in the mode selection screen. Clicking it will start the game."
   },
   "startDescription": {
@@ -107,7 +107,7 @@
     "description": "Name for the 'infinity' lockdown type; any move/shift or rotation will reset the timer for an unlimited number of times"
   },
   "extendedLdOption": {
-    "message": "限定的",
+    "message": "リミテッド",
     "description": "Name for the 'extended' lockdown type; any move/shift or rotation will reset the timer for a limited (usually 15) number of times. Having the piece fall to its furthest fallen point will reset the limit"
   },
   "classicLdOption": {

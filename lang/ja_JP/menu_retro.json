@@ -16,7 +16,7 @@
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "多くの人が携帯ゲーム機でプレイする、低速の懐かしいバージョン",
+    "message": "多くの人が携帯ゲーム機でプレイする、低速の懐かしいスタイル",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
@@ -24,7 +24,7 @@
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "新旧を織り交ぜたゲーム",
+    "message": "新旧を織り交ぜた素晴らしいスタイル",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

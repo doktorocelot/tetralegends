@@ -1,36 +1,36 @@
 {
   "startLabel": {
-    "message": "Start",
+    "message": "Beginnen",
     "description": "Appears in the mode selection screen. Clicking it will start the game."
   },
   "startDescription": {
-    "message": "Start the game!"
+    "message": "Beginne das Spiel!"
   },
   "linesUnit": {
-    "message": "%1 lines",
+    "message": "%1 Linien",
     "description": "Unit to describe the amount of lines in various contexts, such as line goal"
   },
   "offOption": {
-    "message": "Off",
+    "message": "Aus",
     "description": "Used in the context to select nothing in an option, such as Level Cap"
   },
   "difficultyLabel": {
-    "message": "Difficulty",
+    "message": "Schwierigkeitsgrad",
     "description": "Changes 'how difficult' certain modes are"
   },
   "difficultyDescription": {
-    "message": "Selects the level of difficulty you wish to experience"
+    "message": "Wählt den Schwierigkeitsgrad aus, den Sie erleben möchten"
   },
   "beginnerDifOption": {
-    "message": "Beginner",
+    "message": "Anfänger",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 1 (easiest difficulty)"
   },
   "veryEasyDifOption": {
-    "message": "Very Easy",
+    "message": "Sehr leicht",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 2"
   },
   "easyDifOption": {
-    "message": "Easy",
+    "message": "Leicht",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 3"
   },
   "intermediateDifOption": {
@@ -50,29 +50,29 @@
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 7 (hardest difficulty)"
   },
   "endlessOption": {
-    "message": "Endless",
+    "message": "Endlos",
     "description": "The term is self explanatory, however the context in which it is used is that it appears as an option under 'line goal' or 'time limit' and the like, therefore you may want to translate it as something lile 'infinite', 'off' or anything that might fit the context better in the language"
   },
   "lineGoalLabel": {
-    "message": "Line Goal",
+    "message": "Linienziel",
     "description": "Appears in modes where you have an option to change the amount of lines needed to win, such as Marathon or Sprint"
   },
   "lineGoalDescription": {
-    "message": "Selects the amount of lines needed to win the game"
+    "message": "Wählt die Anzahl der Linien aus, die benötigt werden, um das Spiel zu gewinnen"
   },
   "timeLimitLabel": {
-    "message": "Time Limit",
+    "message": "Zeitlimit",
     "description": "Used to select the amount of time the game will last in games like Ultra or Combo Challenge"
   },
   "timeLimitDescription": {
-    "message": "Selects how long the game will last"
+    "message": "Legt fest, wie lange das Spiel dauert"
   },
   "useRtaLabel": {
-    "message": "Use RTA",
+    "message": "RTA verwenden",
     "description": "Used in modes like 'Ultra' to have the time limit run down from RTA instead of IGT; for example, this will make it so that the timer used for the time limit does not freeze during delays"
   },
   "useRtaDescription": {
-    "message": "Uses a timer that does not freeze during entry or line delays to determine the time limit"
+    "message": "Verwendet einen Timer, der während des Eintrags oder Zeilenverzögerungen nicht einfriert, um das Zeitlimit zu bestimmen"
   },
   "startingLevelLabel": {
     "message": "Starting Level",

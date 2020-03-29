@@ -17,7 +17,7 @@
     "message": "現代のほとんどのゲームに見られるパズルの標準モード"
   },
   "tetraxLabel": {
-    "message": "テトラX"
+    "message": "Tetra-X"
   },
   "tetraxDescription": {
     "message": "このゲーム用に設計された独自のモード"
@@ -41,7 +41,7 @@
     "message": "チューニング"
   },
   "tuningDescription": {
-    "message": "ゲームプレイスタイルを変更する"
+    "message": "細かい設定を変更します"
   },
   "controlsLabel": {
     "message": "操作設定"
@@ -69,18 +69,18 @@
     "message": "サウンドトラック"
   },
   "soundtrackDescription": {
-    "message": "ゲームのオリジナルサウンドトラックを試聴する"
+    "message": "ゲーム内で使用されている音楽を聞く"
   },
   "translateLabel": {
     "message": "翻訳に協力する"
   },
   "translateDescription": {
-    "message": "ゲームの翻訳に協力します"
+    "message": "ゲームの翻訳に協力する"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Discordサーバーに参加して、ゲームの議論や、アイデア、翻訳の更新に協力をしましょう"
+    "message": "Discordサーバーに参加して、ゲームについて話し合ったり、アイデアを提案したり、翻訳に協力したりしましょう！"
   }
 }

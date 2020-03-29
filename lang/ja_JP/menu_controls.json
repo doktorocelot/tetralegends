@@ -4,7 +4,7 @@
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "すべての操作設定をクリアし、最初から始めます。"
+    "message": "すべての操作設定をクリアします。"
   },
   "resetLabel": {
     "message": "リセット",
@@ -56,13 +56,13 @@
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "ピースを180°回転させます。 一部のモードでのみ使用できます"
+    "message": "ピースを180°回転させます。 (一部のモードでは使用できない場合があります)"
   },
   "holdLabel": {
     "message": "ホールド"
   },
   "holdDescription": {
-    "message": "後で使用するためにピースを保存します。 (一部のモードでは使用できない場合があります)"
+    "message": "ピースをホールドボックスに移動させます。 (一部のモードでは使用できない場合があります)"
   },
   "retryLabel": {
     "message": "リトライ",

@@ -343,7 +343,7 @@ export default class Piece extends GameModule {
     if (this.parent.stack.highest + Math.max(0, this.parent.stack.waitingGarbage) >
       this.parent.stack.height + this.parent.stack.hiddenHeight
     ) {
-      $('#warning-message').textContent = locale.getString('ui', 'topOut');
+      $('#warning-message').textContent = locale.getString('ui', 'topOutWarning');
       $('#warning-message-container').classList.remove('hidden');
       return true;
     }
@@ -359,7 +359,7 @@ export default class Piece extends GameModule {
       }
     }
     if (failed >= toCheck) {
-      $('#warning-message').textContent = locale.getString('ui', 'lockOut');
+      $('#warning-message').textContent = locale.getString('ui', 'lockOutWarning');
       $('#warning-message-container').classList.remove('hidden');
       return true;
     }
@@ -378,7 +378,7 @@ export default class Piece extends GameModule {
         (currentX < 0 || currentX >= this.parent.settings.width || currentY >= this.parent.settings.height) ||
         (this.parent.stack.grid[currentX][currentY + this.parent.settings.hiddenHeight])
       ) {
-        $('#warning-message-hold').textContent = locale.getString('ui', 'blockOut');
+        $('#warning-message-hold').textContent = locale.getString('ui', 'blockOutHoldWarning');
         $('#warning-message-container-hold').classList.remove('hidden');
         return true;
       }
@@ -404,14 +404,14 @@ export default class Piece extends GameModule {
         (currentX < 0 || currentX >= this.parent.settings.width || currentY >= this.parent.settings.height) ||
         (this.parent.stack.grid[currentX][currentY + this.parent.settings.hiddenHeight])
       ) {
-        $('#warning-message').textContent = locale.getString('ui', 'blockOut');
+        $('#warning-message').textContent = locale.getString('ui', 'blockOutWarning');
         $('#warning-message-container').classList.remove('hidden');
         return true;
       }
       for (const finalBlock of finalBlocks) {
         const newNext = [nextBlock[0], nextBlock[1] + garbageAdd];
         if (arraysEqual(finalBlock, newNext)) {
-          $('#warning-message').textContent = locale.getString('ui', 'blockOut');
+          $('#warning-message').textContent = locale.getString('ui', 'blockOutWarning');
           $('#warning-message-container').classList.remove('hidden');
           return true;
         }
