@@ -28,13 +28,6 @@ import nesDasAre from './loop-modules/nes-das-are.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
-const create4w = (grid) => {
-  for (const x of [0, 1, 2, 7, 8, 9]) {
-    for (let y = 22; y < grid[0].length; y++) {
-      grid[x][y] = 'white';
-    }
-  }
-};
 const levelUpdate = (game) => {
   let returnValue = false;
   if (game.stat.level !== lastLevel) {

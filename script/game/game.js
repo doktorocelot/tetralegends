@@ -3,7 +3,7 @@ import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
-import $, {toCtx, msToTime, capitalizeFirstLetter, resetAnimation} from '../shortcuts.js';
+import $, {toCtx, msToTime} from '../shortcuts.js';
 import {loops} from './loops.js';
 import gameHandler from './game-handler.js';
 import Next from './next.js';
@@ -127,6 +127,7 @@ export default class Game {
           loops[gametype].onInit(this);
           sound.killBgm();
           if (this.settings.musicLinePoints != null) {
+            // eslint-disable-next-line no-unused-vars
             for (const point of this.settings.musicLinePoints) {
               this.musicLinePointCleared.push(false);
             }
@@ -178,9 +179,6 @@ export default class Game {
   }
   end(victory = false) {
     this.stack.endAlarm();
-    endScreenTimeout = setTimeout(() => {
-      sound.stopSeLoop('topoutwarning');
-    }, 100);
     this.noUpdate = true;
     $('#end-stats').innerHTML = '';
     for (const statName of this.stats) {
@@ -199,6 +197,7 @@ export default class Game {
       sound.add('ko');
     }
     sound.killBgm();
+    sound.killAllLoops();
     $('#game').classList.add('dead');
     endScreenTimeout = setTimeout(() => {
       sound.stopSeLoop('alarm');

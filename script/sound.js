@@ -17,6 +17,7 @@ class Sound {
     this.paceBgmName = null;
     this.paceBgmIsRaised = false;
     this.lastLoaded = null;
+    this.noLoops = false;
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
@@ -40,7 +41,7 @@ class Sound {
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
-
+    this.noLoops = false;
     if (name === this.lastLoaded) {
       return;
     }
@@ -164,6 +165,12 @@ class Sound {
       this.music[name].stop();
     }
   }
+  killAllLoops() {
+    this.noLoops = true;
+    for (const loop of Object.keys(this.playingSeLoops)) {
+      this.stopSeLoop(loop);
+    }
+  }
   raiseDangerBgm() {
     if (!gameHandler.game.settings.hasDangerBgm) {
       return;
@@ -209,7 +216,7 @@ class Sound {
     }
   }
   startSeLoop(name) {
-    if (this.playingSeLoops[name] != null) {
+    if (this.playingSeLoops[name] != null || this.noLoops) {
       return;
     }
     if (this.files.indexOf(name) !== -1) {
