@@ -22,8 +22,11 @@
 </head>
 
 <body>
-
   <div id="main">
+    <div id="dev" style="z-index: 300; user-select: all; background-color: red; display: none;">
+      <div>Random Queue Seed:</div>
+      <input type="text" name="queuerand" id="queuerand">
+    </div>
     <div id="key-popup" class="modal hidden">
       <div class="header">Control Configuration</div>
       <div class="body">Press the key you wish to use for this action</div>
@@ -147,9 +150,11 @@
       </table>
     </div>
   </div>
+  
   <!-- <script type="module" src="locale.js"></script> -->
   <script src="lib/gamepad.min.js"></script>
   <script src="lib/howler.min.js"></script>
+  <script src="lib/seedrandom.min.js"></script>
   <script type="module" src="app.js"></script>
   <script>
     // code I found to stop backspace from FUCKING everything up
@@ -182,6 +187,13 @@
         e.preventDefault();
       }
     }, false);
+    const dev = {}
+    dev.show = () => {
+      document.getElementById('dev').style.setProperty('display', 'block');
+    }
+    dev.hide = () => {
+      document.getElementById('dev').style.setProperty('display', 'none');
+    }
   </script>
 </body>
 

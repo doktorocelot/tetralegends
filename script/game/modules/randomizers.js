@@ -30,14 +30,14 @@ export function* handheld(pieces) {
     }
   }
 }
-export function* bag(pieces, unfavored = [], bagMultiplier = 1) {
+export function* bag(pieces, unfavored = [], rng, bagMultiplier = 1) {
   let bag = [];
   const generateBag = () => {
     bag = [];
     for (let i = 0; i < bagMultiplier; i++) {
       bag = [...bag, ...pieces];
     }
-    bag = shuffle(bag);
+    bag = shuffle(bag, rng);
   };
   generateBag();
   if (unfavored.indexOf(bag[0]) !== -1) {

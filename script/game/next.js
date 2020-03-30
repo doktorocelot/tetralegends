@@ -5,15 +5,17 @@ import {PIECE_SETS, PIECES, INITIAL_ORIENTATION} from '../consts.js';
 import sound from '../sound.js';
 
 export default class Next extends GameModule {
-  constructor(parent, ctx, ctxSub) {
+  constructor(parent, ctx, ctxSub, seed) {
     super(parent);
     this.ctx = ctx;
-    this.reset();
     this.subCtx = ctxSub;
     this.nextLength = this.parent.userSettings.nextLength;
     this.nextLimit = 6;
     this.queue = [];
     this.stats = {};
+    this.seed = seed;
+    this.rng = new Math.seedrandom(this.seed);
+    this.reset();
     for (const piece of Object.keys(PIECES)) {
       this.stats[piece] = 0;
     }
@@ -22,7 +24,7 @@ export default class Next extends GameModule {
     }
   }
   reset() {
-    this.gen = randomizer[this.parent.settings.randomizer](PIECE_SETS[this.parent.settings.pieces], PIECE_SETS[this.parent.settings.unfavored]);
+    this.gen = randomizer[this.parent.settings.randomizer](PIECE_SETS[this.parent.settings.pieces], PIECE_SETS[this.parent.settings.unfavored], this.rng);
   }
   next() {
     this.generate();

@@ -21,10 +21,10 @@ export default function $(selector) {
  * @param {Array} a items An array containing the items.
  * @return {Array} shuffled array
  */
-export function shuffle(a) {
+export function shuffle(a, rng) {
   let j; let x; let i;
   for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
+    j = Math.floor(rng() * (i + 1));
     x = a[i];
     a[i] = a[j];
     a[j] = x;

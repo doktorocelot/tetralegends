@@ -103,7 +103,11 @@ export default class Game {
           // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
           this.piece = new Piece(this, toCtx(this.pieceCanvas));
-          this.next = new Next(this, toCtx(this.nextCanvas), toCtx(this.nextSubCanvas));
+          let randomseed = new Math.seedrandom()();
+          if ($('#queuerand').value !== '') {
+            randomseed = $('#queuerand').value;
+          }
+          this.next = new Next(this, toCtx(this.nextCanvas), toCtx(this.nextSubCanvas), randomseed);
           this.hold = new Hold(this, toCtx(this.holdCanvas));
           this.particle = new Particle(this, toCtx(this.particleCanvas));
           this.stack.endAlarm();
