@@ -1279,8 +1279,8 @@ progress[value]::-moz-progress-bar {
 }
 @keyframes dissolve {
   0% {transform: scale(1);}
-  20% {opacity: 1; filter: blur(0)}
-  100% {opacity: 0; transform: scale(5); display: none; filter: blur(.25em)}
+  20% {opacity: 1;}
+  100% {opacity: 0; transform: scale(5); display: none;}
 }
 .combo-counter-container {
   color: #fff;

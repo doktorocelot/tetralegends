@@ -17,6 +17,7 @@
   "rules": {
     "max-len": "off",
     "require-jsdoc": "off",
-    "brace-style": "off"
+    "brace-style": "off",
+    "new-cap": "off"
   }
 }

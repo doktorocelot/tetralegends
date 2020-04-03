@@ -90,6 +90,7 @@ export default class Game {
           menu.close();
           this.startingTime = this.timestamp();
           clearTimeout(endScreenTimeout);
+          $('#combo-counter-container').classList.add('hidden');
           $('#garbage-counter').textContent = '';
           $('#timer').classList.remove('pace');
           $('#timer-real').classList.remove('pace');
@@ -184,6 +185,7 @@ export default class Game {
     this.isDead = true;
   }
   end(victory = false) {
+    $('#combo-counter-container').classList.add('hidden');
     this.stack.endAlarm();
     this.noUpdate = true;
     $('#end-stats').innerHTML = '';
@@ -414,7 +416,10 @@ export default class Game {
     for (const direction of ['x', 'y']) {
       const modifier = Math.random() * 2 - 1;
       this.matrix.position[direction] += this.matrix.shakeVelocity[direction] * modifier;
-      this.matrix.shakeVelocity[direction] /= 1.1;
+      this.matrix.shakeVelocity[direction] /= 1 + (1.1 - 1) * multiplier;
+      if (Math.abs(this.matrix.shakeVelocity[direction]) < 0.0001) {
+        this.matrix.shakeVelocity[direction] = 0;
+      }
     }
     for (const element of ['#game-center', '#stats']) {
       const scale = 6 - Math.sqrt(25 *(settings.settings.matrixSwayScale / 100));
