@@ -1,0 +1,58 @@
+{
+  "properties": {
+    "parent": "guideline",
+    "langOverride": "mode-options",
+    "game": "sprint"
+  },
+  "data": [
+    {
+      "string": "lineGoalLabel",
+      "stringDesc": "lineGoalDescription",
+      "default": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "linesUnit",
+          "replace": [
+            "20"
+          ],
+          "value": 20
+        },
+        {
+          "string": "linesUnit",
+          "replace": [
+            "40"
+          ],
+          "value": 40
+        },
+        {
+          "string": "linesUnit",
+          "replace": [
+            "100"
+          ],
+          "value": 100
+        },
+        {
+          "string": "linesUnit",
+          "replace": [
+            "200"
+          ],
+          "value": 200
+        }
+      ],
+      "setting": "lineGoal",
+      "gameName": "sprint",
+      "settingType": "game"
+    },
+    {
+      "string": "regulationModeLabel",
+      "stringDesc": "regulationModeDescription",
+      "type": "toggle",
+      "action": "toggle",
+      "setting": "regulationMode",
+      "gameName": "sprint",
+      "settingType": "game"
+    }
+  ]
+}

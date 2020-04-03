@@ -11,8 +11,8 @@
       "string": "consoleLabel",
       "stringDesc": "consoleDescription",
       "default": true,
-      "action": "game",
-      "game": "retro"
+      "action": "submenu",
+      "submenu": "mode/retro"
     },
     {
       "string": "handheldLabel",

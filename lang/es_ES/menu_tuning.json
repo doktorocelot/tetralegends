@@ -26,5 +26,38 @@
   },
   "dasPreloadDescription": {
     "message": "Automáticamente carga el DAS cuando la tecla de movimiento es presionada durante retraso de entrada"
+  },
+  "irsLabel": {
+    "message": "Rotación Inicial",
+    "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
+  },
+  "irsDescription": {
+    "message": "Modifica la habilidad de rotar una pieza antes que aparezca (Podría ser deshabilitado en algunos modos)"
+  },
+  "absoluteIrsOption": {
+    "message": "Absoluto",
+    "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
+  },
+  "ihsLabel": {
+    "message": "Reserva Inicial",
+    "description": "Allows the user to hold a piece before it spawns (aka IHS)"
+  },
+  "ihsDescription": {
+    "message": "Modifica la habilidad de reservar una pieza antes que aparezca"
+  },
+  "tapInitOption": {
+    "message": "Pulsar",
+    "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
+  },
+  "holdInitOption": {
+    "message": "Sostener",
+    "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
+  },
+  "rotSysLabel": {
+    "message": "Sobreescritura al sistema de Rotación",
+    "description": "Allows the user to override the rotation system in any mode"
+  },
+  "rotSysDescription": {
+    "message": "Selecciona un sistema de rotación para utilizar en lugar del por defecto para el modo de juego"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "parent": "retro",
+    "langOverride": "mode-options",
+    "game": "retro"
+  },
+  "data": [
+    {
+      "string": "startingLevelLabel",
+      "stringDesc": "startingLevelDescription",
+      "default": true,
+      "type": "slider",
+      "action": "slider",
+      "max": 19,
+      "min": 0,
+      "discrete": 1,
+      "setting": "startingLevel",
+      "gameName": "retro",
+      "settingType": "game"
+    },
+    {
+      "string": "mechanicsLabel",
+      "stringDesc": "mechanicsDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "accurateOption",
+          "value": "accurate"
+        },
+        {
+          "string": "modernOption",
+          "value": "modern"
+        }
+      ],
+      "setting": "mechanics",
+      "gameName": "retro",
+      "settingType": "game"
+    }
+  ]
+}

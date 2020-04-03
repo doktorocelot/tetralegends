@@ -321,21 +321,31 @@ export default class Stack extends GameModule {
       this.endAlarm();
     }
   }
+  updateGrid() {
+    if (this.alarmIsOn) {
+      document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross-danger.svg")');
+    } else {
+      document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross.svg")');
+    }
+    if (this.parent.hideGrid) {
+      document.documentElement.style.setProperty('--grid-image', 'url()');
+    }
+  }
   startAlarm() {
     if (this.alarmIsOn) {
       return;
     }
     sound.raiseDangerBgm();
     sound.startSeLoop('alarm');
-    document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross-danger.svg")');
-    document.documentElement.style.setProperty('--tetrion-color', '#f00');
     this.alarmIsOn = true;
+    this.updateGrid();
+    document.documentElement.style.setProperty('--tetrion-color', '#f00');
   }
   endAlarm() {
     sound.lowerDangerBgm();
     sound.stopSeLoop('alarm');
     this.alarmIsOn = false;
-    document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross.svg")');
+    this.updateGrid();
     document.documentElement.style.setProperty('--tetrion-color', '#fff');
   }
   addGarbageToCounter(amount = 1) {

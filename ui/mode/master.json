@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "parent": "guideline",
+    "langOverride": "mode-options",
+    "game": "master"
+  },
+  "data": [
+    {
+      "string": "startingLevelLabel",
+      "stringDesc": "startingLevelDescription",
+      "default": true,
+      "type": "slider",
+      "action": "slider",
+      "max": 30,
+      "min": 1,
+      "discrete": 1,
+      "setting": "startingLevel",
+      "gameName": "master",
+      "settingType": "game"
+    },
+    {
+      "string": "lockdownModeLabel",
+      "stringDesc": "lockdownModeDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "infinityLdOption",
+          "value": "infinity"
+        },
+        {
+          "string": "extendedLdOption",
+          "value": "extended"
+        },
+        {
+          "string": "classicLdOption",
+          "value": "classic"
+        }
+      ],
+      "setting": "lockdownMode",
+      "gameName": "master",
+      "settingType": "game"
+    }
+  ]
+}

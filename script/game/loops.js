@@ -21,10 +21,11 @@ import softDropRetro from './loop-modules/soft-drop-retro.js';
 import softDropNes from './loop-modules/soft-drop-nes.js';
 import sound from '../sound.js';
 import updateLasts from './loop-modules/update-lasts.js';
-import {extendedLockdown, retroLockdown, classicLockdown} from './loop-modules/lockdown.js';
+import {extendedLockdown, retroLockdown, classicLockdown, infiniteLockdown} from './loop-modules/lockdown.js';
 import updateFallSpeed from './loop-modules/update-fallspeed.js';
 import shiftingNes from './loop-modules/shifting-nes.js';
 import nesDasAre from './loop-modules/nes-das-are.js';
+import settings from '../settings.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
@@ -73,7 +74,10 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10 + 1);
+      game.stat.level = Math.max(settings.game.marathon.startingLevel, Math.floor(game.stat.line / 10 + 1));
+      if (settings.game.marathon.levelCap >= 0) {
+        game.stat.level = Math.min(game.stat.level, settings.game.marathon.levelCap);
+      }
       const x = game.stat.level;
       const gravityEquation = (0.8 - ((x - 1) * 0.007)) ** (x - 1);
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
@@ -86,8 +90,11 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
-      game.stat.level = 1;
-      lastLevel = 1;
+      if (settings.game.marathon.lineGoal >= 0) {
+        game.lineGoal = settings.game.marathon.lineGoal;
+      }
+      game.stat.level = settings.game.marathon.startingLevel;
+      lastLevel = parseInt(settings.game.marathon.startingLevel);
       game.piece.gravity = 1000;
       updateFallSpeed(game);
       game.updateStats();
@@ -141,11 +148,16 @@ export const loops = {
     onPieceSpawn: (game) => {
     },
     onInit: (game) => {
-      game.lineGoal = 40;
+      game.lineGoal = settings.game.sprint.lineGoal;
       game.isRaceMode = true;
       game.stat.level = 1;
       game.reverseLineStat = true;
       game.piece.gravity = 1000;
+      if (settings.game.sprint.regulationMode) {
+        game.piece.areLimit = 0;
+        game.piece.areLineLimit = 0;
+        game.piece.areLimitLineModifier = 0;
+      }
       updateFallSpeed(game);
       game.updateStats();
     },
@@ -153,10 +165,10 @@ export const loops = {
   ultra: {
     update: (arg) => {
       const game = gameHandler.game;
-      if (game.timePassed >= game.timeGoal - 30000) {
+      if (game.timePassed + (game.rtaLimit ? game.timePassedAre : 0) >= game.timeGoal - 30000) {
         if (!game.playedHurryUp) {
           sound.add('hurryup');
-          $('#timer').classList.add('hurry-up');
+          $(`#timer${game.rtaLimit ? '-real' : ''}`).classList.add('hurry-up');
           game.playedHurryUp = true;
         }
         sound.raisePaceBgm();
@@ -188,7 +200,8 @@ export const loops = {
     onPieceSpawn: (game) => {
     },
     onInit: (game) => {
-      game.timeGoal = 120000;
+      game.timeGoal = settings.game.ultra.timeLimit;
+      game.rtaLimit = settings.game.ultra.useRta;
       game.isRaceMode = true;
       game.piece.gravity = 1000;
       updateFallSpeed(game);
@@ -234,6 +247,13 @@ export const loops = {
     onPieceSpawn: (game) => {
     },
     onInit: (game) => {
+      if (settings.game.combo.holdType === 'skip') {
+        game.hold.useSkip = true;
+        game.hold.holdAmount = 2;
+        game.hold.holdAmountLimit = 2;
+        game.hold.gainHoldOnPlacement = true;
+        game.resize();
+      }
       game.timeGoal = 30000;
       game.isRaceMode = true;
       game.piece.gravity = 1000;
@@ -331,7 +351,7 @@ export const loops = {
       }
       lockFlash(arg);
       updateLasts(arg);
-      game.stat.level = Math.floor(game.timePassed / 10000 + 1);
+      game.stat.level = Math.max(settings.game.survival.startingLevel, Math.floor(game.timePassed / 10000 + 1));
       const x = game.stat.level;
       const gravityEquation = (0.99 - ((x - 1) * 0.007)) ** (x - 1);
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20));
@@ -349,7 +369,14 @@ export const loops = {
 
     },
     onInit: (game) => {
-      const difficulty = 3;
+      if (settings.game.survival.matrixWidth === 'standard') {
+        game.settings.width = 10;
+        game.stack.width = 10;
+        game.stack.new();
+        game.piece.xSpawnOffset = 0;
+        game.resize();
+      }
+      const difficulty = settings.game.survival.difficulty;
       game.garbageRateExponent = [1.91, 1.95, 1.97, 2, 2.03, 2.07, 2.1][difficulty];
       game.garbageRateMultiplier = [.005, .01, .02, .03, .05, .08, .1][difficulty];
       game.garbageRateAdditive = [1, 1.5, 2, 2.5, 9, 18, 35][difficulty];
@@ -362,8 +389,8 @@ export const loops = {
       game.marginTime = 0;
       game.marginTimeLimit = 5000;
       garbageTimer = 0;
-      game.stat.level = 1;
-      lastLevel = 1;
+      game.stat.level = settings.game.survival.startingLevel;
+      lastLevel = parseInt(settings.game.survival.startingLevel);
       game.piece.gravity = 1000;
       updateFallSpeed(game);
       game.updateStats();
@@ -385,7 +412,17 @@ export const loops = {
       gravity(arg);
       softDrop(arg);
       hardDrop(arg);
-      extendedLockdown(arg);
+      switch (settings.game.master.lockdownMode) {
+        case 'infinity':
+          infiniteLockdown(arg);
+          break;
+        case 'extended':
+          extendedLockdown(arg);
+          break;
+        case 'classic':
+          classicLockdown(arg);
+          break;
+      }
       if (!arg.piece.inAre) {
         respawnPiece(arg);
         hold(arg);
@@ -394,7 +431,7 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10 + 1);
+      game.stat.level = Math.max(Math.floor(game.stat.line / 10 + 1), settings.game.master.startingLevel);
       const calcLevel = Math.min(29, game.stat.level - 1);
       const DELAY_TABLE = [
         500, 480, 461, 442, 425,
@@ -418,8 +455,8 @@ export const loops = {
     },
     onInit: (game) => {
       game.lineGoal = 300;
-      game.stat.level = 1;
-      lastLevel = 1;
+      game.stat.level = settings.game.master.startingLevel;
+      lastLevel = parseInt(settings.game.master.startingLevel);
       game.prefixes.level = 'M';
       game.stat.entrydelay = '400ms';
       game.piece.gravity = framesToMs(1 / 20);
@@ -589,25 +626,43 @@ export const loops = {
         arg.stack.isDirty = true;
         arg.stack.levelUpAnimation += arg.ms;
       }
-      if (arg.piece.inAre) {
-        nesDasAre(arg);
-        arg.piece.are += arg.ms;
+      if (settings.game.retro.mechanics === 'accurate') {
+        if (arg.piece.inAre) {
+          nesDasAre(arg);
+          arg.piece.are += arg.ms;
+        } else {
+          shiftingNes(arg);
+          rotate(arg);
+          classicGravity(arg);
+          softDropNes(arg);
+          retroLockdown(arg, true);
+        }
       } else {
-        shiftingNes(arg);
-        rotate(arg);
+        if (arg.piece.inAre) {
+          initialDas(arg);
+          initialRotation(arg);
+          arg.piece.are += arg.ms;
+        } else {
+          rotate(arg);
+          rotate180(arg);
+          shifting(arg);
+        }
         classicGravity(arg);
-        softDropNes(arg);
+        softDropNes(arg, false);
+        hardDrop(arg);
         retroLockdown(arg, true);
-        arg.piece.holdingTime += arg.ms;
       }
       if (!arg.piece.inAre) {
+        arg.piece.holdingTime += arg.ms;
         respawnPiece(arg);
       }
       lockFlash(arg);
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10);
+      const startLevel = settings.game.retro.startingLevel;
+      const startingLines = Math.min((Math.max(100, startLevel * 10 - 50)), (startLevel * 10 + 10));
+      game.stat.level = Math.floor(Math.max(((game.stat.line + 10 - startingLines + (startLevel * 10)) / 10), startLevel));
       const SPEED_TABLE = [
         48, 43, 38, 33, 28,
         23, 18, 13, 8, 5,
@@ -620,10 +675,14 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      if (settings.game.retro.mechanics === 'accurate') {
+        game.hideGrid = true;
+        game.stack.updateGrid();
+      }
       game.piece.holdingTimeLimit = 1600;
-      game.stat.level = 0;
+      game.stat.level = settings.game.retro.startingLevel;
       game.redrawOnLevelUp = true;
-      lastLevel = 0;
+      lastLevel = parseInt(settings.game.retro.startingLevel);
       gameHandler.game.makeSprite(
           [
             'x-0', 'l-0', 'r-0',
@@ -644,6 +703,9 @@ export const loops = {
       game.stack.levelUpAnimationLimit = 450;
       game.piece.useRetroColors = true;
       gameHandler.game.colors = PIECE_COLORS.retroSpecial;
+      game.updateStats();
+      game.piece.lockDownType = null;
+      game.drawLockdown();
     },
   },
 };

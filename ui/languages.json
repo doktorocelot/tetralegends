@@ -54,6 +54,13 @@
       "lang": "nl_NL"
     },
     {
+      "label": "Polski",
+      "fixedText": true,
+      "description": "micwoj92",
+      "action": "lang",
+      "lang": "pl_PL"
+    },
+    {
       "label": "Tiếng Việt",
       "fixedText": true,
       "description": "Shard Nguyễn",

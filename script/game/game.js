@@ -92,7 +92,9 @@ export default class Game {
           clearTimeout(endScreenTimeout);
           $('#garbage-counter').textContent = '';
           $('#timer').classList.remove('pace');
+          $('#timer-real').classList.remove('pace');
           $('#timer').classList.remove('hurry-up');
+          $('#timer-real').classList.remove('hurry-up');
           $('#game').classList.remove('dead');
           $('#ready-meter').classList.remove('hidden');
           $('#end-message-container').classList.add('hidden');
@@ -302,17 +304,26 @@ export default class Game {
         $('#pip-grid').classList.remove('hidden');
         $('#lockdown').classList.remove('hidden');
         $('#delay').classList.remove('hidden');
+        $('#infinity-symbol').classList.add('hidden');
         break;
       case 'infinite':
+        $('#pip-grid').classList.add('hidden');
+        $('#lockdown').classList.remove('hidden');
+        $('#delay').classList.remove('hidden');
+        $('#infinity-symbol').classList.remove('hidden');
+        break;
       case 'classic':
         $('#pip-grid').classList.add('hidden');
         $('#lockdown').classList.remove('hidden');
         $('#delay').classList.remove('hidden');
+        $('#infinity-symbol').classList.add('hidden');
+
         break;
       default:
         $('#pip-grid').classList.add('hidden');
         $('#lockdown').classList.add('hidden');
         $('#delay').classList.add('hidden');
+        $('#infinity-symbol').classList.add('hidden');
         break;
     }
   }
@@ -459,8 +470,8 @@ export default class Game {
               }
             }
             if (game.timeGoal != null) {
-              if (game.timePassed >= game.timeGoal) {
-                game.timePassed = game.timeGoal;
+              if (((game.rtaLimit) ? game.timePassed + game.timePassedAre : game.timePassed) >=
+                game.timeGoal) {
                 game.timeGoal = null;
                 $('#kill-message').textContent = locale.getString('ui', 'timeOut');
                 game.end();
@@ -573,8 +584,13 @@ export default class Game {
           }
         }
         if (game.timeGoal != null) {
-          $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timeGoal - game.timePassed)]);
-          $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timePassed + game.timePassedAre)]);
+          if (game.rtaLimit) {
+            $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timePassed)]);
+            $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timeGoal - game.timePassed - game.timePassedAre)]);
+          } else {
+            $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timeGoal - game.timePassed)]);
+            $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timePassed + game.timePassedAre)]);
+          }
         } else {
           $('#timer').innerHTML = locale.getString('ui', 'inGameTime', [msToTime(game.timePassed)]);
           $('#timer-real').innerHTML = locale.getString('ui', 'realTimeAttack', [msToTime(game.timePassed + game.timePassedAre)]);

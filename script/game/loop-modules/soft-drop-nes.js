@@ -1,12 +1,12 @@
 import input from '../../input.js';
 import {framesToMs} from '../../shortcuts.js';
 
-export default function softDropNes(arg) {
+export default function softDropNes(arg, fireball = true) {
   if (input.getGameDown('softDrop') && !arg.piece.softDropIsLocked) {
     if (arg.piece.breakHoldingTimeOnSoftDrop) {
       arg.piece.holdingTime = arg.piece.holdingTimeLimit;
     }
-    if (input.getGameDown('moveLeft') || input.getGameDown('moveRight')) {
+    if ((input.getGameDown('moveLeft') || input.getGameDown('moveRight')) && fireball) {
       arg.piece.softDropIsLocked = true;
       return;
     }

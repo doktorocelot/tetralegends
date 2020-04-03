@@ -3,7 +3,6 @@ import {capitalizeFirstLetter, framesToMs} from '../../shortcuts.js';
 
 export default function shiftingNes(arg) {
   const piece = arg.piece;
-  console.log(Math.round(piece.retroDas * 0.06));
   const dasLimit = framesToMs(16);
   const resetShift = () => {
     if (input.getGameDown('softDrop')) {

@@ -7,38 +7,38 @@
       "string": "marathonLabel",
       "stringDesc": "marathonDescription",
       "default": true,
-      "action": "game",
-      "game": "marathon"
+      "action": "submenu",
+      "submenu": "mode/marathon"
     },
     {
       "string": "sprintLabel",
       "stringDesc": "sprintDescription",
       "action": "submenu",
-      "submenu": "sprint"
+      "submenu": "mode/sprint"
     },
     {
       "string": "ultraLabel",
       "stringDesc": "ultraDescription",
-      "action": "game",
-      "game": "ultra"
+      "action": "submenu",
+      "submenu": "mode/ultra"
     },
     {
       "string": "masterLabel",
       "stringDesc": "masterDescription",
-      "action": "game",
-      "game": "master"
+      "action": "submenu",
+      "submenu": "mode/master"
     },
     {
       "string": "survivalLabel",
       "stringDesc": "survivalDescription",
-      "action": "game",
-      "game": "survival"
+      "action": "submenu",
+      "submenu": "mode/survival"
     },
     {
       "string": "comboLabel",
       "stringDesc": "comboDescription",
-      "action": "game",
-      "game": "combo"
+      "action": "submenu",
+      "submenu": "mode/combo"
     }
   ]
 }

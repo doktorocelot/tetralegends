@@ -1,0 +1,80 @@
+{
+  "properties": {
+    "parent": "guideline",
+    "langOverride": "mode-options",
+    "game": "survival"
+  },
+  "data": [
+    {
+      "string": "startingLevelLabel",
+      "stringDesc": "startingLevelDescription",
+      "default": true,
+      "type": "slider",
+      "action": "slider",
+      "max": 30,
+      "min": 1,
+      "discrete": 1,
+      "setting": "startingLevel",
+      "gameName": "survival",
+      "settingType": "game"
+    },
+    {
+      "string": "difficultyLabel",
+      "stringDesc": "difficultyDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "beginnerDifOption",
+          "value": 0
+        },
+        {
+          "string": "veryEasyDifOption",
+          "value": 1
+        },
+        {
+          "string": "easyDifOption",
+          "value": 2
+        },
+        {
+          "string": "intermediateDifOption",
+          "value": 3
+        },
+        {
+          "string": "hardDifOption",
+          "value": 4
+        },
+        {
+          "string": "expertDifOption",
+          "value": 5
+        },
+        {
+          "string": "proDifOption",
+          "value": 6
+        }
+      ],
+      "setting": "difficulty",
+      "gameName": "survival",
+      "settingType": "game"
+    },
+    {
+      "string": "matrixWidthLabel",
+      "stringDesc": "matrixWidthDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "narrowWidthOption",
+          "value": "narrow"
+        },
+        {
+          "string": "standardWidthOption",
+          "value": "standard"
+        }
+      ],
+      "setting": "matrixWidth",
+      "gameName": "survival",
+      "settingType": "game"
+    }
+  ]
+}

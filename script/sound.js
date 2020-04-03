@@ -4,6 +4,7 @@ import gameHandler from './game/game-handler.js';
 class Sound {
   constructor() {
     this.sounds = [];
+    this.cut = [];
     this.music = {};
     this.toPlay = {};
     this.files = [];
@@ -52,6 +53,7 @@ class Sound {
           this.lastLoaded = name;
           this.files = soundData.files;
           this.ren = soundData.ren;
+          this.cut = (soundData.cutItself) ? soundData.cutItself : [];
           for (const soundName of this.files) {
             this.amountOfTimesEnded[soundName] = 0;
             this.sounds[soundName] = new Howl({
@@ -243,6 +245,9 @@ class Sound {
     }
     for (const name of Object.keys(this.toPlay)) {
       if (this.files.indexOf(name) !== -1) {
+        if (this.cut.indexOf(name) !== -1) {
+          this.sounds[name].stop();
+        }
         this.sounds[name].play();
       } else if (name === 'initialrotate' && this.files.indexOf('rotate') !== -1) {
         this.sounds['rotate'].play();

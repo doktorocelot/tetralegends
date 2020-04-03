@@ -18,7 +18,8 @@
     "areLimit": 33.3333333333,
     "areLineLimit": 0,
     "areLimitLineModifier": 0,
-    "ghostIsVisible": false
+    "ghostIsVisible": false,
+    "lockdownType": null
   },
   "stack": {
     "useMinoSkin": true,

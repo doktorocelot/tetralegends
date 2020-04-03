@@ -10,7 +10,8 @@ const isSelectable = (type) => {
     type == 'control' ||
     type == 'setting' ||
     type == 'slider' ||
-    type == 'toggle'
+    type == 'toggle' ||
+    type == 'select'
   ) {
     return true;
   }
@@ -59,16 +60,26 @@ class Menu {
           this.current.name = name;
           this.current.properties = menu.properties;
           this.current.lang = (this.current.properties.langOverride) ?
-            this.current.properties.langOverride : this.current.name;
+            this.current.properties.langOverride : `menu_${this.current.name}`;
           this.current.data = menu.data;
           if (this.current.properties.parent) {
             const back = {
               'string': 'backLabel',
               'stringDesc': 'backDescription',
-              'useGeneral': true,
+              'langOverride': 'menu_general',
               'action': 'back',
             };
             this.current.data.unshift(back);
+          }
+          if (this.current.properties.game) {
+            const game = {
+              'string': 'startLabel',
+              'stringDesc': 'startDescription',
+              'langOverride': 'mode-options',
+              'action': 'game',
+              'game': this.current.properties.game,
+            };
+            this.current.data.push(game);
           }
           switch (type) {
             case 'controls':
@@ -87,7 +98,7 @@ class Menu {
           this.isEnabled = true;
         })
         .catch((error) => {
-        // TODO error handling
+          throw error;
         });
   }
   close() {
@@ -143,6 +154,10 @@ class Menu {
           element = document.createElement('div');
           element.classList.add('toggle-container');
           break;
+        case 'select':
+          element = document.createElement('div');
+          element.classList.add('select-container');
+          break;
         case 'control':
           element = document.createElement('div');
           element.classList.add('control');
@@ -170,7 +185,7 @@ class Menu {
       if (isSelectable(currentData.type)) {
         const index = i - nonOptions;
         element.id = `option-${index}`;
-        element.onmouseenter = () => {
+        element.onmousemove = () => {
           if (this.isLocked || input.mouseLimit < 1) {
             return;
           }
@@ -182,26 +197,29 @@ class Menu {
       } else {
         nonOptions++;
       }
+
       if (currentData.type === 'control') {
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
+        label.textContent = locale.getString(this.current.lang, currentData.string);
         label.classList.add('label');
         element.appendChild(label);
         element.appendChild(sub);
       } else if (currentData.type === 'slider') {
         element.onclick = () => {};
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
+        label.textContent = locale.getString(this.current.lang, currentData.string);
         label.classList.add('setting-text');
         const value = document.createElement('div');
         value.id = `${currentData.settingType}-${currentData.setting}-value`;
         value.classList.add('value');
         value.onclick = () => {
-          const newValue = prompt('Enter the desired value:');
+          const newValue = prompt('Enter the desired value:'); // TODO turn into translation string
           if (isNaN(newValue) || newValue == null) {
             return;
           }
-          settings.changeSetting(currentData.setting, Math.min(Math.max(currentData.min, newValue), currentData.max));
+          const sel = currentData;
+          settings.changeSetting(currentData.setting, Math.min(Math.max(currentData.min, newValue), currentData.max),
+            (sel.settingType === 'game') ? sel.gameName : undefined);
           this.drawSettings();
         };
         const slider = document.createElement('input');
@@ -212,8 +230,11 @@ class Menu {
         slider.max = currentData.max;
         slider.classList.add('slider');
         slider.id = `${currentData.settingType}-${currentData.setting}`;
+        slider.setAttribute('gamename', currentData.gameName);
         slider.oninput = () => {
-          settings.changeSetting(currentData.setting, slider.value);
+          const sel = currentData;
+          settings.changeSetting(sel.setting, slider.value,
+            (sel.settingType === 'game') ? sel.gameName : undefined);
           this.drawSettings();
         };
         element.appendChild(label);
@@ -221,11 +242,12 @@ class Menu {
         element.appendChild(value);
       } else if (currentData.type === 'toggle') {
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
+        label.textContent = locale.getString(this.current.lang, currentData.string);
         label.classList.add('setting-text');
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
         bubble.id = `${currentData.settingType}-${currentData.setting}`;
+        bubble.setAttribute('gamename', currentData.gameName);
         bubble.setAttribute('settingtype', 'toggle');
         const value = document.createElement('div');
         value.classList.add('value-name');
@@ -233,12 +255,57 @@ class Menu {
         element.appendChild(label);
         element.appendChild(bubble);
         element.appendChild(value);
+      } else if (currentData.type === 'select') {
+        const label = document.createElement('div');
+        const createArrowElement = (passedElement, text, className) => {
+          passedElement.classList.add('arrow');
+          passedElement.classList.add(className);
+          passedElement.textContent = text;
+        };
+        label.textContent = locale.getString(this.current.lang, currentData.string);
+        label.classList.add('setting-text');
+        const arrowLeft = document.createElement('div');
+        const arrowRight = document.createElement('div');
+        createArrowElement(arrowLeft, '<', 'arrow-left');
+        createArrowElement(arrowRight, '>', 'arrow-right');
+        const adjust = (modValue) => {
+          const sel = currentData;
+          const value = (sel.settingType === 'game') ?
+            settings.game[sel.gameName][sel.setting] : settings.settings[sel.setting];
+          let index = 0;
+          for (index = 0; index < sel.selectOptions.length; index++) {
+            const selectData = sel.selectOptions[index];
+            if (selectData.value === value) {
+              break;
+            }
+          }
+          const newValue = sel.selectOptions[negativeMod(index + modValue, sel.selectOptions.length)].value;
+          settings.changeSetting(sel.setting, newValue,
+            (sel.settingType === 'game') ? sel.gameName : undefined);
+          this.drawSettings();
+        };
+        arrowLeft.onclick = () => {
+          adjust(-1);
+        };
+        arrowRight.onclick = () => {
+          adjust(1);
+        };
+        const value = document.createElement('div');
+        value.classList.add('value-name');
+        value.id = `${currentData.settingType}-${currentData.setting}`;
+        value.setAttribute('gamename', currentData.gameName);
+        value.setAttribute('settingtype', 'select');
+        value.classList.add('value');
+        element.appendChild(label);
+        element.appendChild(arrowLeft);
+        element.appendChild(value);
+        element.appendChild(arrowRight);
       } else {
-        if (currentData.useGeneral) {
-          element.textContent = locale.getString(`menu_general`, currentData.string);
+        if (currentData.langOverride) {
+          element.textContent = locale.getString(currentData.langOverride, currentData.string);
         } else {
           if (!currentData.fixedText) {
-            element.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
+            element.textContent = locale.getString(this.current.lang, currentData.string);
           } else {
             element.textContent = currentData.label;
           }
@@ -255,7 +322,7 @@ class Menu {
         element.classList.add('selected');
         element.scrollIntoView({block: 'center'});
         if (!currentData.fixedText) {
-          $('#description').textContent = locale.getString(`menu_${this.current.lang}`, currentData.stringDesc);
+          $('#description').textContent = locale.getString(this.current.lang, currentData.stringDesc);
         } else {
           $('#description').textContent = currentData.description;
         }
@@ -278,29 +345,58 @@ class Menu {
     document.addEventListener('keydown', getKey);
   }
   drawSettings() {
-    for (const key of Object.keys(settings.settings)) {
-      const element = $(`#setting-${key}`);
+    const drawElement = (element, key, gameName) => {
       if (element != null) {
+        const settingValue = (gameName) ? settings.game[gameName][key] : settings.settings[key];
+        const valueSelector = `#${(gameName) ? 'game' : 'setting'}-${key}-value`;
         switch (element.getAttribute('settingtype')) {
           case 'slider':
-            element.value = settings.settings[key];
-            $(`#setting-${key}-value`).innerHTML = `${element.value}`;
+            element.value = settingValue;
+            $(valueSelector).innerHTML = element.value;
             break;
           case 'toggle':
-            try {
-              if (settings.settings[key] === true) {
-                element.classList.add('enabled');
-                $(`#setting-${key}-value`).textContent = locale.getString('menu_general', 'enabled');
-              } else {
-                element.classList.remove('enabled');
-                $(`#setting-${key}-value`).textContent = locale.getString('menu_general', 'disabled');
-              }
-            } catch (e) {
-              throw new Error('Draw Toggle doesn\'t work');
-              // I REALLY AM AN IDIOT
+            if (settingValue === true) {
+              element.classList.add('enabled');
+              $(valueSelector).textContent = locale.getString('menu_general', 'enabled');
+            } else {
+              element.classList.remove('enabled');
+              $(valueSelector).textContent = locale.getString('menu_general', 'disabled');
             }
             break;
+          case 'select':
+            let selectData = null;
+            for (const data of this.current.data) {
+              if (data.selectOptions && data.setting === key) {
+                selectData = data.selectOptions;
+                break;
+              }
+            }
+            let valueData = null;
+            for (const currentSelectData of selectData) {
+              if (currentSelectData.value === settingValue) {
+                valueData = currentSelectData;
+                break;
+              }
+            }
+            let label = null;
+            if (valueData.fixedText) {
+              label = valueData.label;
+            } else {
+              label = locale.getString(this.current.lang, valueData.string, valueData.replace);
+            }
+            element.textContent = label;
+            break;
         }
+      }
+    };
+    for (const key of Object.keys(settings.settings)) {
+      const element = $(`#setting-${key}`);
+      drawElement(element, key);
+    }
+    for (const gameName of Object.keys(settings.game)) {
+      for (const key of Object.keys(settings.game[gameName])) {
+        const element = $(`#game-${key}[gamename="${gameName}"]`);
+        drawElement(element, key, gameName);
       }
     }
   }
@@ -370,11 +466,11 @@ class Menu {
     if (!mouseOver) {
       $(`#option-${number}`).scrollIntoView({block: 'center', behavior: 'smooth'});
     }
-    if (this.current.data[number].useGeneral) {
-      $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
+    if (this.current.data[number].langOverride) {
+      $('#description').textContent = locale.getString(this.current.data[number].langOverride, this.current.data[number].stringDesc);
     } else {
       if (!this.current.data[number].fixedText) {
-        $('#description').textContent = locale.getString(`menu_${this.current.lang}`, this.current.data[number].stringDesc);
+        $('#description').textContent = locale.getString(this.current.lang, this.current.data[number].stringDesc);
       } else {
         $('#description').textContent = this.current.data[number].description;
       }
@@ -431,6 +527,10 @@ class Menu {
       this.drawSettings();
       return;
     }
+    if (this.selectedData.type === 'select') {
+      $('#menu > .select-container.selected .arrow-right').onclick();
+      return;
+    }
     this.select(negativeMod((this.selected + 1), this.length));
   }
   left() {
@@ -457,6 +557,10 @@ class Menu {
     if (this.selectedData.type === 'toggle') {
       settings.changeSetting(this.selectedData.setting, false);
       this.drawSettings();
+      return;
+    }
+    if (this.selectedData.type === 'select') {
+      $('#menu > .select-container.selected .arrow-left').onclick();
       return;
     }
     this.select(negativeMod((this.selected - 1), this.length));
@@ -490,7 +594,11 @@ class Menu {
         this.selectedControl.onclick();
         break;
       case 'toggle':
-        settings.changeSetting(this.selectedData.setting, !settings.settings[this.selectedData.setting]);
+        const sel = this.selectedData;
+        const value = (sel.settingType === 'game') ?
+          !settings.game[sel.gameName][sel.setting] : !settings.settings[sel.setting];
+        settings.changeSetting(sel.setting, value,
+          (sel.settingType === 'game') ? sel.gameName : undefined);
         this.drawSettings();
         break;
       case 'slider':

@@ -22,12 +22,6 @@
     "spinDetectionType": "3corner",
     "xSpawnOffset": -3
   },
-  "hold": {
-    "useSkip": true,
-    "holdAmount": 2,
-    "holdAmountLimit": 2,
-    "gainHoldOnPlacement": true
-  },
   "stats": [
     "score",
     "maxcombo"

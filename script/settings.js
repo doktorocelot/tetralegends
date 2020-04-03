@@ -73,76 +73,10 @@ class Settings {
       case 'ko':
         this.defaultSettings.language = 'ko_KR';
         break;
+      case 'pl':
+        this.defaultSettings.language = 'pl_PL';
+        break;
     }
-    this.settingInfo = {
-      // Tuning
-      DAS: {
-        name: 'Autoshift Delay',
-        description: 'Length of time before autoshift begins',
-        category: 'tuning',
-        type: 'range',
-        min: 0,
-        max: 30,
-      },
-      ARR: {
-        name: 'Autoshift Rate',
-        description: 'How fast the autoshift applies',
-        category: 'tuning',
-        type: 'range',
-        min: 0,
-        max: 10,
-      },
-      IRS: {
-        name: 'Initial Rotation',
-        description: 'Allow the rotation of a tetromino before it appears',
-        category: 'tuning',
-        type: 'select',
-        options: ['off', 'tap', 'hold', 'additive'],
-      },
-      IHS: {
-        name: 'Initial Hold',
-        description: 'Allow the holding of a tetromino before it appears',
-        category: 'tuning',
-        type: 'select',
-        options: ['off', 'tap', 'hold'],
-      },
-      rotationSystem: {
-        name: 'Rotation System',
-        description: 'How a tetromino acts when rotated',
-        category: 'tuning',
-        type: 'select',
-        options: ['auto', 'srs'],
-      },
-      // Graphics
-      size: {
-        name: 'Game Size',
-        description: 'Adjust how big the game appears',
-        category: 'graphics',
-        type: 'range',
-        min: 20,
-        max: 100,
-      },
-      nextLength: {
-        name: 'Next Queue Length',
-        description: 'Adjust how many tetrominoes will appear in the next queue',
-        category: 'graphics',
-        type: 'range',
-        min: 0,
-        max: 6,
-      },
-      skin: {
-        name: 'Monomino Skin',
-        description: 'The skin of the monominoes that make up the tetrominoes',
-        category: 'graphics',
-        type: 'list',
-      },
-      /*  color: {
-          name: 'Tetromino Color',
-          description: 'The color of each unique tetromino',
-          category: 'graphics',
-         // type: ''
-        }*/
-    };
     this.defaultControls = {
       moveLeft: ['ArrowLeft'],
       moveRight: ['ArrowRight'],
@@ -157,7 +91,33 @@ class Settings {
     };
     this.defaultGame = {
       marathon: {
-
+        startingLevel: 1,
+        lineGoal: 150,
+        levelCap: -1,
+      },
+      sprint: {
+        lineGoal: 40,
+        regulationMode: false,
+      },
+      ultra: {
+        timeLimit: 120000,
+        useRta: false,
+      },
+      master: {
+        startingLevel: 1,
+        lockdownMode: 'extended',
+      },
+      survival: {
+        startingLevel: 1,
+        difficulty: 3,
+        matrixWidth: 'narrow',
+      },
+      combo: {
+        holdType: 'skip',
+      },
+      retro: {
+        startingLevel: 0,
+        mechanics: 'accurate',
       },
     };
     this.settings = {};
@@ -180,6 +140,13 @@ class Settings {
         this[`reset${index}`]();
       } else {
         this[index.toLowerCase()] = JSON.parse(JSON.stringify(loaded));
+        if (index === 'Game') {
+          this[index.toLowerCase()] = {...JSON.parse(JSON.stringify(this[`default${index}`])), ...JSON.parse(JSON.stringify(this[index.toLowerCase()]))};
+          for (const key of Object.keys(this.defaultGame)) {
+            this[index.toLowerCase()][key] = {...JSON.parse(JSON.stringify(this[`default${index}`][key])), ...JSON.parse(JSON.stringify(this[index.toLowerCase()][key]))};
+          }
+          continue;
+        }
         this[index.toLowerCase()] = {...JSON.parse(JSON.stringify(this[`default${index}`])), ...JSON.parse(JSON.stringify(this[index.toLowerCase()]))};
       }
     }
@@ -206,9 +173,16 @@ class Settings {
   resetGameSpecific(mode) {
     this.game[mode] = this.defaultGame[mode];
   }
-  changeSetting(setting, value) {
-    this.settings[setting] = value;
+  changeSetting(setting, value, game) {
+    if (game) {
+      this.game[game][setting] = value;
+    } else {
+      this.settings[setting] = value;
+    }
     sound.updateVolumes();
+    if (game) {
+      this.saveGame();
+    }
     this.saveSettings();
   }
   getConflictingControlNames() {

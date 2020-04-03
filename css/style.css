@@ -410,7 +410,8 @@ body {
 }
 #menu > .control,
 #menu > .slider-container,
-#menu > .toggle-container
+#menu > .toggle-container,
+#menu > .select-container
 {
   padding: .2em .5em;
 }
@@ -447,6 +448,19 @@ body {
 }
 #menu > .toggle-container.selected .bubble.enabled {
   background-color: #000;
+}
+#menu > .select-container {
+}
+#menu > .select-container .arrow {
+  vertical-align: top;
+  display: inline-block;
+  width: 1em;
+  cursor: pointer;
+}
+#menu > .select-container .value {
+  display: inline-block;
+  font-size: .7em;
+  width: 11em;
 }
 .setting-text {
   text-align: left;
@@ -941,6 +955,14 @@ body {
   bottom: -2.3em;
   left: -7em;
 }
+.infinity-symbol {
+  position: absolute;
+  color: white;
+  text-align: right;
+  width: 6em;
+  bottom: -2.3em;
+  right: -2em;
+}
 .manip-grid {
   position: absolute;
   display: grid;
@@ -972,6 +994,7 @@ body {
   top: 22em;
 }
 
+.infinity-symbol.hidden,
 .ready-meter.hidden,
 .lockdown-meter.hidden,
 .manip-grid.hidden,

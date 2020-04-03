@@ -28,7 +28,7 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Max Combo",
+    "message": "Maksymalne kombo",
     "description": "The highest combo obtained"
   },
   "next": {
@@ -108,15 +108,15 @@
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
-    "message": "Block Out",
+    "message": "Zablokowanie",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "Block Out",
+    "message": "Zablokowanie",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "Lock Out",
+    "message": "Zablokowanie",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {

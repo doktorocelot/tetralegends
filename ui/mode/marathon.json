@@ -1,0 +1,72 @@
+{
+  "properties": {
+    "parent": "guideline",
+    "langOverride": "mode-options",
+    "game": "marathon"
+  },
+  "data": [
+    {
+      "string": "startingLevelLabel",
+      "stringDesc": "startingLevelDescription",
+      "default": true,
+      "type": "slider",
+      "action": "slider",
+      "max": 20,
+      "min": 1,
+      "discrete": 1,
+      "setting": "startingLevel",
+      "gameName": "marathon",
+      "settingType": "game"
+    },
+    {
+      "string": "lineGoalLabel",
+      "stringDesc": "lineGoalDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "linesUnit",
+          "replace": ["150"],
+          "value": 150
+        },
+        {
+          "string": "linesUnit",
+          "replace": ["200"],
+          "value": 200
+        },
+        {
+          "string": "endlessOption",
+          "value": -1
+        }
+      ],
+      "setting": "lineGoal",
+      "gameName": "marathon",
+      "settingType": "game"
+    },
+    {
+      "string": "levelCapLabel",
+      "stringDesc": "levelCapDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "offOption",
+          "value": -1
+        },
+        {
+          "label": "15",
+          "fixedText": true,
+          "value": 15
+        },
+        {
+          "label": "20",
+          "fixedText": true,
+          "value": 20
+        }
+      ],
+      "setting": "levelCap",
+      "gameName": "marathon",
+      "settingType": "game"
+    }
+  ]
+}

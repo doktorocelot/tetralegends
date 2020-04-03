@@ -26,7 +26,6 @@ function fallen(piece) {
 export function gravity(arg) {
   const piece = arg.piece;
   let distance = arg.ms / (piece.gravity / piece.gravityMultiplier);
-  console.log(piece.gravity);
   if (piece.gravityOverride) {
     distance = arg.ms / piece.gravityOverride;
   }

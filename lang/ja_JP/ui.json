@@ -68,7 +68,7 @@
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
-    "message": "ブロックアウト",
+    "message": "窒息死",
     "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
   },
   "lockOut": {
@@ -84,7 +84,7 @@
     "description": "Displays when the time runs out"
   },
   "excellent": {
-    "message": "革新的!",
+    "message": "お見事！",
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
@@ -108,11 +108,11 @@
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
-    "message": "ブロックアウト警告",
+    "message": "次のブロックで窒息してしまいます！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "ホールドブロックアウト警告",
+    "message": "窒息してしまいます！",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
