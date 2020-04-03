@@ -6,17 +6,13 @@
     {
       "string": "standardLabel",
       "stringDesc": "standardDescription",
-      "label": "Standard",
       "default": true,
-      "description": "Stack until you drop!",
       "action": "game",
       "game": "standardx"
     },
     {
       "string": "proLabel",
       "stringDesc": "proDescription",
-      "label": "Pro",
-      "description": "This is where puzzle masters come to die",
       "action": "game",
       "game": "prox"
     }

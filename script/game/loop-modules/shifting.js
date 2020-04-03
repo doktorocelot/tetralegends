@@ -5,7 +5,7 @@ export default function shifting(arg) {
   const piece = arg.piece;
   const resetShift = () => {
     piece.das = 0;
-    piece.arr = 0;
+    piece.arr = piece.arrLimit;
     piece.shiftReleased = true;
   };
   if (input.getGamePress('moveLeft')) {
@@ -56,7 +56,6 @@ export default function shifting(arg) {
     } else if (piece.das < piece.dasLimit) {
       piece.das += arg.ms;
     } else if (piece.das >= piece.dasLimit) {
-      piece.arr += arg.ms;
       if (piece.arrLimit <= 0) {
         while (piece[`canShift${capitalizeFirstLetter(piece.shiftDir)}`]) {
           piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
@@ -73,6 +72,7 @@ export default function shifting(arg) {
           piece.arr -= piece.arrLimit;
         }
       }
+      piece.arr += arg.ms;
     }
   }
 }

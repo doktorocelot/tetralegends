@@ -13,86 +13,66 @@
     {
       "string": "quickLabel",
       "stringDesc": "quickDescription",
-      "label": "Quick Play",
       "default": true,
-      "description": "Jump right into a game of Marathon",
       "action": "quick"
     },
     {
       "string": "gameStylesOverline",
-      "label": "Game Styles",
       "type": "overline"
     },
     {
       "string": "guidelineLabel",
       "stringDesc": "guidelineDescription",
-      "label": "Guideline",
-      "description": "Standard variant of the puzzle found in modern games",
       "action": "submenu",
       "submenu": "guideline"
     },
     {
       "string": "tetraxLabel",
       "stringDesc": "tetraxDescription",
-      "label": "Tetra-X",
-      "description": "Custom variant founded by this game",
       "action": "submenu",
       "submenu": "tetrax"
     },
     {
       "string": "retroLabel",
       "stringDesc": "retroDescription",
-      "label": "Retro",
       "width": "half",
-      "description": "Classic variant loved by oldschool players",
       "action": "submenu",
       "submenu": "retro"
     },
     {
       "string": "arcadeLabel",
       "stringDesc": "arcadeDescription",
-      "label": "Arcade",
       "disabled": true,
       "width": "half",
-      "description": "Difficult vaiant loved by hardcore players (coming soon!)",
       "action": "submenu"
     },
     {
       "string": "settingsOverline",
-      "label": "Settings",
       "type": "overline"
     },
     {
       "string": "controlsLabel",
       "stringDesc": "controlsDescription",
-      "label": "Controls",
-      "description": "Change how the game controls",
       "action": "submenu",
       "submenu": "controls"
     },
     {
       "string": "tuningLabel",
       "stringDesc": "tuningDescription",
-      "label": "Tuning",
-      "description": "Change how the game feels",
       "action": "submenu",
       "submenu": "tuning"
     },
     {
       "string": "audioLabel",
       "stringDesc": "audioDescription",
-      "label": "Audio",
       "width": "half",
-      "description": "Change how the game sounds",
       "action": "submenu",
       "submenu": "audio"
     },
     {
       "string": "videoLabel",
       "stringDesc": "videoDescription",
-      "label": "Video",
       "width": "half",
-      "description": "Change how the game looks",
       "action": "submenu",
       "submenu": "video"
     },

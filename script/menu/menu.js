@@ -29,6 +29,7 @@ class Menu {
   constructor() {
     this.current = {
       name: null,
+      lang: null,
       data: null,
       properties: null,
     };
@@ -56,9 +57,11 @@ class Menu {
         .then((menu) => {
           this.clear();
           this.current.name = name;
-          this.current.data = menu.data;
           this.current.properties = menu.properties;
-          if (this.current.properties.parent != null) {
+          this.current.lang = (this.current.properties.langOverride) ?
+            this.current.properties.langOverride : this.current.name;
+          this.current.data = menu.data;
+          if (this.current.properties.parent) {
             const back = {
               'string': 'backLabel',
               'stringDesc': 'backDescription',
@@ -181,14 +184,14 @@ class Menu {
       }
       if (currentData.type === 'control') {
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
         label.classList.add('label');
         element.appendChild(label);
         element.appendChild(sub);
       } else if (currentData.type === 'slider') {
         element.onclick = () => {};
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
         label.classList.add('setting-text');
         const value = document.createElement('div');
         value.id = `${currentData.settingType}-${currentData.setting}-value`;
@@ -218,7 +221,7 @@ class Menu {
         element.appendChild(value);
       } else if (currentData.type === 'toggle') {
         const label = document.createElement('div');
-        label.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+        label.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
         label.classList.add('setting-text');
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
@@ -235,7 +238,7 @@ class Menu {
           element.textContent = locale.getString(`menu_general`, currentData.string);
         } else {
           if (!currentData.fixedText) {
-            element.textContent = locale.getString(`menu_${this.current.name}`, currentData.string);
+            element.textContent = locale.getString(`menu_${this.current.lang}`, currentData.string);
           } else {
             element.textContent = currentData.label;
           }
@@ -252,7 +255,7 @@ class Menu {
         element.classList.add('selected');
         element.scrollIntoView({block: 'center'});
         if (!currentData.fixedText) {
-          $('#description').textContent = locale.getString(`menu_${this.current.name}`, currentData.stringDesc);
+          $('#description').textContent = locale.getString(`menu_${this.current.lang}`, currentData.stringDesc);
         } else {
           $('#description').textContent = currentData.description;
         }
@@ -267,8 +270,6 @@ class Menu {
     this.current.data = [...newData];
     if (this.current.name === 'controls') {
       this.drawControls();
-    } else if (this.current.name === 'tuning') {
-      this.drawSettings();
     }
     this.drawSettings();
   }
@@ -295,6 +296,7 @@ class Menu {
                 $(`#setting-${key}-value`).textContent = locale.getString('menu_general', 'disabled');
               }
             } catch (e) {
+              throw new Error('Draw Toggle doesn\'t work');
               // I REALLY AM AN IDIOT
             }
             break;
@@ -372,7 +374,7 @@ class Menu {
       $('#description').textContent = locale.getString(`menu_general`, this.current.data[number].stringDesc);
     } else {
       if (!this.current.data[number].fixedText) {
-        $('#description').textContent = locale.getString(`menu_${this.current.name}`, this.current.data[number].stringDesc);
+        $('#description').textContent = locale.getString(`menu_${this.current.lang}`, this.current.data[number].stringDesc);
       } else {
         $('#description').textContent = this.current.data[number].description;
       }

@@ -6,9 +6,7 @@
     {
       "string": "nextLengthLabel",
       "stringDesc": "nextLengthDescription",
-      "label": "Next Queue Length",
       "default": true,
-      "description": "The amount of pieces the player can see up ahead",
       "type": "slider",
       "action": "slider",
       "max": 6,
@@ -20,8 +18,6 @@
     {
       "string": "lockdownBarLabel",
       "stringDesc": "lockdownBarDescription",
-      "label": "Lockdown Bar",
-      "description": "Allow the ability to see additional information on lock delay and move limits",
       "type": "toggle",
       "action": "toggle",
       "setting": "useLockdownBar",
@@ -38,8 +34,6 @@
     {
       "string": "swayScaleLabel",
       "stringDesc": "swayScaleDescription",
-      "label": "Matrix Sway Scale",
-      "description": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
       "type": "slider",
       "action": "slider",
       "max": 100,
@@ -51,8 +45,6 @@
     {
       "string": "swaySpeedLabel",
       "stringDesc": "swaySpeedDescription",
-      "label": "Matrix Sway Speed",
-      "description": "How fast the matrix returns to its neutral position in percentage",
       "type": "slider",
       "action": "slider",
       "max": 100,
@@ -64,8 +56,6 @@
     {
       "string": "particlesLabel",
       "stringDesc": "particlesDescription",
-      "label": "Particles",
-      "description": "Whether particles should be drawn",
       "type": "toggle",
       "action": "toggle",
       "setting": "particles",
@@ -74,8 +64,6 @@
     {
       "string": "particleLimitLabel",
       "stringDesc": "particleLimitDescription",
-      "label": "Particle Limit",
-      "description": "How many particles can appear on screen at one time",
       "type": "slider",
       "action": "slider",
       "max": 1500,
@@ -87,8 +75,6 @@
     {
       "string": "particleSizeLabel",
       "stringDesc": "particleSizeDescription",
-      "label": "Particle Size",
-      "description": "How large the particles will appear",
       "type": "slider",
       "action": "slider",
       "max": 5,
@@ -100,8 +86,6 @@
     {
       "string": "particleVolumeLabel",
       "stringDesc": "particleVolumeDescription",
-      "label": "Particle Volume",
-      "description": "How many particles will generate",
       "type": "slider",
       "action": "slider",
       "max": 3,

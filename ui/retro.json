@@ -5,31 +5,24 @@
   "data": [
     {
       "string": "variationsOverline",
-      "label": "Variations",
       "type": "overline"
     },
     {
       "string": "consoleLabel",
       "stringDesc": "consoleDescription",
-      "label": "Console",
       "default": true,
-      "description": "The most competitively-used, classic version of the puzzle in the world!",
       "action": "game",
       "game": "retro"
     },
     {
       "string": "handheldLabel",
       "stringDesc": "handheldDescription",
-      "label": "Handheld",
-      "description": "A slow-paced, nostalgic version that many played on handheld devices",
       "action": "game",
       "game": "handheld"
     },
     {
       "string": "deluxeLabel",
       "stringDesc": "deluxeDescription",
-      "label": "Deluxe",
-      "description": "A nice blend of classic and modern elements",
       "action": "game",
       "game": "deluxe"
     }

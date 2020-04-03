@@ -177,7 +177,7 @@ export default class Game {
   timestamp() {
     return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
   }
-  kill() {
+  die() {
     cancelAnimationFrame(this.request);
     this.isDead = true;
   }

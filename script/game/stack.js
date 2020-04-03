@@ -239,6 +239,25 @@ export default class Stack extends GameModule {
         }
       }
     }
+    if (pc) {
+      this.parent.particle.generate({
+        amount: 200,
+        x: this.parent.stack.width / 2 * this.parent.cellSize,
+        y: this.parent.cellSize * (this.parent.bufferPeek + this.parent.stack.height) / 2,
+        xRange: 0,
+        yRange: 0,
+        xVelocity: 0,
+        yVelocity: 0,
+        xVariance: 1,
+        yVariance: 1,
+        xFlurry: .5,
+        yFlurry: .5,
+        lifeVariance: 250,
+        maxlife: 250,
+      });
+      sound.add('bravo');
+      this.parent.displayActionText('<br><br>' + locale.getString('action-text', 'pc'));
+    }
     if (this.useGarbageSending) {
       garbageToClear += [0, 0, 1, 2, 4][this.lineClear];
       if (isSpin && !isMini) {
@@ -254,8 +273,6 @@ export default class Stack extends GameModule {
         }
       }
       if (pc) {
-        sound.add('bravo');
-        this.parent.displayActionText('<br><br>' + locale.getString('action-text', 'pc'));
         garbageToClear += 10;
       }
     }
