@@ -1,7 +1,7 @@
 import GameModule from './game-module.js';
 import $, {clearCtx, resetAnimation} from '../shortcuts.js';
 import * as randomizer from './modules/randomizers.js';
-import {PIECE_SETS, PIECES} from '../consts.js';
+import {PIECE_SETS, PIECES, INITIAL_ORIENTATION} from '../consts.js';
 import sound from '../sound.js';
 
 export default class Hold extends GameModule {
@@ -40,6 +40,7 @@ export default class Hold extends GameModule {
         sound.add('hold');
       }
     }
+    this.ihs = false;
     const swapPiece = this.pieceName;
     this.pieceName = this.parent.piece.name;
     if (swapPiece == null || this.useSkip) {
@@ -75,7 +76,7 @@ export default class Hold extends GameModule {
     if (this.isDisabled) {
       return;
     }
-    const shape = PIECES[this.pieceName].shape[0];
+    const shape = PIECES[this.pieceName].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][this.pieceName]];
     const cellSize = this.parent.cellSize;
     const offset = this.parent.nextOffsets[this.pieceName];
     const ctx = this.ctx;

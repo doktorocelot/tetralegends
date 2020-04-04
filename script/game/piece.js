@@ -65,9 +65,11 @@ export default class Piece extends GameModule {
     this.holdingTimeLimit = 0;
     this.breakHoldingTimeOnSoftDrop = true;
     this.resetHoldingTime = false;
+    this.killLockDelayOnRotate = false;
   }
   new(name = this.parent.next.next()) {
     const rotSys = this.parent.rotationSystem;
+    this.killLockDelayOnRotate = false;
     if (this.parent.stat.piece === 0 && !this.parent.hold.hasHeld) {
       if (this.parent.isRaceMode) {
         sound.add('go');
@@ -648,10 +650,23 @@ export default class Piece extends GameModule {
   shiftDown() {
     this.shift('y', 1, !this.isLanded);
   }
+  killLockDelay() {
+    if (this.lockDelay >= this.lockDelayLimit) {
+      return;
+    }
+    this.lockDelay = this.lockDelayLimit;
+    this.manipulations = this.manipulationLimit;
+    this.lowestVisualY = this.parent.stack.height - 1;
+    sound.add('lockforce');
+  }
   rotate(amount, direction, playSound = true) {
     const newOrientation = (this.orientation + amount) % 4;
     const rotatedShape = this.piece[newOrientation];
     const kickTable = this.kicks[direction][this.orientation];
+    if (this.killLockDelayOnRotate) {
+      this.killLockDelay();
+    }
+    kickTest:
     for (let i = 0; i <= kickTable.length; i++) {
       if (i === kickTable.length) {
         // Rotation Failed
@@ -660,6 +675,51 @@ export default class Piece extends GameModule {
       const offset = PIECE_OFFSETS[this.parent.rotationSystem][this.name];
       const kickX = kickTable[i][0] + offset[newOrientation][0] - offset[this.orientation][0];
       const kickY = kickTable[i][1] + offset[newOrientation][1] - offset[this.orientation][1];
+      const exceptionTable = KICK_TABLES[this.parent.rotationSystem].exception;
+      const unlessTable = KICK_TABLES[this.parent.rotationSystem].unlessToWith;
+      const killTable = KICK_TABLES[this.parent.rotationSystem].killPieceLockDelay;
+      const allowKickOffGroundTable = KICK_TABLES[this.parent.rotationSystem].allowKickOffGround;
+      if (allowKickOffGroundTable) {
+        const allowArray = allowKickOffGroundTable[this.name];
+        if (allowArray) {
+          if (!allowArray[this.orientation] && !this.isLanded) {
+            break;
+          }
+        }
+      }
+      if (exceptionTable) {
+        const check = (x, y) => {return this.parent.stack.isFilled(x, y);};
+        if (exceptionTable[this.name]) {
+          exceptionTest:
+          for (const exception of exceptionTable[this.name][this.orientation]) {
+            if (check(exception[0] + this.x, exception[1] + this.yFloor + this.parent.stack.hiddenHeight)) {
+              if (unlessTable) {
+                if (unlessTable[this.name]) {
+                  const unless = unlessTable[this.name][this.orientation][newOrientation];
+                  for (let i = 0; i <= unless.length; i++) {
+                    if (i >= unless.length) {
+                      break exceptionTest;
+                    }
+                    const position = unless[i];
+                    if (!check(position[0] + this.x, position[1] + this.yFloor + this.parent.stack.hiddenHeight)) {
+                      break;
+                    }
+                  }
+                }
+              }
+              break kickTest;
+            }
+          }
+        }
+      }
+      if (killTable) {
+        if (killTable[this.name]) {
+          const killOn = killTable[this.name][this.orientation][newOrientation];
+          if (killOn >= 0 && i >= killOn) {
+            this.killLockDelayOnRotate = true;
+          }
+        }
+      }
       if (this.moveValid(kickX, kickY, rotatedShape)) {
         this.lastKickIndex = i;
         this.x += kickX;
@@ -799,6 +859,9 @@ export default class Piece extends GameModule {
     }
   }
   get inAre() {
+    if (this.startingAre < this.startingAreLimit) {
+      return true;
+    }
     let areMod = 0;
     if (this.hasLineDelay) {
       areMod += this.areLineLimit;

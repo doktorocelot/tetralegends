@@ -181,8 +181,20 @@ export const SPAWN_OFFSETS = {
     J: [3, -1],
     S: [3, 0],
   },
+  ars: {
+    downShift: 0,
+    I: [3, -1],
+    L: [4, -1],
+    O: [4, 0],
+    Z: [4, 0],
+    T: [4, -1],
+    J: [4, -1],
+    S: [4, 0],
+  },
 };
 SPAWN_OFFSETS.tetrax = {...SPAWN_OFFSETS.srs, downShift: 2, I: [3, -3]};
+SPAWN_OFFSETS.world = SPAWN_OFFSETS.srs;
+SPAWN_OFFSETS.arsti = SPAWN_OFFSETS.ars;
 export const INITIAL_ORIENTATION = {
   srs: {
     I: 0,
@@ -204,8 +216,11 @@ export const INITIAL_ORIENTATION = {
   },
 };
 INITIAL_ORIENTATION.tetrax = INITIAL_ORIENTATION.srs;
+INITIAL_ORIENTATION.world = INITIAL_ORIENTATION.srs;
 INITIAL_ORIENTATION.handheld = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.deluxe = INITIAL_ORIENTATION.retro;
+INITIAL_ORIENTATION.ars = INITIAL_ORIENTATION.retro;
+INITIAL_ORIENTATION.arsti = INITIAL_ORIENTATION.ars;
 const KICK_TEMPLATES = {
   srs: {
     x: {
@@ -333,6 +348,68 @@ const KICK_TEMPLATES = {
       ],
     },
   },
+  ars: {
+    x: {
+      right: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+      left: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+      double: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+    },
+    I: {
+      right: [
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [2, 0], [-1, 0]],
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [2, 0], [-1, 0]],
+      ],
+      left: [
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [2, 0], [-1, 0]],
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [2, 0], [-1, 0]],
+      ],
+      double: [
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+      ],
+    },
+    T: {
+      right: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0], [0, -1]],
+      ],
+      left: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0], [0, -1]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+      double: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+    },
+  },
   none: {
     all: {
       right: [
@@ -356,6 +433,37 @@ const KICK_TEMPLATES = {
     },
   },
 };
+KICK_TEMPLATES.world = {
+  x: {
+    ...KICK_TEMPLATES.srs.x,
+    double: [
+      [[0, 0], [1, 0], [-1, 0], [0, -1], [0, 1], [0, -2], [0, 2]],
+      [[0, 0], [0, 1], [0, - 1], [0, -2], [0, 2], [-1, 0], [1, 0]],
+      [[0, 0], [-1, 0], [1, 0], [0, 1], [0, -1], [0, 2], [0, -2]],
+      [[0, 0], [0, 1], [0, -1], [0, -2], [0, 2], [1, 0], [-1, 0]],
+    ],
+  },
+  I: {
+    right: [
+      [[0, 0], [- 2, 0], [1, 0], [1, -2], [-2, 1]], // 0>>1
+      [[0, 0], [-1, 0], [2, 0], [-1, -2], [2, 1]], //  1>>2
+      [[0, 0], [2, 0], [-1, 0], [2, -1], [-1, 1]], //  2>>3
+      [[0, 0], [-2, 0], [1, 0], [-2, -1], [1, 2]], //  3>>0
+    ],
+    left: [
+      [[0, 0], [2, 0], [- 1, 0], [-1, -2], [2, 1]], // 0>>3
+      [[0, 0], [2, 0], [-1, 0], [2, -1], [-1, 2]], //  1>>0
+      [[0, 0], [-2, 0], [1, 0], [-2, -1], [1, 1]], //  2>>1
+      [[0, 0], [1, 0], [-2, 0], [1, -2], [-2, 1]], //  3>>2
+    ],
+    double: [
+      [[0, 0], [- 1, 0], [-2, 0], [1, 0], [2, 0]],
+      [[0, 0], [0, 1], [0, -1], [0, -2], [0, 2]],
+      [[0, 0], [1, 0], [2, 0], [-1, 0], [-2, 0]],
+      [[0, 0], [0, 1], [0, -1], [0, -2], [0, 2]],
+    ],
+  },
+};
 export const KICK_TABLES = {
   srs: {
     I: KICK_TEMPLATES.srs.I,
@@ -365,6 +473,15 @@ export const KICK_TABLES = {
     T: KICK_TEMPLATES.srs.x,
     J: KICK_TEMPLATES.srs.x,
     S: KICK_TEMPLATES.srs.x,
+  },
+  world: {
+    I: KICK_TEMPLATES.world.I,
+    L: KICK_TEMPLATES.world.x,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.world.x,
+    T: KICK_TEMPLATES.world.x,
+    J: KICK_TEMPLATES.world.x,
+    S: KICK_TEMPLATES.world.x,
   },
   tetrax: {
     I: KICK_TEMPLATES.tetrax.I,
@@ -393,9 +510,73 @@ export const KICK_TABLES = {
     J: KICK_TEMPLATES.deluxe.x,
     S: KICK_TEMPLATES.deluxe.x,
   },
+  ars: {
+    I: KICK_TEMPLATES.none.all,
+    L: KICK_TEMPLATES.ars.x,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.ars.x,
+    T: KICK_TEMPLATES.ars.x,
+    J: KICK_TEMPLATES.ars.x,
+    S: KICK_TEMPLATES.ars.x,
+    exception: {
+      L: [
+        [[1, 0], [1, -1]],
+        [],
+        [[1, 2], [1, 0]],
+        [],
+      ],
+      J: [
+        [[1, 0], [1, -1]],
+        [],
+        [[1, 2], [1, 0]],
+        [],
+      ],
+      T: [
+        [[1, -1]],
+        [],
+        [[1, 0]],
+        [],
+      ],
+    },
+    unlessToWith: {
+      L: [
+        [[[]], [[]], [[]], [[]]],
+        [[[]], [[]], [[]], [[]]],
+        [[[]], [[]], [[]], [[0, 0], [1, 2]]],
+        [[[]], [[]], [[]], [[]]],
+      ],
+      J: [
+        [[[]], [[]], [[]], [[]]],
+        [[[]], [[]], [[]], [[]]],
+        [[[]], [[2, 0], [1, 2]], [[]], [[]]],
+        [[[]], [[]], [[]], [[]]],
+      ],
+    },
+  },
+};
+KICK_TABLES.arsti = {
+  ...KICK_TABLES.ars,
+  I: KICK_TEMPLATES.ars.I,
+  T: KICK_TEMPLATES.ars.T,
+  killPieceLockDelay: {
+    T: [
+      [[-1], [-1], [-1], [-1]],
+      [[3], [-1], [-1], [-1]],
+      [[-1], [-1], [-1], [-1]],
+      [[3], [-1], [-1], [-1]],
+    ],
+    I: [
+      [[-1], [0], [-1], [0]],
+      [[-1], [-1], [-1], [-1]],
+      [[-1], [0], [-1], [0]],
+      [[-1], [-1], [-1], [-1]],
+    ],
+  },
+  allowKickOffGround: {
+    I: [false, true, false, true],
+  },
 };
 KICK_TABLES.handheld = KICK_TABLES.retro;
-
 export const PIECE_COLORS = {
   srs: {
     I: 'lightBlue',
@@ -451,8 +632,19 @@ export const PIECE_COLORS = {
     J: 'r',
     S: 'r',
   },
+  ars: {
+    I: 'red',
+    L: 'orange',
+    O: 'yellow',
+    Z: 'green',
+    T: 'lightBlue',
+    J: 'blue',
+    S: 'purple',
+  },
 };
+PIECE_COLORS.world = PIECE_COLORS.srs;
 PIECE_COLORS.handheld = PIECE_COLORS.retro;
+PIECE_COLORS.arsti = PIECE_COLORS.ars;
 
 export const NEXT_OFFSETS = {
   srs: {
@@ -474,9 +666,12 @@ export const NEXT_OFFSETS = {
     S: [0.5, 0.5],
   },
 };
+NEXT_OFFSETS.world = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.tetrax = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.deluxe = NEXT_OFFSETS.retro;
+NEXT_OFFSETS.ars = NEXT_OFFSETS.retro;
+NEXT_OFFSETS.arsti = NEXT_OFFSETS.ars;
 
 export const PIECE_OFFSETS = {
   srs: {
@@ -506,9 +701,20 @@ export const PIECE_OFFSETS = {
     J: [[0, 0], [0, 0], [0, 0], [0, 0]],
     S: [[0, 1], [-1, 0], [0, 0], [0, 0]],
   },
+  ars: {
+    I: [[0, 0], [0, 0], [0, -1], [1, 0]],
+    L: [[0, 1], [0, 0], [0, 0], [0, 0]],
+    O: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    Z: [[0, 1], [0, 0], [0, 0], [1, 0]],
+    T: [[0, 1], [0, 0], [0, 0], [0, 0]],
+    J: [[0, 1], [0, 0], [0, 0], [0, 0]],
+    S: [[0, 1], [-1, 0], [0, 0], [0, 0]],
+  },
 };
+PIECE_OFFSETS.world = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.tetrax = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.deluxe = PIECE_OFFSETS.srs;
+PIECE_OFFSETS.arsti = PIECE_OFFSETS.ars;
 export const PIECE_BINARIES = {
   L: 0b000,
   J: 0b001,
@@ -623,4 +829,14 @@ export const SPIN_SETS = {
   tOnly: ['T'],
   all: ['I', 'L', 'Z', 'T', 'J', 'S'],
   none: [],
+};
+export const SKIN_SETS = {
+  srs: 'srsx',
+  world: 'glossy',
+  tetrax: 'standard',
+  retro: 'retro',
+  handheld: 'handheld',
+  deluxe: 'handheld',
+  ars: 'arika',
+  arsti: 'arika',
 };

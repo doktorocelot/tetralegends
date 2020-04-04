@@ -1,5 +1,5 @@
 import {loadGameType} from '../loaders.js';
-import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES} from '../consts.js';
+import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES, SKIN_SETS} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
@@ -115,10 +115,16 @@ export default class Game {
           this.particle = new Particle(this, toCtx(this.particleCanvas));
           this.stack.endAlarm();
           // SET UP SETTINGS
+
+          if (this.userSettings.rotationSystem === 'auto') {
+            this.rotationSystem = this.settings.rotationSystem;
+          } else {
+            this.settings.rotationSystem = this.userSettings.rotationSystem;
+            this.rotationSystem = this.userSettings.rotationSystem;
+          }
           if (!this.settings.disableDefaultSkinLoad) {
             this.makeSprite();
           }
-          this.rotationSystem = this.settings.rotationSystem;
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
           this.loop = loops[gametype].update;
@@ -615,7 +621,7 @@ export default class Game {
         'purple', 'white', 'black',
       ],
       types = ['mino', 'ghost', 'stack'],
-      skin = this.settings.skin
+      skin = SKIN_SETS[this.settings.rotationSystem]
   ) {
     this.loadFinished = false;
     $('#sprite').innerHTML = '';

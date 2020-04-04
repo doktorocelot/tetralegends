@@ -39,6 +39,62 @@
       "action": "toggle",
       "setting": "IAS",
       "settingType": "setting"
+    },
+    {
+      "string": "rotSysLabel",
+      "stringDesc": "rotSysDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "label": "Auto",
+          "fixedText": true,
+          "value": "auto"
+        },
+        {
+          "label": "SRS-X",
+          "fixedText": true,
+          "value": "srs"
+        },
+        {
+          "label": "Tetra-X",
+          "fixedText": true,
+          "value": "tetrax"
+        },
+        {
+          "label": "ARS",
+          "fixedText": true,
+          "value": "ars"
+        },
+        {
+          "label": "ARS-TI",
+          "fixedText": true,
+          "value": "arsti"
+        },
+        {
+          "label": "World",
+          "fixedText": true,
+          "value": "world"
+        },
+        {
+          "label": "Nintendo-R",
+          "fixedText": true,
+          "value": "retro"
+        },
+        {
+          "label": "Nintendo-L",
+          "fixedText": true,
+          "value": "handheld"
+        },
+        {
+          "label": "DX",
+          "fixedText": true,
+          "value": "deluxe"
+        }
+        
+      ],
+      "setting": "rotationSystem",
+      "settingType": "setting"
     }
   ]
 }

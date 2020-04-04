@@ -58,6 +58,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -67,7 +68,6 @@ export const loops = {
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -130,6 +130,7 @@ export const loops = {
       }
       collapse(arg);
       if (arg.piece.inAre) {
+        respawnPiece(arg);
         initialDas(arg);
         initialRotation(arg);
         initialHold(arg);
@@ -144,7 +145,6 @@ export const loops = {
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -187,6 +187,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -196,7 +197,6 @@ export const loops = {
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -234,6 +234,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -243,7 +244,6 @@ export const loops = {
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -283,6 +283,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -292,7 +293,6 @@ export const loops = {
       hardDrop(arg);
       classicLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -330,6 +330,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -351,7 +352,6 @@ export const loops = {
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -410,6 +410,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -429,7 +430,6 @@ export const loops = {
           break;
       }
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -478,6 +478,7 @@ export const loops = {
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -487,7 +488,6 @@ export const loops = {
       hardDrop(arg);
       classicLockdown(arg);
       if (!arg.piece.inAre) {
-        respawnPiece(arg);
         hold(arg);
       }
       lockFlash(arg);
@@ -538,15 +538,13 @@ export const loops = {
         handheldDasAre(arg, framesToMs(9), framesToMs(3));
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         shiftingRetro(arg, framesToMs(9), framesToMs(3));
       }
       deluxeGravity(arg);
       softDropRetro(arg, framesToMs(2));
       classicLockdown(arg);
-      if (!arg.piece.inAre) {
-        respawnPiece(arg);
-      }
       lockFlash(arg);
       updateLasts(arg);
     },
@@ -584,15 +582,13 @@ export const loops = {
         handheldDasAre(arg, framesToMs(23), 150);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         shiftingRetro(arg, framesToMs(23), 150);
       }
       classicGravity(arg);
       softDropRetro(arg, 50);
       retroLockdown(arg);
-      if (!arg.piece.inAre) {
-        respawnPiece(arg);
-      }
       lockFlash(arg);
       updateLasts(arg);
     },
@@ -648,6 +644,7 @@ export const loops = {
           initialRotation(arg);
           arg.piece.are += arg.ms;
         } else {
+          respawnPiece(arg);
           rotate(arg);
           rotate180(arg);
           shifting(arg);
@@ -659,7 +656,6 @@ export const loops = {
       }
       if (!arg.piece.inAre) {
         arg.piece.holdingTime += arg.ms;
-        respawnPiece(arg);
       }
       lockFlash(arg);
       updateLasts(arg);
