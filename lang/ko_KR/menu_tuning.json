@@ -28,36 +28,36 @@
     "message": "\"켜짐\" 설정 시, 블록 진입 딜레이(ARE) 중 방향키를 누를 때 자동 이동을 미리 충전할 수 있게 합니다."
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "미리 회전",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "블록이 필드에 나타나기 전 회전하는 것을 허용할지 설정합니다. (일부 모드에서는 비활성화)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "절대적",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "미리 홀드",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "블록이 필드에 나타나기 전 홀드하는 것을 허용할지 설정합니다."
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "한 번 누를 시 활성화",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "계속 누를 시 활성화",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "회전 체계 오버라이드",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "해당 모드에서 사용되는 회전 체계 대신 설정한 회전 체계를 사용"
   }
 }

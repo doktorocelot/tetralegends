@@ -28,36 +28,36 @@
     "message": "Tự động bỏ qua DAS khi giữ phím di chuyển trong khoảng thời gian tạo gạch trong bảng"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "IRS",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Tùy chỉnh tính năng xoay gạch trước khi gạch xuất hiện (có thể bị tắt ở vài chế độ)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Theo 1 hướng",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "IHS",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Tùy chỉnh tính năng giữ gạch trước khi gạch xuất hiện"
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "Bấm",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "Giữ",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Ghi đè bộ xoay",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Lựa chọn một bộ xoay gạch để dùng làm mặc định ở các chế độ"
   }
 }

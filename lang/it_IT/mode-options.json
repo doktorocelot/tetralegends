@@ -149,7 +149,7 @@
     "description": "As in 'game mechanics'; this option changes how the overall gameplay will function; it is mainly used in retro modes to select between more classic mechanics (such as Retro DAS, soft drop and others) and modern mechanics (such modern DAS, soft drop and others)"
   },
   "mechanicsDescription": {
-    "message": "Determines how the game will play",
+    "message": "Modifica il comportamento delle meccaniche di gioco",
     "description": "Used to describe 'mechanics'"
   },
   "accurateOption": {

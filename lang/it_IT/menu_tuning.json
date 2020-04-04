@@ -28,22 +28,22 @@
     "message": "Carica automaticamente lo spostamento automatico quando un tasto di movimento viene premuto durante il ritardo d'ingresso"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Rotazione Iniziale (IRS)",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Modifica la possibilità di poter ruotare un tetramino prima che appaia (potrebbe essere disabilitato in alcune modalità)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Assoluta",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "Riserva iniziale (IHS)",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Modifica la possibilità di poter mandare in riserva un tetramino prima che appaia"
   },
   "tapInitOption": {
     "message": "Tap",
@@ -54,10 +54,10 @@
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Modifica il sistema di rotazione",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Seleziona un sistema di rotazione diverso da quello di default per la modalità"
   }
 }

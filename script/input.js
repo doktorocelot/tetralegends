@@ -33,12 +33,11 @@ class Input {
     }
 
     this.mouseLimit = 0;
-
     this.currentGameKeys = {};
     this.lastGameKeys = {};
     for (const control of Object.keys(settings.defaultControls)) {
-      this.currentGameKeys[control] = false;
-      this.lastGameKeys[control] = {};
+      this.currentGameKeys[control] = new Set();
+      this.lastGameKeys[control] = new Set();
     }
 
     document.addEventListener('keydown', (event) => {
@@ -67,14 +66,14 @@ class Input {
       }
       for (const key of Object.keys(settings.controls)) {
         if (settings.controls[key].indexOf(event.code) !== -1) {
-          this.currentGameKeys[key] = true;
+          this.currentGameKeys[key].add(event.code);
         }
       }
     });
     document.addEventListener('keyup', (event) => {
       for (const key of Object.keys(settings.controls)) {
         if (settings.controls[key].indexOf(event.code) !== -1) {
-          this.currentGameKeys[key] = false;
+          this.currentGameKeys[key].delete(event.code);
         }
       }
     });
@@ -119,22 +118,24 @@ class Input {
     }
   }
   updateGameInput() {
-    this.lastGameKeys = {...this.currentGameKeys};
+    for (const key of Object.keys(this.currentGameKeys)) {
+      this.lastGameKeys[key] = new Set(this.currentGameKeys[key]);
+    }
   }
   getGameDown(name) {
-    if (this.currentGameKeys[name]) {
+    if (this.currentGameKeys[name].size > 0) {
       return true;
     }
     return false;
   }
   getGamePress(name) {
-    if (this.currentGameKeys[name] && !this.lastGameKeys[name]) {
+    if (this.currentGameKeys[name].size > this.lastGameKeys[name].size) {
       return true;
     }
     return false;
   }
   getGameRelease(name) {
-    if (!this.currentGameKeys[name] && this.lastGameKeys[name]) {
+    if (this.currentGameKeys[name].size < this.lastGameKeys[name].size) {
       return true;
     }
     return false;

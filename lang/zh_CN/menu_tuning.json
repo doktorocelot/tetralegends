@@ -28,36 +28,36 @@
     "message": "如果在生成延迟中按住左右方向键则直接开始自动移动"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "初始旋转",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "决定是否可以在方块生成之前旋转方块（在部分模式可能禁用）"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "绝对旋转方向",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "初始暂存",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "决定是否可以在方块生成之前暂存（Hold）方块"
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "轻按",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "长按",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "覆盖旋转系统",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "选择要使用的方块旋转系统"
   }
 }
