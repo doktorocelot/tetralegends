@@ -10,6 +10,7 @@ export default function initialDas(arg) {
     } else {
       piece.das += arg.ms;
     }
+
     piece.shiftReleased = false;
     piece.shiftDir = 'left';
   } else if (input.getGameDown('moveRight')) {
@@ -25,5 +26,5 @@ export default function initialDas(arg) {
     piece.shiftReleased = true;
     piece.shiftDir = 'none';
   }
-  piece.arr = 0;
+  piece.arr = piece.arrLimit;
 }

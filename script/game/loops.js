@@ -72,6 +72,11 @@ export const loops = {
       }
       lockFlash(arg);
       updateLasts(arg);
+      /* Might use this code later
+      $('#das').max = arg.piece.dasLimit;
+      $('#das').value = arg.piece.das;
+      $('#das').style.setProperty('--opacity', ((arg.piece.arr >= arg.piece.arrLimit) || arg.piece.inAre) ? 1 : 0);
+      */
     },
     onPieceSpawn: (game) => {
       game.stat.level = Math.max(settings.game.marathon.startingLevel, Math.floor(game.stat.line / 10 + 1));
