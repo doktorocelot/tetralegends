@@ -130,12 +130,12 @@ export const loops = {
       }
       collapse(arg);
       if (arg.piece.inAre) {
-        respawnPiece(arg);
         initialDas(arg);
         initialRotation(arg);
         initialHold(arg);
         arg.piece.are += arg.ms;
       } else {
+        respawnPiece(arg);
         rotate(arg);
         rotate180(arg);
         shifting(arg);
@@ -632,6 +632,7 @@ export const loops = {
           nesDasAre(arg);
           arg.piece.are += arg.ms;
         } else {
+          respawnPiece(arg);
           shiftingNes(arg);
           rotate(arg);
           classicGravity(arg);

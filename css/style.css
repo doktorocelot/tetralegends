@@ -955,6 +955,18 @@ body {
   bottom: -2.3em;
   left: -7em;
 }
+.rotation-warning {
+  position: absolute;
+  color: white;
+  text-align: right;
+  width: 6em;
+  bottom: -1.2em;
+  left: -7em;
+  animation-name: pulse-darkness;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 .infinity-symbol {
   position: absolute;
   color: white;
@@ -1009,7 +1021,8 @@ body {
 .ready-meter.hidden,
 .lockdown-meter.hidden,
 .manip-grid.hidden,
-.delay-time.hidden {
+.delay-time.hidden,
+.rotation-warning.hidden {
   display: none;
 }
 progress[value]  {

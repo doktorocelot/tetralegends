@@ -47,7 +47,6 @@ export default function shifting(arg) {
     resetShift();
     piece.shiftDir = 'none';
   }
-
   if (piece.shiftDir !== 'none') {
     if (piece.shiftReleased) {
       piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();

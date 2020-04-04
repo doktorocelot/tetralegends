@@ -288,6 +288,12 @@ export default class Piece extends GameModule {
     if (this.isDead) {
       $('#warning-message-container-hold').classList.add('hidden');
       $('#warning-message-container').classList.add('hidden');
+      if ($('#warning-message-container-hold').classList.contains('hidden') &&
+        $('#warning-message-container').classList.contains('hidden') &&
+        !$('#rotation-warning').classList.contains('hidden')) {
+        sound.stopSeLoop('topoutwarning');
+      }
+      $('#rotation-warning').classList.add('hidden');
       return;
     }
     if (this.ghostIsVisible) {
@@ -331,8 +337,14 @@ export default class Piece extends GameModule {
         this.showBlockOut();
       }
     }
+    if (this.killLockDelayOnRotate) {
+      $('#rotation-warning').classList.remove('hidden');
+    } else {
+      $('#rotation-warning').classList.add('hidden');
+    }
     if (!$('#warning-message-container-hold').classList.contains('hidden') ||
-      !$('#warning-message-container').classList.contains('hidden')) {
+      !$('#warning-message-container').classList.contains('hidden') ||
+      !$('#rotation-warning').classList.contains('hidden')) {
       sound.startSeLoop('topoutwarning');
     } else {
       sound.stopSeLoop('topoutwarning');
@@ -682,7 +694,7 @@ export default class Piece extends GameModule {
       if (allowKickOffGroundTable) {
         const allowArray = allowKickOffGroundTable[this.name];
         if (allowArray) {
-          if (!allowArray[this.orientation] && !this.isLanded) {
+          if (!allowArray[this.orientation] && !this.isLanded && i > 0) {
             break;
           }
         }
@@ -696,13 +708,15 @@ export default class Piece extends GameModule {
               if (unlessTable) {
                 if (unlessTable[this.name]) {
                   const unless = unlessTable[this.name][this.orientation][newOrientation];
-                  for (let i = 0; i <= unless.length; i++) {
-                    if (i >= unless.length) {
-                      break exceptionTest;
-                    }
-                    const position = unless[i];
-                    if (!check(position[0] + this.x, position[1] + this.yFloor + this.parent.stack.hiddenHeight)) {
-                      break;
+                  if (unless[0].length > 0) {
+                    for (let i = 0; i <= unless.length; i++) {
+                      if (i >= unless.length) {
+                        break exceptionTest;
+                      }
+                      const position = unless[i];
+                      if (!check(position[0] + this.x, position[1] + this.yFloor + this.parent.stack.hiddenHeight)) {
+                        break;
+                      }
                     }
                   }
                 }
@@ -860,7 +874,7 @@ export default class Piece extends GameModule {
   }
   get inAre() {
     if (this.startingAre < this.startingAreLimit) {
-      return true;
+      // return true;
     }
     let areMod = 0;
     if (this.hasLineDelay) {
