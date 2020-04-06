@@ -86,6 +86,10 @@ export default class Game {
     this.timePassedAre = 0;
     loadGameType(gametype)
         .then((gameData) => {
+          gtag('event', 'play', {
+            'event_category': 'Game',
+            'event_label': gametype,
+          });
           this.show();
           menu.close();
           this.startingTime = this.timestamp();
