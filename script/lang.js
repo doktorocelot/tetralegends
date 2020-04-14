@@ -15,16 +15,25 @@ class Locale {
         }
     );
     this.currentLanguage = 'en_US';
+    this.loaded = {};
+    for (const file of this.files) {
+      this[file] = {};
+    }
   }
   getString(file, name, vars = []) {
-    let str = this[file][this.currentLanguage][name].message;
-    for (let i = 0; i < vars.length; i++) {
-      const replacement = vars[i];
-      const placeholderString = `%${i + 1}`;
-      const placeholder = new RegExp(placeholderString, 'g');
-      str = str.replace(placeholder, replacement);
+    try {
+      let str = this[file][this.currentLanguage][name].message;
+      for (let i = 0; i < vars.length; i++) {
+        const replacement = vars[i];
+        const placeholderString = `%${i + 1}`;
+        const placeholder = new RegExp(placeholderString, 'g');
+        str = str.replace(placeholder, replacement);
+      }
+      return str;
+    } catch (error) {
+      console.error(error);
+      return '?UNKNOWN';
     }
-    return str;
   }
   loadAll() {
     const load = new Promise((resolve) => {
@@ -38,6 +47,32 @@ class Locale {
                 this[file][language] = languageFile;
                 loaded++;
                 if (loaded >= toLoad) {
+                  resolve('done!');
+                }
+              });
+        }
+      }
+    });
+    return load
+        .then((string) => {
+          this.currentLanguage = settings.settings.language;
+          return string;
+        });
+  }
+  loadLang(language) {
+    const load = new Promise((resolve) => {
+      if (this.loaded[language]) {
+        resolve('done!');
+      } else {
+        const toLoad = this.files.length;
+        let loaded = 0;
+        for (const file of this.files) {
+          loadLanguage(language, file)
+              .then((languageFile) => {
+                this[file][language] = languageFile;
+                loaded++;
+                if (loaded >= toLoad) {
+                  this.loaded[language] = true;
                   resolve('done!');
                 }
               });

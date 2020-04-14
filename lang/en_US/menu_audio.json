@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "The volume of the music in percentage"
+  },
+  "soundbankLabel": {
+    "message": "Soundbank Override"
+  },
+  "soundbankDescription": {
+    "message": "Select a soundbank to use in place of the default"
+  },
+  "nextSoundLabel": {
+    "message": "Next Indicator Soundbank",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Select a soundbank to use as an indicator for the upcoming piece"
+  },
+  "morseCodeOption": {
+    "message": "Morse Code"
+  },
+  "voiceOption": {
+    "message": "Voice"
   }
 }

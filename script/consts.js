@@ -540,13 +540,13 @@ export const KICK_TABLES = {
     },
     unlessToWith: {
       L: [
-        [[[]], [[]], [[]], [[]]],
+        [[[]], [[]], [[]], [[0, -1], [1, 0]]],
         [[[]], [[]], [[]], [[]]],
         [[[]], [[]], [[]], [[0, 0], [1, 2]]],
         [[[]], [[]], [[]], [[]]],
       ],
       J: [
-        [[[]], [[]], [[]], [[]]],
+        [[[]], [[2, -1], [1, 0]], [[]], [[]]],
         [[[]], [[]], [[]], [[]]],
         [[[]], [[2, 0], [1, 2]], [[]], [[]]],
         [[[]], [[]], [[]], [[]]],
@@ -839,4 +839,14 @@ export const SKIN_SETS = {
   deluxe: 'handheld',
   ars: 'arika',
   arsti: 'arika',
+};
+export const SOUND_SETS = {
+  srs: 'standard',
+  world: 'tgm3',
+  tetrax: 'standard',
+  retro: 'nes',
+  handheld: 'handheld',
+  deluxe: 'deluxe',
+  ars: 'tgm3',
+  arsti: 'tgm3',
 };

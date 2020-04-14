@@ -21,7 +21,6 @@
     "initialhold",
     "initialrotate",
     "initialskip",
-    "initialuse",
     "ko",
     "land",
     "levelup",
@@ -46,7 +45,8 @@
     "tspin2",
     "tspin2mini",
     "tspin3",
-    "tspin3mini"
+    "tspin3mini",
+    "wallkick"
   ],
   "ren": [
     1,

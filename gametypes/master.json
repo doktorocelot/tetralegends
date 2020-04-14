@@ -13,7 +13,8 @@
     "musicLinePoints": [250],
     "hasDangerBgm": true,
     "scoreTable": "guideline",
-    "background": "marathon.jpg"
+    "background": "marathon.jpg",
+    "isHardMode": true
   },
   "piece": {
     "areLimit": 100,

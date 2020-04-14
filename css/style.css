@@ -311,6 +311,13 @@ body {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 #main {
   position: fixed;
   margin: 0;
@@ -380,6 +387,14 @@ body {
   text-align: center;
   padding: .3em 0;
   overflow-y: scroll;
+  transition-property: opacity transform blur;
+  transition-duration: .25s;
+  transition-timing-function: ease-in-out;
+}
+#menu.hidden {
+  opacity: 0;
+  transform: translate(0, 1em);
+  filter: blur(.2em)
 }
 .modal {
   font-size: 2em;
@@ -586,6 +601,11 @@ body {
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
+}
+#menu > .btn.short {
+  padding: 0;
+  border-color: transparent;
+  margin: 0;
 }
 #menu > .disabled {
   opacity: .5;
@@ -807,11 +827,18 @@ body {
   box-sizing: border-box;
   float: none;
 }
+.small {
+  font-size: 0.5em;
+  font-weight: 300;
+}
 .stats {
   height: calc(--matrix-height-base * 1.55);
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+}
+body[theme="tetrjs"] .stats {
+  transform: none !important;
 }
 .stats div.stat-group {
   text-align: right;
@@ -845,19 +872,34 @@ body {
   color: #111;
   text-transform: uppercase;
 }
+body[theme="tetrjs"] .stats label {
+  color: #fff;
+  background-color: transparent;
+  display: block;
+  font-weight: 400;
+  margin: 0;
+  margin-right: 0;
+  padding: .05em;
+  padding-left: 1em;
+  font-size: 1.55em;
+  border-left-width: .1em;
+  border-left-color: white;
+  border-left-style: solid;
+}
 .game-left,
 .game-right {
   position: relative;
   margin-top: -.5em;
 }
+
 .game-center {
   position: relative;
-  /* -webkit-backdrop-filter: blur(5em); */
-  /* backdrop-filter: blur(5em); */
+  -webkit-backdrop-filter: blur(5em);
+  backdrop-filter: blur(5em);
   width: calc(var(--matrix-width) * var(--cell-size));
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
-  background-color: #000e;
+  background-color: #0003;
   background-image: var(--grid-image);
   background-position: left bottom;
   outline-color: var(--tetrion-color);
@@ -866,6 +908,9 @@ body {
   transition-timing-function: ease-in-out;
   outline-style: solid;
   outline-width: .5em;
+}
+body[theme="tetrjs"] .game-center {
+  outline-width: .1em;
 }
 .game-right {
   text-align: left;
@@ -885,6 +930,7 @@ body {
   padding-left: 1em;
   padding-right: 1em;
 }
+
 .hold-canvas,
 .main-next-canvas {
   width: calc(4 * var(--cell-size));
@@ -919,6 +965,15 @@ body {
 .hold-label {
   text-align: right;
   margin-right: -.3em;
+}
+body[theme="tetrjs"] .next-label,
+body[theme="tetrjs"] .hold-label {
+  font-weight: 300;
+  letter-spacing: normal;
+  text-align: center;
+  border-left-width: .1em;
+  border-left-color: white;
+  border-left-style: solid;
 }
 @keyframes float {
   from {transform: translate(0, -.5);}

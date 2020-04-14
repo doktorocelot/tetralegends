@@ -9,6 +9,7 @@
       "fixedText": true,
       "description": "Dr Ocelot",
       "action": "lang",
+      "isShort": true,
       "lang": "en_US"
     },
     {
@@ -16,6 +17,7 @@
       "fixedText": true,
       "description": "Dr Ocelot",
       "action": "lang",
+      "isShort": true,
       "lang": "en_GB"
     },
     {
@@ -23,6 +25,7 @@
       "fixedText": true,
       "description": "Mine, YuNoGuy123",
       "action": "lang",
+      "isShort": true,
       "lang": "es_ES"
     },
     {
@@ -30,6 +33,7 @@
       "fixedText": true,
       "description": "Light",
       "action": "lang",
+      "isShort": true,
       "lang": "fr_FR"
     },
     {
@@ -37,6 +41,7 @@
       "fixedText": true,
       "description": "Esingar",
       "action": "lang",
+      "isShort": true,
       "lang": "it_IT"
     },
     {
@@ -44,6 +49,7 @@
       "fixedText": true,
       "description": "kivi, nastyFEETs",
       "action": "lang",
+      "isShort": true,
       "lang": "de_DE"
     },
     {
@@ -51,6 +57,7 @@
       "fixedText": true,
       "description": "osk, micwoj92",
       "action": "lang",
+      "isShort": true,
       "lang": "nl_NL"
     },
     {
@@ -58,6 +65,7 @@
       "fixedText": true,
       "description": "micwoj92",
       "action": "lang",
+      "isShort": true,
       "lang": "pl_PL"
     },
     {
@@ -65,6 +73,7 @@
       "fixedText": true,
       "description": "Shard Nguyễn",
       "action": "lang",
+      "isShort": true,
       "lang": "vi_VN"
     },
     {
@@ -72,6 +81,7 @@
       "fixedText": true,
       "description": "hebo-MAI, mitsuki0316, MattMayuga",
       "action": "lang",
+      "isShort": true,
       "lang": "ja_JP"
     },
     {
@@ -79,6 +89,7 @@
       "fixedText": true,
       "description": "Casquade",
       "action": "lang",
+      "isShort": true,
       "lang": "ko_KR"
     },
     {
@@ -86,6 +97,7 @@
       "fixedText": true,
       "description": "User670",
       "action": "lang",
+      "isShort": true,
       "lang": "zh_CN"
     }
   ]

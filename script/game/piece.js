@@ -743,6 +743,9 @@ export default class Piece extends GameModule {
         this.addManipulation();
         this.isDirty = true;
         if (playSound) {
+          if (i > 0) {
+            sound.add('wallkick');
+          }
           sound.add('rotate');
         }
         if (this.isLanded) {

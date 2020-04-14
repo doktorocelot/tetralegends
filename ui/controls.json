@@ -6,11 +6,13 @@
     {
       "string": "clearLabel",
       "stringDesc": "clearDescription",
+      "isShort": true,
       "action": "functionClearControls"
     },
     {
       "string": "resetLabel",
       "stringDesc": "resetDescription",
+      "isShort": true,
       "action": "functionResetControls"
     },
     {

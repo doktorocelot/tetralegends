@@ -8,6 +8,7 @@ class Sound {
     this.music = {};
     this.toPlay = {};
     this.files = [];
+    this.menuSounds = [];
     this.playingSeLoops = {};
     this.amountOfTimesEnded = {};
     this.fadedSounds = {};
@@ -19,6 +20,7 @@ class Sound {
     this.paceBgmIsRaised = false;
     this.lastLoaded = null;
     this.noLoops = false;
+    this.playHardNoise = false;
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
@@ -27,6 +29,9 @@ class Sound {
         continue;
       }
       this.sounds[key].volume(settings.settings.sfxVolume / 100);
+    }
+    for (const key of Object.keys(this.menuSounds)) {
+      this.menuSounds[key].volume(settings.settings.sfxVolume / 100);
     }
     for (const key of Object.keys(this.music)) {
       if (key.includes('danger') && !this.dangerBgmIsRaised) {
@@ -38,16 +43,38 @@ class Sound {
       this.music[key].volume(settings.settings.musicVolume / 100);
     }
   }
+  loadMenu() {
+    const files = ['move', 'select', 'back', 'change', 'optionselect', 'hardmodestart'];
+    for (const soundName of files) {
+      this.menuSounds[soundName] = new Howl({
+        src: [`./se/menu/${soundName}.ogg`],
+        volume: settings.settings.sfxVolume / 100,
+      });
+    }
+  }
+  playMenuSe(name) {
+    this.menuSounds[name].stop();
+    this.menuSounds[name].play();
+  }
   load(name = 'standard') {
+    const playHardNoise = () => {
+      if (this.playHardNoise) {
+        this.playMenuSe('hardmodestart');
+        this.playHardNoise = false;
+      }
+    };
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
     if (name === this.lastLoaded) {
+      playHardNoise();
       return;
     }
     this.mustWait = true;
     Howler.unload();
+    this.loadMenu();
+    playHardNoise();
     loadSoundbank(name)
         .then((soundData) => {
           this.lastLoaded = name;
@@ -255,6 +282,10 @@ class Sound {
         this.sounds['hold'].play();
       } else if (name === 'prespinmini' && this.files.indexOf('prespin') !== -1) {
         this.sounds['prespin'].play();
+      } else if (name === 'go' && this.files.indexOf('start') !== -1) {
+        this.sounds['start'].play();
+      } else if (name.substr(name.length - 4) === 'mini' && this.files.indexOf(name.substring(0, name.length - 4)) !== -1) {
+        this.sounds[name.substring(0, name.length - 4)].play();
       }
 
       if (name.substr(0, 3) === 'ren') {

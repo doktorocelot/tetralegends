@@ -12,7 +12,8 @@
     "music": "../master/master",
     "hasDangerBgm": true,
     "scoreTable": "tetrax",
-    "background": "marathon.jpg"
+    "background": "marathon.jpg",
+    "isHardMode": true
   },
   "piece": {
     "areLimit": 75,

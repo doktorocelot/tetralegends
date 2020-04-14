@@ -7,6 +7,7 @@ import * as randomizer from './script/game/modules/randomizers.js';
 import {PIECE_SETS} from './script/consts.js';
 import $, {hzToMs, framesToMs} from './script/shortcuts.js';
 import locale from './script/lang.js';
+import sound from './script/sound.js';
 
 input.addMany([
   'menuUp',
@@ -25,7 +26,8 @@ input.addMany([
 ]);
 document.addEventListener('DOMContentLoaded', () => {
   settings.load();
-  locale.loadAll()
+  sound.loadMenu();
+  locale.loadLang(settings.settings.language)
       .then((test) => {
         locale.updateFonts();
         menu.load('root');

@@ -1,5 +1,5 @@
 import {loadGameType} from '../loaders.js';
-import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES, SKIN_SETS} from '../consts.js';
+import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES, SKIN_SETS, SOUND_SETS} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
@@ -105,8 +105,8 @@ export default class Game {
           $('#end-message-container').classList.add('hidden');
           $('#kill-message-container').classList.add('hidden');
           this.settings = gameData.settings;
+
           this.stats = gameData.stats;
-          sound.load(this.settings.soundbank);
           // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
           this.piece = new Piece(this, toCtx(this.pieceCanvas));
@@ -129,6 +129,10 @@ export default class Game {
           if (!this.settings.disableDefaultSkinLoad) {
             this.makeSprite();
           }
+          if (this.settings.isHardMode) {
+            sound.playHardNoise = true;
+          }
+          sound.load(SOUND_SETS[this.settings.rotationSystem]);
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
           this.loop = loops[gametype].update;
@@ -309,6 +313,7 @@ export default class Game {
       $('#pip-grid').classList.add('hidden');
       $('#lockdown').classList.add('hidden');
       $('#delay').classList.add('hidden');
+      $('#infinity-symbol').classList.add('hidden');
       return;
     }
     switch (this.piece.lockdownType) {

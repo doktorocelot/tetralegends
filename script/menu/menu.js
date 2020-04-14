@@ -4,6 +4,7 @@ import gameHandler from '../game/game-handler.js';
 import settings from '../settings.js';
 import input from '../input.js';
 import locale from '../lang.js';
+import sound from '../sound.js';
 const isSelectable = (type) => {
   if (
     type == null ||
@@ -38,6 +39,7 @@ class Menu {
     this.isLocked = false;
     this.lastSelection = 0;
     this.useLastSelected = false;
+    this.stored = {};
   }
   get selected() {
     return parseInt($('#menu > div.selected').id.substring(7));
@@ -54,48 +56,58 @@ class Menu {
   load(name, type = 'default') {
     this.isLocked = true;
     this.hideMenu();
+    const render = (menu) => {
+      this.current.name = name;
+      this.current.properties = menu.properties;
+      this.current.lang = (this.current.properties.langOverride) ?
+        this.current.properties.langOverride : `menu_${this.current.name}`;
+      this.current.data = menu.data;
+      if (this.current.properties.parent) {
+        const back = {
+          'string': 'backLabel',
+          'stringDesc': 'backDescription',
+          'langOverride': 'menu_general',
+          'action': 'back',
+        };
+        this.current.data.unshift(back);
+      }
+      if (this.current.properties.game) {
+        const game = {
+          'string': 'startLabel',
+          'stringDesc': 'startDescription',
+          'langOverride': 'mode-options',
+          'action': 'game',
+          'game': this.current.properties.game,
+        };
+        this.current.data.push(game);
+      }
+      setTimeout(() => {
+        this.clear();
+        switch (type) {
+          case 'controls':
+            this.drawControls();
+            break;
+          default:
+            this.draw();
+            break;
+        }
+        this.showMenu();
+        this.isEnabled = true;
+        this.isLocked = false;
+        if (this.useLastSelected) {
+          this.select(this.lastSelection, false, false, true);
+          this.useLastSelected = false;
+        }
+      }, 250);
+    };
+    if (this.stored[name]) {
+      render(JSON.parse(JSON.stringify(this.stored[name])));
+      return;
+    }
     loadMenu(name)
         .then((menu) => {
-          this.clear();
-          this.current.name = name;
-          this.current.properties = menu.properties;
-          this.current.lang = (this.current.properties.langOverride) ?
-            this.current.properties.langOverride : `menu_${this.current.name}`;
-          this.current.data = menu.data;
-          if (this.current.properties.parent) {
-            const back = {
-              'string': 'backLabel',
-              'stringDesc': 'backDescription',
-              'langOverride': 'menu_general',
-              'action': 'back',
-            };
-            this.current.data.unshift(back);
-          }
-          if (this.current.properties.game) {
-            const game = {
-              'string': 'startLabel',
-              'stringDesc': 'startDescription',
-              'langOverride': 'mode-options',
-              'action': 'game',
-              'game': this.current.properties.game,
-            };
-            this.current.data.push(game);
-          }
-          switch (type) {
-            case 'controls':
-              this.drawControls();
-              break;
-            default:
-              this.draw();
-              break;
-          }
-          this.showMenu();
-          if (this.useLastSelected) {
-            this.select(this.lastSelection);
-            this.useLastSelected = false;
-          }
-          this.isLocked = false;
-          this.isEnabled = true;
+          this.stored[name] = JSON.parse(JSON.stringify(menu));
+          render(menu);
         })
         .catch((error) => {
           throw error;
@@ -118,10 +130,10 @@ class Menu {
     $('#menu-container').classList.add('hidden');
   }
   showMenu() {
-    $('#vertical-menu').classList.remove('hidden');
+    $('#menu').classList.remove('hidden');
   }
   hideMenu() {
-    $('#vertical-menu').classList.add('hidden');
+    $('#menu').classList.add('hidden');
   }
   clear() {
     while ($('#menu').firstChild) {
@@ -169,6 +181,9 @@ class Menu {
         default:
           element = document.createElement('div');
           element.classList.add('btn');
+          if (currentData.isShort) {
+            element.classList.add('short');
+          }
           switch (currentData.width) {
             case 'half':
               element.classList.add('half-width');
@@ -237,6 +252,9 @@ class Menu {
             (sel.settingType === 'game') ? sel.gameName : undefined);
           this.drawSettings();
         };
+        slider.onchange = () => {
+          sound.playMenuSe('change');
+        };
         element.appendChild(label);
         element.appendChild(slider);
         element.appendChild(value);
@@ -269,6 +287,7 @@ class Menu {
         createArrowElement(arrowLeft, '<', 'arrow-left');
         createArrowElement(arrowRight, '>', 'arrow-right');
         const adjust = (modValue) => {
+          sound.playMenuSe('change');
           const sel = currentData;
           const value = (sel.settingType === 'game') ?
             settings.game[sel.gameName][sel.setting] : settings.settings[sel.setting];
@@ -427,6 +446,9 @@ class Menu {
           if (input.mouseLimit < 1) {
             return;
           }
+          if (!element.classList.contains('selected')) {
+            sound.playMenuSe('move');
+          }
           this.selectedControl.classList.remove('selected');
           element.classList.add('selected');
         };
@@ -451,6 +473,9 @@ class Menu {
         if (input.mouseLimit < 1) {
           return;
         }
+        if (!element.classList.contains('selected')) {
+          sound.playMenuSe('move');
+        }
         this.selectedControl.classList.remove('selected');
         element.classList.add('selected');
       };
@@ -458,13 +483,16 @@ class Menu {
       currentControlElement.appendChild(element);
     }
   }
-  select(number, mouseOver = false) {
+  select(number, mouseOver = false, playSound = true, noScrollAnimation = false) {
+    if (number !== this.selected && playSound) {
+      sound.playMenuSe('move');
+    }
     for (const element of $('#menu > div')) {
       element.classList.remove('selected');
     }
     $(`#option-${number}`).classList.add('selected');
     if (!mouseOver) {
-      $(`#option-${number}`).scrollIntoView({block: 'center', behavior: 'smooth'});
+      $(`#option-${number}`).scrollIntoView({block: 'center', behavior: (noScrollAnimation) ? 'auto' : 'smooth'});
     }
     if (this.current.data[number].langOverride) {
       $('#description').textContent = locale.getString(this.current.data[number].langOverride, this.current.data[number].stringDesc);
@@ -507,6 +535,7 @@ class Menu {
       return;
     }
     if (this.selectedData.type === 'control') {
+      sound.playMenuSe('move');
       const next = this.selectedControl.nextSibling;
       this.selectedControl.classList.remove('selected');
       if (next == null) {
@@ -520,6 +549,7 @@ class Menu {
       const slider = $('#menu > .slider-container.selected .slider');
       slider.value = parseInt(slider.value) + this.selectedData.discrete;
       slider.oninput();
+      sound.playMenuSe('change');
       return;
     }
     if (this.selectedData.type === 'toggle') {
@@ -540,6 +570,7 @@ class Menu {
     if (this.selectedData.type === 'control') {
       const prev = this.selectedControl.previousElementSibling;
       this.selectedControl.classList.remove('selected');
+      sound.playMenuSe('move');
       if (prev == null) {
         $('#menu > .control.selected > .control-bay').lastChild.classList.add('selected');
         return;
@@ -551,7 +582,7 @@ class Menu {
       const slider = $('#menu > .slider-container.selected .slider');
       slider.value = parseInt(slider.value) - this.selectedData.discrete;
       slider.oninput();
-
+      sound.playMenuSe('change');
       return;
     }
     if (this.selectedData.type === 'toggle') {
@@ -580,21 +611,25 @@ class Menu {
       case 'submenu':
         this.lastSelection = this.selected;
         this.load(this.selectedData.submenu);
+        sound.playMenuSe('select');
         break;
       case 'back':
         this.back();
         break;
       case 'quick':
         gameHandler.newGame('marathon');
+        sound.playMenuSe('select');
         break;
       case 'game':
         gameHandler.newGame(this.selectedData.game);
         break;
       case 'control':
         this.selectedControl.onclick();
+        sound.playMenuSe('select');
         break;
       case 'toggle':
         const sel = this.selectedData;
+        sound.playMenuSe('change');
         const value = (sel.settingType === 'game') ?
           !settings.game[sel.gameName][sel.setting] : !settings.settings[sel.setting];
         settings.changeSetting(sel.setting, value,
@@ -602,17 +637,21 @@ class Menu {
         this.drawSettings();
         break;
       case 'slider':
+        sound.playMenuSe('change');
         $('.slider-container.selected .value').onclick();
         break;
       case 'controls':
+        sound.playMenuSe('select');
         this.load('controls', 'controls');
         break;
       case 'daspreset':
+        sound.playMenuSe('optionselect');
         settings.changeSetting('DAS', this.selectedData.delay);
         settings.changeSetting('ARR', this.selectedData.rate);
-        this.back();
+        this.back(false);
         break;
       case 'functionClearControls':
+        sound.playMenuSe('optionselect');
         for (const key of Object.keys(settings.controls)) {
           settings.controls[key] = [];
         }
@@ -620,13 +659,22 @@ class Menu {
         settings.saveControls();
         break;
       case 'functionResetControls':
+        sound.playMenuSe('optionselect');
         settings.resetControls();
         menu.drawControls();
         settings.saveControls();
         break;
       case 'lang':
-        locale.changeLang(this.selectedData.lang);
-        this.back();
+        sound.playMenuSe('optionselect');
+        this.hideMenu();
+        this.isLocked = true;
+        const lang = this.selectedData.lang.toString();
+        locale.loadLang(lang)
+            .then(() => {
+              this.isLocked = false;
+              locale.changeLang(lang);
+              this.back(false);
+            });
         break;
       case 'link':
         window.open(this.selectedData.url, '_blank');
@@ -636,9 +684,12 @@ class Menu {
         break;
     }
   }
-  back() {
+  back(playSound = true) {
     if (!this.isLocked) {
       if (this.current.properties.parent !== null) {
+        if (playSound) {
+          sound.playMenuSe('back');
+        }
         this.useLastSelected = true;
         this.load(this.current.properties.parent);
       }

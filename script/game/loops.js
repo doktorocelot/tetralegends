@@ -156,7 +156,7 @@ export const loops = {
       game.lineGoal = settings.game.sprint.lineGoal;
       game.isRaceMode = true;
       game.stat.level = 1;
-      game.reverseLineStat = true;
+      game.appends.line = `<span class="small">/${settings.game.sprint.lineGoal}</span>`;
       game.piece.gravity = 1000;
       if (settings.game.sprint.regulationMode) {
         game.piece.areLimit = 0;

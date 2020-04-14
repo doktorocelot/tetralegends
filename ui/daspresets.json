@@ -8,6 +8,7 @@
       "stringDesc": "defaultDescription",
       "default": true,
       "action": "daspreset",
+      "isShort": true,
       "delay": 170,
       "rate": 30
     },
@@ -15,6 +16,7 @@
       "string": "guidelineLabel",
       "stringDesc": "guidelineDescription",
       "action": "daspreset",
+      "isShort": true,
       "delay": 200,
       "rate": 33
     },
@@ -22,6 +24,7 @@
       "string": "pptLabel",
       "stringDesc": "pptDescription",
       "action": "daspreset",
+      "isShort": true,
       "delay": 165,
       "rate": 33
     },
@@ -29,6 +32,7 @@
       "string": "tetraOnlineLabel",
       "stringDesc": "tetraOnlineDescription",
       "action": "daspreset",
+      "isShort": true,
       "delay": 135,
       "rate": 31
     },
@@ -36,6 +40,7 @@
       "string": "quickLabel",
       "stringDesc": "quickDescription",
       "action": "daspreset",
+      "isShort": true,
       "delay": 150,
       "rate": 15
     },
@@ -43,6 +48,7 @@
       "string": "proLabel",
       "stringDesc": "proDescription",
       "action": "daspreset",
+      "isShort": true,
       "delay": 100,
       "rate": 0
     }

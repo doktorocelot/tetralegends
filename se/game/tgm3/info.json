@@ -1,0 +1,29 @@
+{
+  "files": [
+    "alarm",
+    "bravo",
+    "collapse",
+    "erase4",
+    "erasenot4",
+    "excellent",
+    "gameover",
+    "initialhold",
+    "initialrotate",
+    "land",
+    "levelup",
+    "lock",
+    "pieceI",
+    "pieceJ",
+    "pieceL",
+    "pieceO",
+    "pieceS",
+    "pieceT",
+    "pieceZ",
+    "ready",
+    "start",
+    "topoutwarning",
+    "tspin",
+    "tspin0"
+  ],
+  "ren": []
+}
