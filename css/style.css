@@ -394,7 +394,7 @@ body {
 #menu.hidden {
   opacity: 0;
   transform: translate(0, 1em);
-  filter: blur(.2em)
+  /* filter: blur(.2em) */
 }
 .modal {
   font-size: 2em;
@@ -894,8 +894,8 @@ body[theme="tetrjs"] .stats label {
 
 .game-center {
   position: relative;
-  -webkit-backdrop-filter: blur(5em);
-  backdrop-filter: blur(5em);
+  /* -webkit-backdrop-filter: blur(5em);
+  backdrop-filter: blur(5em); */
   width: calc(var(--matrix-width) * var(--cell-size));
   height: calc(var(--matrix-height) * var(--cell-size));
   background-size: calc(100% / var(--matrix-width)) calc(100% / var(--matrix-height));
@@ -1000,7 +1000,7 @@ body[theme="tetrjs"] .hold-label {
 }
 .garbage-counter-container.hidden {
   opacity: 0;
-  filter: blur(2em);
+  /* filter: blur(2em); */
 }
 .delay-time {
   position: absolute;
