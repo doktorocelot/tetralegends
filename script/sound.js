@@ -1,6 +1,7 @@
 import {loadSoundbank} from './loaders.js';
 import settings from './settings.js';
 import gameHandler from './game/game-handler.js';
+import {resetAnimation} from './shortcuts.js';
 class Sound {
   constructor() {
     this.sounds = [];
@@ -21,6 +22,8 @@ class Sound {
     this.lastLoaded = null;
     this.noLoops = false;
     this.playHardNoise = false;
+    this.pieceFlashes = {};
+    this.flashTimeouts = {};
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
@@ -81,6 +84,7 @@ class Sound {
           this.files = soundData.files;
           this.ren = soundData.ren;
           this.cut = (soundData.cutItself) ? soundData.cutItself : [];
+          this.pieceFlashes = (soundData.nextFlashes) ? soundData.nextFlashes : {};
           for (const soundName of this.files) {
             this.amountOfTimesEnded[soundName] = 0;
             this.sounds[soundName] = new Howl({
@@ -274,6 +278,13 @@ class Sound {
       if (this.files.indexOf(name) !== -1) {
         if (this.cut.indexOf(name) !== -1) {
           this.sounds[name].stop();
+        }
+        if (name.substr(0, 5) === 'piece') {
+          for (const flashTime of this.pieceFlashes[name.substr(5, 1)]) {
+            setTimeout(() => {
+              resetAnimation('#next-main', 'flash');
+            }, flashTime);
+          }
         }
         this.sounds[name].play();
       } else if (name === 'initialrotate' && this.files.indexOf('rotate') !== -1) {

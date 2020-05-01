@@ -688,6 +688,11 @@ body {
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
 }
+.main-next-canvas.flash {
+  animation-name: hold-flash;
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.000, 1.110, 0.165, 1.000);
+}
 .skip-amount {
   text-align: right;
   color: #fff;
