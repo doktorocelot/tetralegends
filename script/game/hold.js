@@ -18,6 +18,9 @@ export default class Hold extends GameModule {
     this.holdAmountLimit = 0;
     this.gainHoldOnPlacement = false;
   }
+  getPiece() {
+    return (this.pieceName) ? this.pieceName : (this.parent.piece.inAre) ? this.parent.next.queue[1] : this.parent.next.queue[0];
+  }
   hold() {
     if ((this.isLocked && !this.useSkip) || this.isDisabled ||
       (this.holdAmount <= 0 && this.holdAmountLimit > 0)) {

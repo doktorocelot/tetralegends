@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc là khi bạn tạo cú xoay. Ví dụ: \"Đôi\", \"Cú xoay T đơn\", ..."
+  },
+  "skinLabel": {
+    "message": "Trang trí",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Lựa chọn một bộ trang trí gạch đặt làm mặc định"
+  },
+  "glossyOption": {
+    "message": "Bóng láng"
+  },
+  "flatOption": {
+    "message": "Đơn giản"
   }
 }

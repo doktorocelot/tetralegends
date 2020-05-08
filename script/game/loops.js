@@ -459,6 +459,15 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      if (settings.game.master.startingLevel < 10) {
+        sound.playMenuSe('hardstart1');
+      } else if (settings.game.master.startingLevel < 20) {
+        sound.playMenuSe('hardstart2');
+      } else if (settings.game.master.startingLevel < 25) {
+        sound.playMenuSe('hardstart3');
+      } else {
+        sound.playMenuSe('hardstart4');
+      }
       game.lineGoal = 300;
       game.stat.level = settings.game.master.startingLevel;
       lastLevel = parseInt(settings.game.master.startingLevel);
@@ -562,17 +571,22 @@ export const loops = {
       game.stat.level = 0;
       // game.appends.level = '♥';
       lastLevel = 0;
-      gameHandler.game.makeSprite(
-          [
-            'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
-            'l', 'o',
-            'z', 't', 'j',
-            's', 'white', 'black',
-          ],
-          ['mino', 'stack'],
-          'deluxe-special'
-      );
-      gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
+      if (settings.settings.skin !== 'auto') {
+        game.makeSprite();
+        game.piece.useSpecialI = false;
+      } else {
+        game.makeSprite(
+            [
+              'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+              'l', 'o',
+              'z', 't', 'j',
+              's', 'white', 'black',
+            ],
+            ['mino', 'stack'],
+            'deluxe-special'
+        );
+        game.colors = PIECE_COLORS.handheldSpecial;
+      }
     },
   },
   handheld: {
@@ -606,17 +620,22 @@ export const loops = {
       game.stat.level = 0;
       // game.appends.level = '♥';
       lastLevel = 0;
-      gameHandler.game.makeSprite(
-          [
-            'i', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
-            'l', 'o',
-            'z', 't', 'j',
-            's', 'white', 'black',
-          ],
-          ['mino'],
-          'handheld-special'
-      );
-      gameHandler.game.colors = PIECE_COLORS.handheldSpecial;
+      if (settings.settings.skin !== 'auto') {
+        game.makeSprite();
+        game.piece.useSpecialI = false;
+      } else {
+        game.makeSprite(
+            [
+              'i', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+              'l', 'o',
+              'z', 't', 'j',
+              's', 'white', 'black',
+            ],
+            ['mino'],
+            'handheld-special'
+        );
+        game.colors = PIECE_COLORS.handheldSpecial;
+      }
     },
   },
   retro: {
@@ -685,26 +704,30 @@ export const loops = {
       game.stat.level = settings.game.retro.startingLevel;
       game.redrawOnLevelUp = true;
       lastLevel = parseInt(settings.game.retro.startingLevel);
-      gameHandler.game.makeSprite(
-          [
-            'x-0', 'l-0', 'r-0',
-            'x-1', 'l-1', 'r-1',
-            'x-2', 'l-2', 'r-2',
-            'x-3', 'l-3', 'r-3',
-            'x-4', 'l-4', 'r-4',
-            'x-5', 'l-5', 'r-5',
-            'x-6', 'l-6', 'r-6',
-            'x-7', 'l-7', 'r-7',
-            'x-8', 'l-8', 'r-8',
-            'x-9', 'l-9', 'r-9',
-          ],
-          ['mino'],
-          'retro-special'
-      );
+      if (settings.settings.skin !== 'auto') {
+        game.makeSprite();
+      } else {
+        game.makeSprite(
+            [
+              'x-0', 'l-0', 'r-0',
+              'x-1', 'l-1', 'r-1',
+              'x-2', 'l-2', 'r-2',
+              'x-3', 'l-3', 'r-3',
+              'x-4', 'l-4', 'r-4',
+              'x-5', 'l-5', 'r-5',
+              'x-6', 'l-6', 'r-6',
+              'x-7', 'l-7', 'r-7',
+              'x-8', 'l-8', 'r-8',
+              'x-9', 'l-9', 'r-9',
+            ],
+            ['mino'],
+            'retro-special'
+        );
+        game.piece.useRetroColors = true;
+        game.colors = PIECE_COLORS.retroSpecial;
+      }
       game.stack.levelUpAnimation = 1000;
       game.stack.levelUpAnimationLimit = 450;
-      game.piece.useRetroColors = true;
-      gameHandler.game.colors = PIECE_COLORS.retroSpecial;
       game.updateStats();
       game.piece.lockDownType = null;
       game.drawLockdown();

@@ -28,36 +28,36 @@
     "message": "Automatisches Laden der automatischen Umschaltung, wenn während der Eingabeverzögerung eine Bewegungstaste gedrückt wird"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Initiale drehung",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Modifiziert die Fähichkeit ein teil zu drehen bevor es erscheint (Vieleicht deaktiviert in manchen modi)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Absolut",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "Initiale haltung",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Modifiziert die Fähichkeit ein teil halten bevor es erscheint"
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "Tippen",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "Halten",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Drehungs System Überschreitung",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Wählen Sie ein Drehungs System was du anstatt des normalen benutzt"
   }
 }

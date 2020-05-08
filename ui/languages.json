@@ -31,7 +31,7 @@
     {
       "label": "Français",
       "fixedText": true,
-      "description": "Light",
+      "description": "Light, Mizu Official, xeenwolf",
       "action": "lang",
       "isShort": true,
       "lang": "fr_FR"
@@ -55,10 +55,18 @@
     {
       "label": "Nederlands",
       "fixedText": true,
-      "description": "osk, micwoj92",
+      "description": "osk, Gemtendo, micwoj92",
       "action": "lang",
       "isShort": true,
       "lang": "nl_NL"
+    },
+    {
+      "label": "Русский язык",
+      "fixedText": true,
+      "description": "JustVldKsh",
+      "action": "lang",
+      "isShort": true,
+      "lang": "ru_RU"
     },
     {
       "label": "Polski",
@@ -71,7 +79,7 @@
     {
       "label": "Tiếng Việt",
       "fixedText": true,
-      "description": "Shard Nguyễn",
+      "description": "Shard Nguyễn, Minh Bui Duc",
       "action": "lang",
       "isShort": true,
       "lang": "vi_VN"

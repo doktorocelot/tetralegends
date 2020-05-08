@@ -1,16 +1,35 @@
 {
   "sfxLabel": {
-    "message": "Sound Effects Volume",
+    "message": "Громкость звуковых эффектов",
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "The volume of the various sound effects in percentage"
+    "message": "Громкость различных звуковых эффектов в процентах"
   },
   "musicLabel": {
-    "message": "Music Volume",
+    "message": "Громкость музыки",
     "description": "Also known as 'BGM'"
   },
   "musicDescription": {
-    "message": "The volume of the music in percentage"
+    "message": "Громкость музыки в процентах"
+  },
+  "soundbankLabel": {
+    "message": "Заменить звуковой банк"
+  },
+  "soundbankDescription": {
+    "message": "Выбери звуковой банк, который будет использоваться вместо стандартного"
+  },
+  "nextSoundLabel": {
+    "message": "Звук индикатора следующей фигуры",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Выбери звук, который будет использоваться как индикатор следующей фигуры"
+  },
+  "morseCodeOption": {
+    "message": "Код Морзе"
+  },
+  "voiceOption": {
+    "message": "Голос"
   }
 }

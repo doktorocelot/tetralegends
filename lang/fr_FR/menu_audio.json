@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "Le volume de la musique en pourcentage"
+  },
+  "soundbankLabel": {
+    "message": "Remplacer la banque sonore"
+  },
+  "soundbankDescription": {
+    "message": "Choisir une bibliothèque de son personnalisée"
+  },
+  "nextSoundLabel": {
+    "message": "Bruitage Pièce Suivante",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Choisir une banque de son à utiliser pour annoncer la prochaine pièce"
+  },
+  "morseCodeOption": {
+    "message": "Code Morse"
+  },
+  "voiceOption": {
+    "message": "Voix"
   }
 }

@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Laat berichten zien wanneer je lijnen verwijdert en trucs uitvoert, zoals 'Double' en 'T-Draai'. Zal ook een combo teller weergeven"
+  },
+  "skinLabel": {
+    "message": "Skin-vervanger",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Selecteer een skin om te gebruiken i.p.v. de standaard"
+  },
+  "glossyOption": {
+    "message": "Glanzend"
+  },
+  "flatOption": {
+    "message": "Egaal"
   }
 }

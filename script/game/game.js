@@ -19,6 +19,7 @@ export default class Game {
     this.userSettings = {...settings.settings};
     this.type = gametype;
     this.pieceCanvas = $('#piece');
+    this.nextMatrixPreviewCanvas = $('#next-piece');
     this.stackCanvas = $('#stack');
     this.nextCanvas = $('#next-main');
     this.nextSubCanvas = $('#next-sub');
@@ -104,12 +105,13 @@ export default class Game {
           $('#ready-meter').classList.remove('hidden');
           $('#end-message-container').classList.add('hidden');
           $('#kill-message-container').classList.add('hidden');
+          $('#next-piece').classList.remove('immediate-death');
           this.settings = gameData.settings;
 
           this.stats = gameData.stats;
           // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
-          this.piece = new Piece(this, toCtx(this.pieceCanvas));
+          this.piece = new Piece(this, toCtx(this.pieceCanvas), toCtx(this.nextMatrixPreviewCanvas));
           let randomseed = new Math.seedrandom()();
           if ($('#queuerand').value !== '') {
             randomseed = $('#queuerand').value;
@@ -129,10 +131,9 @@ export default class Game {
           if (!this.settings.disableDefaultSkinLoad) {
             this.makeSprite();
           }
-          if (this.settings.isHardMode) {
-            sound.playHardNoise = true;
-          }
-          sound.load(SOUND_SETS[this.settings.rotationSystem]);
+          const soundbankName = (settings.settings.soundbank === 'auto') ?
+            SOUND_SETS[this.settings.rotationSystem] : settings.settings.soundbank;
+          sound.load(soundbankName);
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
           this.loop = loops[gametype].update;
@@ -166,6 +167,7 @@ export default class Game {
           $('.game').classList.remove('paused');
           this.request = requestAnimationFrame(this.gameLoop);
           document.documentElement.style.setProperty('--current-background', `url("../img/bg/${this.settings.background}")`);
+          setTimeout(() => {this.resize();}, 10);
         });
   }
   unpause() {
@@ -235,18 +237,9 @@ export default class Game {
       return;
     }
     const clearName = ['', 'single', 'double', 'triple', 'tetra'][lineClear];
-    let spinName = '';
-    let miniName = '';
-    let b2bName = '';
-    if (isSpin) {
-      spinName = 'spin';
-    }
-    if (isMini) {
-      miniName = 'mini';
-    }
-    if (b2b > 1) {
-      b2bName = `<br>${locale.getString('action-text', 'b2b')}`;
-    }
+    const spinName = (isSpin) ? 'spin' : '';
+    const miniName = (isMini) ? 'mini' : '';
+    const b2bName = (b2b > 1 && lineClear > 0) ? `<br>${locale.getString('action-text', 'b2b')}` : '';
     const finalLabel = `${spinName}${clearName}${miniName}`;
     if (finalLabel === '') {
       return;
@@ -273,7 +266,7 @@ export default class Game {
     root.style.setProperty('--cell-size', `${game.cellSize}px`);
     root.style.setProperty('--matrix-width', game.settings.width);
     root.style.setProperty('--matrix-height-base', game.settings.height);
-    for (const element of ['pieceCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas', 'particleCanvas']) {
+    for (const element of ['pieceCanvas', 'nextMatrixPreviewCanvas', 'stackCanvas', 'nextCanvas', 'nextSubCanvas', 'holdCanvas', 'particleCanvas']) {
       game[element].width = game[element].clientWidth;
       game[element].height = game[element].clientHeight;
     }
@@ -300,6 +293,8 @@ export default class Game {
       stat.appendChild(number);
       $('#stats').appendChild(stat);
     }
+    const gameWidth = $('#game > .game-left').offsetWidth + $('#game > .game-center').offsetWidth + $('#game > .game-right').offsetWidth;
+    const subtract = Math.max(0, gameWidth - window.innerWidth);
   }
   drawLockdown() {
     $('#pip-grid').innerHTML = '';
@@ -346,18 +341,9 @@ export default class Game {
   }
   updateStats() {
     for (const statName of this.stats) {
-      let prefix = '';
-      let append = '';
-      if (this.prefixes[statName]) {
-        prefix = this.prefixes[statName];
-      }
-      if (this.appends[statName]) {
-        append = this.appends[statName];
-      }
-      let value = this.stat[statName];
-      if (statName === 'line' && this.lineGoal != null && this.reverseLineStat != null) {
-        value = this.lineGoal - value;
-      }
+      const prefix = (this.prefixes[statName]) ? this.prefixes[statName] : '';
+      const append = (this.appends[statName]) ? this.appends[statName] : '';
+      const value = this.stat[statName];
       $(`#stat-${statName}`).innerHTML = `${prefix}${value}${append}`;
     }
   }
@@ -442,7 +428,9 @@ export default class Game {
     }
   }
   get cellSize() {
-    const base = Math.min(window.innerWidth, window.innerHeight);
+    const gameWidth = $('#game > .game-left').offsetWidth + $('#game > .game-center').offsetWidth + $('#game > .game-right').offsetWidth;
+    const gameAspectRatio = gameWidth / $('#game > .game-center').offsetHeight;
+    const base = Math.min(window.innerWidth / gameAspectRatio, window.innerHeight);
     return Math.floor(base / 1.2 / this.settings.height * this.userSettings.size / 100);
   }
   updateMusic() {
@@ -630,7 +618,7 @@ export default class Game {
         'purple', 'white', 'black',
       ],
       types = ['mino', 'ghost', 'stack'],
-      skin = SKIN_SETS[this.settings.rotationSystem]
+      skin = (settings.settings.skin === 'auto') ? SKIN_SETS[this.settings.rotationSystem] : settings.settings.skin
   ) {
     this.loadFinished = false;
     $('#sprite').innerHTML = '';

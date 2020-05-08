@@ -387,14 +387,13 @@ body {
   text-align: center;
   padding: .3em 0;
   overflow-y: scroll;
-  transition-property: opacity transform blur;
+  transition-property: opacity, transform, blur;
   transition-duration: .25s;
   transition-timing-function: ease-in-out;
 }
 #menu.hidden {
   opacity: 0;
   transform: translate(0, 1em);
-  filter: blur(.2em)
 }
 .modal {
   font-size: 2em;
@@ -464,8 +463,6 @@ body {
 #menu > .toggle-container.selected .bubble.enabled {
   background-color: #000;
 }
-#menu > .select-container {
-}
 #menu > .select-container .arrow {
   vertical-align: top;
   display: inline-block;
@@ -473,6 +470,7 @@ body {
   cursor: pointer;
 }
 #menu > .select-container .value {
+  cursor: pointer;
   display: inline-block;
   font-size: .7em;
   width: 11em;
@@ -813,9 +811,9 @@ body {
 }
 .game {
   display: inline-block;
-  padding: 2em;
+  padding-top: 2em;
   margin: auto;
-  transition-property: filter transform;
+  transition-property: filter, transform;
   transition-duration: .8s;
 }
 .game.dead {
@@ -917,6 +915,22 @@ body[theme="tetrjs"] .stats label {
 body[theme="tetrjs"] .game-center {
   outline-width: .1em;
 }
+.next-matrix {
+  display: none;
+  /* opacity: .4;
+  transition-property: opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out; */
+}
+/* .next-matrix.danger {
+  opacity: 1;
+}
+.next-matrix.immediate-death {
+  animation-name: pulse-darkness;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+} */
 .game-right {
   text-align: left;
 }
@@ -1207,7 +1221,7 @@ progress[value]::-moz-progress-bar {
   opacity: 1;
   transition-duration: .4s;
   transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-  transition-property: opacity transform filter;
+  transition-property: opacity, transform, filter;
 }
 .end-message-container .end-stats {
   text-align: right;
@@ -1380,7 +1394,7 @@ progress[value]::-moz-progress-bar {
   font-size: 1.5em;
   letter-spacing: .2em;
   text-transform: uppercase;
-  transition-property: letter-spacing opacity;
+  transition-property: letter-spacing, opacity;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }

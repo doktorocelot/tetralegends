@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Muentra mensajes cuando limpias líneas y haces trucos, tales como 'Double' y 'T-Spin'. También mostrará el contador de combos"
+  },
+  "skinLabel": {
+    "message": "Sobreescritura de Texturas",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Selecciona las texturas para usar en lugar del por defecto"
+  },
+  "glossyOption": {
+    "message": "Cristalino"
+  },
+  "flatOption": {
+    "message": "Plano"
   }
 }

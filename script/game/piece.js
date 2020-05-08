@@ -1,12 +1,11 @@
 import GameModule from './game-module.js';
-import {PIECES, SPAWN_OFFSETS, KICK_TABLES, PIECE_COLORS, INITIAL_ORIENTATION, PIECE_OFFSETS, SPIN_POINTS} from '../consts.js';
-import $, {clearCtx, framesToMs, hzToMs, toCtx} from '../shortcuts.js';
+import {PIECES, SPAWN_OFFSETS, KICK_TABLES, INITIAL_ORIENTATION, PIECE_OFFSETS, SPIN_POINTS} from '../consts.js';
+import $, {clearCtx, framesToMs} from '../shortcuts.js';
 import settings from '../settings.js';
-import gameHandler from './game-handler.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
 export default class Piece extends GameModule {
-  constructor(parent, ctx) {
+  constructor(parent, ctx, nextCtx) {
     super(parent);
     this.x;
     this.lastX;
@@ -22,6 +21,7 @@ export default class Piece extends GameModule {
     this.gravityMultiplier = 1;
     this.gravityOverride = 0;
     this.ctx = ctx;
+    this.nextCtx = nextCtx;
     this.orientation = 0;
     this.lastOrientation;
     this.lockDelay = 0;
@@ -103,15 +103,16 @@ export default class Piece extends GameModule {
     this.lowestVisualY = this.visualY;
     this.kicks = KICK_TABLES[rotSys][name];
     this.manipulations = 0;
+    this.color = this.parent.colors[this.name];
     for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
       this.shiftDown();
     }
     if (this.isStuck) {
       $('#kill-message').textContent = locale.getString('ui', 'blockOut');
       this.parent.end();
+      return;
       // gameHandler.reset();
     }
-    this.color = this.parent.colors[this.name];
     this.rotatedX = null;
     this.rotatedY = null;
     if (this.ire !== 0) {
@@ -148,9 +149,8 @@ export default class Piece extends GameModule {
   get visualY() {
     return (this.y + this.endY);
   }
-  drawMino(x, y, buffer, type, number, color) {
+  drawMino(x, y, buffer, type, number, color, ctx = this.ctx) {
     const cellSize = this.parent.cellSize;
-    const ctx = this.ctx;
     const xPos = x * cellSize;
     const yPos = y * cellSize + cellSize * buffer;
     // spriteCtx.drawImage(img, 0, 0, cellSize * 9, cellSize);
@@ -237,7 +237,9 @@ export default class Piece extends GameModule {
   }
   draw() {
     const ctx = this.ctx;
+    const nextCtx = this.nextCtx;
     clearCtx(ctx);
+    clearCtx(nextCtx);
     const cellSize = this.parent.cellSize;
     if (this.parent.stack.waitingGarbage) {
       $('#garbage-counter-container').classList.remove('hidden');
@@ -285,6 +287,29 @@ export default class Piece extends GameModule {
     ctx.fillRect((this.parent.settings.width - 0.1) * cellSize,
         (this.parent.settings.height - this.parent.stack.waitingGarbage + this.parent.bufferPeek) * cellSize,
         cellSize / 10, this.parent.stack.waitingGarbage * cellSize);
+    // Do this later
+    /* const nextBlocks = (this.parent.hold.ihs) ? this.getHoldPieceBlocks() : this.getNextPieceBlocks();
+    const check = (x, y) => {return this.parent.stack.isFilled(x, y, this.parent.stack.gridWithLockdown());};
+    let fall = 0;
+    const max = (this.gravity <= framesToMs(1 / 20)) ? this.parent.stack.height + this.parent.stack.hiddenHeight : SPAWN_OFFSETS[this.parent.rotationSystem].downShift;
+    downShiftCheck:
+    for (let i = 0; i <= max; i++) {
+      fall = i;
+      for (let j = 0; j <= nextBlocks.length; j++) {
+        const nextBlock = nextBlocks[j];
+        if (j === nextBlocks.length) {
+          continue downShiftCheck;
+        }
+        if (check(nextBlock[0], nextBlock[1] + i + this.parent.stack.hiddenHeight)) {
+          fall = Math.max(fall - 1, 0);
+          break downShiftCheck;
+        }
+      }
+    }
+    const nextColor = (this.parent.hold.ihs) ? this.parent.colors[this.parent.hold.getPiece()]: this.parent.colors[this.parent.next.queue[0]];
+    for (const nextBlock of nextBlocks) {
+      this.drawMino(nextBlock[0], nextBlock[1] + fall, this.parent.bufferPeek, 'ghost', '', nextColor, nextCtx);
+    }*/
     if (this.isDead) {
       $('#warning-message-container-hold').classList.add('hidden');
       $('#warning-message-container').classList.add('hidden');
@@ -345,8 +370,14 @@ export default class Piece extends GameModule {
     if (!$('#warning-message-container-hold').classList.contains('hidden') ||
       !$('#warning-message-container').classList.contains('hidden') ||
       !$('#rotation-warning').classList.contains('hidden')) {
+      if ($('#rotation-warning').classList.contains('hidden')) {
+        $('#next-piece').classList.add('immediate-death');
+      } else {
+        $('#next-piece').classList.remove('immediate-death');
+      }
       sound.startSeLoop('topoutwarning');
     } else {
+      $('#next-piece').classList.remove('immediate-death');
       sound.stopSeLoop('topoutwarning');
     }
   }
@@ -435,6 +466,9 @@ export default class Piece extends GameModule {
   }
   getFinalBlockLocations() {
     const finalBlocks = [];
+    if (this.shape == null) {
+      return finalBlocks;
+    }
     const currentX = this.x;
     const currentY = this.yFloor + this.getDrop();
     for (let y = 0; y < this.shape.length; y++) {
@@ -466,10 +500,7 @@ export default class Piece extends GameModule {
   }
   getHoldPieceBlocks() {
     const holdBlocks = [];
-    let holdPiece = this.parent.hold.pieceName;
-    if (holdPiece == null) {
-      holdPiece = this.parent.next.queue[0];
-    }
+    const holdPiece = this.parent.hold.getPiece();
     const holdPieceShape = PIECES[holdPiece].shape[INITIAL_ORIENTATION[this.parent.rotationSystem][holdPiece]];
     const spawnOffsets = SPAWN_OFFSETS[this.parent.rotationSystem][holdPiece];
     for (let y = 0; y < holdPieceShape.length; y++) {
@@ -595,7 +626,6 @@ export default class Piece extends GameModule {
   hardDrop() {
     if (!this.isDead) {
       const drop = this.getDrop();
-      const cellSize = this.parent.cellSize;
       this.parent.addScore('hardDrop', drop);
       sound.add('harddrop');
       this.genDropParticles();
@@ -632,7 +662,6 @@ export default class Piece extends GameModule {
     }
   }
   shift(direction, amount, condition) {
-    const cellSize = this.parent.cellSize;
     if (condition) {
       this[direction] += amount;
       this.addManipulation();

@@ -53,7 +53,7 @@ class Menu {
   get selectedControl() {
     return ($('#menu > .control.selected > .control-bay > .set-control.selected'));
   }
-  load(name, type = 'default') {
+  load(name, type = 'default', menuData = null) {
     this.isLocked = true;
     this.hideMenu();
     const render = (menu) => {
@@ -100,6 +100,10 @@ class Menu {
         }
       }, 250);
     };
+    if (menuData != null) {
+      render(JSON.parse(JSON.stringify(menuData)));
+      return;
+    }
     if (this.stored[name]) {
       render(JSON.parse(JSON.stringify(this.stored[name])));
       return;
@@ -282,6 +286,7 @@ class Menu {
         };
         label.textContent = locale.getString(this.current.lang, currentData.string);
         label.classList.add('setting-text');
+
         const arrowLeft = document.createElement('div');
         const arrowRight = document.createElement('div');
         createArrowElement(arrowLeft, '<', 'arrow-left');
@@ -315,16 +320,47 @@ class Menu {
         value.setAttribute('gamename', currentData.gameName);
         value.setAttribute('settingtype', 'select');
         value.classList.add('value');
+        value.onclick = () => {
+          sound.playMenuSe('select');
+          this.lastSelection = this.selected;
+          const newData = {};
+          newData.properties = {
+            parent: this.current.name,
+          };
+          if (this.current.lang) {
+            newData.properties.langOverride = this.current.lang;
+          }
+          newData.data = [];
+          const currentSelectionType = (this.selectedData.settingType === 'game') ? 'game' : 'settings';
+          const selectedSetting = (currentSelectionType === 'game') ?
+            settings[currentSelectionType][this.selectedData.gameName][this.selectedData.setting] :
+            settings[currentSelectionType][this.selectedData.setting];
+          for (const selectData of this.selectedData.selectOptions) {
+            const menuButton = JSON.parse(JSON.stringify(selectData));
+            if (selectData.value === selectedSetting) {
+              menuButton.default = true;
+            }
+            menuButton.isShort = true;
+            menuButton.omitDescription = true;
+            menuButton.action = 'settingChange';
+            menuButton.setting = this.selectedData.setting;
+            menuButton.settingType = this.selectedData.settingType;
+            menuButton.gameName = this.selectedData.gameName;
+            newData.data.push(menuButton);
+          }
+          menu.load('selectTemp', 'default', newData);
+        };
+        element.onclick = () => {};
         element.appendChild(label);
         element.appendChild(arrowLeft);
         element.appendChild(value);
         element.appendChild(arrowRight);
       } else {
         if (currentData.langOverride) {
-          element.textContent = locale.getString(currentData.langOverride, currentData.string);
+          element.textContent = locale.getString(currentData.langOverride, currentData.string, currentData.replace);
         } else {
           if (!currentData.fixedText) {
-            element.textContent = locale.getString(this.current.lang, currentData.string);
+            element.textContent = locale.getString(this.current.lang, currentData.string, currentData.replace);
           } else {
             element.textContent = currentData.label;
           }
@@ -340,10 +376,14 @@ class Menu {
       if (currentData.default) {
         element.classList.add('selected');
         element.scrollIntoView({block: 'center'});
-        if (!currentData.fixedText) {
-          $('#description').textContent = locale.getString(this.current.lang, currentData.stringDesc);
+        if (!currentData.omitDescription) {
+          if (!currentData.fixedText) {
+            $('#description').textContent = locale.getString(this.current.lang, currentData.stringDesc);
+          } else {
+            $('#description').textContent = currentData.description;
+          }
         } else {
-          $('#description').textContent = currentData.description;
+          $('#description').textContent = '';
         }
       }
     }
@@ -401,7 +441,8 @@ class Menu {
             if (valueData.fixedText) {
               label = valueData.label;
             } else {
-              label = locale.getString(this.current.lang, valueData.string, valueData.replace);
+              const lang = (valueData.langOverride) ? valueData.langOverride : this.current.lang;
+              label = locale.getString(lang, valueData.string, valueData.replace);
             }
             element.textContent = label;
             break;
@@ -494,14 +535,18 @@ class Menu {
     if (!mouseOver) {
       $(`#option-${number}`).scrollIntoView({block: 'center', behavior: (noScrollAnimation) ? 'auto' : 'smooth'});
     }
-    if (this.current.data[number].langOverride) {
-      $('#description').textContent = locale.getString(this.current.data[number].langOverride, this.current.data[number].stringDesc);
-    } else {
-      if (!this.current.data[number].fixedText) {
-        $('#description').textContent = locale.getString(this.current.lang, this.current.data[number].stringDesc);
+    if (!this.current.data[number].omitDescription) {
+      if (this.current.data[number].langOverride) {
+        $('#description').textContent = locale.getString(this.current.data[number].langOverride, this.current.data[number].stringDesc);
       } else {
-        $('#description').textContent = this.current.data[number].description;
+        if (!this.current.data[number].fixedText) {
+          $('#description').textContent = locale.getString(this.current.lang, this.current.data[number].stringDesc);
+        } else {
+          $('#description').textContent = this.current.data[number].description;
+        }
       }
+    } else {
+      $('#description').textContent = '';
     }
   }
   up() {
@@ -635,6 +680,15 @@ class Menu {
         settings.changeSetting(sel.setting, value,
           (sel.settingType === 'game') ? sel.gameName : undefined);
         this.drawSettings();
+        break;
+      case 'select':
+        $('.select-container.selected .value-name').onclick();
+        break;
+      case 'settingChange':
+        const game = (this.selectedData.settingType === 'game') ? this.selectedData.gameName : false;
+        settings.changeSetting(this.selectedData.setting, this.selectedData.value, game);
+        sound.playMenuSe('optionselect');
+        this.back(false);
         break;
       case 'slider':
         sound.playMenuSe('change');

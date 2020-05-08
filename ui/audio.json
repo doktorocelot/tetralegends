@@ -25,6 +25,66 @@
       "discrete": 5,
       "setting": "musicVolume",
       "settingType": "setting"
+    },
+    {
+      "string": "soundbankLabel",
+      "stringDesc": "soundbankDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "auto",
+          "value": "auto",
+          "langOverride": "menu_general"
+        },
+        {
+          "label": "Tetra-X",
+          "fixedText": true,
+          "value": "standard"
+        },
+        {
+          "label": "TGM3",
+          "fixedText": true,
+          "value": "tgm3"
+        },
+        {
+          "label": "T99",
+          "fixedText": true,
+          "value": "t99"
+        },
+        {
+          "string": "retroLabel",
+          "langOverride": "menu_root",
+          "value": "nes"
+        },
+        {
+          "string": "handheldLabel",
+          "langOverride": "menu_retro",
+          "value": "handheld"
+        },
+        {
+          "label": "DX",
+          "fixedText": true,
+          "value": "deluxe"
+        },
+        {
+          "label": "TETR.IO",
+          "fixedText": true,
+          "value": "tetrio"
+        },
+        {
+          "label": "NullpoMino",
+          "fixedText": true,
+          "value": "nullpomino"
+        },
+        {
+          "label": "N-Blox",
+          "fixedText": true,
+          "value": "nblox"
+        }
+      ],
+      "setting": "soundbank",
+      "settingType": "setting"
     }
   ]
 }

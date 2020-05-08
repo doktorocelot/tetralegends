@@ -28,36 +28,36 @@
     "message": "Laad de autoshift automatisch volledig op als een bewegingstoets wordt ingedrukt tijdens de invoertijd"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Voorrotatie",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Verandert de mogelijkheid om een stuk te draaien voor het verschijnt (kan in sommige modi uitstaan)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Absoluut",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "Voorhoud",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Verandert de mogelijkheid om een stuk vast te houden voor het verschijnt"
   },
   "tapInitOption": {
     "message": "Tap",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "Ingedrukt houden",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Draaisysteem-vervanger",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Kies een draaisysteem om te gebruiken i.p.v. de standaard voor de modus"
   }
 }

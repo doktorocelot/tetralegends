@@ -47,7 +47,8 @@ class Sound {
     }
   }
   loadMenu() {
-    const files = ['move', 'select', 'back', 'change', 'optionselect', 'hardmodestart'];
+    const files = ['move', 'select', 'back', 'change', 'optionselect',
+      'hardstart1', 'hardstart2', 'hardstart3', 'hardstart4'];
     for (const soundName of files) {
       this.menuSounds[soundName] = new Howl({
         src: [`./se/menu/${soundName}.ogg`],
@@ -60,24 +61,16 @@ class Sound {
     this.menuSounds[name].play();
   }
   load(name = 'standard') {
-    const playHardNoise = () => {
-      if (this.playHardNoise) {
-        this.playMenuSe('hardmodestart');
-        this.playHardNoise = false;
-      }
-    };
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
     if (name === this.lastLoaded) {
-      playHardNoise();
       return;
     }
     this.mustWait = true;
     Howler.unload();
     this.loadMenu();
-    playHardNoise();
     loadSoundbank(name)
         .then((soundData) => {
           this.lastLoaded = name;
@@ -274,7 +267,10 @@ class Sound {
     if (this.mustWait) {
       return;
     }
-    for (const name of Object.keys(this.toPlay)) {
+    for (let name of Object.keys(this.toPlay)) {
+      if (this.files.indexOf(name) === -1 && name.substr(0, 4) === 'b2b_') {
+        name = name.substr(4);
+      }
       if (this.files.indexOf(name) !== -1) {
         if (this.cut.indexOf(name) !== -1) {
           this.sounds[name].stop();

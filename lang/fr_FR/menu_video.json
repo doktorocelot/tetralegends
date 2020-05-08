@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Afficher les messages lorsque vous complétez des lignes et effectuez des techniques, telles que 'Double' et 'T-Spin'. Affichera également le compteur de combo"
+  },
+  "skinLabel": {
+    "message": "Modifier l'Apparence",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Choisir une nouvelle apparence"
+  },
+  "glossyOption": {
+    "message": "Brillant"
+  },
+  "flatOption": {
+    "message": "Plat"
   }
 }

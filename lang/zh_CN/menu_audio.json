@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "音乐音量的百分比"
+  },
+  "soundbankLabel": {
+    "message": "音效库覆盖"
+  },
+  "soundbankDescription": {
+    "message": "选择音效库以替换默认音效"
+  },
+  "nextSoundLabel": {
+    "message": "Next方块音效",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "选择用来指示下一个方块的音效库"
+  },
+  "morseCodeOption": {
+    "message": "摩斯电码"
+  },
+  "voiceOption": {
+    "message": "语音"
   }
 }

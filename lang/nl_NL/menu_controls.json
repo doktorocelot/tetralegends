@@ -11,7 +11,7 @@
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Alle controls terugzetten naar hun standaardinstellingen"
+    "message": "Alle besturingsinstellingen terugzetten naar hun standaardwaarden"
   },
   "shiftLeftLabel": {
     "message": "Naar links verplaatsen"
@@ -32,17 +32,17 @@
     "message": "Sleep een stuk direct naar de vloer. (kan anders handelen of uitgeschakeld zijn in sommige modes)"
   },
   "softDropLabel": {
-    "message": "Zachte Drop"
+    "message": "Soft Drop"
   },
   "softDropDescription": {
-    "message": "Sleep het blok naar beneden iets sneller. (kan anders handelen in sommige modes)"
+    "message": "Laat het blok iets sneller naar beneden vallen. (kan anders handelen in sommige modi)"
   },
   "rotateLeftLabel": {
     "message": "Draai Links",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Draai 90° stuk linksom om."
+    "message": "Draai stuk 90° tegen de klok in/linksom."
   },
   "rotateRightLabel": {
     "message": "Draai rechts",
@@ -59,7 +59,7 @@
     "message": "Draai een stuk 180° (kan uitgeschakeld zijn in sommige modes)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Reserve"
   },
   "holdDescription": {
     "message": "Stuur een stuk naar de wachtrij (kan uitgeschakeld zijn in sommige modes)"
@@ -69,7 +69,7 @@
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Direct een nieuwe poging"
+    "message": "Probeer het direct opnieuw"
   },
   "pauseLabel": {
     "message": "Pauze"

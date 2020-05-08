@@ -1,88 +1,88 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Очистить",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Очистить все назначенные клавиши"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Сброс",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Вернуть настройки управления по умолчанию"
   },
   "shiftLeftLabel": {
-    "message": "Shift Left"
+    "message": "Сдвиг влево"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Сдвинуть фигуру влево один раз или зажать для автосдвига"
   },
   "shiftRightLabel": {
-    "message": "Shift Right"
+    "message": "Сдвиг вправо"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Сдвинуть фигуру вправо один раз или зажать для автосдвига"
   },
   "hardDropLabel": {
     "message": "Hard Drop"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Сбросить фигуру на дно стакана (может работать иначе или быть недоступно в некоторых режимах)"
   },
   "softDropLabel": {
     "message": "Soft Drop"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Ускорить падение фигуры (может работать иначе в некоторых режимах)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Повернуть влево",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Повернуть фигуру на 90° против часовой стрелки."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Повернуть вправо",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Повернуть фигуру на 90° по часовой стрелке."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Повернуть на 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Повернуть фигуру на 180° (может быть выключено в некоторых режимах)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Запас"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Отправить фигуру в запас (может быть выключено в некоторых режимах)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Рестарт",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Сразу попытаться снова"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Пауза"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Приостановить игру"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Настройка управления",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Нажмите клавишу, которую хотите использовать для этого действия",
     "description": "Displays on the popup when you add a control binding"
   }
 }

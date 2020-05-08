@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "「ダブル」や「Tスピン」などのアクションを実行するときにメッセージを表示します。 RENカウンターも表示します。"
+  },
+  "skinLabel": {
+    "message": "ブロックスキン選択",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "使用するブロックスキンを選択してください"
+  },
+  "glossyOption": {
+    "message": "光沢のある"
+  },
+  "flatOption": {
+    "message": "フラット"
   }
 }

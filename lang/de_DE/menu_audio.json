@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "Die Lautstärke der Musik in Prozent"
+  },
+  "soundbankLabel": {
+    "message": "Soundbank überschreiten"
+  },
+  "soundbankDescription": {
+    "message": "Eine andere soundbank anstatt die originale benutzen"
+  },
+  "nextSoundLabel": {
+    "message": "\"Nächstes Stück\" Indikator Soundbank",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Eine Soundbank für den \"\"Nächstes Stück Indikator\"\" auswählen"
+  },
+  "morseCodeOption": {
+    "message": "Morse Code"
+  },
+  "voiceOption": {
+    "message": "Stimme"
   }
 }

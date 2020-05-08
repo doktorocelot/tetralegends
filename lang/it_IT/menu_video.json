@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Mostra dei messaggi quando cancelli linee o esegui tecniche come T-Spin o Double. Mostra anche il contatore delle combo"
+  },
+  "skinLabel": {
+    "message": "Skin Override",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Select a skin to use in place of the default"
+  },
+  "glossyOption": {
+    "message": "Glossy"
+  },
+  "flatOption": {
+    "message": "Flat"
   }
 }

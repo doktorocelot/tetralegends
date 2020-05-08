@@ -4,9 +4,67 @@
   },
   "data": [
     {
+      "string": "skinLabel",
+      "default": true,
+      "stringDesc": "skinDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "auto",
+          "value": "auto",
+          "langOverride": "menu_general"
+        },
+        {
+          "label": "SRS-X",
+          "fixedText": true,
+          "value": "srsx"
+        },
+        {
+          "label": "Tetra-X",
+          "fixedText": true,
+          "value": "standard"
+        },
+        {
+          "label": "Arika",
+          "fixedText": true,
+          "value": "arika"
+        },
+        {
+          "string": "glossyOption",
+          "value": "glossy"
+        },
+        {
+          "string": "flatOption",
+          "value": "flat"
+        },
+        {
+          "label": "TETR.IO",
+          "fixedText": true,
+          "value": "tetrio"
+        },
+        {
+          "label": "Dualshock 3",
+          "fixedText": true,
+          "value": "dshock"
+        },
+        {
+          "string": "retroLabel",
+          "langOverride": "menu_root",
+          "value": "retro"
+        },
+        {
+          "string": "handheldLabel",
+          "langOverride": "menu_retro",
+          "value": "handheld"
+        }
+      ],
+      "setting": "skin",
+      "settingType": "setting"
+    },
+    {
       "string": "nextLengthLabel",
       "stringDesc": "nextLengthDescription",
-      "default": true,
       "type": "slider",
       "action": "slider",
       "max": 6,

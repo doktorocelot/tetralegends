@@ -1,18 +1,18 @@
 {
   "standardLabel": {
-    "message": "Standard",
+    "message": "Стандарт",
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "Stack until you drop! Try to clear as many lines as you can before the speed overwhelms you.",
+    "message": "Ставь блоки, пока не проиграешь! Попробуй убрать как можно больше линий, пока скорость не сокрушит тебя.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {
-    "message": "Pro",
+    "message": "Про",
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "This is where puzzle masters come to die. The speed in this mode is super fast; blink and you may game over!",
+    "message": "Это испытание для профессионалов. Скорость в этом режиме очень высокая, ты можешь проиграть, если моргнёшь!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
