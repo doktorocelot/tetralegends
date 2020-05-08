@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "줄을 없애거나 특정 기술을 구사할 시 나타나는 텍스트 표시. ('Double', 'T-Spin' 등) 콤보 횟수 역시 표시합니다."
+  },
+  "skinLabel": {
+    "message": "스킨 사용자 선택",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "기본값 대신 사용할 블록 모양 선택"
+  },
+  "glossyOption": {
+    "message": "광택"
+  },
+  "flatOption": {
+    "message": "단색"
   }
 }

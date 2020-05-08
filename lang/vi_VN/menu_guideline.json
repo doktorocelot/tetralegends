@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn môt tí nào, khi bạn cố gắng sống sót tốc độ chơi kinh hoàng đến lúc kết thúc",
+    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn một tí nào, khi bạn cố gắng sống sót tốc độ chơi kinh hoàng đến lúc kết thúc.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {

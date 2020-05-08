@@ -47,9 +47,9 @@
       "action": "select",
       "selectOptions": [
         {
-          "label": "Auto",
-          "fixedText": true,
-          "value": "auto"
+          "string": "auto",
+          "value": "auto",
+          "langOverride": "menu_general"
         },
         {
           "label": "SRS-X",

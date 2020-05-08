@@ -1,0 +1,21 @@
+{
+  "backLabel": {
+    "message": "Back",
+    "description": "Go back to the previous menu"
+  },
+  "backDescription": {
+    "message": "Go back to the previous menu"
+  },
+  "enabled": {
+    "message": "Enabled",
+    "description": "Turned on, enabled"
+  },
+  "disabled": {
+    "message": "Disabled",
+    "description": "Turned off, disabled"
+  },
+  "auto": {
+    "message": "Auto",
+    "description": "As in 'automatic' for options; when automatic is selected, it goes based off of the mode as opposed to a user setting"
+  }
+}

@@ -1,86 +1,86 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "Быстрая игра",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "Начать игру в режиме Марафон со стандартными настройками"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "Стили игры",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "Стандарт"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "Стандартный вариант игры, который можно увидеть в большинстве современных игр"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Нестандартный режим игры, оригинально придуманный для этой игры"
   },
   "retroLabel": {
-    "message": "Retro"
+    "message": "Ретро"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "Классический вариант игры, нравящийся олдскул игрокам"
   },
   "arcadeLabel": {
-    "message": "Arcade"
+    "message": "Аркада"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "Сложный вариант игры, нравящийся хардкорным игрокам"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "Настройки"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "Геймплей"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "Настройки поведения блоков"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "Управление"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "Настройки управления игры"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "Аудио"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "Настройки звучания игры"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "Видео"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "Настройки внешнего вида игры"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "Прочее",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "Саундтрек"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Послушать оригинальный саундтрек"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "Перевести"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Помочь с переводом игры"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "Зайти на Discord сервер для обсуждения игры, получения обновлений и предложения идей и переводов"
   }
 }

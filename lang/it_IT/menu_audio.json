@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "Il volume della musica in percentuale"
+  },
+  "soundbankLabel": {
+    "message": "Reimposta libreria audio"
+  },
+  "soundbankDescription": {
+    "message": "Seleziona una libreria audio da utilizzare al posto di quella di default"
+  },
+  "nextSoundLabel": {
+    "message": "Indicatore della libreria audio successiva",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Seleziona una libreria audio da utilizzare per il pezzo imminente"
+  },
+  "morseCodeOption": {
+    "message": "Codice morse"
+  },
+  "voiceOption": {
+    "message": "Voce"
   }
 }

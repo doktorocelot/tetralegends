@@ -1,0 +1,63 @@
+{
+  "presetsLabel": {
+    "message": "Delay/Rate Presets",
+    "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
+  },
+  "presetDescription": {
+    "message": "Select from a variety of different presets for the autoshift"
+  },
+  "dasLabel": {
+    "message": "Autoshift Delay",
+    "description": "Also known as 'DAS'"
+  },
+  "dasDescription": {
+    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
+  },
+  "arrLabel": {
+    "message": "Autoshift Rate",
+    "description": "Also known as 'ARR'"
+  },
+  "arrDescription": {
+    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
+  },
+  "dasPreloadLabel": {
+    "message": "Autoshift Preload",
+    "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
+  },
+  "dasPreloadDescription": {
+    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
+  },
+  "irsLabel": {
+    "message": "Initial Rotation",
+    "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
+  },
+  "irsDescription": {
+    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+  },
+  "absoluteIrsOption": {
+    "message": "Absolute",
+    "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
+  },
+  "ihsLabel": {
+    "message": "Initial Hold",
+    "description": "Allows the user to hold a piece before it spawns (aka IHS)"
+  },
+  "ihsDescription": {
+    "message": "Modifies the ability to hold a piece before it spawns"
+  },
+  "tapInitOption": {
+    "message": "Tap",
+    "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
+  },
+  "holdInitOption": {
+    "message": "Hold",
+    "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
+  },
+  "rotSysLabel": {
+    "message": "Rotation System Override",
+    "description": "Allows the user to override the rotation system in any mode"
+  },
+  "rotSysDescription": {
+    "message": "Select a rotation system to use in place of the default for the mode"
+  }
+}

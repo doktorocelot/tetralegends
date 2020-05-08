@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "Het volume van de muziek in procenten"
+  },
+  "soundbankLabel": {
+    "message": "Geluidseffectenbank-vervanger"
+  },
+  "soundbankDescription": {
+    "message": "Selecteer een geluidseffectenbank om te gebruiken i.p.v. de standaard"
+  },
+  "nextSoundLabel": {
+    "message": "Volgende-indicator geluidseffectenbank",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Selecteer een geluidseffectenbank om te gebruiken voor de volgende stukken"
+  },
+  "morseCodeOption": {
+    "message": "Morse-code"
+  },
+  "voiceOption": {
+    "message": "Spraak"
   }
 }

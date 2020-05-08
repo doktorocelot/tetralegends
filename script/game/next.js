@@ -102,7 +102,7 @@ export default class Next extends GameModule {
             const xPos = x * cellSize + offset[0] * cellSize;
             const yPos = y * cellSize + offset[1] * cellSize + nextSpace * cellSize * multiplier;
             img.height = cellSize;
-            ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
+            ctx.drawImage(img, Math.floor(xPos), Math.floor(yPos), cellSize, cellSize);
           }
         }
       }

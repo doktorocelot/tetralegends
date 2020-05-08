@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "ゲーム内BGMの音量"
+  },
+  "soundbankLabel": {
+    "message": "SFXセット"
+  },
+  "soundbankDescription": {
+    "message": "ゲームのSFXセットを選択します"
+  },
+  "nextSoundLabel": {
+    "message": "NEXT SFX",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "NEXTブロックを示すために使用するSFXセットを選択します"
+  },
+  "morseCodeOption": {
+    "message": "モールス信号"
+  },
+  "voiceOption": {
+    "message": "ボイス"
   }
 }

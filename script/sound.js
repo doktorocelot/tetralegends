@@ -1,6 +1,7 @@
 import {loadSoundbank} from './loaders.js';
 import settings from './settings.js';
 import gameHandler from './game/game-handler.js';
+import {resetAnimation} from './shortcuts.js';
 class Sound {
   constructor() {
     this.sounds = [];
@@ -21,6 +22,8 @@ class Sound {
     this.lastLoaded = null;
     this.noLoops = false;
     this.playHardNoise = false;
+    this.pieceFlashes = {};
+    this.flashTimeouts = {};
   }
   updateVolumes() {
     for (const key of Object.keys(this.sounds)) {
@@ -44,7 +47,8 @@ class Sound {
     }
   }
   loadMenu() {
-    const files = ['move', 'select', 'back', 'change', 'optionselect', 'hardmodestart'];
+    const files = ['move', 'select', 'back', 'change', 'optionselect',
+      'hardstart1', 'hardstart2', 'hardstart3', 'hardstart4'];
     for (const soundName of files) {
       this.menuSounds[soundName] = new Howl({
         src: [`./se/menu/${soundName}.ogg`],
@@ -57,30 +61,23 @@ class Sound {
     this.menuSounds[name].play();
   }
   load(name = 'standard') {
-    const playHardNoise = () => {
-      if (this.playHardNoise) {
-        this.playMenuSe('hardmodestart');
-        this.playHardNoise = false;
-      }
-    };
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
     if (name === this.lastLoaded) {
-      playHardNoise();
       return;
     }
     this.mustWait = true;
     Howler.unload();
     this.loadMenu();
-    playHardNoise();
     loadSoundbank(name)
         .then((soundData) => {
           this.lastLoaded = name;
           this.files = soundData.files;
           this.ren = soundData.ren;
           this.cut = (soundData.cutItself) ? soundData.cutItself : [];
+          this.pieceFlashes = (soundData.nextFlashes) ? soundData.nextFlashes : {};
           for (const soundName of this.files) {
             this.amountOfTimesEnded[soundName] = 0;
             this.sounds[soundName] = new Howl({
@@ -270,10 +267,20 @@ class Sound {
     if (this.mustWait) {
       return;
     }
-    for (const name of Object.keys(this.toPlay)) {
+    for (let name of Object.keys(this.toPlay)) {
+      if (this.files.indexOf(name) === -1 && name.substr(0, 4) === 'b2b_') {
+        name = name.substr(4);
+      }
       if (this.files.indexOf(name) !== -1) {
         if (this.cut.indexOf(name) !== -1) {
           this.sounds[name].stop();
+        }
+        if (name.substr(0, 5) === 'piece') {
+          for (const flashTime of this.pieceFlashes[name.substr(5, 1)]) {
+            setTimeout(() => {
+              resetAnimation('#next-main', 'flash');
+            }, flashTime);
+          }
         }
         this.sounds[name].play();
       } else if (name === 'initialrotate' && this.files.indexOf('rotate') !== -1) {

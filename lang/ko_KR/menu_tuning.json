@@ -54,7 +54,7 @@
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "회전 체계 오버라이드",
+    "message": "회전 체계 사용자 지정",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {

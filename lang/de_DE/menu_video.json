@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Nachrichten anzeigen, wenn Sie Linien löschen und Tricks ausführen, wie z. B. 'Double' und 'T-Spin'. Zeigt auch den Kombenzähler an"
+  },
+  "skinLabel": {
+    "message": "Skin Überschreitung",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Wählen sie ein Skin anstatt des normalen aus"
+  },
+  "glossyOption": {
+    "message": "Glänzend"
+  },
+  "flatOption": {
+    "message": "Platt"
   }
 }

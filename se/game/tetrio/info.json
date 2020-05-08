@@ -2,11 +2,20 @@
   "files": [
     "alarm",
     "b2b_erase4",
+    "bravo",
+    "collapse",
     "erase4",
     "erasenot4",
+    "excellent",
+    "gameover",
+    "garbage",
+    "garbagefly",
+    "garbagereceive",
+    "garbagesend",
     "harddrop",
     "hold",
     "ko",
+    "lockfoce",
     "locknohd",
     "move",
     "pieceI",
@@ -41,5 +50,14 @@
     14,
     15,
     16
-  ]
+  ],
+  "nextFlashes": {
+    "I": [0, 125, 250, 375],
+    "J": [0, 125, 250],
+    "L": [0, 125, 250],
+    "O": [0, 125],
+    "S": [0, 125, 250],
+    "T": [0, 125, 250],
+    "Z": [0, 125, 250]
+  }
 }

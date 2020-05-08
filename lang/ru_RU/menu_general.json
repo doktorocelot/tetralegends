@@ -1,21 +1,21 @@
 {
   "backLabel": {
-    "message": "Back",
+    "message": "Назад",
     "description": "Go back to the previous menu"
   },
   "backDescription": {
-    "message": "Go back to the previous menu"
+    "message": "Вернуться назад в предыдущее меню"
   },
   "enabled": {
-    "message": "Enabled",
+    "message": "Включено",
     "description": "Turned on, enabled"
   },
   "disabled": {
-    "message": "Disabled",
+    "message": "Выключено",
     "description": "Turned off, disabled"
   },
   "auto": {
-    "message": "Auto",
+    "message": "Авто",
     "description": "As in 'automatic' for options; when automatic is selected, it goes based off of the mode as opposed to a user setting"
   }
 }

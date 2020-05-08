@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "El volumen de la música, en porcentaje"
+  },
+  "soundbankLabel": {
+    "message": "Sobreescritura del Conjunto de Audio"
+  },
+  "soundbankDescription": {
+    "message": "Selecciona una colección de sonidos en lugar del por defecto"
+  },
+  "nextSoundLabel": {
+    "message": "Sonido Indicador Siguiente",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Selecciona un conjunto de sonidos para usar como indicador de la pieza siguiente"
+  },
+  "morseCodeOption": {
+    "message": "Código Morse"
+  },
+  "voiceOption": {
+    "message": "Voz"
   }
 }

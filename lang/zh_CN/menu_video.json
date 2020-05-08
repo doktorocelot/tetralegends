@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "当您消除或完成技巧时显示文字（例如 Double 或 T-Spin ）。也会显示连击计数器。"
+  },
+  "skinLabel": {
+    "message": "皮肤覆盖",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "选择方块皮肤以替换默认皮肤"
+  },
+  "glossyOption": {
+    "message": "光泽"
+  },
+  "flatOption": {
+    "message": "纯色"
   }
 }

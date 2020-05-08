@@ -28,36 +28,36 @@
     "message": "Charger automatiquement le décalage automatique quand une touche de mouvement est pressée pendant le délai d'entrée"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Rotation Initiale",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Modifie la capacité de rotation d'une pièce avant son apparition (peut être désactivée dans certains modes de jeu)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Rotation absolue",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "Réserve Initiale",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Modifie la capacité de retenir une pièce avant son apparition"
   },
   "tapInitOption": {
     "message": "Tap",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "Maintenir",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Ignorer le Système de Rotation",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Choisir un système de rotation à utiliser à la place de la valeur par défaut pour ce mode"
   }
 }

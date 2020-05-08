@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "배경음 음량 조절 (백분율)"
+  },
+  "soundbankLabel": {
+    "message": "사운드뱅크 사용자 지정"
+  },
+  "soundbankDescription": {
+    "message": "기본값 대신 사용할 사운드뱅크 선택"
+  },
+  "nextSoundLabel": {
+    "message": "다음 알리미 사운드뱅크",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "다음 블록이 무엇인지 알리는 효과음 사운드뱅크를 선택"
+  },
+  "morseCodeOption": {
+    "message": "모스 부호"
+  },
+  "voiceOption": {
+    "message": "음성"
   }
 }

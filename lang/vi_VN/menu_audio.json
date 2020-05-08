@@ -12,5 +12,24 @@
   },
   "musicDescription": {
     "message": "Điều chỉnh độ to của nhạc theo phần trăm"
+  },
+  "soundbankLabel": {
+    "message": "Bộ hiệu ứng âm thanh"
+  },
+  "soundbankDescription": {
+    "message": "Lựa chọn một bộ hiệu ứng âm thanh đặt làm mặc định"
+  },
+  "nextSoundLabel": {
+    "message": "Hiệu ứng âm thanh \"Tiếp\"",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Lựa chọn một bộ hiệu ứng âm thanh để báo người chơi về miếng tiếp theo"
+  },
+  "morseCodeOption": {
+    "message": "Mã Morse"
+  },
+  "voiceOption": {
+    "message": "Giọng"
   }
 }

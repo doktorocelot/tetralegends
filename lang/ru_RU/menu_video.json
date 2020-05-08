@@ -29,28 +29,28 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particlesLabel": {
-    "message": "Particles"
+    "message": "Частицы"
   },
   "particlesDescription": {
-    "message": "Whether particles should be drawn"
+    "message": "Будут ли рисоваться частицы"
   },
   "particleLimitLabel": {
-    "message": "Particle Limit"
+    "message": "Лимит частиц"
   },
   "particleLimitDescription": {
-    "message": "How many particles can appear on screen at one time"
+    "message": "Как много частиц одновременно может появиться на экране"
   },
   "particleSizeLabel": {
-    "message": "Particle Size"
+    "message": "Размер частиц"
   },
   "particleSizeDescription": {
-    "message": "How large the particles will appear"
+    "message": "Насколько большими частицы будут появляться"
   },
   "particleVolumeLabel": {
     "message": "Particle Volume"
   },
   "particleVolumeDescription": {
-    "message": "How many particles will generate"
+    "message": "Как много частиц будет появляться"
   },
   "actionTextLabel": {
     "message": "Action Text",
@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Display messages when you clear lines and perform tricks, such as 'Double' and 'T-Spin'. Will also display combo counter"
+  },
+  "skinLabel": {
+    "message": "Выбор скина",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Выбери скин, который будет использоваться вместо стандартного"
+  },
+  "glossyOption": {
+    "message": "Глянцевый"
+  },
+  "flatOption": {
+    "message": "Плоский"
   }
 }

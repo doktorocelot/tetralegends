@@ -1,70 +1,70 @@
 {
   "level": {
-    "message": "Level",
+    "message": "Уровень",
     "description": "The level (usually affects the speed of the game)"
   },
   "score": {
-    "message": "Score",
+    "message": "Счёт",
     "description": "The amount of points the player has"
   },
   "line": {
-    "message": "Lines",
+    "message": "Линий",
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Pieces",
+    "message": "Фигур",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
-    "message": "Time",
+    "message": "Время",
     "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
-    "message": "Fall Speed",
+    "message": "Скорость падения",
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
-    "message": "Entry Delay",
+    "message": "Задержка появления",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Max Combo",
+    "message": "Максимальное комбо",
     "description": "The highest combo obtained"
   },
   "next": {
-    "message": "Next",
+    "message": "Следующие",
     "description": "The label for the next piece in the queue"
   },
   "hold": {
-    "message": "Hold",
+    "message": "Запас",
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
-    "message": "Skip",
+    "message": "Пропуск",
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "%1 sec/row",
+    "message": "%1 сек/линия",
     "description": "The unit label for 'seconds per row'. %1 is the amount of seconds"
   },
   "pause": {
-    "message": "Pause",
+    "message": "Пауза",
     "description": "Displays on screen when the game is paused"
   },
   "ready": {
-    "message": "Ready?",
+    "message": "Готов?",
     "description": "Good options are: 'Get Ready!', 'Are you ready?'"
   },
   "start": {
-    "message": "Start!",
+    "message": "Старт!",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
   },
   "go": {
-    "message": "Go!",
+    "message": "Старт!",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   },
   "gameover": {
-    "message": "Game Over",
+    "message": "Игра окончена",
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
@@ -80,23 +80,23 @@
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
   },
   "timeOut": {
-    "message": "Time Up",
+    "message": "Время вышло",
     "description": "Displays when the time runs out"
   },
   "excellent": {
-    "message": "Excellent!",
+    "message": "Хорошая работа!",
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
-    "message": "New Record!",
+    "message": "Новый рекорд!",
     "description": "Displays when the user beats their previous score or time"
   },
   "returnToMenu": {
-    "message": "Return to Menu",
+    "message": "Вернуться в меню",
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   },
   "loading": {
-    "message": "Loading...",
+    "message": "Загрузка...",
     "description": "Displays under 'READY' while the game loads the assets"
   },
   "realTimeAttack": {

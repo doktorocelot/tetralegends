@@ -28,7 +28,7 @@
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Combo max",
+    "message": "Combo maximal",
     "description": "The highest combo obtained"
   },
   "next": {
@@ -52,15 +52,15 @@
     "description": "Displays on screen when the game is paused"
   },
   "ready": {
-    "message": "Prêt?",
+    "message": "Prêt ?",
     "description": "Good options are: 'Get Ready!', 'Are you ready?'"
   },
   "start": {
-    "message": "C'est parti!",
+    "message": "C'est parti !",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
   },
   "go": {
-    "message": "Partez!",
+    "message": "Partez !",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   },
   "gameover": {
@@ -68,15 +68,15 @@
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
-    "message": "Block Out",
+    "message": "Bloc de pièce",
     "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
   },
   "lockOut": {
-    "message": "Lock Out",
+    "message": "Bloc de verrouillage",
     "description": "Displays as a failure message when the piece was locked above the skyline/ceiling"
   },
   "topOut": {
-    "message": "Top Out",
+    "message": "Bloc de hauteur",
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
   },
   "timeOut": {
@@ -84,11 +84,11 @@
     "description": "Displays when the time runs out"
   },
   "excellent": {
-    "message": "Excellent!",
+    "message": "Excellent !",
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
-    "message": "Nouveau record!",
+    "message": "Nouveau record !",
     "description": "Displays when the user beats their previous score or time"
   },
   "returnToMenu": {
@@ -100,11 +100,11 @@
     "description": "Displays under 'READY' while the game loads the assets"
   },
   "realTimeAttack": {
-    "message": "RTA: %1",
+    "message": "Temps réel : %1",
     "description": "This label is used to describe the 'real time', as in a timer that does NOT freeze during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "inGameTime": {
-    "message": "IGT: %1",
+    "message": "Temps en jeu : %1",
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
@@ -112,15 +112,15 @@
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "Block Out",
+    "message": "Bloc de pièce",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "Lock Out",
+    "message": "Bloc de verrouillage",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {
-    "message": "Top Out",
+    "message": "Bloc de hauteur",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   }
 }

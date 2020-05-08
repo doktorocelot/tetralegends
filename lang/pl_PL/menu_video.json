@@ -58,5 +58,18 @@
   },
   "actionTextDescription": {
     "message": "Wyświetlaj wiadomości, gdy wyczyścisz linie i wykonasz sztuczki, takie jak 'Double' i 'T-Spin'. Wyświetli również licznik kombosa"
+  },
+  "skinLabel": {
+    "message": "Skin Override",
+    "description": "'Skin' as in the sprites used by the pieces"
+  },
+  "skinDescription": {
+    "message": "Select a skin to use in place of the default"
+  },
+  "glossyOption": {
+    "message": "Glossy"
+  },
+  "flatOption": {
+    "message": "Flat"
   }
 }

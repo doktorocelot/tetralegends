@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import $, {clearCtx, negativeMod, resetAnimation} from '../shortcuts.js';
+import $, {negativeMod, resetAnimation} from '../shortcuts.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
 import settings from '../settings.js';
@@ -42,13 +42,17 @@ export default class Stack extends GameModule {
       }
     }
   }
-  wouldCauseLineClear() {
+  gridWithLockdown() {
     const finalBlocks = this.parent.piece.getFinalBlockLocations();
     const newGrid = JSON.parse(JSON.stringify(this.grid));
-    let lineClear = 0;
     for (const finalBlock of finalBlocks) {
       newGrid[finalBlock[0]][finalBlock[1] + this.hiddenHeight] = 'test';
     }
+    return newGrid;
+  }
+  wouldCauseLineClear() {
+    const newGrid = this.gridWithLockdown();
+    let lineClear = 0;
     for (let y = 0; y < newGrid[0].length; y++) {
       for (let x = 0; x <= newGrid.length; x++) {
         if (x === newGrid.length) {
@@ -169,10 +173,7 @@ export default class Stack extends GameModule {
     if (isSpin) {
       sound.add('tspinbonus');
     }
-    let version = '';
-    if (isMini) {
-      version = 'mini';
-    }
+    const version = (isMini) ? 'mini' : '';
     if (this.lineClear >= 4 && this.flashOnTetris) {
       resetAnimation('#stack', 'tetris-flash');
     }
@@ -188,17 +189,17 @@ export default class Stack extends GameModule {
       } else if (this.lineClear < 4) {
         this.parent.b2b = 0;
       }
-      sound.add(`${type}${version}`);
-      sound.add(`${type}${this.lineClear}${version}`);
       if (this.lineClear < 4) {
         sound.add(`${type}not4${version}`);
       } else {
         this.parent.b2b++;
       }
+      const b2bPrefix = (this.parent.b2b > 1) ? 'b2b_' : '';
+      sound.add(`${b2bPrefix}${type}${version}`);
+      sound.add(`${b2bPrefix}${type}${this.lineClear}${version}`);
       if (this.parent.b2b > 1) {
         sound.add('b2b');
       }
-
       if (isSpin) {
         this.parent.addScore(`tspin${this.lineClear}`);
       }
@@ -305,6 +306,9 @@ export default class Stack extends GameModule {
       this.waitingGarbage = 0;
     }
     this.alarmCheck();
+    /* if (isMini && this.lineClear >= 2) { // If you uncomment this, the game will softlock on TSDM
+    //   this.parent.noUpdate = true;
+    } */
     this.parent.updateStats();
   }
   alarmCheck() {
@@ -340,6 +344,7 @@ export default class Stack extends GameModule {
     this.alarmIsOn = true;
     this.updateGrid();
     document.documentElement.style.setProperty('--tetrion-color', '#f00');
+    $('#next-piece').classList.add('danger');
   }
   endAlarm() {
     sound.lowerDangerBgm();
@@ -347,6 +352,7 @@ export default class Stack extends GameModule {
     this.alarmIsOn = false;
     this.updateGrid();
     document.documentElement.style.setProperty('--tetrion-color', '#fff');
+    $('#next-piece').classList.remove('danger');
   }
   addGarbageToCounter(amount = 1) {
     const selectedStartingType = Math.floor(Math.random() * 2);
@@ -464,6 +470,7 @@ export default class Stack extends GameModule {
     this.lineClear = 0;
     this.alarmCheck();
     this.isDirty = true;
+    this.parent.piece.isDirty = true;
   }
   new() {
     const cells = new Array(this.width);
@@ -513,10 +520,10 @@ export default class Stack extends GameModule {
     }
     return amount;
   }
-  isFilled(x, y) {
-    if (this.grid[x] != null) {
+  isFilled(x, y, grid = this.grid) {
+    if (grid[x] != null) {
       if (y < this.height + this.hiddenHeight) {
-        if (this.grid[x][y] != null) {
+        if (grid[x][y] != null) {
           return true;
         } else {
           return false;
@@ -590,6 +597,7 @@ export default class Stack extends GameModule {
         ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize);
       }
     }
+    // Flash
     if (this.flashTime < this.flashLimit) {
       for (let i = 0; i < this.flashX.length; i++) {
         ctx.globalCompositeOperation = 'overlay';
@@ -599,8 +607,6 @@ export default class Stack extends GameModule {
         ctx.fillRect(x, Math.floor(y), cellSize, cellSize);
 
         const float = this.flashTime * 2 / this.flashLimit;
-        const beforeFloat = Math.min(float * 2, 1);
-        const afterFloat = Math.max(0, float * 2 - 1);
         const mod = 0.2;
         const getDistanceX = (modifier = 0) => {
           return Math.min(Math.min(Math.max(Math.max(0, float * 2 - 1 + modifier), 0), 1) * cellSize, cellSize);
@@ -624,6 +630,7 @@ export default class Stack extends GameModule {
         ctx.lineTo(x + cornerX, Math.floor(y + cornerY));
         ctx.fillStyle = '#fff';
         ctx.fill();
+        // Solid white 2f
         if (this.flashTime < 50) {
           ctx.globalCompositeOperation = 'source-over';
           ctx.fillStyle = `#fff`;
@@ -631,6 +638,7 @@ export default class Stack extends GameModule {
         }
       }
     }
+    // Line clear animation
     if (this.toCollapse.length > 0) {
       const brightness = Math.max(0, 1 - this.parent.piece.are / (this.parent.piece.areLimit + this.parent.piece.areLimitLineModifier));
       let brightnessHex = ('0' + Math.round(brightness * 255).toString(16)).slice(-2);
