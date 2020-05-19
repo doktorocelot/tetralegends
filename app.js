@@ -27,6 +27,8 @@ input.addMany([
 document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   sound.loadMenu();
+  sound.loadBgm(['menu'], 'menu');
+  sound.playBgm(['menu'], 'menu');
   locale.loadLang(settings.settings.language)
       .then((test) => {
         locale.updateFonts();

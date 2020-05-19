@@ -123,6 +123,15 @@ class Menu {
     this.hide();
   }
   open() {
+    if (gameHandler.game.isOver) {
+      gameHandler.game.settings = {
+        ...gameHandler.game.settings,
+        hasDangerBgm: false,
+        hasPaceBgm: false,
+      };
+      sound.loadBgm(['menu'], 'menu');
+      sound.playBgm(['menu'], 'menu');
+    }
     this.isLocked = false;
     this.isEnabled = true;
     this.show();

@@ -34,6 +34,7 @@ export default class Game {
     this.request;
     this.loadFinished = false;
     this.noUpdate = false;
+    this.isOver = false;
     this.isDead = false;
     this.isPaused = false;
     this.isDirty = true;
@@ -201,6 +202,7 @@ export default class Game {
     this.isDead = true;
   }
   end(victory = false) {
+    this.isOver = true;
     $('#combo-counter-container').classList.add('hidden');
     this.stack.endAlarm();
     this.noUpdate = true;
