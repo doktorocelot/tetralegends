@@ -3,7 +3,19 @@ import Game from './game.js';
 class GameHandler {
   constructor() {
     /** @type {Game} */
-    this.game = null;
+    this.game = {};
+    this.setToBlank();
+  }
+  setToBlank() {
+    this.game = {
+      settings: {
+        hasDangerBgm: false,
+        hasPaceBgm: false,
+      },
+      die: () => {
+
+      },
+    };
   }
   newGame(gametype) {
     if (this.game != null) {

@@ -27,6 +27,8 @@ input.addMany([
 document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   sound.loadMenu();
+  sound.loadBgm(['menu'], 'menu');
+  sound.playBgm(['menu'], 'menu');
   locale.loadLang(settings.settings.language)
       .then((test) => {
         locale.updateFonts();
@@ -37,7 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             gameHandler.game.pause();
           } catch (error) {
             // game isn't running yet; no big deal
+          } finally {
+            Howler.volume(0);
           }
+        };
+        window.onfocus = () => {
+          Howler.volume(1);
         };
       });
   // TEMP BELOW
