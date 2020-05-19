@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             gameHandler.game.pause();
           } catch (error) {
             // game isn't running yet; no big deal
+          } finally {
+            Howler.volume(0);
           }
+        };
+        window.onfocus = () => {
+          Howler.volume(1);
         };
       });
   // TEMP BELOW
