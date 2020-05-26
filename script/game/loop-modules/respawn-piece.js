@@ -4,7 +4,7 @@ export default function respawnPiece(arg) {
   if (arg.piece.isDead) {
     const irsCarry = arg.piece.ire;
     arg.piece.new();
-    if (arg.hold.ihs) {
+    if (arg.hold.ihs && !arg.hold.isDisabled) {
       arg.piece.ire = irsCarry;
       arg.hold.hold();
       return;
