@@ -21,11 +21,12 @@ import softDropRetro from './loop-modules/soft-drop-retro.js';
 import softDropNes from './loop-modules/soft-drop-nes.js';
 import sound from '../sound.js';
 import updateLasts from './loop-modules/update-lasts.js';
-import {extendedLockdown, retroLockdown, classicLockdown, infiniteLockdown} from './loop-modules/lockdown.js';
+import {extendedLockdown, retroLockdown, classicLockdown, infiniteLockdown, nonLockdown} from './loop-modules/lockdown.js';
 import updateFallSpeed from './loop-modules/update-fallspeed.js';
 import shiftingNes from './loop-modules/shifting-nes.js';
 import nesDasAre from './loop-modules/nes-das-are.js';
 import settings from '../settings.js';
+import input from '../input.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
@@ -102,6 +103,56 @@ export const loops = {
       lastLevel = parseInt(settings.game.marathon.startingLevel);
       game.piece.gravity = 1000;
       updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
+  non: {
+    update: (arg) => {
+      const game = gameHandler.game;
+      let respawn = false;
+      if (arg.piece.startingAre >= arg.piece.startingAreLimit) {
+        game.nonTime += arg.ms;
+      }
+      collapse(arg);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        rotate(arg);
+        rotate180(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      softDrop(arg);
+      if (input.getGamePress('hardDrop')) {
+        if (!arg.piece.isFrozen) {
+          sound.add('lockforce');
+        }
+        arg.piece.isFrozen = true;
+      }
+      while (game.nonTime > 333.333333333) {
+        arg.piece.hardDrop();
+        respawn = true;
+        game.nonTime -= 333.333333333;
+      }
+      nonLockdown(arg);
+      if (!arg.piece.inAre) {
+        hold(arg);
+      }
+      if (respawn) {
+        respawnPiece(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      game.piece.gravity = framesToMs(1 / 20);
+      game.piece.lockDelayLimit = 333;
+    },
+    onInit: (game) => {
+      game.nonTime = 333.333333333;
       game.updateStats();
     },
   },

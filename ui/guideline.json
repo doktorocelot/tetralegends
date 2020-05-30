@@ -39,6 +39,14 @@
       "stringDesc": "comboDescription",
       "action": "submenu",
       "submenu": "mode/combo"
+    },
+    {
+      "label": "NIGHT OF NIGHTS",
+      "description": "",
+      "fixedText": true,
+      "secretA": true,
+      "action": "game",
+      "game": "non"
     }
   ]
 }
