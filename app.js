@@ -47,8 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
           Howler.volume(1);
         };
       });
-  // TEMP BELOW
-  // gameHandler.newGame('marathon');
 });
 
 

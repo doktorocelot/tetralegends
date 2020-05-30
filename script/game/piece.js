@@ -68,6 +68,7 @@ export default class Piece extends GameModule {
     this.killLockDelayOnRotate = false;
   }
   new(name = this.parent.next.next()) {
+    this.isFrozen = false;
     const rotSys = this.parent.rotationSystem;
     this.killLockDelayOnRotate = false;
     if (this.parent.stat.piece === 0 && !this.parent.hold.hasHeld) {
@@ -177,7 +178,10 @@ export default class Piece extends GameModule {
 
     ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize);
 
-    const darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 255)).toString(16)).slice(-2);
+    let darkness = ('0' + (Math.floor(this.lockDelay / this.lockDelayLimit * 255)).toString(16)).slice(-2);
+    if (this.isFrozen) {
+      darkness = 'FF';
+    }
     if (type === 'piece') {
       ctx.globalCompositeOperation = 'saturation';
 
@@ -513,7 +517,10 @@ export default class Piece extends GameModule {
     }
     return holdBlocks;
   }
-  moveValid(passedX, passedY, shape) {
+  moveValid(passedX, passedY, shape, checkIfFrozen = true) {
+    if (this.isFrozen && checkIfFrozen) {
+      return false;
+    }
     if (this.isDead) {
       return false;
     }
@@ -537,7 +544,7 @@ export default class Piece extends GameModule {
     return !this.moveValid(0, 1, this.shape);
   }
   get isStuck() {
-    return !this.moveValid(0, 0, this.shape);
+    return !this.moveValid(0, 0, this.shape, false);
   }
   get canShiftLeft() {
     return this.moveValid(-1, 0, this.shape);
@@ -557,7 +564,7 @@ export default class Piece extends GameModule {
     }
     let currentDistance = 0;
     for (currentDistance = 1; currentDistance <= distance; currentDistance++) {
-      if (!this.moveValid(0, currentDistance, this.shape)) {
+      if (!this.moveValid(0, currentDistance, this.shape, false)) {
         return currentDistance - 1;
       }
     }

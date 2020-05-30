@@ -157,6 +157,9 @@ class Menu {
     let nonOptions = 0;
     for (let i = 0; i < this.current.data.length; i++) {
       const currentData = this.current.data[i];
+      if (currentData.secretA && !input.holdingCtrl) { // For those who are looking through my code, this is how you can access a secret game.
+        continue;
+      }
       let element = document.createElement('div');
       const sub = document.createElement('div');
       switch (currentData.type) {

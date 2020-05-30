@@ -1,4 +1,5 @@
 import $, {framesToMs} from '../../shortcuts.js';
+import gameHandler from '../game-handler.js';
 // SHARED
 function tryLockdown(piece, arg) {
   if (
@@ -47,9 +48,11 @@ function setLowestY(piece) {
 export function extendedLockdown(arg) {
   const piece = arg.piece;
   piece.lockdownType = 'extended';
-  if (piece.isDead) {
+  if (piece.isDead || piece.isFrozen) {
     $('#lockdown').value = 0;
-    return;
+    if (piece.isDead) {
+      return;
+    }
   }
   fallReset(piece, true);
   tryLockdown(piece, arg);
@@ -59,6 +62,34 @@ export function extendedLockdown(arg) {
     piece.lockDelay = piece.lockDelayLimit;
   }
   updateLockdownBar(piece);
+  setLowestY(piece);
+  for (let i = 1; i <= piece.manipulationLimit; i++) {
+    $(`#pip-${i}`).classList.remove('disabled');
+  }
+  for (let i = 1; i <= Math.min(piece.manipulations, piece.manipulationLimit); i++) {
+    $(`#pip-${i}`).classList.add('disabled');
+  }
+}
+export function nonLockdown(arg) {
+  const piece = arg.piece;
+  piece.lockDelay = 0;
+  piece.lockdownType = 'extended';
+
+  if (piece.isDead || piece.isFrozen) {
+    $('#lockdown').value = 0;
+    if (piece.isDead) {
+      return;
+    }
+  }
+  fallReset(piece, true);
+  tryLockdown(piece, arg);
+  stepReset(piece, arg);
+
+  if (piece.manipulations >= piece.manipulationLimit) {
+    piece.lockDelay = piece.lockDelayLimit;
+  }
+  $('#lockdown').max = 100;
+  $('#lockdown').value = $('#lockdown').max - ((gameHandler.game.nonTime / 333.333333333) * $('#lockdown').max);
   setLowestY(piece);
   for (let i = 1; i <= piece.manipulationLimit; i++) {
     $(`#pip-${i}`).classList.remove('disabled');
