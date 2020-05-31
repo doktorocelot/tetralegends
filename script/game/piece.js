@@ -118,11 +118,11 @@ export default class Piece extends GameModule {
     this.rotatedX = null;
     this.rotatedY = null;
     if (settings.settings.IRS === 'hold') {
-      if (input.getGameDown('rotateRight')) {
+      if (input.getGameDown('rotateRight') && !input.getGamePress('rotateRight')) {
         this.ire = 1;
-      } else if (input.getGameDown('rotateLeft')) {
+      } else if (input.getGameDown('rotateLeft') && !input.getGamePress('rotateLeft')) {
         this.ire = 3;
-      } else if (input.getGameDown('rotate180')) {
+      } else if (input.getGameDown('rotate180') && !input.getGamePress('rotate180')) {
         this.ire = 2;
       }
     }
