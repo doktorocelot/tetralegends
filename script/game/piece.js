@@ -4,6 +4,7 @@ import $, {clearCtx, framesToMs} from '../shortcuts.js';
 import settings from '../settings.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
+import input from '../input.js';
 export default class Piece extends GameModule {
   constructor(parent, ctx, nextCtx) {
     super(parent);
@@ -116,6 +117,15 @@ export default class Piece extends GameModule {
     }
     this.rotatedX = null;
     this.rotatedY = null;
+    if (settings.settings.IRS === 'hold') {
+      if (input.getGameDown('rotateRight')) {
+        this.ire = 1;
+      } else if (input.getGameDown('rotateLeft')) {
+        this.ire = 3;
+      } else if (input.getGameDown('rotate180')) {
+        this.ire = 2;
+      }
+    }
     if (this.ire !== 0) {
       sound.add('initialrotate');
       let ireDirection = '';
