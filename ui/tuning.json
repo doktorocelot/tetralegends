@@ -41,6 +41,56 @@
       "settingType": "setting"
     },
     {
+      "string": "irsLabel",
+      "stringDesc": "irsDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        },
+        {
+          "string": "tapInitOption",
+          "value": "tap"
+        },
+        {
+          "string": "holdInitOption",
+          "value": "hold"
+        },
+        {
+          "string": "absoluteIrsOption",
+          "value": "absolute"
+        }
+      ],
+      "setting": "IRS",
+      "settingType": "setting"
+    },
+    {
+      "string": "ihsLabel",
+      "stringDesc": "ihsDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        },
+        {
+          "string": "tapInitOption",
+          "value": "tap"
+        },
+        {
+          "string": "holdInitOption",
+          "value": "hold"
+        }
+      ],
+      "setting": "IHS",
+      "settingType": "setting"
+    },
+    {
       "string": "rotSysLabel",
       "stringDesc": "rotSysDescription",
       "type": "select",
