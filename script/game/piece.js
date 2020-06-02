@@ -67,6 +67,7 @@ export default class Piece extends GameModule {
     this.breakHoldingTimeOnSoftDrop = true;
     this.resetHoldingTime = false;
     this.killLockDelayOnRotate = false;
+    this.lastSpinDirection = null;
   }
   new(name = this.parent.next.next()) {
     this.isFrozen = false;
@@ -781,6 +782,7 @@ export default class Piece extends GameModule {
         }
       }
       if (this.moveValid(kickX, kickY, rotatedShape)) {
+        this.lastSpinDirection = direction;
         this.lastKickIndex = i;
         this.x += kickX;
         this.y += kickY;

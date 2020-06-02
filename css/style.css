@@ -839,9 +839,11 @@ body {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  margin-right: -.4em;
 }
 body[theme="tetrjs"] .stats {
   transform: none !important;
+  margin-right: 0em
 }
 .stats div.stat-group {
   text-align: right;
@@ -905,15 +907,17 @@ body[theme="tetrjs"] .stats label {
   background-color: #0003;
   background-image: var(--grid-image);
   background-position: left bottom;
-  outline-color: var(--tetrion-color);
+  border-color: var(--tetrion-color);
   transition-property: outline-color;
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
-  outline-style: solid;
-  outline-width: .5em;
+  /* margin: 0em 1em; */
+  margin-top: -.5em;
+  border-style: solid;
+  border-width: .5em;
 }
 body[theme="tetrjs"] .game-center {
-  outline-width: .1em;
+  border-width: .1em;
 }
 .next-matrix {
   display: none;
@@ -1286,26 +1290,6 @@ progress[value]::-moz-progress-bar {
 .game .load-message.hidden {
   display: none;
 }
-@keyframes action-text {
-  0% {transform: translate(0, 0); opacity: 0;}
-  3% {opacity: 1;}
-  100% {transform: translate(0, -25em); opacity: 0}
-}
-.game .action-text {
-  animation-name: action-text;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.635, 0.005, 0.940, 0.080);
-  display: block;
-  color: white;
-  font-size: 2.3em;
-  font-weight: 500;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  top: 9em;
-  width: 100%;
-}
 .game .main-message {
   animation-name: pulse-opacity;
   animation-duration: .2s;
@@ -1428,4 +1412,107 @@ progress[value]::-moz-progress-bar {
 .garbage-particle.send {
   background-color: #fff;
   animation-name: garbage-send;
+}
+@keyframes action-text {
+  0% {transform: translate(0, 0) rotate(0deg); opacity: 0;}
+  3% {opacity: 1;}
+  100% {transform: translate(0, -25em) rotate(var(--spin-amount)); opacity: 0}
+}
+.game .action-text {
+  animation-name: action-text;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.635, 0.005, 0.940, 0.080);
+  display: block;
+  color: white;
+  font-size: 2.3em;
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 9em;
+  width: 100%;
+}
+.game .action-text.skip-default-animation {
+  animation: none;
+}
+.game .action-text.perfect-clear-text {
+  font-size: 3.5em;
+  font-weight: 300;
+  top: 4em;
+}
+@keyframes spin-start-left {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-720deg);}
+}
+@keyframes spin-start-right {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(720deg);}
+}
+@keyframes spin-start-double-h {
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(-720deg);}
+}
+@keyframes spin-start-double-v {
+  from {transform: rotateX(0deg);}
+  to {transform: rotateX(-720deg);}
+}
+.spin-start {
+  display: inline-block;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+.spin-start.left {
+  animation-name: spin-start-left;
+}
+.spin-start.right {
+  animation-name: spin-start-right;
+}
+.spin-start.double.horizontal {
+  animation-name: spin-start-double-h;
+}
+.spin-start.double.vertical {
+  animation-name: spin-start-double-v;
+}
+@keyframes tetra-text {
+  from {transform: scale(4) translate(0,1em); opacity: 0;}
+  to {transform: scale(1) translate(0,0); opacity: 1;}
+}
+.tetra-animation {
+  animation-name: tetra-text;
+  display: inline-block;
+  animation-fill-mode: backwards;
+  animation-duration: 1s;
+  animation-delay: var(--animation-delay);
+  animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+@keyframes perfect-clear {
+  0% {transform: rotate(0deg) scale(0);}
+  12.5% {transform: rotate(720deg) scale(1); opacity: 1;}
+  100% {transform: scale(.5); opacity: 0;}
+}
+.perfect-clear {
+  display: inline-block;
+  animation-name: perfect-clear;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes perfect-clear-secondary {
+  from {transform: scale(1); opacity: 1;}
+  to {transform: scale(6); opacity: 0;}
+}
+.perfect-clear-secondary {
+  display: inline-block;
+  animation-name: perfect-clear-secondary;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  animation-timing-function: ease-out;
+}
+.pulse-spin-text {
+  animation-name: pulse-opacity;
+  animation-timing-function: ease-in-out;
+  animation-duration: var(--duration);
+  animation-iteration-count: var(--pulse-count);
 }

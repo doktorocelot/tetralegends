@@ -12,6 +12,7 @@ class SingleParticle {
     this.yDampening = 1;
     this.xFlurry = 0;
     this.yFlurry = 0;
+    this.flicker = 0;
     this.lifetime = 0;
     this.maxlife = 100;
     this.opacity = 1;
@@ -47,9 +48,9 @@ class SingleParticle {
     }
   }
   draw(ctx) {
-    const opacity = (this.maxlife - this.lifetime) / this.maxlife;
+    const opacity = (this.maxlife - this.lifetime) / this.maxlife - Math.random() * this.flicker;
     ctx.fillStyle = `rgba(${this.red}, ${this.blue}, ${this.green}, ${opacity})`;
-    const size = gameHandler.game.particle.ctx.canvas.clientWidth / 400 * settings.settings.particleSize;
+    const size = gameHandler.game.particle.ctx.canvas.clientHeight / 800 * settings.settings.particleSize;
     ctx.fillRect(this.x, this.y, size, size);
   }
 }

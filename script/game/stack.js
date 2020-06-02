@@ -1,5 +1,5 @@
 import GameModule from './game-module.js';
-import $, {negativeMod, resetAnimation} from '../shortcuts.js';
+import $, {negativeMod, resetAnimation, hsvToRgb} from '../shortcuts.js';
 import sound from '../sound.js';
 import locale from '../lang.js';
 import settings from '../settings.js';
@@ -241,23 +241,36 @@ export default class Stack extends GameModule {
       }
     }
     if (pc) {
-      this.parent.particle.generate({
-        amount: 200,
-        x: this.parent.stack.width / 2 * this.parent.cellSize,
-        y: this.parent.cellSize * (this.parent.bufferPeek + this.parent.stack.height) / 2,
-        xRange: 0,
-        yRange: 0,
-        xVelocity: 0,
-        yVelocity: 0,
-        xVariance: 1,
-        yVariance: 1,
-        xFlurry: .5,
-        yFlurry: .5,
-        lifeVariance: 250,
-        maxlife: 250,
-      });
+      for (let i = 0; i < 200 * this.width / 10; i++) {
+        const colors = hsvToRgb(Math.random(), .7, 1);
+        this.parent.particle.generate({
+          amount: 1,
+          x: 0,
+          y: this.parent.cellSize * (this.parent.bufferPeek + this.parent.stack.height),
+          xRange: this.parent.stack.width * this.parent.cellSize,
+          yRange: 0,
+          xVelocity: 0,
+          yVelocity: 5,
+          xDampening: 1.03,
+          yDampening: 1.01,
+          xVariance: 3,
+          yVariance: 10,
+          red: colors.r,
+          green: colors.g,
+          blue: colors.b,
+          lifeVariance: 2000,
+          maxlife: 250,
+          flicker: 1,
+        });
+      }
       sound.add('bravo');
-      this.parent.displayActionText('<br><br>' + locale.getString('action-text', 'pc'));
+      const options = {
+        time: 4000,
+        skipDefaultAnimation: true,
+        additionalClasses: ['perfect-clear-text'],
+      };
+      this.parent.displayActionText(`<span class="perfect-clear">${locale.getString('action-text', 'pc').replace(' ', '<br>')}</span>`, options);
+      this.parent.displayActionText(`<span class="perfect-clear-secondary">${locale.getString('action-text', 'pc').replace(' ', '<br>')}</span>`, {...options, time: 2000});
     }
     if (this.useGarbageSending) {
       garbageToClear += [0, 0, 1, 2, 4][this.lineClear];

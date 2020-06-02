@@ -3,6 +3,9 @@ import {capitalizeFirstLetter, framesToMs} from '../../shortcuts.js';
 
 export default function shifting(arg) {
   const piece = arg.piece;
+  if (piece.isStuck) {
+    return;
+  }
   const resetShift = () => {
     piece.das = 0;
     piece.arr = piece.arrLimit;

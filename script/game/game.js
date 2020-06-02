@@ -107,6 +107,9 @@ export default class Game {
           $('#end-message-container').classList.add('hidden');
           $('#kill-message-container').classList.add('hidden');
           $('#next-piece').classList.remove('immediate-death');
+          for (const element of document.querySelectorAll('.action-text')) {
+            element.parentNode.removeChild(element);
+          }
           this.settings = gameData.settings;
 
           this.stats = gameData.stats;
@@ -246,9 +249,31 @@ export default class Game {
     if (finalLabel === '') {
       return;
     }
-    this.displayActionText(locale.getString('action-text', finalLabel, [`<b>${this.piece.name}</b>`]) + b2bName);
+    const orientation = (this.piece.orientation === 0 || this.piece.orientation === 2) ? 'vertical' : 'horizontal';
+    let finalLocale = locale.getString('action-text', finalLabel, [`<b class="spin-start ${this.piece.lastSpinDirection} ${orientation}">${this.piece.name}</b>`]);
+    if (lineClear >= 4 && !isSpin) {
+      const delayChange = .05;
+      let delayAccum = -delayChange;
+      const newLabel = finalLocale.replace(/\w/g, (c) => {
+        delayAccum += delayChange;
+        return `<span class="tetra-animation" style="--animation-delay: ${delayAccum}s">` + c + '</span>';
+      });
+      finalLocale = newLabel;
+    }
+    if (isSpin) {
+      const duration = (lineClear) ? '.065s' : '.2s';
+      const pulseCount = (lineClear) ? lineClear * 3 : 2;
+      finalLocale = `<span class="pulse-spin-text" style="--duration: ${duration}; --pulse-count: ${pulseCount}">${finalLocale}</span>`;
+    }
+    this.displayActionText(finalLocale + b2bName);
   }
-  displayActionText(text) {
+  displayActionText(text, options) {
+    options = {
+      time: 2000,
+      skipDefaultAnimation: false,
+      additionalClasses: [],
+      ...options,
+    };
     if (!settings.settings.displayActionText) {
       return;
     }
@@ -256,11 +281,26 @@ export default class Game {
     const element = document.createElement('div');
     element.innerHTML = text;
     element.classList.add('action-text');
+    if (options.skipDefaultAnimation) {
+      element.classList.add('skip-default-animation');
+    }
+    for (const className of options.additionalClasses) {
+      element.classList.add(className);
+    }
+    const rotationVariance = 120;
+    const rotation = Math.random() * rotationVariance - rotationVariance / 2;
+    element.style.setProperty('--spin-amount', `${rotation}deg`);
     element.id = id;
     $('#game-center').appendChild(element);
     setTimeout(() => {
-      element.parentNode.removeChild(element);
-    }, 2000);
+      try {
+        element.parentNode.removeChild(element);
+      } catch (e) {
+        // If you restart the game, these are deleted prematurely
+        // This isn't actually a problem, so this is just to stop
+        // errors from appearing
+      }
+    }, options.time);
   }
   resize() {
     const game = gameHandler.game;
