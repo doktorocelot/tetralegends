@@ -28,11 +28,11 @@
     "message": "Automatycznie naładuj DAS po naciśnięciu klawisza ruchu podczas opóźnienia wejścia bloku"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Umożliwia rotację klocka przed jego pojawieniem sie (IRS)",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Zmienia możliwość rotacji klocka przed jego pojawieniem się (może być niedostępne w niektórych trybach)"
   },
   "absoluteIrsOption": {
     "message": "Absolute",

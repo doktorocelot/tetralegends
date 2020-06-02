@@ -29,11 +29,11 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "Particle Settings",
+    "message": "입자 설정",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Control how particles function"
+    "message": "게임 중 등장하는 효과 입자들을 설정합니다"
   },
   "particlesLabel": {
     "message": "입자"
@@ -80,95 +80,95 @@
     "message": "단색"
   },
   "boneOption": {
-    "message": "Bone",
+    "message": "1984",
     "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
   },
   "gridLabel": {
-    "message": "Grid",
+    "message": "격자",
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Select a grid style"
+    "message": "격자 스타일"
   },
   "crossGridOption": {
-    "message": "Cross",
+    "message": "점선",
     "description": "Grid style that uses + signs"
   },
   "fullGridOption": {
-    "message": "Full",
+    "message": "실선",
     "description": "Grid style that uses a full square (□)"
   },
   "dotGridOption": {
-    "message": "Dot",
+    "message": "점",
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
-    "message": "Lock Flash",
+    "message": "블록 고정 플래시",
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Select a lock flash style"
+    "message": "블록이 고정되기 전 또는 블록이 고정될 때, 이를 나타내는 시각 효과를 설정합니다"
   },
   "shineLFOption": {
-    "message": "Complex Shine",
+    "message": "화려한",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Flash & Dim",
+    "message": "반짝임 후 어두워짐",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Quick Flash",
+    "message": "반짝임",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Color Override",
+    "message": "색 사용자 지정",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Overrides the piece color assignments"
+    "message": "각 블록에 지정되어 있는 색을 직접 설정합니다"
   },
   "redOption": {
-    "message": "Red",
+    "message": "빨강",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Orange",
+    "message": "주황",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Yellow",
+    "message": "노랑",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Green",
+    "message": "초록",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Light Blue",
+    "message": "하늘",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Dark Blue",
+    "message": "파랑",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Purple",
+    "message": "보라",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "White",
+    "message": "하양",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Gray",
+    "message": "회색",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Theme",
+    "message": "테마",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Determines the visual style of the game"
+    "message": "게임의 디자인을 설정합니다"
   }
 }
