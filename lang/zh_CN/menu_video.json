@@ -29,11 +29,11 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "Particle Settings",
+    "message": "粒子设置",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Control how particles function"
+    "message": "调节粒子效果"
   },
   "particlesLabel": {
     "message": "粒子"
@@ -80,95 +80,95 @@
     "message": "纯色"
   },
   "boneOption": {
-    "message": "Bone",
+    "message": "中括号",
     "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
   },
   "gridLabel": {
-    "message": "Grid",
+    "message": "网格",
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Select a grid style"
+    "message": "选择网格的样式"
   },
   "crossGridOption": {
-    "message": "Cross",
+    "message": "十字",
     "description": "Grid style that uses + signs"
   },
   "fullGridOption": {
-    "message": "Full",
+    "message": "完整",
     "description": "Grid style that uses a full square (□)"
   },
   "dotGridOption": {
-    "message": "Dot",
+    "message": "点",
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
-    "message": "Lock Flash",
+    "message": "锁定闪烁",
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Select a lock flash style"
+    "message": "选择方块锁定时闪烁效果的样式"
   },
   "shineLFOption": {
-    "message": "Complex Shine",
+    "message": "复杂",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Flash & Dim",
+    "message": "闪烁并淡出",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Quick Flash",
+    "message": "快速闪烁",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Color Override",
+    "message": "颜色覆盖",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Overrides the piece color assignments"
+    "message": "覆盖方块的颜色"
   },
   "redOption": {
-    "message": "Red",
+    "message": "红色",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Orange",
+    "message": "橙色",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Yellow",
+    "message": "黄色",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Green",
+    "message": "绿色",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Light Blue",
+    "message": "浅蓝色",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Dark Blue",
+    "message": "深蓝色",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Purple",
+    "message": "紫色",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "White",
+    "message": "白色",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Gray",
+    "message": "灰色",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Theme",
+    "message": "主题",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Determines the visual style of the game"
+    "message": "决定游戏的界面风格"
   }
 }

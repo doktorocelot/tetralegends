@@ -29,11 +29,11 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "Particle Settings",
+    "message": "粒子設定",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Control how particles function"
+    "message": "粒子がどのように機能するかを制御します"
   },
   "particlesLabel": {
     "message": "粒子"
@@ -80,95 +80,95 @@
     "message": "フラット"
   },
   "boneOption": {
-    "message": "Bone",
+    "message": "ブラケット",
     "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
   },
   "gridLabel": {
-    "message": "Grid",
+    "message": "グリッド",
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Select a grid style"
+    "message": "ゲーム内に表示されるグリッドスタイルを選択します"
   },
   "crossGridOption": {
-    "message": "Cross",
+    "message": "クロス",
     "description": "Grid style that uses + signs"
   },
   "fullGridOption": {
-    "message": "Full",
+    "message": "フル",
     "description": "Grid style that uses a full square (□)"
   },
   "dotGridOption": {
-    "message": "Dot",
+    "message": "ドット",
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
-    "message": "Lock Flash",
+    "message": "ロックフラッシュ",
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Select a lock flash style"
+    "message": "ロックフラッシュのスタイルを選択します"
   },
   "shineLFOption": {
-    "message": "Complex Shine",
+    "message": "コンプレックスシャイン",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Flash & Dim",
+    "message": "フラッシュ＆ディム",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Quick Flash",
+    "message": "高速フラッシュ",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Color Override",
+    "message": "色オーバーライド",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Overrides the piece color assignments"
+    "message": "ピースの色の割り当てを上書きします"
   },
   "redOption": {
-    "message": "Red",
+    "message": "赤色",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Orange",
+    "message": "橙色",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Yellow",
+    "message": "黄色",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Green",
+    "message": "翠色",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Light Blue",
+    "message": "水色",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Dark Blue",
+    "message": "紺色",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Purple",
+    "message": "紫色",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "White",
+    "message": "白色",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Gray",
+    "message": "鼠色",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Theme",
+    "message": "テーマ",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Determines the visual style of the game"
+    "message": "ゲームのビジュアルスタイルを選択します"
   }
 }

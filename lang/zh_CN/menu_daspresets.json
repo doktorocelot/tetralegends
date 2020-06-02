@@ -19,11 +19,11 @@
     "message": "比标准设置略快的设置"
   },
   "tetraOnlineLabel": {
-    "message": "方块在线",
+    "message": "Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
-    "message": "匹配方块在线的自动移动设置",
+    "message": "匹配Tetra Online的自动移动设置",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "quickLabel": {
