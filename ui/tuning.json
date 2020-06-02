@@ -140,6 +140,15 @@
           "label": "DX",
           "fixedText": true,
           "value": "deluxe"
+        },
+        {
+          "label": "Oshisaure",
+          "fixedText": true,
+          "value": "oshisaure"
+        },
+        {
+          "string": "originalOption",
+          "value": "original"
         }
         
       ],

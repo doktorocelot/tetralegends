@@ -59,5 +59,9 @@
   },
   "rotSysDescription": {
     "message": "选择要使用的方块旋转系统"
+  },
+  "originalOption": {
+    "message": "Original",
+    "description": "As in 'Original Rotation System', the one used by the first version of the game"
   }
 }

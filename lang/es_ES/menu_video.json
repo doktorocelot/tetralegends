@@ -3,7 +3,7 @@
     "message": "Longitud de la cola \"siguiente\""
   },
   "nextLengthDescription": {
-    "message": "La cantidad de piezas que el jugador puede ver en la cola siguiente"
+    "message": "La cantidad de piezas que el jugador puede ver en la cola de piezas siguientes"
   },
   "lockdownBarLabel": {
     "message": "Barra de bloqueo",
@@ -17,7 +17,7 @@
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "Qué tan lejos la matriz se mueve por la fuerza de las piezas en porcentaje. Seleccionando 0 deshabilita el efecto completamente",
+    "message": "Qué tan lejos la matriz se mueve por la fuerza de las piezas en porcentaje. Seleccionar 0 deshabilita el efecto completamente",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
@@ -27,6 +27,13 @@
   "swaySpeedDescription": {
     "message": "Qué tan rápido la matriz retorna a su posición natural en porcentaje",
     "description": "The 'matrix' is also known as the 'playfield'"
+  },
+  "particleSettingsLabel": {
+    "message": "Ajustes de partículas",
+    "description": "Label for a button to bring up particle options"
+  },
+  "particleSettingsDescription": {
+    "message": "Controla como las partículas funcionanan"
   },
   "particlesLabel": {
     "message": "Partículas"
@@ -50,26 +57,118 @@
     "message": "Volumen de partículas"
   },
   "particleVolumeDescription": {
-    "message": "Cuantas partículas se generarán"
+    "message": "Cuántas partículas se generarán"
   },
   "actionTextLabel": {
     "message": "Texto de Acción",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Muentra mensajes cuando limpias líneas y haces trucos, tales como 'Double' y 'T-Spin'. También mostrará el contador de combos"
+    "message": "Muentra mensajes cuando limpias líneas y haces trucos, tales como 'Doble' y 'T-Spin'. También mostrará el contador de combos"
   },
   "skinLabel": {
     "message": "Sobreescritura de Texturas",
     "description": "'Skin' as in the sprites used by the pieces"
   },
   "skinDescription": {
-    "message": "Selecciona las texturas para usar en lugar del por defecto"
+    "message": "Selecciona las texturas para usar en lugar de las que hay por defecto"
   },
   "glossyOption": {
     "message": "Cristalino"
   },
   "flatOption": {
     "message": "Plano"
+  },
+  "boneOption": {
+    "message": "Corchetes",
+    "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
+  },
+  "gridLabel": {
+    "message": "Cuadrícula",
+    "description": "The background grid used by the game"
+  },
+  "gridDescription": {
+    "message": "Selecciona un estilo de cuadrícula"
+  },
+  "crossGridOption": {
+    "message": "Cruz",
+    "description": "Grid style that uses + signs"
+  },
+  "fullGridOption": {
+    "message": "Relleno",
+    "description": "Grid style that uses a full square (□)"
+  },
+  "dotGridOption": {
+    "message": "Punto",
+    "description": "Grid style that uses a dot in the center of the cell"
+  },
+  "lockFlashLabel": {
+    "message": "Efectos de pieza rígida",
+    "description": "Controls the style that the lock flash uses"
+  },
+  "lockFlashDesription": {
+    "message": "Selecciona el estílo del destello de pieza rígida"
+  },
+  "shineLFOption": {
+    "message": "Brillo Complejo",
+    "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
+  },
+  "flashDimLFOption": {
+    "message": "Luz y Oscuridad",
+    "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
+  },
+  "flashLFOption": {
+    "message": "Destello Rápido",
+    "description": "Lock flash style that causes a 2 frame white flash"
+  },
+  "colorOverrideLabel": {
+    "message": "Anulación de color",
+    "description": "Allows the user to override pieces colors with their own desired chices"
+  },
+  "colorOverrideDescription": {
+    "message": "Sobreescribe el color que se le asignan a las piezas"
+  },
+  "redOption": {
+    "message": "Rojo",
+    "description": "Please base your translation off the reference image"
+  },
+  "orangeOption": {
+    "message": "Naranja",
+    "description": "Please base your translation off the reference image"
+  },
+  "yellowOption": {
+    "message": "Amarillo",
+    "description": "Please base your translation off the reference image"
+  },
+  "greenOption": {
+    "message": "Verde",
+    "description": "Please base your translation off the reference image"
+  },
+  "lightBlueOption": {
+    "message": "Azul claro",
+    "description": "Please base your translation off the reference image"
+  },
+  "blueOption": {
+    "message": "Azul oscuro",
+    "description": "Please base your translation off the reference image"
+  },
+  "purpleOption": {
+    "message": "Morado",
+    "description": "Please base your translation off the reference image"
+  },
+  "whiteOption": {
+    "message": "Blanco",
+    "description": "Please base your translation off the reference image"
+  },
+  "blackOption": {
+    "message": "Gris",
+    "description": "Please base your translation off the reference image"
+  },
+  "themeLabel": {
+    "message": "Tema",
+    "description": "Changes the visual appearance that TL uses ingame"
+  },
+  "themeDescription": {
+    "message": "Determina el estilo visual del juego"
   }
 }

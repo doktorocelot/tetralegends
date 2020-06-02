@@ -4,7 +4,7 @@
     "description": "Displays in the screen when one line is cleared"
   },
   "double": {
-    "message": "Double",
+    "message": "Doble",
     "description": "Displays in the screen when two lines are cleared at the same time"
   },
   "triple": {
@@ -24,7 +24,7 @@
     "description": "Displays when a spin clears 1 line. %1 is the name of the piece ('T', 'S')"
   },
   "spindouble": {
-    "message": "%1-Spin Double",
+    "message": "%1-Spin Doble",
     "description": "Displays when a spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintriple": {
@@ -44,7 +44,7 @@
     "description": "Displays when a mini spin clears 1 line. %1 is the name of the piece ('T', 'S')"
   },
   "spindoublemini": {
-    "message": "Mini %1-Spin Double",
+    "message": "Mini %1-Spin Doble",
     "description": "Displays when a mini spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintriplemini": {
@@ -60,7 +60,7 @@
     "description": "Displays when a tetra or spin line clear is performed when the previous one was also a tetra or spin line clear"
   },
   "combo": {
-    "message": "%1 Combo",
+    "message": "Combo de %1",
     "description": "Displays on clearing rows successively"
   },
   "pc": {

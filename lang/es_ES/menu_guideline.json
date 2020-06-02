@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "¡Cada línea cuenta! ¡Cuidadosamente y rapidamente planifica para hacer la mayor cantidad de puntos posibles en el límite de tiempo!",
+    "message": "¡Cada línea cuenta! ¡Planifica cuidadosa y rapidamente para hacer la mayor cantidad de puntos posibles dentro del límite de tiempo!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {

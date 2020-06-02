@@ -14,25 +14,25 @@
     "message": "La cantidad de tiempo en milisegundos antes que una pieza se desplace automáticamente (DAS)"
   },
   "arrLabel": {
-    "message": "ARR",
+    "message": "Tasa de ARR",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "La cantidad de tiempo en milisegundos entre medio cada desplazamiento automático (ARR)"
+    "message": "La cantidad de tiempo en milisegundos en medio de cada desplazamiento automático (ARR)"
   },
   "dasPreloadLabel": {
     "message": "Pre-carga de DAS",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Automáticamente carga el DAS cuando la tecla de movimiento es presionada durante retraso de entrada"
+    "message": "Automáticamente carga el DAS cuando la tecla de movimiento es presionada durante el retraso de entrada (ARE)"
   },
   "irsLabel": {
     "message": "Rotación Inicial",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifica la habilidad de rotar una pieza antes que aparezca (Podría ser deshabilitado en algunos modos)"
+    "message": "Modifica la habilidad de rotar una pieza antes que aparezca (Puede ser deshabilitado en algunos modos)"
   },
   "absoluteIrsOption": {
     "message": "Absoluto",
@@ -58,6 +58,10 @@
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Selecciona un sistema de rotación para utilizar en lugar del por defecto para el modo de juego"
+    "message": "Selecciona un sistema de rotación para utilizar en lugar del que hay por defecto para el modo de juego"
+  },
+  "originalOption": {
+    "message": "Original",
+    "description": "As in 'Original Rotation System', the one used by the first version of the game"
   }
 }

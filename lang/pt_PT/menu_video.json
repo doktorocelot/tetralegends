@@ -28,6 +28,13 @@
     "message": "How fast the matrix returns to its neutral position in percentage",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
+  "particleSettingsLabel": {
+    "message": "Particle Settings",
+    "description": "Label for a button to bring up particle options"
+  },
+  "particleSettingsDescription": {
+    "message": "Control how particles function"
+  },
   "particlesLabel": {
     "message": "Particles"
   },
@@ -71,5 +78,97 @@
   },
   "flatOption": {
     "message": "Flat"
+  },
+  "boneOption": {
+    "message": "Bone",
+    "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
+  },
+  "gridLabel": {
+    "message": "Grid",
+    "description": "The background grid used by the game"
+  },
+  "gridDescription": {
+    "message": "Select a grid style"
+  },
+  "crossGridOption": {
+    "message": "Cross",
+    "description": "Grid style that uses + signs"
+  },
+  "fullGridOption": {
+    "message": "Full",
+    "description": "Grid style that uses a full square (□)"
+  },
+  "dotGridOption": {
+    "message": "Dot",
+    "description": "Grid style that uses a dot in the center of the cell"
+  },
+  "lockFlashLabel": {
+    "message": "Lock Flash",
+    "description": "Controls the style that the lock flash uses"
+  },
+  "lockFlashDesription": {
+    "message": "Select a lock flash style"
+  },
+  "shineLFOption": {
+    "message": "Complex Shine",
+    "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
+  },
+  "flashDimLFOption": {
+    "message": "Flash & Dim",
+    "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
+  },
+  "flashLFOption": {
+    "message": "Quick Flash",
+    "description": "Lock flash style that causes a 2 frame white flash"
+  },
+  "colorOverrideLabel": {
+    "message": "Color Override",
+    "description": "Allows the user to override pieces colors with their own desired chices"
+  },
+  "colorOverrideDescription": {
+    "message": "Overrides the piece color assignments"
+  },
+  "redOption": {
+    "message": "Red",
+    "description": "Please base your translation off the reference image"
+  },
+  "orangeOption": {
+    "message": "Orange",
+    "description": "Please base your translation off the reference image"
+  },
+  "yellowOption": {
+    "message": "Yellow",
+    "description": "Please base your translation off the reference image"
+  },
+  "greenOption": {
+    "message": "Green",
+    "description": "Please base your translation off the reference image"
+  },
+  "lightBlueOption": {
+    "message": "Light Blue",
+    "description": "Please base your translation off the reference image"
+  },
+  "blueOption": {
+    "message": "Dark Blue",
+    "description": "Please base your translation off the reference image"
+  },
+  "purpleOption": {
+    "message": "Purple",
+    "description": "Please base your translation off the reference image"
+  },
+  "whiteOption": {
+    "message": "White",
+    "description": "Please base your translation off the reference image"
+  },
+  "blackOption": {
+    "message": "Gray",
+    "description": "Please base your translation off the reference image"
+  },
+  "themeLabel": {
+    "message": "Theme",
+    "description": "Changes the visual appearance that TL uses ingame"
+  },
+  "themeDescription": {
+    "message": "Determines the visual style of the game"
   }
 }

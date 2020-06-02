@@ -4,7 +4,7 @@
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "¡Construye hasta que no puedas más! Intenta limpiar cuantas líneas puedas antes que la velocidad sea demasiada.",
+    "message": "¡Construye hasta que no puedas más! Intenta limpiar cuantas líneas puedas antes que la velocidad sea demasiada para ti.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {
@@ -12,7 +12,7 @@
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "Aquí es donde los maestros del rompecabezas llegan a morir. La valocidad de este modo es súper rápida; ¡parpadea y podría ser fin del juego!",
+    "message": "Aquí es donde los maestros del rompecabezas vienen a morir. La velocidad de este modo es súper rápida: ¡un parpadeo y puede ser el fin!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

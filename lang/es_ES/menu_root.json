@@ -14,31 +14,31 @@
     "message": "Estándar"
   },
   "guidelineDescription": {
-    "message": "Variante estándar del rompecabezas encontrado en la mayoría de los juegos modernos"
+    "message": "Variante estándar del juego encontrado en la mayoría de los juegos modernos"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "Una variante personalizada nueva diseñada para este juego"
+    "message": "Una nueva variante personalizada, diseñada para este juego"
   },
   "retroLabel": {
     "message": "Retro"
   },
   "retroDescription": {
-    "message": "Variante clásica del rompecabezas amado por jugadores de la vieja escuela"
+    "message": "Variante clásica del juego amado por jugadores de la vieja escuela"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Variante difícil del rompecabezas para jugadores avanzados"
+    "message": "Variante difícil del juego amada por jugadores avanzados"
   },
   "settingsOverline": {
     "message": "Configuraciones"
   },
   "tuningLabel": {
-    "message": "Gameplay"
+    "message": "Jugabilidad"
   },
   "tuningDescription": {
     "message": "Cambia cómo se siente el juego"
@@ -47,19 +47,19 @@
     "message": "Controles"
   },
   "controlsDescription": {
-    "message": "Cambia como el juego se controla"
+    "message": "Cambia cómo el juego se controla"
   },
   "audioLabel": {
     "message": "Audio"
   },
   "audioDescription": {
-    "message": "Cambia como el juego se escucha"
+    "message": "Cambia cómo el juego se escucha"
   },
   "videoLabel": {
     "message": "Vídeo"
   },
   "videoDescription": {
-    "message": "Cambia como el juego luce"
+    "message": "Cambia cómo el juego se ve"
   },
   "miscOverline": {
     "message": "Otros",

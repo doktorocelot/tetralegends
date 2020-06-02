@@ -26,7 +26,7 @@
     "message": "Mueve una pieza a la derecha o sostener para autoshift"
   },
   "hardDropLabel": {
-    "message": "Caída inmediata"
+    "message": "Caída instantánea"
   },
   "hardDropDescription": {
     "message": "Suelta una pieza instantáneamente al suelo. (puede actuar diferente o ser deshabilitado en algunos modos de juego)"
@@ -42,27 +42,27 @@
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotar una pieza a 90° en sentido contra-horario."
+    "message": "Rotar una pieza 90° en sentido antihorario."
   },
   "rotateRightLabel": {
     "message": "Rotar a la derecha",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotar una pieza a 90° en sentido horario."
+    "message": "Rotar una pieza 90° en sentido horario."
   },
   "rotateDoubleLabel": {
     "message": "Rotar 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotar una pieza en 180° (podría ser deshabilitado en algunos modos de juego)"
+    "message": "Rotar una pieza en 180° (puede ser deshabilitado en algunos modos de juego)"
   },
   "holdLabel": {
     "message": "Reserva"
   },
   "holdDescription": {
-    "message": "Guarda una pieza (podría ser deshabilitado en algunos modos de juego)"
+    "message": "Guarda una pieza (puede ser deshabilitado en algunos modos de juego)"
   },
   "retryLabel": {
     "message": "Reintentar",
@@ -82,7 +82,7 @@
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Pulse cualquier tecla que desea para esta acción",
+    "message": "Pulsa cualquier tecla que desees para esta acción",
     "description": "Displays on the popup when you add a control binding"
   }
 }
