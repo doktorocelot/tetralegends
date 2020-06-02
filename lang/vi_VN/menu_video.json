@@ -29,11 +29,11 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "Particle Settings",
+    "message": "Cài đặt các chi tiết nhỏ",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Control how particles function"
+    "message": "Điều khiển cách hoạt động của chi tiết đó"
   },
   "particlesLabel": {
     "message": "Các chi tiết nhỏ"
@@ -80,26 +80,26 @@
     "message": "Đơn giản"
   },
   "boneOption": {
-    "message": "Bone",
+    "message": "1984",
     "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
   },
   "gridLabel": {
-    "message": "Grid",
+    "message": "Lưới",
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Select a grid style"
+    "message": "Lựa chọn phong cách lưới phù hợp với bạn"
   },
   "crossGridOption": {
-    "message": "Cross",
+    "message": "Giới hạn",
     "description": "Grid style that uses + signs"
   },
   "fullGridOption": {
-    "message": "Full",
+    "message": "Đầy đủ",
     "description": "Grid style that uses a full square (□)"
   },
   "dotGridOption": {
-    "message": "Dot",
+    "message": "Chấm",
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
@@ -107,68 +107,68 @@
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Select a lock flash style"
+    "message": "Chọn kiểu nháy của gạch"
   },
   "shineLFOption": {
-    "message": "Complex Shine",
+    "message": "Công phu",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Flash & Dim",
+    "message": "Nháy và mờ dần",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Quick Flash",
+    "message": "Nháy nhanh",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Color Override",
+    "message": "Ghi đè màu",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Overrides the piece color assignments"
+    "message": "Ghi đè màu lên các miếng gạch"
   },
   "redOption": {
-    "message": "Red",
+    "message": "Đỏ",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Orange",
+    "message": "Cam",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Yellow",
+    "message": "Vàng",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Green",
+    "message": "Xanh lá",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Light Blue",
+    "message": "Xanh biển nhạt",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Dark Blue",
+    "message": "Xanh biển đậm",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Purple",
+    "message": "Tím",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "White",
+    "message": "Trắng",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Gray",
+    "message": "Xám",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Theme",
+    "message": "Chủ đề trang trí",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Determines the visual style of the game"
+    "message": "Thay đổi toàn bộ phong cách trang trí của game"
   }
 }
