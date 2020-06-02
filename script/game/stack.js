@@ -328,6 +328,7 @@ export default class Stack extends GameModule {
   updateGrid() {
     if (this.parent.hideGrid || settings.settings.gridStyle === 'off') {
       document.documentElement.style.setProperty('--grid-image', 'url()');
+      return;
     }
     const gridName = settings.settings.gridStyle;
     if (this.alarmIsOn) {
