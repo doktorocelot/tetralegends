@@ -92,8 +92,10 @@ class Menu {
             break;
         }
         this.showMenu();
-        this.isEnabled = true;
-        this.isLocked = false;
+        if (!gameHandler.game.isVisible) {
+          this.isEnabled = true;
+          this.isLocked = false;
+        }
         if (this.useLastSelected) {
           this.select(this.lastSelection, false, false, true);
           this.useLastSelected = false;

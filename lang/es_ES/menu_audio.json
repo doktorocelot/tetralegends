@@ -17,10 +17,10 @@
     "message": "Sobreescritura del Conjunto de Audio"
   },
   "soundbankDescription": {
-    "message": "Selecciona una colección de sonidos en lugar del por defecto"
+    "message": "Selecciona una colección de sonidos en lugar del que hay por defecto"
   },
   "nextSoundLabel": {
-    "message": "Sonido Indicador Siguiente",
+    "message": "Sonido Indicador de Siguiente",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {

@@ -193,8 +193,10 @@ export const SPAWN_OFFSETS = {
   },
 };
 SPAWN_OFFSETS.tetrax = {...SPAWN_OFFSETS.srs, downShift: 2, I: [3, -3]};
+SPAWN_OFFSETS.oshisaure = {...SPAWN_OFFSETS.srs, downShift: 0};
 SPAWN_OFFSETS.world = SPAWN_OFFSETS.srs;
 SPAWN_OFFSETS.arsti = SPAWN_OFFSETS.ars;
+SPAWN_OFFSETS.original = SPAWN_OFFSETS.retro;
 export const INITIAL_ORIENTATION = {
   srs: {
     I: 0,
@@ -217,9 +219,11 @@ export const INITIAL_ORIENTATION = {
 };
 INITIAL_ORIENTATION.tetrax = INITIAL_ORIENTATION.srs;
 INITIAL_ORIENTATION.world = INITIAL_ORIENTATION.srs;
+INITIAL_ORIENTATION.oshisaure = INITIAL_ORIENTATION.srs;
 INITIAL_ORIENTATION.handheld = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.deluxe = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.ars = INITIAL_ORIENTATION.retro;
+INITIAL_ORIENTATION.original = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.arsti = INITIAL_ORIENTATION.ars;
 const KICK_TEMPLATES = {
   srs: {
@@ -410,6 +414,48 @@ const KICK_TEMPLATES = {
       ],
     },
   },
+  oshisaure: {
+    x: {
+      right: [
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+      ],
+      left: [
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+      ],
+      double: [
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, -1], [1, 1], -[1, -1], [0, 2], [0, -2]],
+        [[0, 0], [0, 1], [-1, 0], [1, 0], [-1, 1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 2], [0, -2]],
+      ],
+    },
+    I: {
+      right: [
+        [[0, 0], [0, 1], [1, 0], [1, 1], [0, -1], [1, -1], [0, 2], [1, 2], [-1, 0], [-1, 1], [-2, 0], [-2, 1], [-1, -1], [-2, -1], [-1, 2], [-2, 2]],
+        [[1, 0], [1, 1], [2, 0], [2, 1], [1, -1], [2, -1], [1, -2], [2, -2], [0, 0], [0, 1], [-1, 0], [-1, 1], [0, -1], [-1, -1], [0, -2], [-1, -2]],
+        [[0, 0], [0, 1], [1, 0], [1, 1], [0, -1], [1, -1], [0, 2], [1, 2], [-1, 0], [-1, 1], [-2, 0], [-2, 1], [-1, -1], [-2, -1], [-1, 2], [-2, 2]],
+        [[1, 0], [1, 1], [2, 0], [2, 1], [1, -1], [2, -1], [1, -2], [2, -2], [0, 0], [0, 1], [-1, 0], [-1, 1], [0, -1], [-1, -1], [0, -2], [-1, -2]],
+      ],
+      left: [
+        [[-1, 0], [-1, 1], [-2, 0], [-2, 1], [-1, -1], [-2, -1], [-1, 2], [-2, 2], [0, 0], [0, 1], [1, 0], [1, 1], [0, -1], [1, -1], [0, 2], [1, 2]],
+        [[0, 0], [0, 1], [-1, 0], [-1, 1], [0, -1], [-1, -1], [0, -2], [-1, -2], [1, 0], [1, 1], [2, 0], [2, 1], [1, -1], [2, -1], [1, -2], [2, -2]],
+        [[-1, 0], [-1, 1], [-2, 0], [-2, 1], [-1, -1], [-2, -1], [-1, 2], [-2, 2], [0, 0], [0, 1], [1, 0], [1, 1], [0, -1], [1, -1], [0, 2], [1, 2]],
+        [[0, 0], [0, 1], [-1, 0], [-1, 1], [0, -1], [-1, -1], [0, -2], [-1, -2], [1, 0], [1, 1], [2, 0], [2, 1], [1, -1], [2, -1], [1, -2], [2, -2]],
+      ],
+      double: [
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+      ],
+    },
+  },
   none: {
     all: {
       right: [
@@ -553,6 +599,15 @@ export const KICK_TABLES = {
       ],
     },
   },
+  oshisaure: {
+    I: KICK_TEMPLATES.oshisaure.I,
+    L: KICK_TEMPLATES.oshisaure.x,
+    O: KICK_TEMPLATES.none.all,
+    Z: KICK_TEMPLATES.oshisaure.x,
+    T: KICK_TEMPLATES.oshisaure.x,
+    J: KICK_TEMPLATES.oshisaure.x,
+    S: KICK_TEMPLATES.oshisaure.x,
+  },
 };
 KICK_TABLES.arsti = {
   ...KICK_TABLES.ars,
@@ -577,6 +632,7 @@ KICK_TABLES.arsti = {
   },
 };
 KICK_TABLES.handheld = KICK_TABLES.retro;
+KICK_TABLES.original = KICK_TABLES.retro;
 export const PIECE_COLORS = {
   srs: {
     I: 'lightBlue',
@@ -641,6 +697,24 @@ export const PIECE_COLORS = {
     J: 'blue',
     S: 'purple',
   },
+  oshisaure: {
+    I: 'purple',
+    L: 'red',
+    O: 'orange',
+    Z: 'blue',
+    T: 'green',
+    J: 'lightBlue',
+    S: 'yellow',
+  },
+  original: {
+    I: 'green',
+    L: 'green',
+    O: 'green',
+    Z: 'green',
+    T: 'green',
+    J: 'green',
+    S: 'green',
+  },
 };
 PIECE_COLORS.world = PIECE_COLORS.srs;
 PIECE_COLORS.handheld = PIECE_COLORS.retro;
@@ -668,10 +742,12 @@ export const NEXT_OFFSETS = {
 };
 NEXT_OFFSETS.world = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.tetrax = NEXT_OFFSETS.srs;
+NEXT_OFFSETS.oshisaure = NEXT_OFFSETS.srs;
 NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.deluxe = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.ars = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.arsti = NEXT_OFFSETS.ars;
+NEXT_OFFSETS.original = NEXT_OFFSETS.retro;
 
 export const PIECE_OFFSETS = {
   srs: {
@@ -710,11 +786,24 @@ export const PIECE_OFFSETS = {
     J: [[0, 1], [0, 0], [0, 0], [0, 0]],
     S: [[0, 1], [-1, 0], [0, 0], [0, 0]],
   },
+  oshisaure: {
+    I: [[0, 1], [0, 0], [0, 0], [1, 0]],
+    L: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    O: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    Z: [[0, 0], [-1, 0], [0, -1], [0, 0]],
+    T: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    J: [[0, 0], [0, 0], [0, 0], [0, 0]],
+    S: [[0, 0], [0, 0], [0, -1], [1, 0]],
+  },
 };
 PIECE_OFFSETS.world = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.tetrax = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.deluxe = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.arsti = PIECE_OFFSETS.ars;
+PIECE_OFFSETS.original = {
+  ...PIECE_OFFSETS.srs,
+  I: [[0, 0], [0, 0], [0, -1], [1, 0]],
+};
 export const PIECE_BINARIES = {
   L: 0b000,
   J: 0b001,
@@ -839,6 +928,8 @@ export const SKIN_SETS = {
   deluxe: 'handheld',
   ars: 'arika',
   arsti: 'arika',
+  oshisaure: 'oshisaure',
+  original: 'bone',
 };
 export const SOUND_SETS = {
   srs: 'standard',
@@ -849,4 +940,6 @@ export const SOUND_SETS = {
   deluxe: 'deluxe',
   ars: 'tgm3',
   arsti: 'tgm3',
+  oshisaure: 'standard',
+  original: 'standard',
 };

@@ -326,13 +326,14 @@ export default class Stack extends GameModule {
     }
   }
   updateGrid() {
-    if (this.alarmIsOn) {
-      document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross-danger.svg")');
-    } else {
-      document.documentElement.style.setProperty('--grid-image', 'url("../img/tetrion/grid-bg-cross.svg")');
-    }
-    if (this.parent.hideGrid) {
+    if (this.parent.hideGrid || settings.settings.gridStyle === 'off') {
       document.documentElement.style.setProperty('--grid-image', 'url()');
+    }
+    const gridName = settings.settings.gridStyle;
+    if (this.alarmIsOn) {
+      document.documentElement.style.setProperty('--grid-image', `url("../img/tetrion/grid-bg-${gridName}-danger.svg")`);
+    } else {
+      document.documentElement.style.setProperty('--grid-image', `url("../img/tetrion/grid-bg-${gridName}.svg")`);
     }
   }
   startAlarm() {
@@ -604,34 +605,37 @@ export default class Stack extends GameModule {
         const x = this.flashX[i] * cellSize;
         const y = this.flashY[i] * cellSize + cellSize * buffer - cellSize * this.hiddenHeight;
         ctx.fillStyle = `#ffffff${flash}`;
-        ctx.fillRect(x, Math.floor(y), cellSize, cellSize);
+        if (settings.settings.lockFlash !== 'off' && settings.settings.lockFlash !== 'flash') {
+          ctx.fillRect(x, Math.floor(y), cellSize, cellSize);
+        }
+        if (settings.settings.lockFlash === 'shine') {
+          const float = this.flashTime * 2 / this.flashLimit;
+          const mod = 0.2;
+          const getDistanceX = (modifier = 0) => {
+            return Math.min(Math.min(Math.max(Math.max(0, float * 2 - 1 + modifier), 0), 1) * cellSize, cellSize);
+          };
+          const getDistanceY = (modifier = 0) => {
+            return Math.min(cellSize - Math.min(Math.max(Math.min(float * 2 + modifier, 1), 0), 1) * cellSize, cellSize);
+          };
+          const distance1x = getDistanceX(-mod);
+          const distance1y = getDistanceY(-mod);
+          const distance2x = getDistanceX(+mod);
+          const distance2y = getDistanceY(+mod);
+          const cornerX = Math.min(distance1x, distance2x);
+          const cornerY = Math.min(distance1y, distance2y);
 
-        const float = this.flashTime * 2 / this.flashLimit;
-        const mod = 0.2;
-        const getDistanceX = (modifier = 0) => {
-          return Math.min(Math.min(Math.max(Math.max(0, float * 2 - 1 + modifier), 0), 1) * cellSize, cellSize);
-        };
-        const getDistanceY = (modifier = 0) => {
-          return Math.min(cellSize - Math.min(Math.max(Math.min(float * 2 + modifier, 1), 0), 1) * cellSize, cellSize);
-        };
-        const distance1x = getDistanceX(-mod);
-        const distance1y = getDistanceY(-mod);
-        const distance2x = getDistanceX(+mod);
-        const distance2y = getDistanceY(+mod);
-        const cornerX = Math.min(distance1x, distance2x);
-        const cornerY = Math.min(distance1y, distance2y);
-
-        ctx.beginPath();
-        ctx.moveTo(x + distance1x, Math.floor(y + distance1y));
-        ctx.lineTo(x + cellSize - distance1y, Math.floor(y + cellSize - distance1x));
-        ctx.lineTo(x + cellSize - cornerY, Math.floor(y + cellSize - cornerX));
-        ctx.lineTo(x + cellSize - distance2y, Math.floor(y + cellSize - distance2x));
-        ctx.lineTo(x + distance2x, Math.floor(y + distance2y));
-        ctx.lineTo(x + cornerX, Math.floor(y + cornerY));
-        ctx.fillStyle = '#fff';
-        ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(x + distance1x, Math.floor(y + distance1y));
+          ctx.lineTo(x + cellSize - distance1y, Math.floor(y + cellSize - distance1x));
+          ctx.lineTo(x + cellSize - cornerY, Math.floor(y + cellSize - cornerX));
+          ctx.lineTo(x + cellSize - distance2y, Math.floor(y + cellSize - distance2x));
+          ctx.lineTo(x + distance2x, Math.floor(y + distance2y));
+          ctx.lineTo(x + cornerX, Math.floor(y + cornerY));
+          ctx.fillStyle = '#fff';
+          ctx.fill();
+        }
         // Solid white 2f
-        if (this.flashTime < 50) {
+        if (this.flashTime < 50 && settings.settings.lockFlash !== 'off') {
           ctx.globalCompositeOperation = 'source-over';
           ctx.fillStyle = `#fff`;
           ctx.fillRect(x, Math.floor(y), cellSize, cellSize);

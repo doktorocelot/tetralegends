@@ -26,6 +26,11 @@
           "value": "standard"
         },
         {
+          "string": "tetraOnlineLabel",
+          "langOverride": "menu_daspresets",
+          "value": "tonline"
+        },
+        {
           "label": "Arika",
           "fixedText": true,
           "value": "arika"
@@ -57,6 +62,15 @@
           "string": "handheldLabel",
           "langOverride": "menu_retro",
           "value": "handheld"
+        },
+        {
+          "label": "Oshisaure",
+          "fixedText": true,
+          "value": "oshisaure"
+        },
+        {
+          "string": "boneOption",
+          "value": "bone"
         }
       ],
       "setting": "skin",
@@ -109,6 +123,60 @@
       "min": 1,
       "discrete": 5,
       "setting": "matrixSwaySpeed",
+      "settingType": "setting"
+    },
+    {
+      "string": "gridLabel",
+      "stringDesc": "gridDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "fullGridOption",
+          "value": "full"
+        },
+        {
+          "string": "crossGridOption",
+          "value": "cross"
+        },
+        {
+          "string": "dotGridOption",
+          "value": "dot"
+        },
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        }
+      ],
+      "setting": "gridStyle",
+      "settingType": "setting"
+    },
+    {
+      "string": "lockFlashLabel",
+      "stringDesc": "lockFlashDesription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "shineLFOption",
+          "value": "shine"
+        },
+        {
+          "string": "flashDimLFOption",
+          "value": "dim"
+        },
+        {
+          "string": "flashLFOption",
+          "value": "flash"
+        },
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        }
+      ],
+      "setting": "lockFlash",
       "settingType": "setting"
     },
     {
