@@ -151,7 +151,7 @@ class Sound {
     }
   }
   syncBgm() {
-    // return;
+    return;
     try {
       if (gameHandler.game.settings.hasDangerBgm) {
         this.music[`${this.dangerBgmName}-start`].seek(this.music[`${this.bgmName}-start`].seek());
@@ -268,8 +268,14 @@ class Sound {
       return;
     }
     for (let name of Object.keys(this.toPlay)) {
+      if (this.files.indexOf(name) === -1 && name.substr(name.length - 4) === 'mini') {
+        name = name.substring(0, name.length - 4);
+      }
       if (this.files.indexOf(name) === -1 && name.substr(0, 4) === 'b2b_') {
         name = name.substr(4);
+      }
+      if (this.files.indexOf(name) === -1 && name.includes('tspin') && !name.includes('not4')) {
+        name = name.replace('tspin', 'erase');
       }
       if (this.files.indexOf(name) !== -1) {
         if (this.cut.indexOf(name) !== -1) {
@@ -287,12 +293,16 @@ class Sound {
         this.sounds['rotate'].play();
       } else if (name === 'initialhold' && this.files.indexOf('hold') !== -1) {
         this.sounds['hold'].play();
+      } else if (name === 'initialskip' && this.files.indexOf('skip') !== -1) {
+        this.sounds['skip'].play();
+      } else if (name === 'initialskip' && this.files.indexOf('initialhold') !== -1) {
+        this.sounds['initialhold'].play();
       } else if (name === 'prespinmini' && this.files.indexOf('prespin') !== -1) {
         this.sounds['prespin'].play();
       } else if (name === 'go' && this.files.indexOf('start') !== -1) {
         this.sounds['start'].play();
-      } else if (name.substr(name.length - 4) === 'mini' && this.files.indexOf(name.substring(0, name.length - 4)) !== -1) {
-        this.sounds[name.substring(0, name.length - 4)].play();
+      } else if (name === 'skip' && this.files.indexOf('hold') !== -1 || name === 'initialskip' && this.files.indexOf('hold') !== -1 && this.files.indexOf('initialhold') === -1) {
+        this.sounds['hold'].play();
       }
 
       if (name.substr(0, 3) === 'ren') {

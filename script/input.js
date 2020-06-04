@@ -27,6 +27,7 @@ class Input {
     };
 
     this.holdingCtrl = false;
+    this.holdingShift = false;
     this.events = {};
     for (const name of Object.keys(keys)) {
       this.events[name] = new Event(name);
@@ -47,6 +48,9 @@ class Input {
       }
       if (event.key === 'Control') {
         this.holdingCtrl = true;
+      }
+      if (event.key === 'Shift') {
+        this.holdingShift = true;
       }
       if (event.code === 'Backspace') {
         if (gameHandler.game != null) {
@@ -76,6 +80,9 @@ class Input {
     document.addEventListener('keyup', (event) => {
       if (event.key === 'Control') {
         this.holdingCtrl = false;
+      }
+      if (event.key === 'Shift') {
+        this.holdingShift = false;
       }
       for (const key of Object.keys(settings.controls)) {
         if (settings.controls[key].indexOf(event.code) !== -1) {

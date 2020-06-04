@@ -103,7 +103,7 @@
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
-    "message": "Lock Flash",
+    "message": "Hiệu ứng khóa",
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {

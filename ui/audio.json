@@ -53,6 +53,16 @@
           "value": "t99"
         },
         {
+          "string": "pptLabel",
+          "langOverride": "menu_daspresets",
+          "value": "ppt"
+        },
+        {
+          "label": "Party DX",
+          "fixedText": true,
+          "value": "party"
+        },
+        {
           "string": "retroLabel",
           "langOverride": "menu_root",
           "value": "nes"

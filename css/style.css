@@ -908,7 +908,7 @@ body[theme="tetrjs"] .stats label {
   background-image: var(--grid-image);
   background-position: left bottom;
   border-color: var(--tetrion-color);
-  transition-property: outline-color;
+  transition-property: border-color;
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   /* margin: 0em 1em; */
@@ -1165,6 +1165,18 @@ progress[value]::-moz-progress-bar {
 .warning-message-container img {
   display: inline-block;
 }
+.hold-disappear-message {
+  color: white;
+  text-align: right;
+  width: 20em;
+  position: absolute;
+  top: 8.5em;
+  font-size: 1em;
+  right: .5em;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 500;
+}
 @keyframes death-message {
   0% {opacity: 0; transform: scale(2);}
   15% {opacity: 1; transform: scale(1);}
@@ -1291,9 +1303,10 @@ progress[value]::-moz-progress-bar {
   display: none;
 }
 .game .main-message {
-  animation-name: pulse-opacity;
-  animation-duration: .2s;
+  animation-name: pulse-darkness-light;
+  animation-duration: .3s;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
   animation-timing-function: ease-in-out;
   display: block;
   color: white;
@@ -1301,13 +1314,26 @@ progress[value]::-moz-progress-bar {
   font-weight: 300;
   position: absolute;
   top: 6em;
-  width: 100%;
+  left: -150%;
+  width: 400%;
+}
+@keyframes dissolve {
+  0% {transform: scale(4);}
+  20% {transform: scale(1); filter: brightness(1);}
+  25% {filter: brightness(.5);}
+  35% {filter: brightness(1);}
+  40% {filter: brightness(.5);}
+  45% {filter: brightness(1);}
+  50% {filter: brightness(.5);}
+  55% {filter: brightness(1); opacity: 1;}
+  100%  {opacity: 0;}
 }
 .game .main-message.dissolve {
   animation-name: dissolve;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }
 .game .timer {
   text-align: right;
@@ -1359,11 +1385,6 @@ progress[value]::-moz-progress-bar {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
-@keyframes dissolve {
-  0% {transform: scale(1);}
-  20% {opacity: 1;}
-  100% {opacity: 0; transform: scale(5); display: none;}
-}
 .combo-counter-container {
   color: #fff;
   position: absolute;
@@ -1387,8 +1408,8 @@ progress[value]::-moz-progress-bar {
   opacity: 0;
 }
 @keyframes garbage-fly {
-  from {left: var(--starting-value-left); top: var(--starting-value-top); filter: blur(.4em)}
-  to {left: 50%; top: 50%; filter: blur(0)}
+  from {left: var(--starting-value-left); top: var(--starting-value-top);}
+  to {left: 50%; top: 50%;}
 }
 .garbage-particle {
   --starting-value-top: 100%;
@@ -1406,8 +1427,8 @@ progress[value]::-moz-progress-bar {
   z-index: -10;
 }
 @keyframes garbage-send {
-  from {left: 50%; top: 50%; filter: blur(0)}
-  to {left: var(--starting-value-left); top: var(--starting-value-top); filter: blur(.4em)}
+  from {left: 50%; top: 50%;}
+  to {left: var(--starting-value-left); top: var(--starting-value-top);}
 }
 .garbage-particle.send {
   background-color: #fff;
@@ -1515,4 +1536,16 @@ progress[value]::-moz-progress-bar {
   animation-timing-function: ease-in-out;
   animation-duration: var(--duration);
   animation-iteration-count: var(--pulse-count);
+}
+@keyframes ready-text {
+  from {transform: translate(0,-1em); opacity: 0;}
+  to {transform: translate(0,0); opacity: 1;}
+}
+.ready-animation {
+  animation-name: ready-text;
+  display: inline-block;
+  animation-fill-mode: backwards;
+  animation-duration: 1s;
+  animation-delay: var(--animation-delay);
+  animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }

@@ -122,5 +122,9 @@
   "topOutWarning": {
     "message": "Bloc de hauteur",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
+  },
+  "watchOutWarning": {
+    "message": "Watch out!!",
+    "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
   }
 }

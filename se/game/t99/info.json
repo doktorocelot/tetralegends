@@ -1,12 +1,13 @@
 {
   "files": [
+    "alarm",
     "bravo",
     "collapse",
     "erase1",
     "erase2",
     "erase3",
     "erase4",
-    "garbage",
+    "garbagereceive",
     "go",
     "harddrop",
     "hold",
@@ -19,7 +20,7 @@
     "ready",
     "rotate",
     "start",
-    "step",
+    "land",
     "tspinbonus",
     "victory"
   ],

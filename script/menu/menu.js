@@ -298,7 +298,11 @@ class Menu {
           passedElement.classList.add(className);
           passedElement.textContent = text;
         };
-        label.textContent = locale.getString(this.current.lang, currentData.string);
+        if (!currentData.fixedText) {
+          label.textContent = locale.getString(this.current.lang, currentData.string);
+        } else {
+          label.textContent = currentData.label;
+        }
         label.classList.add('setting-text');
 
         const arrowLeft = document.createElement('div');
@@ -731,6 +735,13 @@ class Menu {
         settings.resetControls();
         menu.drawControls();
         settings.saveControls();
+        break;
+      case 'functionResetColors':
+        sound.playMenuSe('optionselect');
+        for (const pieceName of ['I', 'J', 'L', 'O', 'S', 'T', 'Z']) {
+          settings.changeSetting(`color${pieceName}`, 'auto');
+        }
+        menu.drawSettings();
         break;
       case 'lang':
         sound.playMenuSe('optionselect');

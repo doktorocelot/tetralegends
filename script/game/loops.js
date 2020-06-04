@@ -27,9 +27,11 @@ import shiftingNes from './loop-modules/shifting-nes.js';
 import nesDasAre from './loop-modules/nes-das-are.js';
 import settings from '../settings.js';
 import input from '../input.js';
+import locale from '../lang.js';
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
+let shownHoldWarning = false;
 const levelUpdate = (game) => {
   let returnValue = false;
   if (game.stat.level !== lastLevel) {
@@ -310,7 +312,9 @@ export const loops = {
         game.hold.gainHoldOnPlacement = true;
         game.resize();
       }
-      game.timeGoal = 30000;
+      if (!(input.holdingCtrl && input.holdingShift)) {
+        game.timeGoal = 30000;
+      }
       game.isRaceMode = true;
       game.piece.gravity = 1000;
       updateFallSpeed(game);
@@ -577,10 +581,15 @@ export const loops = {
         game.hold.isDisabled = true;
         game.hold.isDirty = true;
       }
+      // TODO: THIS
+      // if (game.stat.level > 1 && !shownHoldWarning) {
+      //   $('#hold-disappear-message').textContent = locale.getString('ui', 'watchOutWarning');
+      // }
       levelUpdate(game);
     },
     onInit: (game) => {
       shown20GMessage = false;
+      shownHoldWarning = false;
       game.lineGoal = 200;
       game.stat.level = 1;
       lastLevel = 1;
@@ -669,7 +678,9 @@ export const loops = {
     },
     onInit: (game) => {
       game.stat.level = 0;
-      // game.appends.level = '♥';
+      if (input.holdingCtrl && input.holdingShift) {
+        game.appends.level = '♥';
+      }
       lastLevel = 0;
       if (settings.settings.skin !== 'auto') {
         game.makeSprite();
@@ -686,6 +697,7 @@ export const loops = {
             'handheld-special'
         );
         game.colors = PIECE_COLORS.handheldSpecial;
+        game.updateStats();
       }
     },
   },

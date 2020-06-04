@@ -1,0 +1,163 @@
+{
+  "properties": {
+    "parent": "video",
+    "langOverride": "menu_video"
+  },
+  "data": [
+    {
+      "string": "resetLabel",
+      "stringDesc": "resetDescription",
+      "langOverride": "menu_controls",
+      "isShort": true,
+      "action": "functionResetColors"
+    },
+    {
+      "label": "I",
+      "description": "",
+      "fixedText": true,
+      "default": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorI",
+      "settingType": "setting"
+    },
+    {
+      "label": "L",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorL",
+      "settingType": "setting"
+    },
+    {
+      "label": "O",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorO",
+      "settingType": "setting"
+    },
+    {
+      "label": "Z",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorZ",
+      "settingType": "setting"
+    },
+    {
+      "label": "T",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorT",
+      "settingType": "setting"
+    },
+    {
+      "label": "J",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorJ",
+      "settingType": "setting"
+    },
+    {
+      "label": "S",
+      "description": "",
+      "fixedText": true,
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {"string": "auto","value": "auto", "langOverride": "menu_general"},
+        {"string": "redOption", "value": "red"},
+        {"string": "orangeOption", "value": "orange"},
+        {"string": "yellowOption", "value": "yellow"},
+        {"string": "greenOption", "value": "green"},
+        {"string": "lightBlueOption", "value": "lightBlue"},
+        {"string": "blueOption", "value": "blue"},
+        {"string": "purpleOption", "value": "purple"},
+        {"string": "whiteOption", "value": "white"},
+        {"string": "blackOption", "value": "black"}
+      ],
+      "setting": "colorS",
+      "settingType": "setting"
+    }
+  ]
+}

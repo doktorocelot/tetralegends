@@ -1,0 +1,28 @@
+{
+  "files": [
+    "b2b_erase4",
+    "bravo",
+    "erase4",
+    "erasenot4",
+    "excellent",
+    "garbage",
+    "harddrop",
+    "hold",
+    "ko",
+    "levelup",
+    "locknohd",
+    "move",
+    "pause",
+    "prespin",
+    "ready",
+    "rotate",
+    "start",
+    "tspin"
+  ],
+  "ren": [
+    1,
+    5,
+    10,
+    15
+  ]
+}

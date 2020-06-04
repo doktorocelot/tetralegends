@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "parent": "video",
+    "langOverride": "menu_video"
+  },
+  "data": [
+    {
+      "string": "particlesLabel",
+      "stringDesc": "particlesDescription",
+      "default": true,
+      "type": "toggle",
+      "action": "toggle",
+      "setting": "particles",
+      "settingType": "setting"
+    },
+    {
+      "string": "particleLimitLabel",
+      "stringDesc": "particleLimitDescription",
+      "type": "slider",
+      "action": "slider",
+      "max": 1500,
+      "min": 50,
+      "discrete": 50,
+      "setting": "particleLimit",
+      "settingType": "setting"
+    },
+    {
+      "string": "particleSizeLabel",
+      "stringDesc": "particleSizeDescription",
+      "type": "slider",
+      "action": "slider",
+      "max": 5,
+      "min": 1,
+      "discrete": 1,
+      "setting": "particleSize",
+      "settingType": "setting"
+    },
+    {
+      "string": "particleVolumeLabel",
+      "stringDesc": "particleVolumeDescription",
+      "type": "slider",
+      "action": "slider",
+      "max": 3,
+      "min": 1,
+      "discrete": 1,
+      "setting": "particleScale",
+      "settingType": "setting"
+    }
+  ]
+}

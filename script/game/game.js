@@ -1,5 +1,5 @@
 import {loadGameType} from '../loaders.js';
-import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES, SKIN_SETS, SOUND_SETS} from '../consts.js';
+import {PIECE_COLORS, NEXT_OFFSETS, SCORE_TABLES, SKIN_SETS, SOUND_SETS, PIECE_SETS} from '../consts.js';
 import menu from '../menu/menu.js';
 import Stack from './stack.js';
 import Piece from './piece.js';
@@ -139,6 +139,13 @@ export default class Game {
             SOUND_SETS[this.settings.rotationSystem] : settings.settings.soundbank;
           sound.load(soundbankName);
           this.colors = PIECE_COLORS[this.settings.rotationSystem];
+          for (const pieceName of PIECE_SETS[this.settings.pieces]) {
+            const color = settings.settings[`color${pieceName}`];
+            if (color === 'auto') {
+              continue;
+            }
+            this.colors[pieceName] = color;
+          }
           this.nextOffsets = NEXT_OFFSETS[this.settings.rotationSystem];
           this.loop = loops[gametype].update;
           this.onPieceSpawn = loops[gametype].onPieceSpawn;
@@ -165,7 +172,15 @@ export default class Game {
           sound.loadBgm(this.settings.music, gametype);
           sound.add('ready');
           $('#message').classList.remove('dissolve');
-          $('#message').textContent = locale.getString('ui', 'ready');
+          let readyText = locale.getString('ui', 'ready');
+          const delayChange = .05;
+          let delayAccum = -delayChange;
+          const newLabel = readyText.replace(/\S/g, (c) => {
+            delayAccum += delayChange;
+            return `<span class="ready-animation" style="--animation-delay: ${delayAccum}s">` + c + '</span>';
+          });
+          readyText = newLabel;
+          $('#message').innerHTML = readyText;
           this.onPieceSpawn(this);
           window.onresize = this.resize;
           $('.game').classList.remove('paused');
@@ -305,6 +320,7 @@ export default class Game {
   resize() {
     const game = gameHandler.game;
     const root = document.documentElement;
+    $('body').setAttribute('theme', settings.settings.theme);
     root.style.setProperty('--cell-size', `${game.cellSize}px`);
     root.style.setProperty('--matrix-width', game.settings.width);
     root.style.setProperty('--matrix-height-base', game.settings.height);
@@ -335,6 +351,7 @@ export default class Game {
       stat.appendChild(number);
       $('#stats').appendChild(stat);
     }
+    this.updateStats();
     const gameWidth = $('#game > .game-left').offsetWidth + $('#game > .game-center').offsetWidth + $('#game > .game-right').offsetWidth;
     const subtract = Math.max(0, gameWidth - window.innerWidth);
   }
