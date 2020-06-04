@@ -138,7 +138,7 @@ export default class Game {
           const soundbankName = (settings.settings.soundbank === 'auto') ?
             SOUND_SETS[this.settings.rotationSystem] : settings.settings.soundbank;
           sound.load(soundbankName);
-          this.colors = PIECE_COLORS[this.settings.rotationSystem];
+          this.colors = JSON.parse(JSON.stringify(PIECE_COLORS[this.settings.rotationSystem]));
           for (const pieceName of PIECE_SETS[this.settings.pieces]) {
             const color = settings.settings[`color${pieceName}`];
             if (color === 'auto') {
