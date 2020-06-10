@@ -48,7 +48,7 @@ class Sound {
   }
   loadMenu() {
     const files = ['move', 'select', 'back', 'change', 'optionselect',
-      'hardstart1', 'hardstart2', 'hardstart3', 'hardstart4'];
+      'hardstart1', 'hardstart2', 'hardstart3', 'hardstart4', 'error'];
     for (const soundName of files) {
       this.menuSounds[soundName] = new Howl({
         src: [`./se/menu/${soundName}.ogg`],
@@ -198,7 +198,9 @@ class Sound {
     }
   }
   raiseDangerBgm() {
-    if (!gameHandler.game.settings.hasDangerBgm) {
+    if (!gameHandler.game.settings.hasDangerBgm ||
+      !this.music[`${this.dangerBgmName}-start`] ||
+      !this.music[`${this.dangerBgmName}-loop`]) {
       return;
     }
     if (!this.dangerBgmIsRaised) {
@@ -209,7 +211,9 @@ class Sound {
     }
   }
   lowerDangerBgm() {
-    if (!gameHandler.game.settings.hasDangerBgm) {
+      if (!gameHandler.game.settings.hasDangerBgm ||
+        !this.music[`${this.dangerBgmName}-start`] ||
+        !this.music[`${this.dangerBgmName}-loop`]) {
       return;
     }
     if (this.dangerBgmIsRaised) {
@@ -220,7 +224,9 @@ class Sound {
     }
   }
   raisePaceBgm() {
-    if (!gameHandler.game.settings.hasPaceBgm) {
+    if (!gameHandler.game.settings.hasPaceBgm ||
+      !this.music[`${this.paceBgmName}-start`] ||
+      !this.music[`${this.paceBgmName}-loop`]) {
       return;
     }
     if (!this.paceBgmIsRaised) {
@@ -231,7 +237,9 @@ class Sound {
     }
   }
   lowerPaceBgm() {
-    if (!gameHandler.game.settings.hasPaceBgm) {
+    if (!gameHandler.game.settings.hasPaceBgm ||
+      !this.music[`${this.paceBgmName}-start`] ||
+      !this.music[`${this.paceBgmName}-loop`]) {
       return;
     }
     if (this.paceBgmIsRaised) {

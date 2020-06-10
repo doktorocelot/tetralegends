@@ -28,6 +28,7 @@
   <link rel="prerender" as="font" href="fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff2" type="font/woff2" crossorigin="anonymous">
   <link rel="prerender" as="font" href="fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff2" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+  
 </head>
 
 <body>
@@ -35,6 +36,9 @@
     <source src="vid/DiscoLightsVidevo.mov" type="video/mp4">
   </video> -->
   <div id="main">
+    <div id="error-stack" class="error-stack">
+    </div>
+
     <div id="dev" style="z-index: 300; user-select: all; background-color: red; display: none;">
       <div>Random Queue Seed:</div>
       <input type="text" name="queuerand" id="queuerand">
@@ -216,6 +220,7 @@
     dev.hide = () => {
       document.getElementById('dev').style.setProperty('display', 'none');
     }
+    
   </script>
   
 </body>

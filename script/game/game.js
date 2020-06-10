@@ -111,7 +111,6 @@ export default class Game {
             element.parentNode.removeChild(element);
           }
           this.settings = gameData.settings;
-
           this.stats = gameData.stats;
           // SET UP MODULES
           this.stack = new Stack(this, toCtx(this.stackCanvas));
@@ -187,7 +186,8 @@ export default class Game {
           this.request = requestAnimationFrame(this.gameLoop);
           document.documentElement.style.setProperty('--current-background', `url("../img/bg/${this.settings.background}")`);
           setTimeout(() => {this.resize();}, 10);
-        });
+        })
+        .catch(function(err) {setTimeout(() => {throw err;});});
   }
   unpause() {
     if (!this.isPaused) {return;}

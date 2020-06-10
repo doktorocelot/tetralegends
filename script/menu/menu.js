@@ -115,9 +115,7 @@ class Menu {
           this.stored[name] = JSON.parse(JSON.stringify(menu));
           render(menu);
         })
-        .catch((error) => {
-          throw error;
-        });
+      .catch(function (err) {setTimeout(() => {throw err;});});
   }
   close() {
     this.isLocked = true;

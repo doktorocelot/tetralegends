@@ -1549,3 +1549,35 @@ progress[value]::-moz-progress-bar {
   animation-delay: var(--animation-delay);
   animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+@keyframes error {
+ from {opacity: 0; transform: translate(4em);}
+ to {opacity: 1; transform: translate(0);}
+}
+.error-stack {
+  z-index: 300;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.error {
+  animation-name: error;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  background-color: #000a;
+  color: white;
+  border-left-color: red;
+  border-left-width: .2em;
+  border-left-style: solid;
+  padding: .2em 1em;
+  border-radius: .2em;
+  margin: 1em;
+  cursor: pointer;
+}
+.error > .msg {
+  
+}
+.error > .url {
+  font-weight: 700;
+  display: inline-block;
+}
