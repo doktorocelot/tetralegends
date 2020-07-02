@@ -4,15 +4,15 @@
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "できるだけ多くのラインを消去します",
+    "message": "できるだけ多くのラインを消去するゲームモードです。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {
-    "message": "上級者",
+    "message": "上級モード",
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "とてつもなく早い！ 刮目しなければ、すぐにゲームオーバーになってしまう！",
+    "message": "常識外の速度でピースが落ちてくるゲームモードです。超上級者向け。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

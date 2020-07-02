@@ -46,7 +46,7 @@
     "message": "Modifie la capacité de retenir une pièce avant son apparition"
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "Presser",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
@@ -61,7 +61,7 @@
     "message": "Choisir un système de rotation à utiliser à la place de la valeur par défaut pour ce mode"
   },
   "originalOption": {
-    "message": "Original",
+    "message": "1984 / Original",
     "description": "As in 'Original Rotation System', the one used by the first version of the game"
   }
 }

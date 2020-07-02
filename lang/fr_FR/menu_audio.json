@@ -17,14 +17,14 @@
     "message": "Remplacer la banque sonore"
   },
   "soundbankDescription": {
-    "message": "Choisir une bibliothèque de son personnalisée"
+    "message": "Choisir une banque sonore personnalisée"
   },
   "nextSoundLabel": {
-    "message": "Bruitage Pièce Suivante",
+    "message": "Banque sonore de Pièce Suivante",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {
-    "message": "Choisir une banque de son à utiliser pour annoncer la prochaine pièce"
+    "message": "Choisir une banque sonore à utiliser pour annoncer la prochaine pièce"
   },
   "morseCodeOption": {
     "message": "Code Morse"

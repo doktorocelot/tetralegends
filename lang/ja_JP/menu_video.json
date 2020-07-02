@@ -17,7 +17,7 @@
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "ピースの移動や落下がフィールドにどれだけ影響を及ぼすか。 0の場合は無効。",
+    "message": "ピースの移動や落下がフィールドにどれだけ影響を及ぼすかを変更します。 0の場合は無効。",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
@@ -29,49 +29,49 @@
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "粒子設定",
+    "message": "パーティクルの設定",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "粒子がどのように機能するかを制御します"
+    "message": "パーティクルがどのように機能するかを制御します"
   },
   "particlesLabel": {
-    "message": "粒子"
+    "message": "パーティクル"
   },
   "particlesDescription": {
-    "message": "粒子を描画するかどうか"
+    "message": "パーティクルを描画するかどうか"
   },
   "particleLimitLabel": {
     "message": "粒子の最大数"
   },
   "particleLimitDescription": {
-    "message": "一度に画面に表示できる粒子の数"
+    "message": "一度に画面に表示できるパーティクルの数"
   },
   "particleSizeLabel": {
-    "message": "粒子の大きさ"
+    "message": "パーティクルの大きさ"
   },
   "particleSizeDescription": {
-    "message": "表示される粒子の大きさ"
+    "message": "表示されるパーティクルの大きさ"
   },
   "particleVolumeLabel": {
     "message": "粒子の数"
   },
   "particleVolumeDescription": {
-    "message": "生成される粒子の数"
+    "message": "生成されるパーティクルの数"
   },
   "actionTextLabel": {
     "message": "アクションテキスト",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "「ダブル」や「Tスピン」などのアクションを実行するときにメッセージを表示します。 RENカウンターも表示します。"
+    "message": "「Double」や「T-Spin」などのアクションを実行するときにメッセージを表示します。 RENのカウンターも表示します。"
   },
   "skinLabel": {
     "message": "ブロックスキン選択",
     "description": "'Skin' as in the sprites used by the pieces"
   },
   "skinDescription": {
-    "message": "使用するブロックスキンを選択してください"
+    "message": "使用するスキンを選択してください。"
   },
   "glossyOption": {
     "message": "光沢のある"
@@ -122,11 +122,11 @@
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "色オーバーライド",
+    "message": "色の設定",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "ピースの色の割り当てを上書きします"
+    "message": "ピースの色の割り当てを変更します。"
   },
   "redOption": {
     "message": "赤色",

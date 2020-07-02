@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Attention ! Les lignes incomplètes ont commencé à s'élever depuis le bas. Si vous ne pouvez pas suivre, vous allez certainement échouer!",
+    "message": "Attention ! Des lignes incomplètes ont commencé à s'élever depuis le bas de l'écran. Si vous ne pouvez pas suivre, vous allez certainement échouer !",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

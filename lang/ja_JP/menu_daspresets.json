@@ -16,10 +16,10 @@
     "description": "Based on Puyo Puyo Tetris"
   },
   "pptDescription": {
-    "message": "標準設定のやや速いタイプ"
+    "message": "標準設定よりやや速い設定"
   },
   "tetraOnlineLabel": {
-    "message": "テトラオンライン",
+    "message": "Tetra Online",
     "description": "Avoid changing the name 'Tetra Online'"
   },
   "tetraOnlineDescription": {
@@ -36,6 +36,6 @@
     "message": "上級者"
   },
   "proDescription": {
-    "message": "高レベルの制御を必要とする非常に高速なプリセット"
+    "message": "高レベルの制御を必要とする、非常に高速な設定"
   }
 }

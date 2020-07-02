@@ -12,7 +12,7 @@
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "ピース",
+    "message": "PIECE",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
@@ -84,7 +84,7 @@
     "description": "Displays when the time runs out"
   },
   "excellent": {
-    "message": "お見事！",
+    "message": "Excellent!",
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
@@ -116,11 +116,11 @@
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "ロックアウト警告",
+    "message": "ロックアウトしてしまいます！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {
-    "message": "トップアウト警告",
+    "message": "トップアウトしてしまいます！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   },
   "watchOutWarning": {

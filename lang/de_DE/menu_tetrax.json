@@ -12,7 +12,7 @@
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "An dieser Stelle sterben Puzzle-Meister. Die Geschwindigkeit in diesem Modus ist super schnell; blinken und du kannst kannst sterben!",
+    "message": "An dieser Stelle sterben Puzzle-Meister. Die Geschwindigkeit in diesem Modus ist super schnell; blinken und du kannst sterben!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

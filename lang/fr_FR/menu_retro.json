@@ -8,7 +8,7 @@
     "description": "A mode based on NES Tet"
   },
   "consoleDescription": {
-    "message": "La version classique du puzzle la plus utilisée en compétition dans le monde!",
+    "message": "La version classique du puzzle la plus utilisée en compétition dans le monde !",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {

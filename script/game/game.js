@@ -351,9 +351,7 @@ export default class Game {
       stat.appendChild(number);
       $('#stats').appendChild(stat);
     }
-    this.updateStats();
-    const gameWidth = $('#game > .game-left').offsetWidth + $('#game > .game-center').offsetWidth + $('#game > .game-right').offsetWidth;
-    const subtract = Math.max(0, gameWidth - window.innerWidth);
+    game.updateStats();
   }
   drawLockdown() {
     $('#pip-grid').innerHTML = '';
@@ -429,7 +427,6 @@ export default class Game {
         break;
       default:
         throw new Error('Matrix shift direction undefined or incorrect');
-        break;
     }
   }
   shakeMatrix(power = 1) {
@@ -677,7 +674,7 @@ export default class Game {
         'purple', 'white', 'black',
       ],
       types = ['mino', 'ghost', 'stack'],
-      skin = (settings.settings.skin === 'auto') ? SKIN_SETS[this.settings.rotationSystem] : settings.settings.skin
+      skin = (settings.settings.skin === 'auto') ? SKIN_SETS[this.settings.rotationSystem] : settings.settings.skin,
   ) {
     this.loadFinished = false;
     $('#sprite').innerHTML = '';

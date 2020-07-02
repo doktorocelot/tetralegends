@@ -14,7 +14,7 @@
     "message": "ガイドライン"
   },
   "guidelineDescription": {
-    "message": "現代のほとんどのゲームに見られるパズルの標準モード"
+    "message": "ほとんどのゲームで見られる標準のモード"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
@@ -41,25 +41,25 @@
     "message": "チューニング"
   },
   "tuningDescription": {
-    "message": "細かい設定を変更します"
+    "message": "細かい設定を変更します。"
   },
   "controlsLabel": {
     "message": "操作設定"
   },
   "controlsDescription": {
-    "message": "ゲームの操作設定を変更します"
+    "message": "ゲームの操作設定を変更します。"
   },
   "audioLabel": {
     "message": "サウンド"
   },
   "audioDescription": {
-    "message": "さまざまなサウンド設定を変更します"
+    "message": "さまざまなサウンド設定を変更します。"
   },
   "videoLabel": {
     "message": "グラフィック"
   },
   "videoDescription": {
-    "message": "ゲームの外観を変更します"
+    "message": "ゲームの外観を変更します。"
   },
   "miscOverline": {
     "message": "その他",
@@ -69,18 +69,18 @@
     "message": "サウンドトラック"
   },
   "soundtrackDescription": {
-    "message": "ゲーム内で使用されている音楽を聞く"
+    "message": "ゲーム内で使用されている音楽を聞く。"
   },
   "translateLabel": {
     "message": "翻訳に協力する"
   },
   "translateDescription": {
-    "message": "ゲームの翻訳に協力する"
+    "message": "ゲームの翻訳に協力する。"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Discordサーバーに参加して、ゲームについて話し合ったり、アイデアを提案したり、翻訳に協力したりしましょう！"
+    "message": "ゲームについて話し合ったり、アイデアを提案したり、翻訳に協力したりできます。"
   }
 }

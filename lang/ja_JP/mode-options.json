@@ -68,7 +68,7 @@
     "message": "ゲームの制限時間を選択してください"
   },
   "useRtaLabel": {
-    "message": "RTAを使う",
+    "message": "現実の時間を使う",
     "description": "Used in modes like 'Ultra' to have the time limit run down from RTA instead of IGT; for example, this will make it so that the timer used for the time limit does not freeze during delays"
   },
   "useRtaDescription": {

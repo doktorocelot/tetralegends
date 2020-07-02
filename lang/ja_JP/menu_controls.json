@@ -4,7 +4,7 @@
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "すべての操作設定をクリアします。"
+    "message": "すべての操作設定を削除します。"
   },
   "resetLabel": {
     "message": "リセット",
@@ -29,13 +29,13 @@
     "message": "ハードドロップ"
   },
   "hardDropDescription": {
-    "message": "ピースで床に落とします。（機能が異なる場合や、一部のモードで使用できない場合があります）"
+    "message": "ピースを床に落とします。（機能が異なる場合や、一部のモードで使用できない場合があります）"
   },
   "softDropLabel": {
     "message": "ソフトドロップ"
   },
   "softDropDescription": {
-    "message": "ピースの落下速度を上げます（一部のモードでは機能が異なる場合があります）"
+    "message": "ピースの落下速度を上げます。（一部のモードでは機能が異なる場合があります）"
   },
   "rotateLeftLabel": {
     "message": "回転（左）",

@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "ピースを積み上げ、ラインを揃えることで、より高いスコアの獲得を目指します。",
+    "message": "ピースを積み上げ、ラインを揃えて、より高いスコアの獲得を目指すモードです。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "非常に高速なモード！ 速さに耐え、できるだけ長く生き延びられるか？",
+    "message": "落下速度が速いモードです。できるだけ長く生き延びましょう！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -28,7 +28,7 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "時間がなくなるまで、ラインを消去し続け、より高いスコアを目指そう。",
+    "message": "制限時間内に、より多くの得点を獲得することを目指すモードです。",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {

@@ -100,31 +100,31 @@
     "description": "Displays under 'READY' while the game loads the assets"
   },
   "realTimeAttack": {
-    "message": "RTA: %1",
+    "message": "EZA: %1",
     "description": "This label is used to describe the 'real time', as in a timer that does NOT freeze during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "inGameTime": {
-    "message": "IGT: %1",
+    "message": "ISZ: %1",
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
-    "message": "Block Out",
+    "message": "Blockierung",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "Block Out",
+    "message": "Blockierung",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "Lock Out",
+    "message": "Aussperrung",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {
-    "message": "Top Out",
+    "message": "Ausfüllung",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   },
   "watchOutWarning": {
-    "message": "Watch out!!",
+    "message": "WARNUNG!! GEFAHR!!",
     "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
   }
 }

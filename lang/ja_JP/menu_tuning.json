@@ -1,34 +1,34 @@
 {
   "presetsLabel": {
-    "message": "横移動プリセット",
+    "message": "横移動設定のプリセット",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
     "message": "横移動のプリセットを選択します"
   },
   "dasLabel": {
-    "message": "DAS",
+    "message": "DAS（横溜め時間）",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
     "message": "ピースが自動的に移動し始めるまでの時間（ミリ秒）"
   },
   "arrLabel": {
-    "message": "ARR",
+    "message": "ARR（横溜め速度）",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
     "message": "DAS開始後の、各移動間の時間(ミリ秒)"
   },
   "dasPreloadLabel": {
-    "message": "DASの先行入力",
+    "message": "横移動の先行入力",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "出現前に移動キーが押されると、出現時に自動的に移動を開始します"
+    "message": "出現前に移動キーが押されると、移動したあとの状態で出現します。"
   },
   "irsLabel": {
-    "message": "IRS",
+    "message": "回転の先行入力",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
@@ -39,11 +39,11 @@
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "IHS",
+    "message": "ホールドの先行入力",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "出現する前に駒を保持する機能を変更します"
+    "message": "出現する前にピースをホールドする機能を変更します。"
   },
   "tapInitOption": {
     "message": "タップ",
@@ -54,11 +54,11 @@
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "回転システムのオーバーライド",
+    "message": "回転システムの上書き",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "このモードで使用する回転システムを、デフォルト設定の代わりに選択します"
+    "message": "使用する回転システムを、モードごとのデフォルト設定の代わりに上書きします。"
   },
   "originalOption": {
     "message": "オリジナル",
