@@ -1,0 +1,16 @@
+{
+  "gradesLabel": {
+    "message": "等级模式",
+    "description": "Used as a category name for TGM-inspired modes"
+  },
+  "gradesDescription": {
+    "message": "挑战最强玩家的硬核模式"
+  },
+  "master3Label": {
+    "message": "大师3",
+    "description": "Used for a mode inspired by TGM3 Master"
+  },
+  "master3Description": {
+    "message": "酷！快速准确地摆放方块以向更高的等级前进！"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "gradesLabel": {
+    "message": "Rangs",
+    "description": "Used as a category name for TGM-inspired modes"
+  },
+  "gradesDescription": {
+    "message": "Modes difficiles créés pour défier les meilleurs joueurs"
+  },
+  "master3Label": {
+    "message": "Master 3",
+    "description": "Used for a mode inspired by TGM3 Master"
+  },
+  "master3Description": {
+    "message": "Cool !! Jouez rapidement et bien pour avancer de plus en plus haut !"
+  }
+}

@@ -126,5 +126,33 @@
   "watchOutWarning": {
     "message": "¡¡Cuidado!!",
     "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
+  },
+  "coolPace": {
+    "message": "Genial!!",
+    "description": "Used primarily to show the user that they're on pace to continue playing in certain arcade modes. Can also be used for clearing "
+  },
+  "coolTetra": {
+    "message": "Bien Hecho!",
+    "description": "Used primarily to show the user that they've done something special in certain arcade modes. Known as 'COOL!!' in Japanese."
+  },
+  "regretPace": {
+    "message": "Demasiado Lento!",
+    "description": "Used to show the user that they are playing too slowly in certain arcade modes. Known as 'REGRET!' in Japanese"
+  },
+  "pressKeyboardKey": {
+    "message": "Apretón %1",
+    "description": "As in to press the button on the keyboard"
+  },
+  "pressControllerButton": {
+    "message": "Apretón %1",
+    "description": "As in to press the button on the controller"
+  },
+  "clickAnywhere": {
+    "message": "Haga clic en cualquier lugar",
+    "description": "Indicating to click the mouse anywhere on the screen"
+  },
+  "tapAnywhere": {
+    "message": "Toque en cualquier lugar",
+    "description": "Indicating to tap on the touchscreen anywhere"
   }
 }

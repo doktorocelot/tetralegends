@@ -36,13 +36,17 @@ class Menu {
       properties: null,
     };
     this.isEnabled = false;
-    this.isLocked = false;
+    this.isLocked = true;
     this.lastSelection = 0;
     this.useLastSelected = false;
     this.stored = {};
   }
   get selected() {
-    return parseInt($('#menu > div.selected').id.substring(7));
+    try {
+      return parseInt($('#menu > div.selected').id.substring(7));
+    } catch (e) {
+      return 0;
+    }
   }
   get selectedData() {
     return this.current.data[this.selected];
@@ -115,7 +119,7 @@ class Menu {
           this.stored[name] = JSON.parse(JSON.stringify(menu));
           render(menu);
         })
-      .catch(function (err) {setTimeout(() => {throw err;});});
+        .catch(function(err) {setTimeout(() => {throw err;});});
   }
   close() {
     this.isLocked = true;
@@ -659,10 +663,10 @@ class Menu {
   }
 
   ok() {
-    if (this.selectedData.type === 'control' && input.mouseLimit > 0) {
+    if (this.isLocked) {
       return;
     }
-    if (this.isLocked) {
+    if (this.selectedData.type === 'control' && input.mouseLimit > 0) {
       return;
     }
     if (this.selectedData.disabled) {

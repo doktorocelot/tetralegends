@@ -2,6 +2,8 @@ import buttonHints from './menu/button-hints.js';
 import settings from './settings.js';
 import menu from './menu/menu.js';
 import gameHandler from './game/game-handler.js';
+import $ from './shortcuts.js';
+import locale from './lang.js';
 
 class Input {
   constructor() {
@@ -66,6 +68,7 @@ class Input {
         }
       }
       this.mouseLimit = 0;
+      $('#press-container').innerHTML = locale.getString('ui', 'pressKeyboardKey', ['<img src="img/ui/keyboard-enter.svg" class="press-key">']);
       for (const name of Object.keys(keys)) {
         if (event.key === keys[name]) {
           document.dispatchEvent(this.events[name]);
@@ -93,6 +96,7 @@ class Input {
     document.addEventListener('mousemove', (event) => {
       this.mouseLimit++;
       if (this.mouseLimit > 3) {
+        $('#press-container').innerHTML = locale.getString('ui', 'clickAnywhere');
         buttonHints.hide();
       }
     });

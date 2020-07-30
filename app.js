@@ -54,13 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   sound.loadMenu();
   sound.loadBgm(['menu'], 'menu');
-  sound.playBgm(['menu'], 'menu');
-
+  menu.isLocked = true;
   locale.loadLang(settings.settings.language)
       .then((test) => {
         locale.updateFonts();
-        menu.load('root');
-        menu.show();
+        locale.updateTitle();
+        $('#press-container').innerHTML = locale.getString('ui', 'pressKeyboardKey', ['<img src="img/ui/keyboard-enter.svg" class="press-key">']);
+        $('#press-container').classList.remove('hidden');
         window.onblur = () => {
           try {
             gameHandler.game.pause();
@@ -70,6 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
             Howler.volume(0);
           }
         };
+        const menuOpenTest = (e) => {
+          if (e.code === 'Enter') {
+            menuOpen();
+          }
+        };
+        const menuOpen = (e) => {
+          $('#title-container').classList.add('hidden');
+          sound.playMenuSe('select');
+          menu.load('root');
+          menu.show();
+          sound.playBgm(['menu'], 'menu');
+          document.removeEventListener('keydown', menuOpenTest);
+          document.removeEventListener('mousedown', menuOpen);
+        };
+        document.addEventListener('keydown', menuOpenTest);
+        document.addEventListener('mousedown', menuOpen);
         window.onfocus = () => {
           Howler.volume(1);
         };

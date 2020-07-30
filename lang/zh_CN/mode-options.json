@@ -159,5 +159,20 @@
   "modernOption": {
     "message": "现代",
     "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
+  },
+  "ruleSelectLabel": {
+    "message": "游戏规则",
+    "description": "Used to allow the user to select what rule they want to use in some arcade modes: Classic, World"
+  },
+  "ruleSelectDescription": {
+    "message": "选择一个游戏规则。这会影响游戏机制。"
+  },
+  "classicRuleOption": {
+    "message": "Classic 规则",
+    "description": "Used in some arcade modes"
+  },
+  "worldRuleOption": {
+    "message": "World 规则",
+    "description": "Used in some arcade modes"
   }
 }

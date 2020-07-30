@@ -1,0 +1,16 @@
+{
+  "gradesLabel": {
+    "message": "Grades",
+    "description": "Used as a category name for TGM-inspired modes"
+  },
+  "gradesDescription": {
+    "message": "Hardcore modes designed to challenge the highest of players"
+  },
+  "master3Label": {
+    "message": "Master 3",
+    "description": "Used for a mode inspired by TGM3 Master"
+  },
+  "master3Description": {
+    "message": "Cool!! Play quickly and accurately to advance higher and higher!"
+  }
+}

@@ -65,7 +65,7 @@
     "description": "Used to select the amount of time the game will last in games like Ultra or Combo Challenge"
   },
   "timeLimitDescription": {
-    "message": "Sélectionnez la durée de la partie"
+    "message": "Sélectionne la durée de la partie"
   },
   "useRtaLabel": {
     "message": "Utiliser le RTA",
@@ -159,5 +159,20 @@
   "modernOption": {
     "message": "Moderne",
     "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
+  },
+  "ruleSelectLabel": {
+    "message": "Règles du jeu",
+    "description": "Used to allow the user to select what rule they want to use in some arcade modes: Classic, World"
+  },
+  "ruleSelectDescription": {
+    "message": "Sélectionnez une règle pour la mécanique du jeu"
+  },
+  "classicRuleOption": {
+    "message": "Règle CLASSIC",
+    "description": "Used in some arcade modes"
+  },
+  "worldRuleOption": {
+    "message": "Règle WORLD",
+    "description": "Used in some arcade modes"
   }
 }

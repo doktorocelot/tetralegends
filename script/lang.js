@@ -1,5 +1,6 @@
 import {loadLanguage} from './loaders.js';
 import settings from './settings.js';
+import gameHandler from './game/game-handler.js';
 
 class Locale {
   constructor() {
@@ -33,7 +34,6 @@ class Locale {
       }
       return str;
     } catch (error) {
-      console.error(error);
       return '?UNKNOWN';
     }
   }
@@ -91,7 +91,28 @@ class Locale {
     this.currentLanguage = locale;
     settings.settings.language = locale;
     this.updateFonts();
+    this.updateTitle();
     settings.saveSettings();
+  }
+  updateTitle() {
+    switch (this.currentLanguage) {
+      case 'ja_JP':
+        document.title = 'テトラレジェンズ';
+        document.documentElement.style.setProperty('--logo-image', `url("../img/brand/logo/ja_JP.svg")`);
+        break;
+      case 'ko_KR':
+        document.title = '테트라 레전즈';
+        document.documentElement.style.setProperty('--logo-image', `url("../img/brand/logo/ko_KR.svg")`);
+        break;
+      case 'ru_RU':
+        document.title = 'Тетра Легенды';
+        document.documentElement.style.setProperty('--logo-image', `url("../img/brand/logo/ru_RU.svg")`);
+        break;
+      default:
+        document.title = 'Тetra Legends';
+        document.documentElement.style.setProperty('--logo-image', `url("../img/brand/logo/default.svg")`);
+        break;
+    }
   }
   updateFonts() {
     const root = document.documentElement;

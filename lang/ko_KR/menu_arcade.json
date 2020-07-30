@@ -1,0 +1,16 @@
+{
+  "gradesLabel": {
+    "message": "등급제",
+    "description": "Used as a category name for TGM-inspired modes"
+  },
+  "gradesDescription": {
+    "message": "최고 실력자들을 위한 고난이도 모드들"
+  },
+  "master3Label": {
+    "message": "마스터: TI",
+    "description": "Used for a mode inspired by TGM3 Master"
+  },
+  "master3Description": {
+    "message": "더 높은 곳을 향해! 신속, 정확함을 요구하는 이 모드에 도전해 보세요!"
+  }
+}
