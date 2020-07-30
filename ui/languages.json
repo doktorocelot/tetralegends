@@ -107,6 +107,15 @@
       "action": "lang",
       "isShort": true,
       "lang": "zh_CN"
+    },
+    {
+      "label": "Blank Locale",
+      "fixedText": true,
+      "description": "Used for neutral screenshots and videos",
+      "action": "lang",
+      "isShort": true,
+      "lang": "blank",
+      "secretA": true
     }
   ]
 }

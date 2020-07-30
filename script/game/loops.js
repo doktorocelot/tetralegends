@@ -32,6 +32,7 @@ let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
 let shownHoldWarning = false;
+let lastSeenI = 0;
 const levelUpdate = (game) => {
   let returnValue = false;
   if (game.stat.level !== lastLevel) {
@@ -43,10 +44,6 @@ const levelUpdate = (game) => {
       sound.add('levelupminor');
     }
     returnValue = true;
-  }
-  if (game.redrawOnLevelUp && false) {
-    game.stack.makeAllDirty();
-    game.stack.isDirty = true;
   }
   lastLevel = game.stat.level;
   return returnValue;
@@ -581,7 +578,6 @@ export const loops = {
         game.hold.isDisabled = true;
         game.hold.isDirty = true;
       }
-      // TODO: THIS
       // if (game.stat.level > 1 && !shownHoldWarning) {
       //   $('#hold-disappear-message').textContent = locale.getString('ui', 'watchOutWarning');
       // }
@@ -643,7 +639,7 @@ export const loops = {
               's', 'white', 'black',
             ],
             ['mino', 'stack'],
-            'deluxe-special'
+            'deluxe-special',
         );
         game.colors = PIECE_COLORS.handheldSpecial;
       }
@@ -694,7 +690,7 @@ export const loops = {
               's', 'white', 'black',
             ],
             ['mino'],
-            'handheld-special'
+            'handheld-special',
         );
         game.colors = PIECE_COLORS.handheldSpecial;
         game.updateStats();
@@ -756,6 +752,11 @@ export const loops = {
         2, 2, 2, 2, 1,
       ];
       game.piece.gravity = framesToMs(SPEED_TABLE[Math.min(29, game.stat.level)]);
+      if (game.next.queue[0] === 'I') {
+        lastSeenI = 0;
+      } else {
+        lastSeenI++;
+      }
       levelUpdate(game);
     },
     onInit: (game) => {
@@ -763,6 +764,7 @@ export const loops = {
         game.hideGrid = true;
         game.stack.updateGrid();
       }
+      lastSeenI = 0;
       game.piece.holdingTimeLimit = 1600;
       game.stat.level = settings.game.retro.startingLevel;
       game.redrawOnLevelUp = true;
@@ -784,7 +786,7 @@ export const loops = {
               'x-9', 'l-9', 'r-9',
             ],
             ['mino'],
-            'retro-special'
+            'retro-special',
         );
         game.piece.useRetroColors = true;
         game.colors = PIECE_COLORS.retroSpecial;

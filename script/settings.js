@@ -45,6 +45,7 @@ class Settings {
       sfxVolume: 50,
       musicVolume: 50,
       soundbank: 'auto',
+      nextSoundbank: 'auto',
     };
     switch (navigator.language.substr(0, 2)) {
       case 'fr':

@@ -1,5 +1,4 @@
 import {loadLanguage} from './loaders.js';
-import $ from './shortcuts.js';
 import settings from './settings.js';
 
 class Locale {
@@ -12,7 +11,7 @@ class Locale {
     this.test = new Promise(
         function(resolve, reject) {
           resolve('test');
-        }
+        },
     );
     this.currentLanguage = 'en_US';
     this.loaded = {};
@@ -21,6 +20,9 @@ class Locale {
     }
   }
   getString(file, name, vars = []) {
+    if (this.currentLanguage === 'blank') {
+      return '⠀⠀⠀⠀⠀⠀';
+    }
     try {
       let str = this[file][this.currentLanguage][name].message;
       for (let i = 0; i < vars.length; i++) {
@@ -61,7 +63,7 @@ class Locale {
   }
   loadLang(language) {
     const load = new Promise((resolve) => {
-      if (this.loaded[language]) {
+      if (this.loaded[language] || language === 'blank') {
         resolve('done!');
       } else {
         const toLoad = this.files.length;

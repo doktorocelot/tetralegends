@@ -676,6 +676,9 @@ export default class Piece extends GameModule {
         xDampening: 1.03,
         yDampening: 1.03,
         lifeVariance: 80,
+        red: 255,
+        blue: 0,
+        green: 0,
       });
     }
   }

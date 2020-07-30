@@ -1,7 +1,8 @@
-import {loadSoundbank} from './loaders.js';
+import {loadSoundbank, loadPiecebank} from './loaders.js';
 import settings from './settings.js';
 import gameHandler from './game/game-handler.js';
 import {resetAnimation} from './shortcuts.js';
+import {PIECES} from './consts.js';
 class Sound {
   constructor() {
     this.sounds = [];
@@ -9,6 +10,7 @@ class Sound {
     this.music = {};
     this.toPlay = {};
     this.files = [];
+    this.nextSounds = [];
     this.menuSounds = [];
     this.playingSeLoops = {};
     this.amountOfTimesEnded = {};
@@ -20,6 +22,7 @@ class Sound {
     this.paceBgmName = null;
     this.paceBgmIsRaised = false;
     this.lastLoaded = null;
+    this.lastNext = null;
     this.noLoops = false;
     this.playHardNoise = false;
     this.pieceFlashes = {};
@@ -65,7 +68,7 @@ class Sound {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
-    if (name === this.lastLoaded) {
+    if (name === this.lastLoaded && settings.settings.nextSoundbank === this.lastNext) {
       return;
     }
     this.mustWait = true;
@@ -77,7 +80,6 @@ class Sound {
           this.files = soundData.files;
           this.ren = soundData.ren;
           this.cut = (soundData.cutItself) ? soundData.cutItself : [];
-          this.pieceFlashes = (soundData.nextFlashes) ? soundData.nextFlashes : {};
           for (const soundName of this.files) {
             this.amountOfTimesEnded[soundName] = 0;
             this.sounds[soundName] = new Howl({
@@ -99,6 +101,32 @@ class Sound {
             });
           }
           this.mustWait = false;
+          if (
+            (soundData.nextSoundbank != null || settings.settings.nextSoundbank !== 'auto') && settings.settings.nextSoundbank !== 'off') {
+            const name = (settings.settings.nextSoundbank !== 'auto') ? settings.settings.nextSoundbank : soundData.nextSoundbank;
+            this.lastNext = settings.settings.nextSoundbank;
+            this.mustWait = true;
+            for (const piece of Object.keys(PIECES)) {
+              const soundName = `piece${piece}`;
+              this.files.push(soundName);
+              this.sounds[soundName] = new Howl({
+                src: [`./se/piece/${name}/${soundName}.ogg`],
+                volume: settings.settings.sfxVolume / 100,
+                onend: () => {
+                  this.amountOfTimesEnded[soundName]++;
+                  if (this.amountOfTimesEnded[soundName] > 2 && this.playingSeLoops[soundName] != null && this.fadedSounds[soundName] == null) {
+                    this.fadedSounds[soundName] = true;
+                    this.sounds[soundName].fade(settings.settings.sfxVolume / 100, (settings.settings.sfxVolume / 100) * 0.5, 500);
+                  }
+                },
+              });
+            }
+            loadPiecebank(name)
+                .then((nextData) => {
+                  this.pieceFlashes = (nextData.nextFlashes) ? nextData.nextFlashes : {};
+                  this.mustWait = false;
+                });
+          }
         });
   }
   loadBgm(name, type) {
@@ -151,7 +179,7 @@ class Sound {
     }
   }
   syncBgm() {
-    return;
+    /*
     try {
       if (gameHandler.game.settings.hasDangerBgm) {
         this.music[`${this.dangerBgmName}-start`].seek(this.music[`${this.bgmName}-start`].seek());
@@ -163,7 +191,7 @@ class Sound {
       }
     } catch (error) {
 
-    }
+    } */
   }
   playBgm(name, type) {
     this.killBgm();
@@ -211,7 +239,7 @@ class Sound {
     }
   }
   lowerDangerBgm() {
-      if (!gameHandler.game.settings.hasDangerBgm ||
+    if (!gameHandler.game.settings.hasDangerBgm ||
         !this.music[`${this.dangerBgmName}-start`] ||
         !this.music[`${this.dangerBgmName}-loop`]) {
       return;

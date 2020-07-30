@@ -95,6 +95,41 @@
       ],
       "setting": "soundbank",
       "settingType": "setting"
+    },
+    {
+      "string": "nextSoundLabel",
+      "stringDesc": "nextSoundDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "string": "auto",
+          "value": "auto",
+          "langOverride": "menu_general"
+        },
+        {
+          "label": "TGM3",
+          "fixedText": true,
+          "value": "tgm3"
+        },
+        {
+          "label": "TETR.IO",
+          "fixedText": true,
+          "value": "tetrio"
+        },
+        {
+          "label": "NullpoMino",
+          "fixedText": true,
+          "value": "nullpomino"
+        },
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        }
+      ],
+      "setting": "nextSoundbank",
+      "settingType": "setting"
     }
   ]
 }

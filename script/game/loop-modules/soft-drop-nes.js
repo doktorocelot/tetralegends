@@ -1,7 +1,11 @@
 import input from '../../input.js';
 import {framesToMs} from '../../shortcuts.js';
+import sound from '../../sound.js';
 
 export default function softDropNes(arg, fireball = true) {
+  // if (input.getGameRelease('softDrop') && (input.getGameDown('moveLeft') || input.getGameDown('moveRight')) && fireball) {
+  //   sound.add('fireball');
+  // }
   if (input.getGameDown('softDrop') && !arg.piece.softDropIsLocked) {
     if (arg.piece.breakHoldingTimeOnSoftDrop) {
       arg.piece.holdingTime = arg.piece.holdingTimeLimit;
