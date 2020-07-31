@@ -12,7 +12,7 @@
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "PIECE",
+    "message": "PIECES",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
@@ -108,19 +108,19 @@
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
-    "message": "次のブロックで窒息してしまいます！",
+    "message": "次のブロックで窒息してしまいます！！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "窒息してしまいます！",
+    "message": "窒息してしまいます！！",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "ロックアウトしてしまいます！",
+    "message": "ロックアウトしてしまいます！！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {
-    "message": "トップアウトしてしまいます！",
+    "message": "トップアウトしてしまいます ！！",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   },
   "watchOutWarning": {
@@ -128,31 +128,31 @@
     "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
   },
   "coolPace": {
-    "message": "Cool!!",
+    "message": "COOL!",
     "description": "Used primarily to show the user that they're on pace to continue playing in certain arcade modes. Can also be used for clearing "
   },
   "coolTetra": {
-    "message": "Nice One!",
+    "message": "COOL!!!",
     "description": "Used primarily to show the user that they've done something special in certain arcade modes. Known as 'COOL!!' in Japanese."
   },
   "regretPace": {
-    "message": "Too Slow!",
+    "message": "REGRET...",
     "description": "Used to show the user that they are playing too slowly in certain arcade modes. Known as 'REGRET!' in Japanese"
   },
   "pressKeyboardKey": {
-    "message": "Press %1",
+    "message": "PUSH %1 KEY",
     "description": "As in to press the button on the keyboard"
   },
   "pressControllerButton": {
-    "message": "Press %1",
+    "message": "PUSH %1 BUTTON",
     "description": "As in to press the button on the controller"
   },
   "clickAnywhere": {
-    "message": "Click Anywhere",
+    "message": "どこでもクリックしてください",
     "description": "Indicating to click the mouse anywhere on the screen"
   },
   "tapAnywhere": {
-    "message": "Tap Anywhere",
+    "message": "画面をタップしてください",
     "description": "Indicating to tap on the touchscreen anywhere"
   }
 }

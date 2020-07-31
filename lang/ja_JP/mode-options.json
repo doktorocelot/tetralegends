@@ -4,7 +4,7 @@
     "description": "Appears in the mode selection screen. Clicking it will start the game."
   },
   "startDescription": {
-    "message": "開始!"
+    "message": "ゲーム開始！"
   },
   "linesUnit": {
     "message": "%1 LINES",
@@ -161,18 +161,18 @@
     "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
   },
   "ruleSelectLabel": {
-    "message": "Game Rule",
+    "message": "ゲームルール",
     "description": "Used to allow the user to select what rule they want to use in some arcade modes: Classic, World"
   },
   "ruleSelectDescription": {
-    "message": "Select a rule for the game mechanics"
+    "message": "ゲームルールを選択します"
   },
   "classicRuleOption": {
-    "message": "CLASSIC Rule",
+    "message": "CLASSIC RULE",
     "description": "Used in some arcade modes"
   },
   "worldRuleOption": {
-    "message": "WORLD Rule",
+    "message": "WORLD RULE",
     "description": "Used in some arcade modes"
   }
 }
