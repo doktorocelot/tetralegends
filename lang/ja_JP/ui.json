@@ -136,7 +136,7 @@
     "description": "Used primarily to show the user that they've done something special in certain arcade modes. Known as 'COOL!!' in Japanese."
   },
   "regretPace": {
-    "message": "REGRET...",
+    "message": "REGRET!",
     "description": "Used to show the user that they are playing too slowly in certain arcade modes. Known as 'REGRET!' in Japanese"
   },
   "pressKeyboardKey": {
@@ -148,7 +148,7 @@
     "description": "As in to press the button on the controller"
   },
   "clickAnywhere": {
-    "message": "どこでもクリックしてください",
+    "message": "クリックしてスタート",
     "description": "Indicating to click the mouse anywhere on the screen"
   },
   "tapAnywhere": {
