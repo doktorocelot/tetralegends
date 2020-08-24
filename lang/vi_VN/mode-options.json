@@ -93,14 +93,14 @@
     "description": "This one may be hard to translate; it is used in Sprint to disable the delays for the purpose making the times comparable with other platforms"
   },
   "regulationModeDescription": {
-    "message": "Chế độ mà tắt hết tất cả khoảng thời gian trì trệ để có thời gian dễ so sánh"
+    "message": "Chế độ tắt hết tất cả khoảng thời gian trì trệ để có thời gian dễ so sánh"
   },
   "lockdownModeLabel": {
     "message": "Cách thức khóa",
     "description": "This option allows the user to select from the ways that the game will lock the piece down, including Infinity, Extended and Classic"
   },
   "lockdownModeDescription": {
-    "message": "Lựa chọn chế độ điều khiển cách khóa của các miếng"
+    "message": "Lựa chọn chế độ điều khiển cách khóa của các gạch"
   },
   "infinityLdOption": {
     "message": "Vô tận",
@@ -161,18 +161,18 @@
     "description": "As in 'using modern mechanics'; this is used in the Retro modes mode to select mechanics taht intend to match those of modern standards"
   },
   "ruleSelectLabel": {
-    "message": "Game Rule",
+    "message": "Luật trò chơi",
     "description": "Used to allow the user to select what rule they want to use in some arcade modes: Classic, World"
   },
   "ruleSelectDescription": {
-    "message": "Select a rule for the game mechanics"
+    "message": "Chọn một luật cho cơ chế trò chơi"
   },
   "classicRuleOption": {
-    "message": "CLASSIC Rule",
+    "message": "Luật CƠ BẢN",
     "description": "Used in some arcade modes"
   },
   "worldRuleOption": {
-    "message": "WORLD Rule",
+    "message": "Luật QUỐC TẾ",
     "description": "Used in some arcade modes"
   }
 }

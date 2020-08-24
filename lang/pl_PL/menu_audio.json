@@ -14,22 +14,22 @@
     "message": "Głośność muzyki w procentach"
   },
   "soundbankLabel": {
-    "message": "Soundbank Override"
+    "message": "Podmiana dźwięków (SFX)"
   },
   "soundbankDescription": {
-    "message": "Select a soundbank to use in place of the default"
+    "message": "Wybierz który pakiet z dźwiękami ma być używany zamiast domyślnego."
   },
   "nextSoundLabel": {
-    "message": "Next Indicator Soundbank",
+    "message": "Wybierz dźwięk \"następnego klocka\"",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {
-    "message": "Select a soundbank to use as an indicator for the upcoming piece"
+    "message": "Wybierz z jakiej paczki zostanie pobrany dźwięk następnego tetromina."
   },
   "morseCodeOption": {
-    "message": "Morse Code"
+    "message": "Kod morsa"
   },
   "voiceOption": {
-    "message": "Voice"
+    "message": "Dźwięk"
   }
 }

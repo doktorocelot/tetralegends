@@ -1,16 +1,16 @@
 {
   "gradesLabel": {
-    "message": "Grades",
+    "message": "Hạng",
     "description": "Used as a category name for TGM-inspired modes"
   },
   "gradesDescription": {
-    "message": "Hardcore modes designed to challenge the highest of players"
+    "message": "Các chế độ hóc búa thách thức cả những người chơi giỏi nhất"
   },
   "master3Label": {
-    "message": "Master 3",
+    "message": "Bậc thầy 3",
     "description": "Used for a mode inspired by TGM3 Master"
   },
   "master3Description": {
-    "message": "Cool!! Play quickly and accurately to advance higher and higher!"
+    "message": "Tuyệt!! Hãy chơi nhanh và chuẩn để tiến vừa cao vừa xa!"
   }
 }
