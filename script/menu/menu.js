@@ -74,6 +74,10 @@ class Menu {
           'action': 'back',
         };
         this.current.data.unshift(back);
+      } else {
+        if (sound.lastVoice !== settings.settings.voicebank) {
+          sound.loadMenuVoice();
+        }
       }
       if (this.current.properties.game) {
         const game = {
@@ -96,6 +100,9 @@ class Menu {
             break;
         }
         this.showMenu();
+        if (this.current.properties.vox && !this.useLastSelected) {
+          sound.playMenuVox(this.current.properties.vox);
+        }
         if (!gameHandler.game.isVisible) {
           this.isEnabled = true;
           this.isLocked = false;

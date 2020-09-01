@@ -142,6 +142,7 @@ export default class Stack extends GameModule {
     }
     if (passedLockOut >= shape.length) {
       $('#kill-message').textContent = locale.getString('ui', 'lockOut');
+      sound.add('voxlockout');
       this.parent.end();
       return;
     }
@@ -177,6 +178,19 @@ export default class Stack extends GameModule {
     if (this.lineClear >= 4 && this.flashOnTetris) {
       resetAnimation('#stack', 'tetris-flash');
     }
+    let pc = true;
+    for (let x = 0; x < this.grid.length; x++) {
+      if (!pc) {
+        break;
+      }
+      for (let y = 0; y < this.grid[x].length; y++) {
+        const isFilled = this.grid[x][y];
+        if (isFilled) {
+          pc = false;
+          break;
+        }
+      }
+    }
     if (this.lineClear > 0) { // TODO mini tspin and clean this up
       if (SCORE_TABLES[this.parent.settings.scoreTable].hasCombo) {
         this.parent.combo++;
@@ -203,15 +217,44 @@ export default class Stack extends GameModule {
       if (isSpin) {
         this.parent.addScore(`tspin${this.lineClear}`);
       }
+      if (!pc) {
+        if (isSpin && this.parent.piece.name === 'T') {
+          if (this.parent.b2b > 1) {
+            sound.add('voxb2b_tspin');
+          } else if (isMini) {
+            sound.add('voxminitspin');
+          } else {
+            sound.add(`voxtspin${this.lineClear}`);
+          }
+        } else {
+          if (this.parent.b2b > 1 && this.lineClear === 4) {
+            sound.add('voxb2b_erase4');
+          } else {
+            sound.add(`voxerase${this.lineClear}`);
+          }
+        }
+      }
     } else {
       this.parent.combo = -1;
       if (isSpin) {
+        if (isMini && this.parent.piece.name === 'T') {
+          sound.add('voxminitspin');
+        } else if (this.parent.piece.name === 'T') {
+          sound.add('voxtspin0');
+        }
         sound.add(`tspin0${version}`);
         this.parent.addScore('tspin0');
       }
     }
     if (this.parent.combo > 0) {
       sound.add(`ren${this.parent.combo}`);
+      if (this.parent.combo <= 5) {
+        sound.add('voxren1');
+      } else if (this.parent.combo <= 10) {
+        sound.add('voxren2');
+      } else {
+        sound.add('voxren3');
+      }
       this.parent.addScore('combo', this.parent.combo);
       if (settings.settings.displayActionText) {
         $('#combo-counter-container').classList.remove('hidden');
@@ -227,21 +270,9 @@ export default class Stack extends GameModule {
     // console.log(this.highest, this.skyToFloor);
     // console.log(this.skyToFloor);
     this.parent.calculateActionText(this.lineClear, isSpin, isMini, this.parent.b2b);
-    let pc = true;
-    for (let x = 0; x < this.grid.length; x++) {
-      if (!pc) {
-        break;
-      }
-      for (let y = 0; y < this.grid[x].length; y++) {
-        const isFilled = this.grid[x][y];
-        if (isFilled) {
-          pc = false;
-          break;
-        }
-      }
-    }
     if (pc) {
       for (let i = 0; i < 200 * this.width / 10; i++) {
+        sound.add('perfectclear');
         const colors = hsvToRgb(Math.random(), .7, 1);
         this.parent.particle.generate({
           amount: 1,
@@ -264,6 +295,7 @@ export default class Stack extends GameModule {
         });
       }
       sound.add('bravo');
+      sound.add('voxperfectclear');
       const options = {
         time: 4000,
         skipDefaultAnimation: true,
@@ -437,6 +469,7 @@ export default class Stack extends GameModule {
     this.parent.piece.isDirty = true;
     if (topOut) {
       $('#kill-message').textContent = locale.getString('ui', 'topOut');
+      sound.add('voxtopout');
       this.parent.end();
       return;
     }

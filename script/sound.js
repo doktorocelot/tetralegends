@@ -6,12 +6,14 @@ import {PIECES} from './consts.js';
 class Sound {
   constructor() {
     this.sounds = [];
+    this.vox = [];
     this.cut = [];
     this.music = {};
     this.toPlay = {};
     this.files = [];
     this.nextSounds = [];
     this.menuSounds = [];
+    this.menuVox = [];
     this.playingSeLoops = {};
     this.amountOfTimesEnded = {};
     this.fadedSounds = {};
@@ -23,6 +25,7 @@ class Sound {
     this.paceBgmIsRaised = false;
     this.lastLoaded = null;
     this.lastNext = null;
+    this.lastVoice = null;
     this.noLoops = false;
     this.playHardNoise = false;
     this.pieceFlashes = {};
@@ -34,10 +37,17 @@ class Sound {
         this.sounds[key].volume(settings.settings.sfxVolume / 100 * 0.5);
         continue;
       }
-      this.sounds[key].volume(settings.settings.sfxVolume / 100);
+      if (key.substr(0, 3) === 'vox') {
+        this.sounds[key].volume(settings.settings.voiceVolume / 100);
+      } else {
+        this.sounds[key].volume(settings.settings.sfxVolume / 100);
+      }
     }
     for (const key of Object.keys(this.menuSounds)) {
       this.menuSounds[key].volume(settings.settings.sfxVolume / 100);
+    }
+    for (const key of Object.keys(this.menuVox)) {
+      this.menuVox[key].volume(settings.settings.voiceVolume / 100);
     }
     for (const key of Object.keys(this.music)) {
       if (key.includes('danger') && !this.dangerBgmIsRaised) {
@@ -59,21 +69,41 @@ class Sound {
       });
     }
   }
+  loadMenuVoice() {
+    const files = ['menuguideline', 'menutetrax', 'menuretro', 'menuarcade', 'menucontrols',
+      'menutuning', 'menuvideo', 'menuaudio'];
+    for (const soundName of files) {
+      this.menuVox[soundName] = new Howl({
+        src: [`./vox/${settings.settings.voicebank}/${soundName}.ogg`],
+        volume: settings.settings.voiceVolume / 100,
+      });
+    }
+  }
   playMenuSe(name) {
     this.menuSounds[name].stop();
     this.menuSounds[name].play();
+  }
+  playMenuVox(name) {
+    if (settings.settings.voicebank === 'off') {
+      return;
+    }
+    this.menuVox[name].stop();
+    this.menuVox[name].play();
   }
   load(name = 'standard') {
     for (const key of Object.keys(this.playingSeLoops)) {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
-    if (name === this.lastLoaded && settings.settings.nextSoundbank === this.lastNext) {
+    console.log(settings.settings.nextSoundbank, this.lastNext);
+    if (name === this.lastLoaded && settings.settings.nextSoundbank === this.lastNext && settings.settings.voicebank === this.lastVoice) {
       return;
     }
+    console.log('here');
     this.mustWait = true;
     Howler.unload();
     this.loadMenu();
+    this.loadMenuVoice();
     loadSoundbank(name)
         .then((soundData) => {
           this.lastLoaded = name;
@@ -100,11 +130,25 @@ class Sound {
               volume: settings.settings.sfxVolume / 100,
             });
           }
+          if (settings.settings.voicebank !== 'off') {
+            for (const voxName of [
+              'ready', 'start', 'go', 'erase2', 'erase3', 'erase4', 'b2b_erase4', 'tspin0', 'tspin1',
+              'tspin2', 'tspin3', 'minitspin', 'b2b_tspin', 'perfectclear', 'ren1', 'ren2', 'ren3',
+              'blockout', 'lockout', 'topout', 'timeup', 'excellent', 'gameover',
+            ]) {
+              this.files.push(`vox${voxName}`);
+              this.sounds[`vox${voxName}`] = new Howl({
+                src: [`./vox/${settings.settings.voicebank}/${voxName}.ogg`],
+                volume: settings.settings.voiceVolume / 100,
+              });
+            }
+          }
           this.mustWait = false;
+          this.lastNext = settings.settings.nextSoundbank;
+          this.lastVoice = settings.settings.voicebank;
           if (
             (soundData.nextSoundbank != null || settings.settings.nextSoundbank !== 'auto') && settings.settings.nextSoundbank !== 'off') {
             const name = (settings.settings.nextSoundbank !== 'auto') ? settings.settings.nextSoundbank : soundData.nextSoundbank;
-            this.lastNext = settings.settings.nextSoundbank;
             this.mustWait = true;
             for (const piece of Object.keys(PIECES)) {
               const soundName = `piece${piece}`;

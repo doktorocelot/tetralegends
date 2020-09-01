@@ -1,6 +1,7 @@
 {
   "properties": {
-    "parent": "root"
+    "parent": "root",
+    "vox": "menuaudio"
   },
   "data": [
     {
@@ -24,6 +25,17 @@
       "min": 0,
       "discrete": 5,
       "setting": "musicVolume",
+      "settingType": "setting"
+    },
+    {
+      "string": "voxVolLabel",
+      "stringDesc": "voxVolDescription",
+      "type": "slider",
+      "action": "slider",
+      "max": 100,
+      "min": 0,
+      "discrete": 5,
+      "setting": "voiceVolume",
       "settingType": "setting"
     },
     {
@@ -129,6 +141,36 @@
         }
       ],
       "setting": "nextSoundbank",
+      "settingType": "setting"
+    },
+    {
+      "string": "voicebankLabel",
+      "stringDesc": "voicebankDescription",
+      "type": "select",
+      "action": "select",
+      "selectOptions": [
+        {
+          "label": "[EN] Sora",
+          "fixedText": true,
+          "value": "soraen"
+        },
+        {
+          "label": "[EN] Ariahivo",
+          "fixedText": true,
+          "value": "ariahivo"
+        },
+        {
+          "label": "[JA] Sora",
+          "fixedText": true,
+          "value": "soraja"
+        },
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
+        }
+      ],
+      "setting": "voicebank",
       "settingType": "setting"
     }
   ]

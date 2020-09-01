@@ -1,6 +1,7 @@
 {
   "properties": {
-    "parent": "root"
+    "parent": "root",
+    "vox": "menuvideo"
   },
   "data": [
     {

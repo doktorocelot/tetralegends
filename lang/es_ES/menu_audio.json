@@ -31,5 +31,19 @@
   },
   "voiceOption": {
     "message": "Voz"
+  },
+  "voxVolLabel": {
+    "message": "Volumen de Voz",
+    "description": "Used for any voice clip's in the game"
+  },
+  "voxVolDescription": {
+    "message": "El volumen de las voces, en porcentaje"
+  },
+  "voicebankLabel": {
+    "message": "Conjunto de Voces",
+    "description": "This is to select a voice pack"
+  },
+  "voicebankDescription": {
+    "message": "Selecciona un conjunto de voces para usar dentro del juego y en menús"
   }
 }

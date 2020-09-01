@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao",
+    "message": "Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {

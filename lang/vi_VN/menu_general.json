@@ -4,7 +4,7 @@
     "description": "Go back to the previous menu"
   },
   "backDescription": {
-    "message": "Quay trở lại về menu trước"
+    "message": "Quay về menu trước"
   },
   "enabled": {
     "message": "Bật",

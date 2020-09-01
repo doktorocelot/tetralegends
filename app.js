@@ -53,6 +53,7 @@ window.onerror = (msg, url, lineNo, columnNo, error) => {
 document.addEventListener('DOMContentLoaded', () => {
   settings.load();
   sound.loadMenu();
+  sound.loadMenuVoice();
   sound.loadBgm(['menu'], 'menu');
   menu.isLocked = true;
   locale.loadLang(settings.settings.language)

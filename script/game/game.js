@@ -169,7 +169,10 @@ export default class Game {
             this.settings.music = [string];
           }}
           sound.loadBgm(this.settings.music, gametype);
-          sound.add('ready');
+          if (!(settings.settings.soundbank === 't99' && settings.settings.voicebank !== 'off')) {
+            sound.add('ready');
+          }
+          sound.add('voxready');
           $('#message').classList.remove('dissolve');
           let readyText = locale.getString('ui', 'ready');
           const delayChange = .05;
@@ -238,7 +241,9 @@ export default class Game {
     if (victory) {
       sound.add('excellent');
     } else {
-      sound.add('ko');
+      if (!(settings.settings.soundbank === 't99' && settings.settings.voicebank !== 'off')) {
+        sound.add('ko');
+      }
     }
     sound.killBgm();
     sound.killAllLoops();
@@ -247,6 +252,7 @@ export default class Game {
       sound.stopSeLoop('alarm');
       $('#kill-message-container').classList.add('hidden');
       sound.add('gameover');
+      sound.add('voxgameover');
       $('#end-message').textContent = locale.getString('ui', 'gameover');
       $('#end-message-container').classList.remove('hidden');
       $('#return-to-menu').textContent = locale.getString('ui', 'returnToMenu');
@@ -530,6 +536,7 @@ export default class Game {
             if (game.lineGoal != null) {
               if (game.stat.line >= game.lineGoal) {
                 $('#kill-message').textContent = locale.getString('ui', 'excellent');
+                sound.add('voxexcellent');
                 game.end(true);
               }
             }
@@ -538,6 +545,7 @@ export default class Game {
                 game.timeGoal) {
                 game.timeGoal = null;
                 $('#kill-message').textContent = locale.getString('ui', 'timeOut');
+                sound.add('voxtimeup');
                 game.end();
               }
             }

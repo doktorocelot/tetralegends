@@ -75,10 +75,16 @@ export default class Piece extends GameModule {
     this.killLockDelayOnRotate = false;
     if (this.parent.stat.piece === 0 && !this.parent.hold.hasHeld) {
       if (this.parent.isRaceMode) {
-        sound.add('go');
+        if (!(settings.settings.soundbank === 't99' && settings.settings.voicebank !== 'off')) {
+          sound.add('go');
+        }
+        sound.add('voxgo');
         $('#message').textContent = locale.getString('ui', 'go');
       } else {
-        sound.add('start');
+        if (!(settings.settings.soundbank === 't99' && settings.settings.voicebank !== 'off')) {
+          sound.add('start');
+        }
+        sound.add('voxstart');
         $('#message').textContent = locale.getString('ui', 'start');
       }
       $('#ready-meter').classList.add('hidden');
@@ -112,6 +118,7 @@ export default class Piece extends GameModule {
     }
     if (this.isStuck) {
       $('#kill-message').textContent = locale.getString('ui', 'blockOut');
+      sound.add('voxblockout');
       this.parent.end();
       return;
       // gameHandler.reset();

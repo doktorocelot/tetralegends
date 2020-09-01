@@ -31,5 +31,19 @@
   },
   "voiceOption": {
     "message": "ボイス"
+  },
+  "voxVolLabel": {
+    "message": "ボイスボリューム",
+    "description": "Used for any voice clip's in the game"
+  },
+  "voxVolDescription": {
+    "message": "割合での声の大きさ"
+  },
+  "voicebankLabel": {
+    "message": "ボイス",
+    "description": "This is to select a voice pack"
+  },
+  "voicebankDescription": {
+    "message": "ゲーム内やメニューの呼び出しに使用するボイスを選択します"
   }
 }

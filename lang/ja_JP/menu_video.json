@@ -141,7 +141,7 @@
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "翠色",
+    "message": "緑色",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
@@ -149,7 +149,7 @@
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "紺色",
+    "message": "青色",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
@@ -161,7 +161,7 @@
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "鼠色",
+    "message": "灰色",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {

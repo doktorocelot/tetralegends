@@ -44,8 +44,10 @@ class Settings {
       // Audio
       sfxVolume: 50,
       musicVolume: 50,
+      voiceVolume: 50,
       soundbank: 'auto',
       nextSoundbank: 'auto',
+      voicebank: 'off',
     };
     switch (navigator.language.substr(0, 2)) {
       case 'fr':
@@ -80,6 +82,15 @@ class Settings {
         break;
       case 'ru':
         this.defaultSettings.language = 'ru_RU';
+        break;
+    }
+    switch (this.defaultSettings.language) {
+      case 'en_US':
+      case 'en_GB':
+        this.defaultSettings.voicebank = 'soraen';
+        break;
+      case 'ja_JP':
+        this.defaultSettings.voicebank = 'sorajp';
         break;
     }
     this.defaultControls = {
