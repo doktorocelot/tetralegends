@@ -5,9 +5,9 @@ import gameHandler from './game-handler.js';
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
+const HZ_MATCH_MULTIPLIER = .5 / 60 * 1000;
 class SingleParticle {
   constructor(properties) {
-    this.HZ_MATCH_MULTIPLIER = .5 / 60 * 1000;
     this.xDampening = 1;
     this.yDampening = 1;
     this.xFlurry = 0;
@@ -26,17 +26,17 @@ class SingleParticle {
     }
     const lifeGen = getRandomInt(this.lifeVariance * 100) / 100;
     this.maxlife += this.lifeVariance / 2 - lifeGen;
-    this.maxlife *= this.HZ_MATCH_MULTIPLIER;
+    this.maxlife *= HZ_MATCH_MULTIPLIER;
   }
   update(ms) {
     const widthMultiplier = gameHandler.game.particle.ctx.canvas.clientWidth / 400;
-    const multiplier = ms / 8.33333333333;
-    const multiplierWithWidth = ms / 8.33333333333 * widthMultiplier;
+    const multiplier = ms / HZ_MATCH_MULTIPLIER;
+    const multiplierWithWidth = ms / HZ_MATCH_MULTIPLIER * widthMultiplier;
     const xFlurryGen = getRandomInt(this.xFlurry * 100) / 100;
     const yFlurryGen = getRandomInt(this.yFlurry * 100) / 100;
     this.xVelocity += (this.xFlurry / 2 - xFlurryGen) * multiplier;
     this.yVelocity += (this.yFlurry / 2 - yFlurryGen) * multiplier;
-    this.lifetime += this.HZ_MATCH_MULTIPLIER * multiplier;
+    this.lifetime += HZ_MATCH_MULTIPLIER * multiplier;
     this.x += this.xVelocity * multiplierWithWidth;
     this.y -= this.yVelocity * multiplierWithWidth;
     this.y += this.gravity * multiplier;
