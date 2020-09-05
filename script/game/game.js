@@ -357,6 +357,13 @@ export default class Game {
       stat.appendChild(number);
       $('#stats').appendChild(stat);
     }
+    if (game.stack.width <= 4 &&
+      (settings.settings.language === 'ja_JP' ||
+      settings.settings.language === 'ko_KR')) {
+      $('#pause-label').classList.add('vertical');
+    } else {
+      $('#pause-label').classList.remove('vertical');
+    }
     game.updateStats();
   }
   drawLockdown() {
@@ -536,6 +543,7 @@ export default class Game {
             if (game.lineGoal != null) {
               if (game.stat.line >= game.lineGoal) {
                 $('#kill-message').textContent = locale.getString('ui', 'excellent');
+                sound.killVox();
                 sound.add('voxexcellent');
                 game.end(true);
               }
@@ -545,6 +553,7 @@ export default class Game {
                 game.timeGoal) {
                 game.timeGoal = null;
                 $('#kill-message').textContent = locale.getString('ui', 'timeOut');
+                sound.killVox();
                 sound.add('voxtimeup');
                 game.end();
               }

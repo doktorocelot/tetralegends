@@ -95,11 +95,9 @@ class Sound {
       this.stopSeLoop(key);
     }
     this.noLoops = false;
-    console.log(settings.settings.nextSoundbank, this.lastNext);
     if (name === this.lastLoaded && settings.settings.nextSoundbank === this.lastNext && settings.settings.voicebank === this.lastVoice) {
       return;
     }
-    console.log('here');
     this.mustWait = true;
     Howler.unload();
     this.loadMenu();
@@ -341,6 +339,13 @@ class Sound {
       this.sounds[name].stop();
       delete this.fadedSounds[name];
       delete this.playingSeLoops[name];
+    }
+  }
+  killVox() {
+    for (const file of this.files) {
+      if (file.substr(0, 3) === 'vox') {
+        this.sounds[file].stop();
+      }
     }
   }
   playSeQueue() {

@@ -1317,6 +1317,12 @@ progress[value]::-moz-progress-bar {
   top: 2em;
   width: 100%;
 }
+.game.paused .pause.vertical {
+  writing-mode: vertical-rl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .game .load-message {
   animation-name: pulse-opacity;
   animation-duration: .5s;

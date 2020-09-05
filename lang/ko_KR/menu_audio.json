@@ -33,17 +33,17 @@
     "message": "음성"
   },
   "voxVolLabel": {
-    "message": "Voice Volume",
+    "message": "음성 음량",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {
-    "message": "The volume of the voice clips in percentage"
+    "message": "음성 음량 조절 (백분율)"
   },
   "voicebankLabel": {
-    "message": "Voicebank",
+    "message": "음성 사운드뱅크",
     "description": "This is to select a voice pack"
   },
   "voicebankDescription": {
-    "message": "Select a voicebank to use for in-game and menu callouts"
+    "message": "게임 중 또는 메뉴 음성 지원을 위한 사운드뱅크"
   }
 }

@@ -118,6 +118,7 @@ export default class Piece extends GameModule {
     }
     if (this.isStuck) {
       $('#kill-message').textContent = locale.getString('ui', 'blockOut');
+      sound.killVox();
       sound.add('voxblockout');
       this.parent.end();
       return;

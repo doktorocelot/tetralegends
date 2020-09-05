@@ -142,6 +142,7 @@ export default class Stack extends GameModule {
     }
     if (passedLockOut >= shape.length) {
       $('#kill-message').textContent = locale.getString('ui', 'lockOut');
+      sound.killVox();
       sound.add('voxlockout');
       this.parent.end();
       return;
@@ -469,6 +470,7 @@ export default class Stack extends GameModule {
     this.parent.piece.isDirty = true;
     if (topOut) {
       $('#kill-message').textContent = locale.getString('ui', 'topOut');
+      sound.killVox();
       sound.add('voxtopout');
       this.parent.end();
       return;
