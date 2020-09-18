@@ -1,67 +1,67 @@
 {
   "presetsLabel": {
-    "message": "Các bộ chỉnh độ nhạy",
+    "message": "Delay/Rate Presets",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
-    "message": "Lựa chọn một trong các bộ độ nhạy"
+    "message": "Select from a variety of different presets for the autoshift"
   },
   "dasLabel": {
-    "message": "DAS",
+    "message": "Autoshift Delay",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
-    "message": "Lượng thời gian tính theo phần nghìn giây trước khi gạch bắt đầu tự di chuyển (DAS)"
+    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
   },
   "arrLabel": {
-    "message": "ARR",
+    "message": "Autoshift Rate",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "Lượng thời gian tính theo phần nghìn giây cho một lần tự động di chuyển (ARR)"
+    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
   },
   "dasPreloadLabel": {
-    "message": "ARR tức thì",
+    "message": "Autoshift Preload",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Tự động bỏ qua DAS khi giữ phím di chuyển trong khoảng thời gian tạo gạch trong bảng"
+    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
   },
   "irsLabel": {
-    "message": "IRS",
+    "message": "Initial Rotation",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Tùy chỉnh tính năng xoay gạch trước khi gạch xuất hiện (có thể bị tắt ở vài chế độ)"
+    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
   },
   "absoluteIrsOption": {
-    "message": "Theo 1 hướng",
+    "message": "Absolute",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "IHS",
+    "message": "Initial Hold",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Tùy chỉnh tính năng giữ gạch trước khi gạch xuất hiện"
+    "message": "Modifies the ability to hold a piece before it spawns"
   },
   "tapInitOption": {
-    "message": "Bấm",
+    "message": "Tap",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Giữ",
+    "message": "Hold",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Ghi đè bộ xoay",
+    "message": "Rotation System Override",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Lựa chọn một bộ xoay gạch để dùng làm mặc định ở các chế độ"
+    "message": "Select a rotation system to use in place of the default for the mode"
   },
   "originalOption": {
-    "message": "Chính gốc",
+    "message": "Original",
     "description": "As in 'Original Rotation System', the one used by the first version of the game"
   }
 }

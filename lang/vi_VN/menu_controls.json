@@ -1,17 +1,17 @@
 {
   "clearLabel": {
-    "message": "Xóa",
+    "message": "Xoá",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Xóa tất cả các phím được cài đặt trong đây"
+    "message": "Xoá tất cả phím được cài đặt"
   },
   "resetLabel": {
     "message": "Đặt lại",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Đặt lại tất cả các phím trong đây về cài đặt mặc định"
+    "message": "Đặt lại tất cả các phím về mặc định"
   },
   "shiftLeftLabel": {
     "message": "Di chuyển trái"
@@ -35,7 +35,7 @@
     "message": "Thả nhẹ"
   },
   "softDropDescription": {
-    "message": "Tăng tốc độ rơi của miếng gạch (có thể bị thay đổi trong một số chế độ)"
+    "message": "Tăng tốc độ rơi của gạch (có thể thay đổi trong một số chế độ)"
   },
   "rotateLeftLabel": {
     "message": "Xoay trái",

@@ -1,174 +1,174 @@
 {
   "nextLengthLabel": {
-    "message": "Số lượng gạch trong cột \"Tiếp\""
+    "message": "Kølengde"
   },
   "nextLengthDescription": {
-    "message": "Số lượng gạch người chơi sẽ thấy trong cột \"Tiếp\""
+    "message": "The amount of pieces the player can see up ahead in the next queue"
   },
   "lockdownBarLabel": {
-    "message": "Thanh khoá gạch",
+    "message": "Lockdown Bar",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Cho phép game cung cấp thông tin khác như thời gian còn lại trước khi gạch tự khoá và số lượng di chuyển còn lại"
+    "message": "Allow the ability to see additional information on lock delay and move limits"
   },
   "swayScaleLabel": {
-    "message": "Độ chuyển động của bảng",
+    "message": "Matrix Sway Scale",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "Cài đặt độ nhạy của bảng khi có gạch va chạm vào các mép bảng. Để về 0 sẽ tắt hiệu ứng này hoàn toàn",
+    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Tốc độ chuyển động của bảng",
+    "message": "Matrix Sway Speed",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "Điều chỉnh tốc độ của bảng về lại vị trí ban đầu",
+    "message": "How fast the matrix returns to its neutral position in percentage",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
-    "message": "Cài đặt các chi tiết nhỏ",
+    "message": "Particle Settings",
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Điều khiển cách hoạt động của chi tiết đó"
+    "message": "Control how particles function"
   },
   "particlesLabel": {
-    "message": "Các chi tiết nhỏ"
+    "message": "Particles"
   },
   "particlesDescription": {
-    "message": "Lựa chọn nếu bạn muốn các chi tiết hiển thị trong game"
+    "message": "Whether particles should be drawn"
   },
   "particleLimitLabel": {
-    "message": "Giới hạn"
+    "message": "Particle Limit"
   },
   "particleLimitDescription": {
-    "message": "Lựa chọn bao nhiêu chi tiết nhỏ sẽ hiển thị trên màn hình cùng một lúc"
+    "message": "How many particles can appear on screen at one time"
   },
   "particleSizeLabel": {
-    "message": "Độ lớn"
+    "message": "Partikkelstørrelse"
   },
   "particleSizeDescription": {
-    "message": "Điều chỉnh độ lớn của các chi tiết nhỏ"
+    "message": "Hvor store partiklene vil være"
   },
   "particleVolumeLabel": {
-    "message": "Số lượng"
+    "message": "Partikkel volum"
   },
   "particleVolumeDescription": {
-    "message": "Điều chỉnh số lượng các chi tiết mà game sẽ tạo"
+    "message": "Hvor mange partikler som genereres"
   },
   "actionTextLabel": {
-    "message": "Hiển thị loại dọn hàng",
+    "message": "Aksjon tekst",
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc khi bạn xoay, ví dụ như \"Đôi\", \"Xoay T\""
+    "message": "Viser meldinger når du klarer linjer og gjør triks, som \"Dobbel\" og \"T-Spin\". Viser også kombo teller"
   },
   "skinLabel": {
-    "message": "Trang trí",
+    "message": "Skin Override",
     "description": "'Skin' as in the sprites used by the pieces"
   },
   "skinDescription": {
-    "message": "Lựa chọn một bộ trang trí gạch đặt làm mặc định"
+    "message": "Select a skin to use in place of the default"
   },
   "glossyOption": {
-    "message": "Bóng láng"
+    "message": "Glossy"
   },
   "flatOption": {
-    "message": "Đơn giản"
+    "message": "Flat"
   },
   "boneOption": {
-    "message": "1984",
+    "message": "Bein",
     "description": "Please look at the reference image as translation may be difficult. 'Brackets', as in these: [], may be a good option"
   },
   "gridLabel": {
-    "message": "Lưới",
+    "message": "Rutenett",
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Lựa chọn phong cách lưới phù hợp với bạn"
+    "message": "Bestem rutenettstil"
   },
   "crossGridOption": {
-    "message": "Giới hạn",
+    "message": "Kors",
     "description": "Grid style that uses + signs"
   },
   "fullGridOption": {
-    "message": "Đầy đủ",
+    "message": "Full",
     "description": "Grid style that uses a full square (□)"
   },
   "dotGridOption": {
-    "message": "Chấm",
+    "message": "Prikk",
     "description": "Grid style that uses a dot in the center of the cell"
   },
   "lockFlashLabel": {
-    "message": "Hiệu ứng khoá",
+    "message": "Låst flash",
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Chọn kiểu nháy của gạch"
+    "message": "Bestemm lås flash stil"
   },
   "shineLFOption": {
-    "message": "Công phu",
+    "message": "Kompleks skinn",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Nháy và mờ dần",
+    "message": "Flash & dimm",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Nháy nhanh",
+    "message": "Kjapp flash",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Ghi đè màu",
+    "message": "Farge overstyring",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Ghi đè màu lên các miếng gạch"
+    "message": "Overstyrer fargene"
   },
   "redOption": {
-    "message": "Đỏ",
+    "message": "Rød",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Cam",
+    "message": "Oransje",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Vàng",
+    "message": "Gul",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Xanh lá",
+    "message": "Grønn",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Xanh biển nhạt",
+    "message": "Lyseblå",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Xanh biển đậm",
+    "message": "Mørkeblå",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Tím",
+    "message": "Lilla",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "Trắng",
+    "message": "Hvit",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Xám",
+    "message": "Grå",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Chủ đề trang trí",
+    "message": "Tema",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Thay đổi toàn bộ phong cách trang trí của game"
+    "message": "Bestemmer den visuelle stilen til spillet"
   }
 }

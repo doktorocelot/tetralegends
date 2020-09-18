@@ -1,30 +1,30 @@
 {
   "variationsOverline": {
-    "message": "Thể loại",
+    "message": "Variations",
     "description": "Variation, Version, Type"
   },
   "consoleLabel": {
-    "message": "NES",
+    "message": "Console",
     "description": "A mode based on NES Tet"
   },
   "consoleDescription": {
-    "message": "Thể loại cổ điển được dùng nhiều nhất trong đối kháng ở các phiên bản xếp gạch cổ điển trên thế giới!",
+    "message": "The most competitively-used, classic version of the puzzle in the world!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {
-    "message": "Cầm tay",
+    "message": "Handheld",
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "Thể loại chậm rãi, nhưng mang nhiều kỉ niệm thời có các máy chơi game cầm tay",
+    "message": "A slow-paced, nostalgic version that many played on handheld devices",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {
-    "message": "Hỗn hợp",
+    "message": "Deluxe",
     "description": "A mode based on the GBC version of Tet"
   },
   "deluxeDescription": {
-    "message": "Thể loại hài hoà giữa các yếu tố hiện đại và cổ điển",
+    "message": "A nice blend of classic and modern elements",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

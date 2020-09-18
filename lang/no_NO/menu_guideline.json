@@ -4,47 +4,47 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao!",
+    "message": "Clear the goal! Stack up and clear lines, but watch out, as the game gets faster the further you go!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
-    "message": "Bậc thầy",
+    "message": "Master",
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn một tí nào, khi bạn cố gắng sống sót tốc độ chơi kinh hoàng đến lúc kết thúc.",
+    "message": "Insanely fast stacking action! The game will take no prisoners as you attempt to survive the cruel speeds until the end.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
-    "message": "Chạy dòng",
+    "message": "Sprint",
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Đừng chần chừ! Hoàn thành mục tiêu càng nhanh càng tốt trong chế độ chơi nhanh này",
+    "message": "Don't hesitate! Clear the line goal as quick as you can in this high-speed mode.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
-    "message": "Chạy điểm",
+    "message": "Ultra",
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Hàng nào cũng quan trọng! Cẩn thận, xếp một cách thông minh và nhanh nhẹn để nhận nhiều điểm nhất có thể đến khi hết thời gian",
+    "message": "Every line clear counts! Carefully and quickly assemble setups to clear as many points as possible until the time runs out!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {
-    "message": "Thử thách Combo",
+    "message": "Combo Challenge",
     "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
   },
   "comboDescription": {
-    "message": "Thời gian không có nhiều! Cố gắng dọn hàng càng liên tục càng tốt trước khi hết thời gian!",
+    "message": "No time to spare! Try and clear as many successive line clears as you can before the time runs out!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "survivalLabel": {
-    "message": "Sinh tồn",
+    "message": "Survival",
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Hãy cẩn thận trong chế độ này! Hàng rác sẽ từ từ dâng lên ở đáy bảng chơi. Nếu bạn không thể xử lí kịp, chắc chắn bạn sẽ thua!",
+    "message": "Caution! Broken lines have started to rise from the bottom. If you can't keep up, you're definitely going to fail!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

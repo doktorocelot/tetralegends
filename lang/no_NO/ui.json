@@ -1,158 +1,158 @@
 {
   "level": {
-    "message": "Level",
+    "message": "Nivå",
     "description": "The level (usually affects the speed of the game)"
   },
   "score": {
-    "message": "Điểm",
+    "message": "Poeng",
     "description": "The amount of points the player has"
   },
   "line": {
-    "message": "Hàng",
+    "message": "Linjer",
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Số gạch",
+    "message": "Biter",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
-    "message": "Thời gian",
+    "message": "Tid",
     "description": "How much time has passed since the start of the game"
   },
   "fallspeed": {
-    "message": "Tốc độ rơi",
+    "message": "Fall hastighet",
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
-    "message": "Thời gian tạo gạch",
+    "message": "Inntaksforsinkelse",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {
-    "message": "Combo cao nhất",
+    "message": "Maks kombo",
     "description": "The highest combo obtained"
   },
   "next": {
-    "message": "Tiếp",
+    "message": "Neste",
     "description": "The label for the next piece in the queue"
   },
   "hold": {
-    "message": "Giữ",
+    "message": "Hold",
     "description": "The label for the piece in the hold queue"
   },
   "skip": {
-    "message": "Bỏ qua",
+    "message": "Hopp over",
     "description": "The label that indicates that you can discard or skip a piece"
   },
   "secrow": {
-    "message": "%1 giây/hàng",
+    "message": "%1 sek/rad",
     "description": "The unit label for 'seconds per row'. %1 is the amount of seconds"
   },
   "pause": {
-    "message": "Tạm dừng",
+    "message": "Pause",
     "description": "Displays on screen when the game is paused"
   },
   "ready": {
-    "message": "Sẵn sàng?",
+    "message": "Klar?",
     "description": "Good options are: 'Get Ready!', 'Are you ready?'"
   },
   "start": {
-    "message": "Bắt đầu!",
+    "message": "Start!",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that is not focused on clearing it as fast as possible; a mode focused on surviving or achieving a high score."
   },
   "go": {
-    "message": "Chiến!",
+    "message": "Gå!",
     "description": "Displays right after 'ready' at the frame the game begins. It displays on a mode that focuses solely on clearing the game as fast as possible, such as sprint; 'race-like' mode."
   },
   "gameover": {
-    "message": "Kết thúc",
+    "message": "Spill over",
     "description": "Displays when the game is finished. It does not connotate winning or losing, just that the game has completed"
   },
   "blockOut": {
-    "message": "Block Out",
+    "message": "Blokkert",
     "description": "Displays as a failure message when the piece cannot spawn due to one already being in the way"
   },
   "lockOut": {
-    "message": "Lock Out",
+    "message": "Låst",
     "description": "Displays as a failure message when the piece was locked above the skyline/ceiling"
   },
   "topOut": {
-    "message": "Top Out",
+    "message": "Overflod",
     "description": "Displays as a failure message when the stack is pushed above the maximum limit on the board; for example, a stack higher than 40 lines in guideline results in a top out. Also known as 'garbage out'"
   },
   "timeOut": {
-    "message": "Hết giờ",
+    "message": "Tiden er ute",
     "description": "Displays when the time runs out"
   },
   "excellent": {
-    "message": "Tốt lắm!",
+    "message": "Utmerket!",
     "description": "Displays as a victory message. Any sort of praising line like 'Excellent', 'Awesome', 'Great', 'Good Job' is fine"
   },
   "newRecord": {
-    "message": "Kỉ lục mới!",
+    "message": "Ny rekord!",
     "description": "Displays when the user beats their previous score or time"
   },
   "returnToMenu": {
-    "message": "Trở về Menu",
+    "message": "Tilbake til meny",
     "description": "Displays next to a button prompt or as a button to return back to the menu while in game"
   },
   "loading": {
-    "message": "Đang tải...",
+    "message": "Laster inn...",
     "description": "Displays under 'READY' while the game loads the assets"
   },
   "realTimeAttack": {
-    "message": "Thời gian thực: %1",
+    "message": "RTA%1",
     "description": "This label is used to describe the 'real time', as in a timer that does NOT freeze during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "inGameTime": {
-    "message": "Thời gian trong game: %1",
+    "message": "IGT%1",
     "description": "This label is used to describe the 'in game time', as in a timer that FREEZES during Entry/Line Delay. %1 is the actual time (i.e. 00:02:41)"
   },
   "blockOutWarning": {
-    "message": "Nghẽn gạch",
+    "message": "Blokkert",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being in the way of the next piece"
   },
   "blockOutHoldWarning": {
-    "message": "Nghẽn gạch",
+    "message": "Blokkert",
     "description": "Flashes above the hold queue when pressing the hold button will cause a failure due to there being blocks in the way of the spawn position"
   },
   "lockOutWarning": {
-    "message": "Quá cao",
+    "message": "Låst",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to it being above the skyline/ceiling"
   },
   "topOutWarning": {
-    "message": "Quá nhiều rác",
+    "message": "Overflod",
     "description": "Flashes at the top of the screen when locking the current piece will cause a failure due to the incoming garbage pushing the stack above the highest row"
   },
   "watchOutWarning": {
-    "message": "Cẩn thận!",
+    "message": "Se opp!!",
     "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
   },
   "coolPace": {
-    "message": "Tuyệt!!",
+    "message": "Kult!!",
     "description": "Used primarily to show the user that they're on pace to continue playing in certain arcade modes. Can also be used for clearing "
   },
   "coolTetra": {
-    "message": "Rất tốt!",
+    "message": "Godt jobbet!",
     "description": "Used primarily to show the user that they've done something special in certain arcade modes. Known as 'COOL!!' in Japanese."
   },
   "regretPace": {
-    "message": "Chậm quá!",
+    "message": "For tregt!",
     "description": "Used to show the user that they are playing too slowly in certain arcade modes. Known as 'REGRET!' in Japanese"
   },
   "pressKeyboardKey": {
-    "message": "Nhấn %1",
+    "message": "Trykk%1",
     "description": "As in to press the button on the keyboard"
   },
   "pressControllerButton": {
-    "message": "Nhấn %1",
+    "message": "Trykk%1",
     "description": "As in to press the button on the controller"
   },
   "clickAnywhere": {
-    "message": "Nháy chuột vào bất cứ đâu",
+    "message": "Klikk hvor som helst",
     "description": "Indicating to click the mouse anywhere on the screen"
   },
   "tapAnywhere": {
-    "message": "Chạm vào bất cứ đâu",
+    "message": "Trykk hvor som helst",
     "description": "Indicating to tap on the touchscreen anywhere"
   }
 }

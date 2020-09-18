@@ -4,14 +4,14 @@
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "Điều chỉnh độ lớn của các hiệu ứng âm thanh theo phần trăm"
+    "message": "Điều chỉnh độ lớn của các hiệu ứng âm thanh"
   },
   "musicLabel": {
     "message": "Nhạc",
     "description": "Also known as 'BGM'"
   },
   "musicDescription": {
-    "message": "Điều chỉnh độ to của nhạc theo phần trăm"
+    "message": "Điều chỉnh độ to của nhạc"
   },
   "soundbankLabel": {
     "message": "Bộ hiệu ứng âm thanh"
@@ -33,11 +33,11 @@
     "message": "Giọng"
   },
   "voxVolLabel": {
-    "message": "Âm lượng giọng nói",
+    "message": "Giọng",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {
-    "message": "Chỉnh âm lượng các tệp giọng theo phần trăm"
+    "message": "Chỉnh âm lượng giọng nói"
   },
   "voicebankLabel": {
     "message": "Bộ giọng",

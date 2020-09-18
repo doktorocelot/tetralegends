@@ -1,0 +1,49 @@
+{
+  "sfxLabel": {
+    "message": "Sound Effects Volume",
+    "description": "Also known as 'SE' or 'SFX'"
+  },
+  "sfxDescription": {
+    "message": "The volume of the various sound effects in percentage"
+  },
+  "musicLabel": {
+    "message": "Music Volume",
+    "description": "Also known as 'BGM'"
+  },
+  "musicDescription": {
+    "message": "The volume of the music in percentage"
+  },
+  "soundbankLabel": {
+    "message": "Soundbank Override"
+  },
+  "soundbankDescription": {
+    "message": "Select a soundbank to use in place of the default"
+  },
+  "nextSoundLabel": {
+    "message": "Next Indicator Soundbank",
+    "description": "Select a desired set for the 'next piece' sounds"
+  },
+  "nextSoundDescription": {
+    "message": "Select a soundbank to use as an indicator for the upcoming piece"
+  },
+  "morseCodeOption": {
+    "message": "Morse Code"
+  },
+  "voiceOption": {
+    "message": "Voice"
+  },
+  "voxVolLabel": {
+    "message": "Voice Volume",
+    "description": "Used for any voice clip's in the game"
+  },
+  "voxVolDescription": {
+    "message": "The volume of the voice clips in percentage"
+  },
+  "voicebankLabel": {
+    "message": "Voicebank",
+    "description": "This is to select a voice pack"
+  },
+  "voicebankDescription": {
+    "message": "Select a voicebank to use for in-game and menu callouts"
+  }
+}
