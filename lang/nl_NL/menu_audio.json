@@ -33,7 +33,7 @@
     "message": "Spraak"
   },
   "voxVolLabel": {
-    "message": "Voice Volume",
+    "message": "Spraak Volume",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {

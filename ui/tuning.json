@@ -123,6 +123,11 @@
           "value": "arsti"
         },
         {
+          "label": "ARS-X",
+          "fixedText": true,
+          "value": "arsx"
+        },
+        {
           "label": "World",
           "fixedText": true,
           "value": "world"
@@ -151,7 +156,6 @@
           "string": "originalOption",
           "value": "original"
         }
-        
       ],
       "setting": "rotationSystem",
       "settingType": "setting"

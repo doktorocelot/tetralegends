@@ -18,14 +18,14 @@
     {
       "string": "handheldLabel",
       "stringDesc": "handheldDescription",
-      "action": "game",
-      "game": "handheld"
+      "action": "submenu",
+      "submenu": "mode/handheld"
     },
     {
       "string": "deluxeLabel",
       "stringDesc": "deluxeDescription",
-      "action": "game",
-      "game": "deluxe"
+      "action": "submenu",
+      "submenu": "mode/deluxe"
     }
   ]
 }

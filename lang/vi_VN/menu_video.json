@@ -3,7 +3,7 @@
     "message": "Số lượng gạch trong cột \"Tiếp\""
   },
   "nextLengthDescription": {
-    "message": "Số lượng gạch người chơi sẽ thấy trong cột \"Tiếp\""
+    "message": "Số lượng gạch người chơi sẽ thấy trong cột \"Next\""
   },
   "lockdownBarLabel": {
     "message": "Thanh khoá gạch",
@@ -33,13 +33,13 @@
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Điều khiển cách hoạt động của chi tiết đó"
+    "message": "Điều khiển cách hoạt động của chi tiết nhỏ"
   },
   "particlesLabel": {
     "message": "Các chi tiết nhỏ"
   },
   "particlesDescription": {
-    "message": "Lựa chọn nếu bạn muốn các chi tiết hiển thị trong game"
+    "message": "Lựa chọn nếu bạn muốn các chi tiết nhỏ hiển thị trong game"
   },
   "particleLimitLabel": {
     "message": "Giới hạn"
@@ -57,7 +57,7 @@
     "message": "Số lượng"
   },
   "particleVolumeDescription": {
-    "message": "Điều chỉnh số lượng các chi tiết mà game sẽ tạo"
+    "message": "Điều chỉnh số lượng các chi tiết nhỏ mà game sẽ tạo"
   },
   "actionTextLabel": {
     "message": "Hiển thị loại dọn hàng",

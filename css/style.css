@@ -1,238 +1,286 @@
-
 /* noto-sans-jp-100 - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 100;
   font-display: swap;
-  src: local('Noto Sans Japanese Thin'), local('NotoSansJapanese-Thin'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Thin'), local('NotoSansJapanese-Thin'), url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-100.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-jp-300 - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Noto Sans Japanese Light'), local('NotoSansJapanese-Light'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Light'), local('NotoSansJapanese-Light'), url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-300.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-jp-regular - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'), url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-jp-500 - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Noto Sans Japanese Medium'), local('NotoSansJapanese-Medium'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Medium'), local('NotoSansJapanese-Medium'), url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-500.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-jp-700 - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Noto Sans Japanese Bold'), local('NotoSansJapanese-Bold'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Bold'), local('NotoSansJapanese-Bold'), url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-jp-900 - latin_japanese */
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: local('Noto Sans Japanese Black'), local('NotoSansJapanese-Black'),
-       url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans Japanese Black'), local('NotoSansJapanese-Black'), url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-jp-v25-latin_japanese-900.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-100 - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 100;
   font-display: swap;
-  src: local('Noto Sans SC Thin'), local('NotoSansSC-Thin'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Thin'), local('NotoSansSC-Thin'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-100.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-300 - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Noto Sans SC Light'), local('NotoSansSC-Light'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Light'), local('NotoSansSC-Light'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-300.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-regular - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Noto Sans SC Regular'), local('NotoSansSC-Regular'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Regular'), local('NotoSansSC-Regular'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-500 - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Noto Sans SC Medium'), local('NotoSansSC-Medium'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Medium'), local('NotoSansSC-Medium'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-500.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-700 - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Noto Sans SC Bold'), local('NotoSansSC-Bold'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Bold'), local('NotoSansSC-Bold'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-sc-900 - chinese-simplified_latin */
+
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: local('Noto Sans SC Black'), local('NotoSansSC-Black'),
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans SC Black'), local('NotoSansSC-Black'), url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-sc-v11-chinese-simplified_latin-900.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-100 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 100;
-  src: local('Roboto Thin'), local('Roboto-Thin'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto Thin'), local('Roboto-Thin'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-100.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-300 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto Light'), local('Roboto-Light'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-300.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-regular - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-500 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-500.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-700 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'), local('Roboto-Bold'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* roboto-900 - latin-ext_latin_cyrillic-ext_cyrillic */
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Black'),
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Roboto Black'), local('Roboto-Black'), url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin-ext_latin_cyrillic-ext_cyrillic-900.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-100 - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 100;
-  src: local('Noto Sans KR Thin'), local('NotoSansKR-Thin'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Thin'), local('NotoSansKR-Thin'), url('../fonts/noto-sans-kr-v12-korean_latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-100.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-300 - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 300;
-  src: local('Noto Sans KR Light'), local('NotoSansKR-Light'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Light'), local('NotoSansKR-Light'), url('../fonts/noto-sans-kr-v12-korean_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-300.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-regular - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'), url('../fonts/noto-sans-kr-v12-korean_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-500 - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 500;
-  src: local('Noto Sans KR Medium'), local('NotoSansKR-Medium'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Medium'), local('NotoSansKR-Medium'), url('../fonts/noto-sans-kr-v12-korean_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-500.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-700 - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 700;
-  src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'), url('../fonts/noto-sans-kr-v12-korean_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* noto-sans-kr-900 - korean_latin */
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 900;
-  src: local('Noto Sans KR Black'), local('NotoSansKR-Black'),
-       url('../fonts/noto-sans-kr-v12-korean_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/noto-sans-kr-v12-korean_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Noto Sans KR Black'), local('NotoSansKR-Black'), url('../fonts/noto-sans-kr-v12-korean_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/noto-sans-kr-v12-korean_latin-900.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/material-icons.woff2') format('woff2');
 }
+
 :root {
   --current-background: url("../img/bg/main-menu.png");
   --logo-image: url("");
@@ -246,43 +294,85 @@
   --matrix-height-base: 20;
   --combo-flash-speed: 0.5s;
 }
+
 @media only screen and (max-width: 800px) {
   :root {
     /* font-size: .7em; */
   }
 }
+
 @keyframes pulse-darkness {
-  from {filter: brightness(1)}
-  to {filter: brightness(0)}
+  from {
+    filter: brightness(1)
+  }
+  to {
+    filter: brightness(0)
+  }
 }
+
 @keyframes pulse-darkness-light {
-  from {filter: brightness(1)}
-  to {filter: brightness(.5)}
+  from {
+    filter: brightness(1)
+  }
+  to {
+    filter: brightness(.5)
+  }
 }
+
 @keyframes pulse {
-  from {filter: brightness(1.1)}
-  to {filter: brightness(0.9)}
+  from {
+    filter: brightness(1.1)
+  }
+  to {
+    filter: brightness(0.9)
+  }
 }
+
 @keyframes pulse-semi-strong {
-  from {filter: brightness(1.45)}
-  to {filter: brightness(0.55)}
+  from {
+    filter: brightness(1.45)
+  }
+  to {
+    filter: brightness(0.55)
+  }
 }
+
 @keyframes pulse-strong {
-  from {filter: brightness(1.8)}
-  to {filter: brightness(0.2)}
+  from {
+    filter: brightness(1.8)
+  }
+  to {
+    filter: brightness(0.2)
+  }
 }
+
 @keyframes pulse-opacity {
-  from {opacity: 1}
-  to {opacity: 0.25}
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0.25
+  }
 }
+
 @keyframes bob {
-  from {padding-left: .15em}
-  to {padding-left: .35em}
+  from {
+    padding-left: .15em
+  }
+  to {
+    padding-left: .35em
+  }
 }
+
 @keyframes flash {
-  from {background-color: #666}
-  to {background-color: #aaa}
+  from {
+    background-color: #666
+  }
+  to {
+    background-color: #aaa
+  }
 }
+
 /*
 .pulse {
   animation-name: pulse;
@@ -295,6 +385,7 @@
   animation-name: pulse-strong;
   animation-duration: .1s;
   */
+
 body {
   user-select: none;
   margin: 0;
@@ -312,6 +403,7 @@ body {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 #myVideo {
   position: fixed;
   right: 0;
@@ -319,6 +411,7 @@ body {
   min-width: 100%;
   min-height: 100%;
 }
+
 #main {
   position: fixed;
   margin: 0;
@@ -330,37 +423,41 @@ body {
   width: 100%;
   height: 100%;
 }
+
 #description-text {
   font-size: 1.5rem;
 }
+
 #menu-container {
   font-size: 2rem;
   margin-left: 1rem;
   color: #fff;
 }
-#menu-container.hidden,
-#game-container.hidden
-{
+
+#menu-container.hidden, #game-container.hidden {
   display: none;
 }
-#hold-container.hidden,
-#main-next-container.hidden {
+
+#hold-container.hidden, #main-next-container.hidden {
   opacity: 0;
 }
 
 #game-container.faded {
   opacity: 0.1;
 }
+
 #vertical-menu {
   margin-left: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   transition: transform .5s, opacity .5s;
 }
+
 #vertical-menu.hidden {
   transform: translateX(-8em);
   opacity: 0;
 }
+
 #vertical-menu li {
   list-style-type: none;
   list-style-position: inside;
@@ -371,14 +468,16 @@ body {
   border-left-width: 0em;
   margin-left: 0;
   transition: font-size .1s, border-left-width .1s;
-  cursor: pointer;  
+  cursor: pointer;
 }
+
 #description {
   width: 40vh;
   height: 20vh;
   font-size: 2.5vh;
   margin: auto;
 }
+
 #menu {
   width: 40vh;
   height: 80vh;
@@ -392,10 +491,12 @@ body {
   transition-duration: .25s;
   transition-timing-function: ease-in-out;
 }
+
 #menu.hidden {
   opacity: 0;
   transform: translate(0, 1em);
 }
+
 .modal {
   font-size: 2em;
   color: #fff;
@@ -413,29 +514,31 @@ body {
   backdrop-filter: blur(1em);
   z-index: 10;
 }
+
 .modal .header {
   font-weight: 100;
   text-align: center;
 }
+
 .modal .body {
   font-size: .7em;
 }
+
 .modal.hidden {
   display: none;
 }
-#menu > .control,
-#menu > .slider-container,
-#menu > .toggle-container,
-#menu > .select-container
-{
+
+#menu>.control, #menu>.slider-container, #menu>.toggle-container, #menu>.select-container {
   padding: .2em .5em;
 }
-#menu > .toggle-container {
+
+#menu>.toggle-container {
   position: relative;
   cursor: pointer;
   text-align: left;
 }
-#menu > .toggle-container .value-name {
+
+#menu>.toggle-container .value-name {
   position: absolute;
   margin-top: .6em;
   padding-left: .6em;
@@ -445,7 +548,8 @@ body {
   font-weight: 500;
   letter-spacing: .3em;
 }
-#menu > .toggle-container .bubble {
+
+#menu>.toggle-container .bubble {
   margin-top: .3em;
   border-color: #fff;
   border-width: .04em;
@@ -455,37 +559,45 @@ body {
   display: inline-block;
   border-radius: 100em;
 }
-#menu > .toggle-container .bubble.enabled {
+
+#menu>.toggle-container .bubble.enabled {
   background-color: #fff;
 }
-#menu > .toggle-container.selected .bubble {
+
+#menu>.toggle-container.selected .bubble {
   border-color: #000;
 }
-#menu > .toggle-container.selected .bubble.enabled {
+
+#menu>.toggle-container.selected .bubble.enabled {
   background-color: #000;
 }
-#menu > .select-container .arrow {
+
+#menu>.select-container .arrow {
   vertical-align: top;
   display: inline-block;
   width: 1em;
   cursor: pointer;
 }
-#menu > .select-container .value {
+
+#menu>.select-container .value {
   cursor: pointer;
   display: inline-block;
   font-size: .7em;
   width: 11em;
 }
+
 .setting-text {
   text-align: left;
   text-transform: uppercase;
   font-size: .7em;
   letter-spacing: .1em;
 }
+
 .slidecontainer {
-  width: 100%; 
+  width: 100%;
 }
-#menu > .slider-container .value {
+
+#menu>.slider-container .value {
   display: inline-block;
   font-size: .8em;
   text-align: right;
@@ -498,63 +610,87 @@ body {
   margin: .2em 0 .2em .8em;
   cursor: pointer;
 }
-#menu > .slider-container.selected .value {
-  border-color: #000;
 
+#menu>.slider-container.selected .value {
+  border-color: #000;
 }
-#menu > .slider-container .slider {
-  -webkit-appearance: none; 
+
+#menu>.slider-container .slider {
+  -webkit-appearance: none;
   appearance: none;
-  width: 70%; 
+  width: 70%;
   height: 1em;
-  background: #0000; /* Grey background */
+  background: #0000;
+  /* Grey background */
   outline-color: #fff;
   outline-width: .1em;
   outline-style: solid;
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  -webkit-transition: .2s;
+  /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
-#menu > .slider-container.selected .slider {
+
+#menu>.slider-container.selected .slider {
   outline-color: #000;
 }
+
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-#menu > .slider-container .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+
+#menu>.slider-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
   appearance: none;
-  width: 2em; /* Set a specific slider handle width */
-  height: 1em; /* Slider handle height */
-  background: #fff; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 2em;
+  /* Set a specific slider handle width */
+  height: 1em;
+  /* Slider handle height */
+  background: #fff;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
 }
-#menu > .slider-container.selected .slider::-webkit-slider-thumb {
-  background: #000; /* Green background */
+
+#menu>.slider-container.selected .slider::-webkit-slider-thumb {
+  background: #000;
+  /* Green background */
 }
-#menu > .slider-container .slider::-moz-range-thumb {
-  width: 2em; /* Set a specific slider handle width */
-  height: 1em; /* Slider handle height */
-  background: #fff; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+
+#menu>.slider-container .slider::-moz-range-thumb {
+  width: 2em;
+  /* Set a specific slider handle width */
+  height: 1em;
+  /* Slider handle height */
+  background: #fff;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
 }
-#menu > .slider-container.selected .slider::-moz-range-thumb {
-  background: #000; /* Green background */
+
+#menu>.slider-container.selected .slider::-moz-range-thumb {
+  background: #000;
+  /* Green background */
 }
-#menu > .control.selected {
+
+#menu>.control.selected {
   background-color: transparent;
   color: #fff;
   border-left-width: .1em;
   border-left-style: solid;
   border-left-color: #fff;
 }
-#menu > .control > .label {
+
+#menu>.control>.label {
   text-align: left;
   text-transform: uppercase;
   font-size: .7em;
   letter-spacing: .3em;
 }
-#menu > .control > .control-bay {
+
+#menu>.control>.control-bay {
   text-align: left;
 }
-#menu > .control > .control-bay > .set-control {
+
+#menu>.control>.control-bay>.set-control {
   cursor: pointer;
   font-size: .7em;
   display: inline-block;
@@ -565,12 +701,14 @@ body {
   border-radius: 100em;
   border-style: solid;
 }
-#menu > .control.selected > .control-bay > .set-control.selected {
+
+#menu>.control.selected>.control-bay>.set-control.selected {
   background-color: #fff;
   color: #000;
 }
-#menu > .control > .control-bay > .set-control.conflict {
-  color: #eb4034; 
+
+#menu>.control>.control-bay>.set-control.conflict {
+  color: #eb4034;
   border-color: #eb4034;
   animation-name: pulse;
   animation-duration: .2s;
@@ -578,11 +716,12 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-#menu > .control.selected > .control-bay > .set-control.selected.conflict {
+
+#menu>.control.selected>.control-bay>.set-control.selected.conflict {
   background-color: #eb4034;
 }
-#menu > .btn,
-#menu > .social {
+
+#menu>.btn, #menu>.social {
   position: relative;
   text-transform: uppercase;
   font-size: .8em;
@@ -595,28 +734,34 @@ body {
   margin-left: .15em;
   margin-right: .15em;
 }
-#menu > .btn {
+
+#menu>.btn {
   border-color: #fff;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
 }
-#menu > .btn.short {
+
+#menu>.btn.short {
   padding: 0;
   border-color: transparent;
   margin: 0;
 }
-#menu > .disabled {
+
+#menu>.disabled {
   opacity: .5;
   cursor: not-allowed;
 }
-#menu > .social {
+
+#menu>.social {
   filter: invert(1);
   height: 2.5em;
 }
-#menu > .social img {
+
+#menu>.social img {
   height: 100%;
 }
+
 #menu .overline {
   text-transform: uppercase;
   font-size: .67em;
@@ -625,11 +770,29 @@ body {
   margin-top: .2em;
   margin-bottom: .4em;
 }
-@keyframes menu-selected {
-  from {transform: translateY(0)}
-  to {transform: translateY(-.1em)}
+
+#menu .header {
+  font-size: 1.2em;
+  font-weight: 100;
+  margin-bottom: .2em;
 }
-#menu > .selected {
+
+#menu .description {
+  font-size: .5em;
+  margin-bottom: .7em;
+  text-align: justify;
+}
+
+@keyframes menu-selected {
+  from {
+    transform: translateY(0)
+  }
+  to {
+    transform: translateY(-.1em)
+  }
+}
+
+#menu>.selected {
   background-color: #fff;
   color: #000;
   animation-name: menu-selected;
@@ -637,22 +800,32 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-#menu > .selected.disabled {
+
+#menu>.selected.disabled {
   animation-name: none;
 }
-#menu > .full-width {
+
+#menu>.full-width {
   width: 95%;
 }
-#menu > .half-width {
+
+#menu>.half-width {
   width: 46.5%;
 }
-#menu > .third-width {
+
+#menu>.third-width {
   width: 25.8%;
 }
+
 @keyframes tetris-flash {
-  from {filter: brightness(100%);}
-  to {filter: brightness(800%);}
+  from {
+    filter: brightness(100%);
+  }
+  to {
+    filter: brightness(800%);
+  }
 }
+
 .tetris-flash {
   animation-name: tetris-flash;
   animation-duration: .05s;
@@ -660,6 +833,7 @@ body {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 .pulse {
   animation-name: pulse;
   animation-duration: .5s;
@@ -667,31 +841,42 @@ body {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 .pulse.spin-pulse {
   animation-name: pulse-strong;
   animation-duration: .1s;
 }
+
 .pulse.spin-pulse-mini {
   animation-name: pulse-semi-strong;
   animation-duration: .1s;
 }
+
 .hold-canvas.locked {
   filter: grayscale(100%);
 }
+
 @keyframes hold-flash {
-  from {filter: brightness(200%)}
-  to {filter: brightness(100%)}
+  from {
+    filter: brightness(200%)
+  }
+  to {
+    filter: brightness(100%)
+  }
 }
+
 .hold-container.flash {
   animation-name: hold-flash;
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
 }
+
 .main-next-canvas.flash {
   animation-name: hold-flash;
   animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.000, 1.110, 0.165, 1.000);
 }
+
 .skip-amount {
   text-align: right;
   color: #fff;
@@ -701,6 +886,7 @@ body {
   top: .5em;
   right: .5em;
 }
+
 #vertical-menu li.control-name {
   text-transform: uppercase;
   font-size: 0.8em;
@@ -708,6 +894,7 @@ body {
   letter-spacing: .2em;
   cursor: auto;
 }
+
 #vertical-menu li.selected {
   font-weight: 300;
   font-size: 2em;
@@ -718,6 +905,7 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
 #title-container {
   position: absolute;
   top: 0;
@@ -727,13 +915,16 @@ body {
   transition-duration: .5s;
   transition-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
 }
+
 #title-container.hidden {
   opacity: 0;
   transform: rotate(10deg) scale(0.1);
 }
+
 .press-key {
   width: 1em;
 }
+
 #logo-container {
   display: block;
   width: 100%;
@@ -743,6 +934,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 #press-container {
   color: white;
   font-size: 3em;
@@ -752,26 +944,31 @@ body {
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
+
 #press-container.hidden {
   display: none;
 }
+
 #button-hint-container {
   position: absolute;
   bottom: 1em;
   right: 1em;
   transition: transform .05s;
 }
+
 #button-hint-container table {
   font-size: .9em;
   height: 2em;
   display: inline-block;
   margin-left: 1em;
 }
+
 #button-hint-container table .label {
   color: #fff;
   font-size: 2em;
   padding-left: .2em;
 }
+
 #button-hint-container table .key {
   color: #111;
   background-color: #fff;
@@ -780,58 +977,71 @@ body {
   font-size: 1.5em;
   vertical-align: middle;
 }
+
 #button-hint-container table .key.multi {
   font-size: 1em;
   font-weight: 700;
   width: 2.4em;
 }
+
 #button-hint-container table .key.big {
   width: 3.6em;
-  
 }
+
 #button-hint-container table .key.controller {
   border-radius: 100%;
 }
+
 #button-hint-container table .key.dpad {
   font-size: 2em;
   background-color: transparent;
   color: white;
   width: 0;
 }
-#button-hint-container table .icon,
-#menu > .btn.icon {
+
+#button-hint-container table .icon, #menu>.btn.icon {
   font-family: 'Material Icons';
   text-transform: lowercase;
 }
+
 ::-webkit-scrollbar {
   width: .1em;
   height: .1em;
 }
+
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #fff;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background: #fff;
 }
+
 ::-webkit-scrollbar-track {
   background: #fff2;
 }
+
 ::-webkit-scrollbar-track:hover {
   background: #fff2;
 }
+
 ::-webkit-scrollbar-track:active {
   background: #fff2;
 }
+
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
 #game-container {
   margin-top: .3em;
   --matrix-height: calc(var(--matrix-height-base) + var(--peek-zone));
@@ -840,9 +1050,11 @@ body {
   vertical-align: middle;
   height: 100%;
 }
+
 .sprite-canvas {
   background-color: red;
 }
+
 .game {
   display: inline-block;
   padding-top: 2em;
@@ -850,24 +1062,30 @@ body {
   transition-property: filter, transform;
   transition-duration: .8s;
 }
+
 .game.dead {
   filter: grayscale(100%) brightness(0.3) blur(.5em);
   transform: scale(0.8);
 }
+
 .game.paused canvas {
   opacity: 0;
 }
+
 .game div {
   float: left;
 }
+
 .game div div {
   box-sizing: border-box;
   float: none;
 }
+
 .small {
   font-size: 0.5em;
   font-weight: 300;
 }
+
 .stats {
   height: calc(--matrix-height-base * 1.55);
   display: flex;
@@ -875,28 +1093,32 @@ body {
   flex-direction: column;
   margin-right: -.4em;
 }
+
 body[theme="tetrjs"] .stats {
   transform: none !important;
   margin-right: 0em
 }
+
 .stats div.stat-group {
   text-align: right;
   margin-right: .45em;
 }
+
 .stats div.stat-group div {
   color: #fff;
   font-size: 1.1em;
   margin-bottom: 1em;
   padding-right: .5em;
 }
+
 .stats div.stat-group div.big {
   color: #fff;
   font-size: 2.5em;
   font-weight: 200;
   margin-bottom: .4em;
   padding-right: .2em;
-
 }
+
 .stats label {
   display: inline-block;
   background-color: var(--tetrion-color);
@@ -911,6 +1133,7 @@ body[theme="tetrjs"] .stats {
   color: #111;
   text-transform: uppercase;
 }
+
 body[theme="tetrjs"] .stats label {
   color: #fff;
   background-color: transparent;
@@ -925,8 +1148,8 @@ body[theme="tetrjs"] .stats label {
   border-left-color: white;
   border-left-style: solid;
 }
-.game-left,
-.game-right {
+
+.game-left, .game-right {
   position: relative;
   margin-top: -.5em;
 }
@@ -950,9 +1173,11 @@ body[theme="tetrjs"] .stats label {
   border-style: solid;
   border-width: .5em;
 }
+
 body[theme="tetrjs"] .game-center {
   border-width: .1em;
 }
+
 .next-matrix {
   display: none;
   /* opacity: .4;
@@ -960,6 +1185,7 @@ body[theme="tetrjs"] .game-center {
   transition-duration: .5s;
   transition-timing-function: ease-in-out; */
 }
+
 /* .next-matrix.danger {
   opacity: 1;
 }
@@ -969,9 +1195,11 @@ body[theme="tetrjs"] .game-center {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 } */
+
 .game-right {
   text-align: left;
 }
+
 .game-canvas {
   width: 100%;
   height: 100%;
@@ -979,17 +1207,17 @@ body[theme="tetrjs"] .game-center {
   top: 0;
   left: 0;
 }
+
 .hold-container {
   text-align: right;
 }
-.hold-container,
-.main-next-container {
+
+.hold-container, .main-next-container {
   padding-left: 1em;
   padding-right: 1em;
 }
 
-.hold-canvas,
-.main-next-canvas {
+.hold-canvas, .main-next-canvas {
   width: calc(4 * var(--cell-size));
   height: calc(4 * var(--cell-size));
 }
@@ -1000,6 +1228,7 @@ body[theme="tetrjs"] .game-center {
   margin-left: 1em;
   padding: 0;
 }
+
 .sub-next-canvas {
   margin: 0;
   padding: 0;
@@ -1007,8 +1236,7 @@ body[theme="tetrjs"] .game-center {
   height: calc(4 * var(--cell-size) * var(--next-count) * .62);
 }
 
-.next-label,
-.hold-label {
+.next-label, .hold-label {
   color: #fff;
   margin: 0;
   font-size: 2em;
@@ -1016,15 +1244,17 @@ body[theme="tetrjs"] .game-center {
   letter-spacing: .3em;
   text-transform: uppercase;
 }
+
 .next-label {
   text-align: left;
 }
+
 .hold-label {
   text-align: right;
   margin-right: -.3em;
 }
-body[theme="tetrjs"] .next-label,
-body[theme="tetrjs"] .hold-label {
+
+body[theme="tetrjs"] .next-label, body[theme="tetrjs"] .hold-label {
   font-weight: 300;
   letter-spacing: normal;
   text-align: center;
@@ -1032,10 +1262,16 @@ body[theme="tetrjs"] .hold-label {
   border-left-color: white;
   border-left-style: solid;
 }
+
 @keyframes float {
-  from {transform: translate(0, -.5);}
-  to {transform: translate(0, .5em);}
+  from {
+    transform: translate(0, -.5);
+  }
+  to {
+    transform: translate(0, .5em);
+  }
 }
+
 .garbage-counter-container {
   position: absolute;
   color: white;
@@ -1055,10 +1291,12 @@ body[theme="tetrjs"] .hold-label {
   text-align: right;
   width: 1em;
 }
+
 .garbage-counter-container.hidden {
   opacity: 0;
   /* filter: blur(2em); */
 }
+
 .delay-time {
   position: absolute;
   color: white;
@@ -1067,6 +1305,7 @@ body[theme="tetrjs"] .hold-label {
   bottom: -2.3em;
   left: -7em;
 }
+
 .rotation-warning {
   position: absolute;
   color: white;
@@ -1079,6 +1318,7 @@ body[theme="tetrjs"] .hold-label {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 .infinity-symbol {
   position: absolute;
   color: white;
@@ -1087,6 +1327,7 @@ body[theme="tetrjs"] .hold-label {
   bottom: -2.3em;
   right: -2em;
 }
+
 .manip-grid {
   position: absolute;
   display: grid;
@@ -1095,6 +1336,7 @@ body[theme="tetrjs"] .hold-label {
   bottom: -1.25em;
   justify-content: space-between;
 }
+
 .manip-pip {
   grid-row: 1;
   background-color: white;
@@ -1102,15 +1344,18 @@ body[theme="tetrjs"] .hold-label {
   height: .5em;
   border-radius: 100%;
 }
+
 .manip-pip.disabled {
   background-color: #000a;
 }
+
 .lockdown-meter {
   position: absolute;
   width: 105%;
   left: -.5em;
   bottom: -2em;
 }
+
 .das-meter {
   display: none;
   --opacity: 1;
@@ -1120,8 +1365,8 @@ body[theme="tetrjs"] .hold-label {
   right: -5.2em;
   bottom: 3.25em;
   opacity: var(--opacity);
-  
 }
+
 .ready-meter {
   position: absolute;
   width: 80%;
@@ -1129,21 +1374,17 @@ body[theme="tetrjs"] .hold-label {
   top: 22em;
 }
 
-.infinity-symbol.hidden,
-.ready-meter.hidden,
-.lockdown-meter.hidden,
-.manip-grid.hidden,
-.delay-time.hidden,
-.rotation-warning.hidden {
+.infinity-symbol.hidden, .ready-meter.hidden, .lockdown-meter.hidden, .manip-grid.hidden, .delay-time.hidden, .rotation-warning.hidden {
   display: none;
 }
-progress[value]  {
+
+progress[value] {
   -webkit-appearance: none;
   background-color: #000a;
   border: none;
   height: .5em;
-  
 }
+
 progress[value="0"] {
   animation-name: pulse-darkness;
   animation-duration: .2s;
@@ -1152,24 +1393,26 @@ progress[value="0"] {
 }
 
 /* Chrome */
+
 progress[value]::-webkit-progress-bar {
   background-color: transparent;
 }
+
 progress[value="0"].lockdown-meter::-webkit-progress-bar {
   background-color: #f00;
 }
+
 progress[value]::-webkit-progress-value {
   background-color: #fff;
 }
 
- 
 /* Firefox */
+
 progress[value]::-moz-progress-bar {
   background-color: #fff;
 }
 
-.warning-message-container,
-.warning-message-container-hold {
+.warning-message-container, .warning-message-container-hold {
   color: white;
   font-weight: 500;
   text-transform: uppercase;
@@ -1179,11 +1422,13 @@ progress[value]::-moz-progress-bar {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 .warning-message-container {
   width: 120%;
   margin-left: -10%;
   margin-top: -2em;
 }
+
 .warning-message-container-hold {
   text-align: right;
   width: 20em;
@@ -1191,14 +1436,15 @@ progress[value]::-moz-progress-bar {
   top: -1.45em;
   right: 1em;
 }
+
 .warning-message-container img {
   height: 1em;
 }
-.warning-message-container .warning-message,
-.warning-message-container-hold .warning-message,
-.warning-message-container img {
+
+.warning-message-container .warning-message, .warning-message-container-hold .warning-message, .warning-message-container img {
   display: inline-block;
 }
+
 .hold-disappear-message {
   color: white;
   text-align: right;
@@ -1211,15 +1457,34 @@ progress[value]::-moz-progress-bar {
   letter-spacing: .2em;
   font-weight: 500;
 }
+
 @keyframes death-message {
-  0% {opacity: 0; transform: scale(2);}
-  15% {opacity: 1; transform: scale(1);}
-  30% {filter: brightness(1)}
-  40% {filter: brightness(0.5)}
-  50% {filter: brightness(1)}
-  60% {filter: brightness(0.5)}
-  70% {filter: brightness(1)}
-  80% {filter: brightness(0.5)}
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    filter: brightness(1)
+  }
+  40% {
+    filter: brightness(0.5)
+  }
+  50% {
+    filter: brightness(1)
+  }
+  60% {
+    filter: brightness(0.5)
+  }
+  70% {
+    filter: brightness(1)
+  }
+  80% {
+    filter: brightness(0.5)
+  }
 }
 
 .kill-message-container {
@@ -1239,11 +1504,10 @@ progress[value]::-moz-progress-bar {
   animation-timing-function: ease-in-out;
 }
 
-.kill-message-container.hidden,
-.warning-message-container-hold.hidden,
-.warning-message-container.hidden {
+.kill-message-container.hidden, .warning-message-container-hold.hidden, .warning-message-container.hidden {
   display: none;
 }
+
 .kill-message-container .kill-message {
   border-color: #fff;
   border-radius: 0.2em;
@@ -1273,6 +1537,7 @@ progress[value]::-moz-progress-bar {
   transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
   transition-property: opacity, transform, filter;
 }
+
 .end-message-container .end-stats {
   text-align: right;
   width: 15em;
@@ -1280,17 +1545,20 @@ progress[value]::-moz-progress-bar {
   margin-right: 50%;
   white-space: nowrap;
 }
+
 .end-message-container.hidden {
   /* display: none; */
   opacity: 0;
   transform: scale(2);
   filter: blur(0.2em);
 }
+
 .end-message-container .end-message {
   font-size: 1.8em;
   font-weight: 100;
   text-transform: uppercase;
 }
+
 .end-message-container .icon {
   font-family: 'Material Icons';
   border-color: white;
@@ -1301,9 +1569,11 @@ progress[value]::-moz-progress-bar {
   width: 3em;
   margin-top: 2em;
 }
+
 .game .pause {
   display: none;
 }
+
 .game.paused .pause {
   animation-name: pulse-opacity;
   animation-duration: .5s;
@@ -1317,12 +1587,14 @@ progress[value]::-moz-progress-bar {
   top: 2em;
   width: 100%;
 }
+
 .game.paused .pause.vertical {
   writing-mode: vertical-rl;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .game .load-message {
   animation-name: pulse-opacity;
   animation-duration: .5s;
@@ -1339,9 +1611,11 @@ progress[value]::-moz-progress-bar {
   top: 19em;
   width: 100%;
 }
+
 .game .load-message.hidden {
   display: none;
 }
+
 .game .main-message {
   animation-name: pulse-darkness-light;
   animation-duration: .3s;
@@ -1357,17 +1631,39 @@ progress[value]::-moz-progress-bar {
   left: -150%;
   width: 400%;
 }
+
 @keyframes dissolve {
-  0% {transform: scale(4);}
-  20% {transform: scale(1); filter: brightness(1);}
-  25% {filter: brightness(.5);}
-  35% {filter: brightness(1);}
-  40% {filter: brightness(.5);}
-  45% {filter: brightness(1);}
-  50% {filter: brightness(.5);}
-  55% {filter: brightness(1); opacity: 1;}
-  100%  {opacity: 0;}
+  0% {
+    transform: scale(4);
+  }
+  20% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(.5);
+  }
+  35% {
+    filter: brightness(1);
+  }
+  40% {
+    filter: brightness(.5);
+  }
+  45% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(.5);
+  }
+  55% {
+    filter: brightness(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+
 .game .main-message.dissolve {
   animation-name: dissolve;
   animation-duration: 1s;
@@ -1375,6 +1671,7 @@ progress[value]::-moz-progress-bar {
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
+
 .game .timer {
   text-align: right;
   color: #fff;
@@ -1384,15 +1681,21 @@ progress[value]::-moz-progress-bar {
   font-size: 1.4em;
   width: 300%;
 }
+
 .game .timer-real {
   bottom: -3.7em;
 }
+
 @keyframes hurry-up-timer {
-  from {color: #f00}
-  to {color: #a00}
+  from {
+    color: #f00
+  }
+  to {
+    color: #a00
+  }
 }
-.game .timer.hurry-up,
-.garbage-counter-container.danger .garbage-counter {
+
+.game .timer.hurry-up, .garbage-counter-container.danger .garbage-counter {
   color: #f00;
   animation-name: hurry-up-timer;
   animation-duration: .4s;
@@ -1400,12 +1703,17 @@ progress[value]::-moz-progress-bar {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes pace-timer {
-  from {color: #FF8C00}
-  to {color: #ffd700}
+  from {
+    color: #FF8C00
+  }
+  to {
+    color: #ffd700
+  }
 }
-.game .timer.pace,
-.garbage-counter-container.negative .garbage-counter {
+
+.game .timer.pace, .garbage-counter-container.negative .garbage-counter {
   color: #ffd700;
   animation-name: pace-timer;
   animation-duration: .08s;
@@ -1415,9 +1723,14 @@ progress[value]::-moz-progress-bar {
 }
 
 @keyframes paused-timer {
-  from {opacity: 0.6}
-  to {opacity: 0.4}
+  from {
+    opacity: 0.6
+  }
+  to {
+    opacity: 0.4
+  }
 }
+
 .game .timer.paused {
   animation-name: paused-timer;
   animation-duration: .2s;
@@ -1425,6 +1738,7 @@ progress[value]::-moz-progress-bar {
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
+
 .combo-counter-container {
   color: #fff;
   position: absolute;
@@ -1435,6 +1749,7 @@ progress[value]::-moz-progress-bar {
   animation-iteration-count: infinite;
   width: 20em;
 }
+
 .combo-counter {
   font-size: 1.5em;
   letter-spacing: .2em;
@@ -1443,14 +1758,23 @@ progress[value]::-moz-progress-bar {
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
 .combo-counter-container.hidden .combo-counter {
   letter-spacing: -.6em;
   opacity: 0;
 }
+
 @keyframes garbage-fly {
-  from {left: var(--starting-value-left); top: var(--starting-value-top);}
-  to {left: 50%; top: 50%;}
+  from {
+    left: var(--starting-value-left);
+    top: var(--starting-value-top);
+  }
+  to {
+    left: 50%;
+    top: 50%;
+  }
 }
+
 .garbage-particle {
   --starting-value-top: 100%;
   --starting-value-left: 100%;
@@ -1466,19 +1790,37 @@ progress[value]::-moz-progress-bar {
   animation-timing-function: ease-in;
   z-index: -10;
 }
+
 @keyframes garbage-send {
-  from {left: 50%; top: 50%;}
-  to {left: var(--starting-value-left); top: var(--starting-value-top);}
+  from {
+    left: 50%;
+    top: 50%;
+  }
+  to {
+    left: var(--starting-value-left);
+    top: var(--starting-value-top);
+  }
 }
+
 .garbage-particle.send {
   background-color: #fff;
   animation-name: garbage-send;
 }
+
 @keyframes action-text {
-  0% {transform: translate(0, 0) rotate(0deg); opacity: 0;}
-  3% {opacity: 1;}
-  100% {transform: translate(0, -25em) rotate(var(--spin-amount)); opacity: 0}
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -25em) rotate(var(--spin-amount));
+    opacity: 0
+  }
 }
+
 .game .action-text {
   animation-name: action-text;
   animation-duration: 1.5s;
@@ -1494,51 +1836,86 @@ progress[value]::-moz-progress-bar {
   top: 9em;
   width: 100%;
 }
+
 .game .action-text.skip-default-animation {
   animation: none;
 }
+
 .game .action-text.perfect-clear-text {
   font-size: 3.5em;
   font-weight: 300;
   top: 4em;
 }
+
 @keyframes spin-start-left {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(-720deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-720deg);
+  }
 }
+
 @keyframes spin-start-right {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(720deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
 }
+
 @keyframes spin-start-double-h {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(-720deg);}
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-720deg);
+  }
 }
+
 @keyframes spin-start-double-v {
-  from {transform: rotateX(0deg);}
-  to {transform: rotateX(-720deg);}
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-720deg);
+  }
 }
+
 .spin-start {
   display: inline-block;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
 .spin-start.left {
   animation-name: spin-start-left;
 }
+
 .spin-start.right {
   animation-name: spin-start-right;
 }
+
 .spin-start.double.horizontal {
   animation-name: spin-start-double-h;
 }
+
 .spin-start.double.vertical {
   animation-name: spin-start-double-v;
 }
+
 @keyframes tetra-text {
-  from {transform: scale(4) translate(0,1em); opacity: 0;}
-  to {transform: scale(1) translate(0,0); opacity: 1;}
+  from {
+    transform: scale(4) translate(0, 1em);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
 }
+
 .tetra-animation {
   animation-name: tetra-text;
   display: inline-block;
@@ -1547,11 +1924,21 @@ progress[value]::-moz-progress-bar {
   animation-delay: var(--animation-delay);
   animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
 @keyframes perfect-clear {
-  0% {transform: rotate(0deg) scale(0);}
-  12.5% {transform: rotate(720deg) scale(1); opacity: 1;}
-  100% {transform: scale(.5); opacity: 0;}
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  12.5% {
+    transform: rotate(720deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(.5);
+    opacity: 0;
+  }
 }
+
 .perfect-clear {
   display: inline-block;
   animation-name: perfect-clear;
@@ -1559,10 +1946,18 @@ progress[value]::-moz-progress-bar {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
+
 @keyframes perfect-clear-secondary {
-  from {transform: scale(1); opacity: 1;}
-  to {transform: scale(6); opacity: 0;}
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
 }
+
 .perfect-clear-secondary {
   display: inline-block;
   animation-name: perfect-clear-secondary;
@@ -1571,16 +1966,25 @@ progress[value]::-moz-progress-bar {
   animation-delay: .5s;
   animation-timing-function: ease-out;
 }
+
 .pulse-spin-text {
   animation-name: pulse-opacity;
   animation-timing-function: ease-in-out;
   animation-duration: var(--duration);
   animation-iteration-count: var(--pulse-count);
 }
+
 @keyframes ready-text {
-  from {transform: translate(0,-1em); opacity: 0;}
-  to {transform: translate(0,0); opacity: 1;}
+  from {
+    transform: translate(0, -1em);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
+
 .ready-animation {
   animation-name: ready-text;
   display: inline-block;
@@ -1589,16 +1993,25 @@ progress[value]::-moz-progress-bar {
   animation-delay: var(--animation-delay);
   animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
 @keyframes error {
- from {opacity: 0; transform: translate(4em);}
- to {opacity: 1; transform: translate(0);}
+  from {
+    opacity: 0;
+    transform: translate(4em);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
+
 .error-stack {
   z-index: 300;
   bottom: 0;
   right: 0;
   position: absolute;
 }
+
 .error {
   animation-name: error;
   animation-duration: 1s;
@@ -1614,10 +2027,10 @@ progress[value]::-moz-progress-bar {
   margin: 1em;
   cursor: pointer;
 }
-.error > .msg {
-  
-}
-.error > .url {
+
+.error>.msg {}
+
+.error>.url {
   font-weight: 700;
   display: inline-block;
 }

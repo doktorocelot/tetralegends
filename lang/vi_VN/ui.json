@@ -1,6 +1,6 @@
 {
   "level": {
-    "message": "Level",
+    "message": "Cấp",
     "description": "The level (usually affects the speed of the game)"
   },
   "score": {

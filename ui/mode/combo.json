@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "combo"
+    "game": "combo",
+    "pgmusic": "pg-sprint"
   },
   "data": [
     {
+      "string": "comboLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "holdTypeLabel",
       "stringDesc": "holdTypeDescription",
-      "default": true,
       "type": "select",
       "action": "select",
       "selectOptions": [

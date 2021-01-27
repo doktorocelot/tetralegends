@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "master"
+    "game": "master",
+    "pgmusic": "pg-master"
   },
   "data": [
     {
+      "string": "masterLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "startingLevelLabel",
       "stringDesc": "startingLevelDescription",
-      "default": true,
       "type": "slider",
       "action": "slider",
       "max": 30,

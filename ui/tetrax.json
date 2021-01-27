@@ -8,14 +8,14 @@
       "string": "standardLabel",
       "stringDesc": "standardDescription",
       "default": true,
-      "action": "game",
-      "game": "standardx"
+      "action": "submenu",
+      "submenu": "mode/standardx"
     },
     {
       "string": "proLabel",
       "stringDesc": "proDescription",
-      "action": "game",
-      "game": "prox"
+      "action": "submenu",
+      "submenu": "mode/prox"
     }
   ]
 }

@@ -196,6 +196,7 @@ SPAWN_OFFSETS.tetrax = {...SPAWN_OFFSETS.srs, downShift: 2, I: [3, -3]};
 SPAWN_OFFSETS.oshisaure = {...SPAWN_OFFSETS.srs, downShift: 0};
 SPAWN_OFFSETS.world = SPAWN_OFFSETS.srs;
 SPAWN_OFFSETS.arsti = SPAWN_OFFSETS.ars;
+SPAWN_OFFSETS.arsx = SPAWN_OFFSETS.ars;
 SPAWN_OFFSETS.original = SPAWN_OFFSETS.retro;
 export const INITIAL_ORIENTATION = {
   srs: {
@@ -225,6 +226,7 @@ INITIAL_ORIENTATION.deluxe = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.ars = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.original = INITIAL_ORIENTATION.retro;
 INITIAL_ORIENTATION.arsti = INITIAL_ORIENTATION.ars;
+INITIAL_ORIENTATION.arsx = INITIAL_ORIENTATION.ars;
 const KICK_TEMPLATES = {
   srs: {
     x: {
@@ -411,6 +413,68 @@ const KICK_TEMPLATES = {
         [[0, 0], [1, 0], [-1, 0]],
         [[0, 0], [1, 0], [-1, 0], [0, -1]],
         [[0, 0], [1, 0], [-1, 0]],
+      ],
+    },
+  },
+  arsx: {
+    x: {
+      right: [
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+      ],
+      left: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+      ],
+      double: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+      ],
+    },
+    I: {
+      right: [
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [-1, 0], [1, 0], [2, 0]],
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [-1, 0], [-2, 0], [1, 0]],
+      ],
+      left: [
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [2, 0], [-1, 0]],
+        [[0, 0], [0, -1], [0, -2]],
+        [[0, 0], [1, 0], [-1, 0], [-2, 0]],
+      ],
+      double: [
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+        [[0, 0]],
+      ],
+    },
+    T: {
+      right: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0], [0, -1]],
+      ],
+      left: [
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0], [0, -1]],
+        [[0, 0], [-1, 0], [1, 0]],
+        [[0, 0], [-1, 0], [1, 0]],
+      ],
+      double: [
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [1, 0], [-1, 0]],
+        [[0, 0], [-1, 0], [1, 0], [0, -1]],
+        [[0, 0], [-1, 0], [1, 0]],
       ],
     },
   },
@@ -631,6 +695,15 @@ KICK_TABLES.arsti = {
     I: [false, true, false, true],
   },
 };
+KICK_TABLES.arsx = {
+  I: KICK_TEMPLATES.arsx.I,
+  L: KICK_TEMPLATES.arsx.x,
+  O: KICK_TEMPLATES.none.all,
+  Z: KICK_TEMPLATES.arsx.x,
+  T: KICK_TEMPLATES.arsx.T,
+  J: KICK_TEMPLATES.arsx.x,
+  S: KICK_TEMPLATES.arsx.x,
+};
 KICK_TABLES.handheld = KICK_TABLES.retro;
 KICK_TABLES.original = KICK_TABLES.retro;
 export const PIECE_COLORS = {
@@ -719,6 +792,7 @@ export const PIECE_COLORS = {
 PIECE_COLORS.world = PIECE_COLORS.srs;
 PIECE_COLORS.handheld = PIECE_COLORS.retro;
 PIECE_COLORS.arsti = PIECE_COLORS.ars;
+PIECE_COLORS.arsx = PIECE_COLORS.ars;
 
 export const NEXT_OFFSETS = {
   srs: {
@@ -747,6 +821,7 @@ NEXT_OFFSETS.handheld = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.deluxe = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.ars = NEXT_OFFSETS.retro;
 NEXT_OFFSETS.arsti = NEXT_OFFSETS.ars;
+NEXT_OFFSETS.arsx = NEXT_OFFSETS.ars;
 NEXT_OFFSETS.original = NEXT_OFFSETS.retro;
 
 export const PIECE_OFFSETS = {
@@ -800,6 +875,10 @@ PIECE_OFFSETS.world = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.tetrax = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.deluxe = PIECE_OFFSETS.srs;
 PIECE_OFFSETS.arsti = PIECE_OFFSETS.ars;
+PIECE_OFFSETS.arsx = {
+  ...PIECE_OFFSETS.ars,
+  I: [[0, 0], [0, 0], [0, -1], [0, 0]],
+};
 PIECE_OFFSETS.original = {
   ...PIECE_OFFSETS.srs,
   I: [[0, 0], [0, 0], [0, -1], [1, 0]],
@@ -928,6 +1007,7 @@ export const SKIN_SETS = {
   deluxe: 'handheld',
   ars: 'arika',
   arsti: 'arika',
+  arsx: 'arika',
   oshisaure: 'oshisaure',
   original: 'bone',
 };
@@ -940,6 +1020,7 @@ export const SOUND_SETS = {
   deluxe: 'deluxe',
   ars: 'tgm3',
   arsti: 'tgm3',
+  arsx: 'tgm3',
   oshisaure: 'standard',
   original: 'standard',
 };

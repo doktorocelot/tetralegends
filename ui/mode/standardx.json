@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "parent": "tetrax",
+    "langOverride": "mode-options",
+    "game": "standardx",
+    "pgmusic": "pg-marathon"
+  },
+  "data": [
+    {
+      "string": "standardLabel",
+      "langOverride": "menu_tetrax",
+      "type": "header"
+    }
+  ]
+}
