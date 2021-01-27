@@ -135,6 +135,9 @@ class Settings {
         startingLevel: 0,
         mechanics: 'accurate',
       },
+      prox: {
+        startingLevel: 1,
+      }
     };
     this.settings = {};
     this.controls = {};

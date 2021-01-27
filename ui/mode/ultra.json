@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "ultra"
+    "game": "ultra",
+    "pgmusic": "pg-sprint"
   },
   "data": [
     {
+      "string": "ultraLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "timeLimitLabel",
       "stringDesc": "timeLimitDescription",
-      "default": true,
       "type": "select",
       "action": "select",
       "selectOptions": [

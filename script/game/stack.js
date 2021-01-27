@@ -434,13 +434,15 @@ export default class Stack extends GameModule {
     this.parent.shiftMatrix('up');
     let topOut = false;
     for (let i = 0; i < amount; i++) {
-      if (this.garbageHoleUsed >= this.garbageSwitchRate && !this.copyBottomForGarbage) {
-        const last = this.garbageRandomHole;
-        while (this.garbageRandomHole === last) {
+      // if (this.garbageHoleUsed >= this.garbageSwitchRate && !this.copyBottomForGarbage) {
+      //   const last = this.garbageRandomHole;
+      //   while (this.garbageRandomHole === last) {
+        if (Math.random() > 0.7) {
           this.garbageRandomHole = Math.floor(Math.random() * this.grid.length);
         }
-        this.garbageHoleUsed = 0;
-      }
+      //   }
+      //   this.garbageHoleUsed = 0;
+      // }
       for (let i = 0; i < this.flashY.length; i++) {
         this.flashY[i]--;
       }

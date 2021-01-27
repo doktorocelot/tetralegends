@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "survival"
+    "game": "survival",
+    "pgmusic": "pg-survival"
   },
   "data": [
     {
+      "string": "survivalLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "startingLevelLabel",
       "stringDesc": "startingLevelDescription",
-      "default": true,
       "type": "slider",
       "action": "slider",
       "max": 30,

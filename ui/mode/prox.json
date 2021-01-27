@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "parent": "tetrax",
+    "langOverride": "mode-options",
+    "game": "prox",
+    "pgmusic": "pg-master"
+  },
+  "data": [
+    {
+      "string": "proLabel",
+      "langOverride": "menu_tetrax",
+      "type": "header"
+    },
+    {
+      "string": "startingLevelLabel",
+      "stringDesc": "startingLevelDescription",
+      "type": "slider",
+      "action": "slider",
+      "max": 10,
+      "min": 1,
+      "discrete": 1,
+      "setting": "startingLevel",
+      "gameName": "prox",
+      "settingType": "game"
+    }
+  ]
+}

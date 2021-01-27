@@ -12,7 +12,7 @@
     "description": "The amount of lines the player has cleared"
   },
   "piece": {
-    "message": "Teile",
+    "message": "Stücke",
     "description": "The amount of pieces the player has placed"
   },
   "time": {
@@ -128,31 +128,31 @@
     "description": "Used as text to draw the player's attention to something; doesn't have to be a direct translation"
   },
   "coolPace": {
-    "message": "Cool!!",
+    "message": "Super!!",
     "description": "Used primarily to show the user that they're on pace to continue playing in certain arcade modes. Can also be used for clearing "
   },
   "coolTetra": {
-    "message": "Nice One!",
+    "message": "Schön!",
     "description": "Used primarily to show the user that they've done something special in certain arcade modes. Known as 'COOL!!' in Japanese."
   },
   "regretPace": {
-    "message": "Too Slow!",
+    "message": "Zu langsam!",
     "description": "Used to show the user that they are playing too slowly in certain arcade modes. Known as 'REGRET!' in Japanese"
   },
   "pressKeyboardKey": {
-    "message": "Press %1",
+    "message": "Drück auf %1",
     "description": "As in to press the button on the keyboard"
   },
   "pressControllerButton": {
-    "message": "Press %1",
+    "message": "Drück auf %1",
     "description": "As in to press the button on the controller"
   },
   "clickAnywhere": {
-    "message": "Click Anywhere",
+    "message": "Irgendwo klicken",
     "description": "Indicating to click the mouse anywhere on the screen"
   },
   "tapAnywhere": {
-    "message": "Tap Anywhere",
+    "message": "Irgendwo tippen",
     "description": "Indicating to tap on the touchscreen anywhere"
   }
 }

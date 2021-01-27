@@ -129,46 +129,46 @@
     "message": "Overrides the piece color assignments"
   },
   "redOption": {
-    "message": "Red",
+    "message": "Rood",
     "description": "Please base your translation off the reference image"
   },
   "orangeOption": {
-    "message": "Orange",
+    "message": "Oranje",
     "description": "Please base your translation off the reference image"
   },
   "yellowOption": {
-    "message": "Yellow",
+    "message": "Geel",
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Green",
+    "message": "Groen",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Light Blue",
+    "message": "Lichtblauw",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Dark Blue",
+    "message": "Donkerblauw",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {
-    "message": "Purple",
+    "message": "Paars",
     "description": "Please base your translation off the reference image"
   },
   "whiteOption": {
-    "message": "White",
+    "message": "Wit",
     "description": "Please base your translation off the reference image"
   },
   "blackOption": {
-    "message": "Gray",
+    "message": "Grijs",
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Theme",
+    "message": "Thema",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Determines the visual style of the game"
+    "message": "Bepaalt de visuele stijl van het spel"
   }
 }

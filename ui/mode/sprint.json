@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "sprint"
+    "game": "sprint",
+    "pgmusic": "pg-sprint"
   },
   "data": [
     {
+      "string": "sprintLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "lineGoalLabel",
       "stringDesc": "lineGoalDescription",
-      "default": true,
       "type": "select",
       "action": "select",
       "selectOptions": [

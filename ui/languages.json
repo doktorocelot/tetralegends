@@ -47,7 +47,7 @@
     {
       "label": "Deutsch",
       "fixedText": true,
-      "description": "kivi, tzFiye, nastyFEETs",
+      "description": "kivi, tzFiye, nastyFEETs, kevadesu, ImABigTurtleTIKTOK",
       "action": "lang",
       "isShort": true,
       "lang": "de_DE"
@@ -55,7 +55,7 @@
     {
       "label": "Nederlands",
       "fixedText": true,
-      "description": "osk, Gemtendo, micwoj92",
+      "description": "osk, Gemtendo, micwoj92, MyPasswordIsWeak",
       "action": "lang",
       "isShort": true,
       "lang": "nl_NL"

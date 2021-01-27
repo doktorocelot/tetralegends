@@ -56,11 +56,11 @@
     "description": "Displays when a mini spin clears 4 lines. %1 is the name of the piece ('T', 'S')"
   },
   "b2b": {
-    "message": "(Back-To-Back)",
+    "message": "(De volta para trás)",
     "description": "Displays when a tetra or spin line clear is performed when the previous one was also a tetra or spin line clear"
   },
   "combo": {
-    "message": "%1 Combo",
+    "message": "Combo",
     "description": "Displays on clearing rows successively"
   },
   "pc": {

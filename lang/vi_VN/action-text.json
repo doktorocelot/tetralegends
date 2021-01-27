@@ -64,7 +64,7 @@
     "description": "Displays on clearing rows successively"
   },
   "pc": {
-    "message": "Bảng sạch hoàn hảo",
+    "message": "Perfect Clear",
     "description": "Displays when the entire board is erased"
   }
 }

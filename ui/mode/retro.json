@@ -2,13 +2,18 @@
   "properties": {
     "parent": "retro",
     "langOverride": "mode-options",
-    "game": "retro"
+    "game": "retro",
+    "pgmusic": "pg-retro"
   },
   "data": [
     {
+      "string": "consoleLabel",
+      "langOverride": "menu_retro",
+      "type": "header"
+    },
+    {
       "string": "startingLevelLabel",
       "stringDesc": "startingLevelDescription",
-      "default": true,
       "type": "slider",
       "action": "slider",
       "max": 19,

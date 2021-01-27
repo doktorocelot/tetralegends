@@ -63,6 +63,21 @@ class Menu {
     const render = (menu) => {
       this.current.name = name;
       this.current.properties = menu.properties;
+      if (menu.properties.parentSecret) {
+        this.skipSecretA = true;
+      }
+      if (gameHandler.game.isDead || gameHandler.game.isOver || gameHandler.game.isDead == null) {
+        if (this.current.properties.pgmusic) {
+          sound.killBgm();
+          sound.loadBgm([this.current.properties.pgmusic], 'menu');
+          sound.playBgm([this.current.properties.pgmusic], 'menu');
+        } else {
+          if (sound.bgmName !== 'menu-menu') {
+            sound.loadBgm(['menu'], 'menu');
+            sound.playBgm(['menu'], 'menu');
+          }
+        }
+      }
       this.current.lang = (this.current.properties.langOverride) ?
         this.current.properties.langOverride : `menu_${this.current.name}`;
       this.current.data = menu.data;
@@ -82,6 +97,7 @@ class Menu {
       if (this.current.properties.game) {
         const game = {
           'string': 'startLabel',
+          'default': true,
           'stringDesc': 'startDescription',
           'langOverride': 'mode-options',
           'action': 'game',
@@ -140,8 +156,16 @@ class Menu {
         hasDangerBgm: false,
         hasPaceBgm: false,
       };
-      sound.loadBgm(['menu'], 'menu');
-      sound.playBgm(['menu'], 'menu');
+      if (this.current.properties.pgmusic) {
+        sound.killBgm();
+        sound.loadBgm([this.current.properties.pgmusic], 'menu');
+        sound.playBgm([this.current.properties.pgmusic], 'menu');
+      } else {
+        if (sound.bgmName !== 'menu-menu') {
+          sound.loadBgm(['menu'], 'menu');
+          sound.playBgm(['menu'], 'menu');
+        }
+      }
     }
     this.isLocked = false;
     this.isEnabled = true;
@@ -168,8 +192,10 @@ class Menu {
     let nonOptions = 0;
     for (let i = 0; i < this.current.data.length; i++) {
       const currentData = this.current.data[i];
-      if (currentData.secretA && !input.holdingCtrl) { // For those who are looking through my code, this is how you can access a secret game.
+      if ((currentData.secretA && !input.holdingCtrl) && !this.skipSecretA) { // For those who are looking through my code, this is how you can access a secret game.
         continue;
+      } else if (currentData.secretA) {
+        this.skipSecretA = false;
       }
       let element = document.createElement('div');
       const sub = document.createElement('div');
@@ -177,6 +203,14 @@ class Menu {
         case 'overline':
           element = document.createElement('header');
           element.classList.add('overline');
+          break;
+        case 'header':
+          element = document.createElement('header');
+          element.classList.add('header');
+          break;
+        case 'description':
+          element = document.createElement('header');
+          element.classList.add('description');
           break;
         case 'social':
           element = document.createElement('a');

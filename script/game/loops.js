@@ -555,7 +555,7 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.min(10, Math.floor(game.stat.line / 20 + 1));
+      game.stat.level = Math.min(10, Math.max(settings.game.prox.startingLevel, Math.floor(game.stat.line / 20 + 1)));
       const calcLevel = game.stat.level - 1;
       const SPEED_TABLE = [
         1, 1 / 2, 1 / 5, 1 / 20, 1 / 20,
@@ -575,6 +575,11 @@ export const loops = {
         shown20GMessage = true;
       }
       if (calcLevel >= 8 && !game.hold.isDisabled) {
+        if (game.stat.piece > 0) {
+          sound.killBgm();
+          sound.playBgm(game.settings.music[1], game.type);
+        }
+        game.useAltMusic = true;
         game.hold.isDisabled = true;
         game.hold.isDirty = true;
       }
@@ -584,11 +589,11 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
-      shown20GMessage = false;
+      shown20GMessage = (settings.game.prox.startingLevel > 3) ? true : false;
       shownHoldWarning = false;
       game.lineGoal = 200;
-      game.stat.level = 1;
-      lastLevel = 1;
+      game.stat.level = settings.game.prox.startingLevel;
+      lastLevel = parseInt(settings.game.prox.startingLevel);
       game.prefixes.level = 'MACH ';
       game.smallStats.level = true;
       game.resize();

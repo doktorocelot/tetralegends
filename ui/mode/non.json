@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "parent": "guideline",
+    "parentSecret": true,
+    "langOverride": "mode-options",
+    "game": "non",
+    "pgmusic": "pg-non"
+  },
+  "data": [
+    {
+      "label": "Night of Nights",
+      "description": "",
+      "fixedText": true,
+      "type": "header"
+    }
+  ]
+}

@@ -2,13 +2,18 @@
   "properties": {
     "parent": "guideline",
     "langOverride": "mode-options",
-    "game": "marathon"
+    "game": "marathon",
+    "pgmusic": "pg-marathon"
   },
   "data": [
     {
+      "string": "marathonLabel",
+      "langOverride": "menu_guideline",
+      "type": "header"
+    },
+    {
       "string": "startingLevelLabel",
       "stringDesc": "startingLevelDescription",
-      "default": true,
       "type": "slider",
       "action": "slider",
       "max": 20,
@@ -26,12 +31,16 @@
       "selectOptions": [
         {
           "string": "linesUnit",
-          "replace": ["150"],
+          "replace": [
+            "150"
+          ],
           "value": 150
         },
         {
           "string": "linesUnit",
-          "replace": ["200"],
+          "replace": [
+            "200"
+          ],
           "value": 200
         },
         {

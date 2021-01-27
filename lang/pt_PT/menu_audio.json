@@ -1,30 +1,30 @@
 {
   "sfxLabel": {
-    "message": "Sound Effects Volume",
+    "message": "Volume de efeitos sonoros",
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "The volume of the various sound effects in percentage"
+    "message": "O volume dos vários efeitos sonoros em porcentagem"
   },
   "musicLabel": {
-    "message": "Music Volume",
+    "message": "Volume da música",
     "description": "Also known as 'BGM'"
   },
   "musicDescription": {
-    "message": "The volume of the music in percentage"
+    "message": "O volume da música em porcentagem"
   },
   "soundbankLabel": {
-    "message": "Soundbank Override"
+    "message": "Substituição do Soundbank"
   },
   "soundbankDescription": {
-    "message": "Select a soundbank to use in place of the default"
+    "message": "Selecione um banco de som para usar no lugar do padrão"
   },
   "nextSoundLabel": {
     "message": "Next Indicator Soundbank",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {
-    "message": "Select a soundbank to use as an indicator for the upcoming piece"
+    "message": "Selecione um banco de sons para usar como indicador para a próxima peça"
   },
   "morseCodeOption": {
     "message": "Morse Code"

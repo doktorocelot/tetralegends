@@ -11,6 +11,7 @@ export default class Hold extends GameModule {
     this.pieceName = null;
     this.isLocked = false;
     this.ihs = false;
+    this.ihsAmount = 0;
     this.isDisabled = false;
     this.useSkip = false;
     this.hasHeld = false;
@@ -43,7 +44,10 @@ export default class Hold extends GameModule {
         sound.add('hold');
       }
     }
-    this.ihs = false;
+    this.ihsAmount--;
+    if (this.ihsAmount <= 0) {
+      this.ihs = false;
+    }
     const swapPiece = this.pieceName;
     this.pieceName = this.parent.piece.name;
     if (swapPiece == null || this.useSkip) {

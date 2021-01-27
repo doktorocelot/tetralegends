@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "parent": "retro",
+    "langOverride": "mode-options",
+    "game": "deluxe",
+    "pgmusic": "pg-deluxe"
+  },
+  "data": [
+    {
+      "string": "deluxeLabel",
+      "langOverride": "menu_retro",
+      "type": "header"
+    }
+  ]
+}

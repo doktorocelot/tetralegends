@@ -169,7 +169,7 @@ export default class Game {
             this.settings.music = [string];
           }}
           sound.loadBgm(this.settings.music, gametype);
-          if (!(settings.settings.soundbank === 't99' && settings.settings.voicebank !== 'off')) {
+          if (!sound.skipReadyGo) {
             sound.add('ready');
           }
           sound.add('voxready');

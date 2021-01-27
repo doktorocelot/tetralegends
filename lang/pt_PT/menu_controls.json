@@ -1,23 +1,23 @@
 {
   "clearLabel": {
-    "message": "Clear",
+    "message": "Claro",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Clear all of the control bindings so you have a blank workspace"
+    "message": "Limpe todas as ligações de controle para que você tenha um espaço de trabalho em branco"
   },
   "resetLabel": {
-    "message": "Reset",
+    "message": "Redefinir",
     "description": "Reset the controls to the defaults. Could also be translated as 'default'"
   },
   "resetDescription": {
-    "message": "Reset all of the controls back to their defaults"
+    "message": "Redefina todos os controles de volta aos padrões"
   },
   "shiftLeftLabel": {
     "message": "Shift Left"
   },
   "shiftLeftDescription": {
-    "message": "Move a piece to the left once or hold for autoshift"
+    "message": "Mova uma peça para a esquerda uma vez ou segure para mover automaticamente"
   },
   "shiftRightLabel": {
     "message": "Shift Right"

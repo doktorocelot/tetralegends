@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "parent": "retro",
+    "langOverride": "mode-options",
+    "game": "handheld",
+    "pgmusic": "pg-handheld"
+  },
+  "data": [
+    {
+      "string": "handheldLabel",
+      "langOverride": "menu_retro",
+      "type": "header"
+    }
+  ]
+}

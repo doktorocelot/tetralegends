@@ -4,11 +4,11 @@
     "description": "An endless Tetra-X mode where you stack lines as the game increases speed"
   },
   "standardDescription": {
-    "message": "Xếp cho đến khi bạn thua! Lấp càng nhiều hàng càng tốt trước khi tốc độ game lấn át bạn.",
+    "message": "Xếp cho đến khi bạn thua! Xóa càng nhiều hàng càng tốt trước khi tốc độ game lấn át bạn.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "proLabel": {
-    "message": "Chuyên",
+    "message": "Khó",
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {

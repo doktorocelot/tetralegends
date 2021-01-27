@@ -1,4 +1,5 @@
 {
+  "usesReadyGoVoices": true,
   "files": [
     "alarm",
     "bravo",
