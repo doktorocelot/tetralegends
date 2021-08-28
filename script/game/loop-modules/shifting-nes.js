@@ -64,6 +64,9 @@ export default function shiftingNes(arg) {
       piece.retroDas += arg.ms;
     }
     while (piece.retroDas >= dasLimit) {
+      if (!piece[`canShift${capitalizeFirstLetter(piece.shiftDir)}`]) {
+        break
+      }
       piece[`shift${capitalizeFirstLetter(piece.shiftDir)}`]();
       piece.retroDas -= 100;
     }

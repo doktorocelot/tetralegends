@@ -450,7 +450,9 @@ body {
   margin-left: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transition: transform .5s, opacity .5s;
+  transition-property: transform, opacity;
+  transition-duration: 5s;
+  transition-timing-function: cubic-bezier(.61,0,.9,.5);
 }
 
 #vertical-menu.hidden {
@@ -487,7 +489,7 @@ body {
   text-align: center;
   padding: .3em 0;
   overflow-y: scroll;
-  transition-property: opacity, transform, blur;
+  transition-property: opacity, transform;
   transition-duration: .25s;
   transition-timing-function: ease-in-out;
 }
@@ -800,6 +802,25 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+@keyframes menu-chosen {
+  from {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+  }
+  to {
+    background-color: #555;
+    color: #fff;
+    border-color: #fff;
+  }
+}
+#menu>.selected.chosen {
+  animation-name: menu-chosen;
+  animation-duration: .07s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
 
 #menu>.selected.disabled {
   animation-name: none;
@@ -865,8 +886,29 @@ body {
   }
 }
 
+@keyframes hold-flash-secondary {
+  0% {
+    filter: brightness(200%)
+  }
+  20% {
+    filter: brightness(150%)
+  }
+  40% {
+    filter: brightness(200%)
+  }
+  60% {
+    filter: brightness(100%)
+  }
+  80% {
+    filter: brightness(150%)
+  }
+  100% {
+    filter: brightness(100%)
+  }
+}
+
 .hold-container.flash {
-  animation-name: hold-flash;
+  animation-name: hold-flash-secondary;
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
 }

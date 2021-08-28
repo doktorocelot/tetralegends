@@ -1,6 +1,6 @@
 {
   "variationsOverline": {
-    "message": "Variationen",
+    "message": "Varianten",
     "description": "Variation, Version, Type"
   },
   "consoleLabel": {
@@ -12,11 +12,11 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "handheldLabel": {
-    "message": "1989(portabel)",
+    "message": "Handgerät",
     "description": "A mode based on the GB version of Tet"
   },
   "handheldDescription": {
-    "message": "Eine langsame, nostalgische Version, die viele auf Handheld-Geräten gespielt haben",
+    "message": "Eine langsame, nostalgische Version, die viele auf tragbare Geräten gespielt haben",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "deluxeLabel": {

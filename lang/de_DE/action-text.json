@@ -20,23 +20,23 @@
     "description": "Displays when a spin is created but no lines are cleared. %1 is the name of the piece ('T', 'S')"
   },
   "spinsingle": {
-    "message": "Einzel %1-Drehung",
+    "message": "%1-Drehung Einzel",
     "description": "Displays when a spin clears 1 line. %1 is the name of the piece ('T', 'S')"
   },
   "spindouble": {
-    "message": "Doppel %1-Drehung",
+    "message": "%1-Drehung Doppel",
     "description": "Displays when a spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintriple": {
-    "message": "Dreifach %1-Drehung",
+    "message": "%1-Drehung Dreifach",
     "description": "Displays when a spin clears 3 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintetra": {
-    "message": "tetra %1-drehung",
+    "message": "%1-Drehung Tetra",
     "description": "Displays when a spin clears 4 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spinmini": {
-    "message": "%1-Drehung mini",
+    "message": "Mini %1-Drehung",
     "description": "Displays when a mini spin is created but no lines are cleared. %1 is the name of the piece ('T', 'S')"
   },
   "spinsinglemini": {
@@ -44,27 +44,27 @@
     "description": "Displays when a mini spin clears 1 line. %1 is the name of the piece ('T', 'S')"
   },
   "spindoublemini": {
-    "message": "Mini Doppel %1-Drehung",
+    "message": "Mini %1-Drehung Doppel",
     "description": "Displays when a mini spin clears 2 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintriplemini": {
-    "message": "Mini %1-Drehung Einzel",
+    "message": "Mini %1-Drehung Dreifach",
     "description": "Displays when a mini spin clears 3 lines. %1 is the name of the piece ('T', 'S')"
   },
   "spintetramini": {
-    "message": "Mini Tetra %1-Drehung",
+    "message": "Mini %1-Drehung Tetra",
     "description": "Displays when a mini spin clears 4 lines. %1 is the name of the piece ('T', 'S')"
   },
   "b2b": {
-    "message": "(Rücken-zu-Rucken)",
+    "message": "(aufeinanderfolgend)",
     "description": "Displays when a tetra or spin line clear is performed when the previous one was also a tetra or spin line clear"
   },
   "combo": {
-    "message": "%1 Combo",
+    "message": "%1 Kette",
     "description": "Displays on clearing rows successively"
   },
   "pc": {
-    "message": "Perfekt geleert",
+    "message": "Perfekte Löschung",
     "description": "Displays when the entire board is erased"
   }
 }

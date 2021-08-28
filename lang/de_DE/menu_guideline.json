@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Erziele punkte, Staple Linien auf, aber pass auf! je weiter du kommst, je schneller geht das Spiel!",
+    "message": "Erreiche das Ziel! Staple auf und lösche Linien, aber pass auf: je weiter du kommst, desto schneller geht das Spiel!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Verrückt schnelle stapel Aktion! Das Spiel wird ohne gnade weitergehen, während du die grausamen Geschwindigkeiten bis zum Ende überleben zu versuchst.",
+    "message": "Verrückt schnelle Stapel-Aktion! Das Spiel wird ohne gnade weitergehen, während du die grausamen Geschwindigkeiten bis zum Ende überleben zu versuchst.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Zögern Sie nicht! Leeren Sie in diesem Hochgeschwindigkeitsmodus das Linienziel so schnell wie möglich.",
+    "message": "Zögern Sie nicht! Erreichen Sie in diesem Hochgeschwindigkeitsmodus das Linienziel so schnell wie möglich.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {
@@ -28,11 +28,11 @@
     "description": "A guideline mode where you have to score as many points as possible before the time runs out"
   },
   "ultraDescription": {
-    "message": "Jede Zeile zählt! Vorsichtig und schnell Setups zusammenstellen, um so viele Punkte wie möglich zu löschen, bis die Zeit abläuft!",
+    "message": "Jede Linienlöschung zählt! Vorsichtig und schnell Setups zusammenstellen, um so viele Punkte wie möglich zu sammeln, bis die Zeit abläuft!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "comboLabel": {
-    "message": "Combo Challenge",
+    "message": "Kette Herausforderung",
     "description": "A guideline mode where you have to clear the highest combo possible before the time runs out"
   },
   "comboDescription": {
@@ -44,7 +44,7 @@
     "description": "A guideline mode where lines are constantly sent to the player's game and they have to survive the ever rising garbage"
   },
   "survivalDescription": {
-    "message": "Achtung! kaputte Linien steigen hoch. Wenn du mitkommen, wirst du definitiv scheitern!",
+    "message": "Achtung! Kaputte Linien steigen hoch. Wenn Sie nicht mitkommen, werden Sie definitiv scheitern!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

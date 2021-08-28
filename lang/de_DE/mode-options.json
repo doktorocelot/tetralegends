@@ -1,10 +1,10 @@
 {
   "startLabel": {
-    "message": "Beginnen",
+    "message": "Starten",
     "description": "Appears in the mode selection screen. Clicking it will start the game."
   },
   "startDescription": {
-    "message": "Beginne das Spiel!"
+    "message": "Starte das Spiel!"
   },
   "linesUnit": {
     "message": "%1 Linien",
@@ -38,7 +38,7 @@
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 4 (normal difficulty)"
   },
   "hardDifOption": {
-    "message": "Schwer",
+    "message": "Schwierig",
     "description": "You DO NOT need to translate this literally; this is a difficulty setting. On a scale of 1 (easiest) to 7 (hardest), this is a 5"
   },
   "expertDifOption": {
@@ -61,46 +61,46 @@
     "message": "Wählt die Anzahl der Linien aus, die benötigt werden, um das Spiel zu gewinnen"
   },
   "timeLimitLabel": {
-    "message": "Zeitlimit",
+    "message": "Zeitgrenze",
     "description": "Used to select the amount of time the game will last in games like Ultra or Combo Challenge"
   },
   "timeLimitDescription": {
-    "message": "Legt fest, wie lange das Spiel dauert"
+    "message": "Wählt aus, wie lange das Spiel dauern wird"
   },
   "useRtaLabel": {
-    "message": "RTA verwenden",
+    "message": "EZA verwenden",
     "description": "Used in modes like 'Ultra' to have the time limit run down from RTA instead of IGT; for example, this will make it so that the timer used for the time limit does not freeze during delays"
   },
   "useRtaDescription": {
-    "message": "Verwendet einen Timer, der während des Eintrags oder Zeilenverzögerungen nicht einfriert, um das Zeitlimit zu bestimmen"
+    "message": "Verwendet eine Stoppuhr, der während des Eintrags- oder Zeilenverzögerungen nicht einfriert, um das Zeitgrenze zu bestimmen"
   },
   "startingLevelLabel": {
-    "message": "Start Level",
+    "message": "Anfangsstufe",
     "description": "Appears in modes where you can select the starting level, such as Marathon, Master, Retro, etc."
   },
   "startingLevelDescription": {
-    "message": "Wählt das Level aus womit du starten möchtest"
+    "message": "Wählt die Stufe aus, womit Sie starten möchten"
   },
   "levelCapLabel": {
-    "message": "Level Limit",
+    "message": "Stufengrenze",
     "description": "Can also be translated as 'Level Limit'. This option changes at what point the level will stop levelling past; for example, you can select '15' for Marathon and it will not level up beyond that"
   },
   "levelCapDescription": {
-    "message": "Ändert am welchem punkt das Level aufhört"
+    "message": "Ändert an welchem Punkt die Stufe aufhört zu steigen"
   },
   "regulationModeLabel": {
-    "message": "Regulierungs Modus",
+    "message": "Regulierungsmodus",
     "description": "This one may be hard to translate; it is used in Sprint to disable the delays for the purpose making the times comparable with other platforms"
   },
   "regulationModeDescription": {
-    "message": "Macht die Verzögerung aus für eine Endzeit die vergleichbarer ist"
+    "message": "Deaktiviert die Verzögerungen für eine besser vergleichbarer Endzeit"
   },
   "lockdownModeLabel": {
-    "message": "Ausgangssperre modus",
+    "message": "Sperrmodus",
     "description": "This option allows the user to select from the ways that the game will lock the piece down, including Infinity, Extended and Classic"
   },
   "lockdownModeDescription": {
-    "message": "Wählt ein modus aus dass kontrolliert, wie das Objekt ausgangssperren wird"
+    "message": "Wählt ein Modus aus, dass kontrolliert, wie der Teil sperren wird"
   },
   "infinityLdOption": {
     "message": "Versöhnig",
@@ -115,11 +115,11 @@
     "description": "Name for the 'classic' lockdown type; only having the piece fall will reset the timer"
   },
   "matrixWidthLabel": {
-    "message": "Matrix breite",
+    "message": "Spielfeldbreite",
     "description": "'Matrix' in this context can also be known as grid, field, play area; this option determines how wide in blocks the playfield is. The standard amount is 10"
   },
   "matrixWidthDescription": {
-    "message": "Bestimmt wie breit der Matrix sein wird während den gameplay"
+    "message": "Bestimmt wie breit das Spielfeld während des Spiels sein wird"
   },
   "narrowWidthOption": {
     "message": "Eng",
@@ -130,14 +130,14 @@
     "description": "Used in the context of the playfield's width; 'standard 'means that it is the standard 10-wide. Do not put the number of blocks in this string."
   },
   "holdTypeLabel": {
-    "message": "Halte Knopf Modus",
+    "message": "Vorratknopfmodus",
     "description": "This option is how you can select between 'HOLD' and 'SKIP' for certain modes"
   },
   "holdTypeDescription": {
-    "message": "Wählt welche funktion der halte knopf zugeordnet ist"
+    "message": "Wählt aus, welche Funktion der Vorratknopf zugeordnet ist"
   },
   "holdOption": {
-    "message": "Halt",
+    "message": "Vorrat",
     "description": "This is used in the context of selecting what pressing hold will do; you may want this to match what you translated in ui.json unless there's a good reason not to"
   },
   "skipOption": {
@@ -149,7 +149,7 @@
     "description": "As in 'game mechanics'; this option changes how the overall gameplay will function; it is mainly used in retro modes to select between more classic mechanics (such as Retro DAS, soft drop and others) and modern mechanics (such modern DAS, soft drop and others)"
   },
   "mechanicsDescription": {
-    "message": "Bestimmt wie das spiel spielen wird",
+    "message": "Bestimmt wie das Spiel spielen wird",
     "description": "Used to describe 'mechanics'"
   },
   "accurateOption": {
@@ -165,14 +165,14 @@
     "description": "Used to allow the user to select what rule they want to use in some arcade modes: Classic, World"
   },
   "ruleSelectDescription": {
-    "message": "Wählen Sie eine Regel für die Spielmechanik"
+    "message": "Wähle eine Regel für die Spielmechanik aus"
   },
   "classicRuleOption": {
-    "message": "KLASSISCHE Regel",
+    "message": "KLASSISCH Regel",
     "description": "Used in some arcade modes"
   },
   "worldRuleOption": {
-    "message": "WORLD Rule",
+    "message": "WELT Regel",
     "description": "Used in some arcade modes"
   }
 }

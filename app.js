@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
           } catch (error) {
             // game isn't running yet; no big deal
           } finally {
+            input.holdingCtrl = false
+            input.holdingShift = false
             Howler.volume(0);
           }
         };

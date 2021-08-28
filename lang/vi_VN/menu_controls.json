@@ -4,7 +4,7 @@
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Xoá tất cả phím được cài đặt"
+    "message": "Xoá mọi phím được cài đặt cho đỡ chật"
   },
   "resetLabel": {
     "message": "Đặt lại",
@@ -29,7 +29,7 @@
     "message": "Thả mạnh"
   },
   "hardDropDescription": {
-    "message": "Thả gạch xuống tức thì (có thể bị thay đổi hoặc bị tắt trong một số chế độ)"
+    "message": "Thả gạch xuống tức thì. (có thể bị thay đổi hoặc bị tắt trong một số chế độ)"
   },
   "softDropLabel": {
     "message": "Thả nhẹ"
@@ -42,14 +42,14 @@
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Xoay gạch 90 độ ngược kim đồng hồ"
+    "message": "Xoay gạch 90 độ ngược kim đồng hồ."
   },
   "rotateRightLabel": {
     "message": "Xoay phải",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Xoay gạch 90 độ theo chiều kim đồng hồ"
+    "message": "Xoay gạch 90 độ theo chiều kim đồng hồ."
   },
   "rotateDoubleLabel": {
     "message": "Xoay 180 độ",

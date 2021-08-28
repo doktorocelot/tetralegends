@@ -600,6 +600,7 @@ export default class Game {
                 yFlurry: .2,
                 lifeVariance: 80,
                 maxlife: 500,
+
               });
             }
             game.loop({

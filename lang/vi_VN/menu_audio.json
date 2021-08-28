@@ -17,14 +17,14 @@
     "message": "Bộ hiệu ứng âm thanh"
   },
   "soundbankDescription": {
-    "message": "Lựa chọn một bộ hiệu ứng âm thanh đặt làm mặc định"
+    "message": "Chọn một bộ hiệu ứng âm thanh làm mặc định"
   },
   "nextSoundLabel": {
     "message": "Hiệu ứng âm thanh \"Tiếp\"",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {
-    "message": "Lựa chọn một bộ hiệu ứng âm thanh để báo người chơi về miếng tiếp theo"
+    "message": "Lựa chọn một bộ hiệu ứng âm thanh để thông báo gạch tiếp theo"
   },
   "morseCodeOption": {
     "message": "Mã Morse"
@@ -33,7 +33,7 @@
     "message": "Giọng"
   },
   "voxVolLabel": {
-    "message": "Giọng",
+    "message": "Âm lượng giọng",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {

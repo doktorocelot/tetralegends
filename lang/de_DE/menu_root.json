@@ -1,6 +1,6 @@
 {
   "quickLabel": {
-    "message": "Schnelles spiel",
+    "message": "Schnelles Spiel",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
@@ -14,25 +14,25 @@
     "message": "Leitlinie"
   },
   "guidelineDescription": {
-    "message": "Standardvariante des Puzzles, das in modernsten Spielen gefunden wird"
+    "message": "Standardvariante des Puzzles, das in den meisten modernen Spielen zu finden sind"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "Eine benutzerdefinierte Variante des Puzzles, die ursprünglich für dieses Spiel entwickelt wurde"
+    "message": "Eine benutzerdefinierte Variante des Puzzles, der ursprünglich für dieses Spiel entwickelt wurde"
   },
   "retroLabel": {
     "message": "Retro"
   },
   "retroDescription": {
-    "message": "Klassische Variante die von Oldschool-Spielern geliebt wird"
+    "message": "Klassische Variante des Puzzles, der von altmodische Spieler*innen geliebt ist"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Schwere Variante die von Hardcore-Spielern geliebt wird"
+    "message": "Schwierige Variante des Puzzles, der von Hardcore-Spieler*innen geliebt ist"
   },
   "settingsOverline": {
     "message": "Einstellungen"
@@ -53,7 +53,7 @@
     "message": "Ton"
   },
   "audioDescription": {
-    "message": "Ändere wie das Spiel klingt"
+    "message": "Ändere der Klang des Spiels"
   },
   "videoLabel": {
     "message": "Video"
@@ -72,7 +72,7 @@
     "message": "Höre den Originalsoundtrack an"
   },
   "translateLabel": {
-    "message": "Übersetze"
+    "message": "Übersetzen"
   },
   "translateDescription": {
     "message": "Zu den Übersetzungen des Spieles beitragen"
@@ -81,6 +81,6 @@
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Trete dem Discord server bei, um über Spiel zu diskutieren, für änderungen benachrichtigt \n wirst. und du Ideen und Übersetzungen vorschlagen kannst"
+    "message": "Trete dem Discord-Server bei, um über das Spiel zu diskutieren, sich zu aktualisieren und Ideen und Übersetzungen einzubringen"
   }
 }

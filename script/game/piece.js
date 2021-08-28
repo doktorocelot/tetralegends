@@ -120,14 +120,7 @@ export default class Piece extends GameModule {
     for (let i = 0; i < SPAWN_OFFSETS[rotSys].downShift; i++) {
       this.shiftDown();
     }
-    if (this.isStuck) {
-      $('#kill-message').textContent = locale.getString('ui', 'blockOut');
-      sound.killVox();
-      sound.add('voxblockout');
-      this.parent.end();
-      return;
-      // gameHandler.reset();
-    }
+
     this.rotatedX = null;
     this.rotatedY = null;
     if (settings.settings.IRS === 'hold') {
@@ -154,6 +147,14 @@ export default class Piece extends GameModule {
           break;
       }
       this.rotate(this.ire, ireDirection, false);
+    }
+    if (this.isStuck && !this.parent.hold.ihs) {
+      $('#kill-message').textContent = locale.getString('ui', 'blockOut');
+      sound.killVox();
+      sound.add('voxblockout');
+      this.parent.end();
+      return;
+      // gameHandler.reset();
     }
     this.ire = 0;
     if (this.gravity <= framesToMs(1 / 20)) {

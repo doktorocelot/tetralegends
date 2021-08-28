@@ -1,31 +1,31 @@
 {
   "nextLengthLabel": {
-    "message": "Länge der nächsten Warteschlange"
+    "message": "Länge der Nächste-Warteschlange"
   },
   "nextLengthDescription": {
-    "message": "Die Anzahl der Stücke, die der Spieler in der Warteschlange sehen kann"
+    "message": "Die Anzahl der Teile, die in der Nächste-Warteschlange zu sehen sind"
   },
   "lockdownBarLabel": {
-    "message": "Absperrleiste",
+    "message": "Sperrleiste",
     "description": "The bar at the bottom of the screen that indicates how much time is left on lock delay and how many move resets remain"
   },
   "lockdownBarDescription": {
-    "message": "Erlaube die Möglichkeit, zusätzliche Informationen über Sperrverzögerung und Grenzwerte zu sehen"
+    "message": "Erlaube die Fähigkeit, zusätzliche Informationen über Sperrverzögerung und Bewegungsgrenzwerte zu sehen"
   },
   "swayScaleLabel": {
-    "message": "Matrix-Sway-Skala",
+    "message": "Spielfeld Wackeln Skala",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "Wie weit sich die Matrix in Prozent auf die Kraft der Teile bewegt. Die Auswahl O deaktiviert den Effekt vollständig",
+    "message": "Wie weit sich das Spielfeld in Prozent auf die Kraft der Teile bewegt. Die Auswahl 0 deaktiviert den Effekt vollständig",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {
-    "message": "Matrix Sway-Geschwindigkeit",
+    "message": "Spielfeld Wackeln Geschwindigkeit",
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'speed' is how quickly the field move sback to its normal position after being pushed"
   },
   "swaySpeedDescription": {
-    "message": "Wie schnell die Matrix in Prozent an ihre neutrale Position zurückkehrt",
+    "message": "Wie schnell sich das Spielfeld in Prozent an ihre neutrale Position zurückkehrt",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "particleSettingsLabel": {
@@ -33,7 +33,7 @@
     "description": "Label for a button to bring up particle options"
   },
   "particleSettingsDescription": {
-    "message": "Kontrolliert wie partikeln funktionnieren"
+    "message": "Kontrolliert wie Partikeln funktionieren"
   },
   "particlesLabel": {
     "message": "Partikel"
@@ -42,7 +42,7 @@
     "message": "Ob Partikel gezeichnet werden sollen"
   },
   "particleLimitLabel": {
-    "message": "Partikel Limit"
+    "message": "Partikel Grenzwert"
   },
   "particleLimitDescription": {
     "message": "Wie viele Partikel gleichzeitig auf dem Bildschirm angezeigt werden können"
@@ -64,14 +64,14 @@
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Nachrichten anzeigen, wenn Sie Linien löschen und Tricks ausführen, wie z. B. 'Double' und 'T-Spin'. Zeigt auch den Kombenzähler an"
+    "message": "Nachrichten anzeigen, wenn Sie Linien löschen und Tricks ausführen, wie z. B. 'Doppel' und 'T-Drehung'. Zeigt auch den Kettenzähler an"
   },
   "skinLabel": {
-    "message": "Skin Überschreitung",
+    "message": "Teilgrafik Überschreibung",
     "description": "'Skin' as in the sprites used by the pieces"
   },
   "skinDescription": {
-    "message": "Wählen sie ein Skin anstatt des normalen aus"
+    "message": "Wähle einen Teilgrafik aus, der anstatt des Standards zu verwenden ist"
   },
   "glossyOption": {
     "message": "Glänzend"
@@ -88,7 +88,7 @@
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Wähle ein gitter stil"
+    "message": "Wähle ein Gitterstil aus"
   },
   "crossGridOption": {
     "message": "Kreuz",
@@ -107,26 +107,26 @@
     "description": "Controls the style that the lock flash uses"
   },
   "lockFlashDesription": {
-    "message": "Wähle ein sperrungsblitz stil"
+    "message": "Wähle ein Sperrungsblitzstil aus"
   },
   "shineLFOption": {
     "message": "Komplexschein",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim with a shine line effect that goes from the bottom left to the top right"
   },
   "flashDimLFOption": {
-    "message": "Flash & Dim",
+    "message": "Blitz & verdunkeln",
     "description": "Lock flash style that causes a 2 frame white flash, followed by long dim"
   },
   "flashLFOption": {
-    "message": "Schnellen blitz",
+    "message": "Schneller Blitz",
     "description": "Lock flash style that causes a 2 frame white flash"
   },
   "colorOverrideLabel": {
-    "message": "Farben überschreibung",
+    "message": "Farben Überschreibung",
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Überschreibt die Farbenstück zuordnung"
+    "message": "Überschreibt die Farbenteilzuordnung"
   },
   "redOption": {
     "message": "Rot",
@@ -165,10 +165,10 @@
     "description": "Please base your translation off the reference image"
   },
   "themeLabel": {
-    "message": "Design",
+    "message": "Erscheinung",
     "description": "Changes the visual appearance that TL uses ingame"
   },
   "themeDescription": {
-    "message": "Bestimmt den visuellen styl von den spiel"
+    "message": "Bestimmt den visuellen Stil des Spiels"
   }
 }

@@ -1,6 +1,6 @@
 {
   "clearLabel": {
-    "message": "Claro",
+    "message": "Limpar",
     "description": "Erase all controls"
   },
   "clearDescription": {
@@ -23,66 +23,66 @@
     "message": "Shift Right"
   },
   "shiftRightDescription": {
-    "message": "Move a piece to the right once or hold for autoshift"
+    "message": "Mova uma peça para a direita uma vez ou segure para mover automaticamente"
   },
   "hardDropLabel": {
-    "message": "Hard Drop"
+    "message": "Caída Instantânea"
   },
   "hardDropDescription": {
-    "message": "Drop a piece instantly to the floor. (may act differently or be disabled in some modes)"
+    "message": "Posiciona a peça no chão imediatamente. (pode se comportar de outra maneira ou estar desativado em alguns modos)"
   },
   "softDropLabel": {
-    "message": "Soft Drop"
+    "message": "Caída Rápida"
   },
   "softDropDescription": {
-    "message": "Speed up a piece's descent (may act differently in some modes)"
+    "message": "Acelera a velocidade que a peça cai (pode agir de forma diferente em alguns modos)"
   },
   "rotateLeftLabel": {
-    "message": "Rotate Left",
+    "message": "Girar à Esquerda",
     "description": "Could also be called 'rotate counter-clockwise'"
   },
   "rotateLeftDescription": {
-    "message": "Rotate a piece 90° counter-clockwise."
+    "message": "Gire uma peça 90° no sentido anti-horário."
   },
   "rotateRightLabel": {
-    "message": "Rotate Right",
+    "message": "Girar à direita",
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Rotate a piece 90° clockwise."
+    "message": "Gire uma peça 90° no sentido horário."
   },
   "rotateDoubleLabel": {
-    "message": "Rotate 180°",
+    "message": "Girar 180°",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Rotate a piece 180° (may be disabled in some modes)"
+    "message": "Gire uma peça em 180° (pode estar desativado em alguns modos)"
   },
   "holdLabel": {
-    "message": "Hold"
+    "message": "Segurar uma peça"
   },
   "holdDescription": {
-    "message": "Send a piece to the hold queue (may be disabled in some modes)"
+    "message": "Guarda a peça para usar em outro momento (pode estar desativado em alguns modos)"
   },
   "retryLabel": {
-    "message": "Retry",
+    "message": "Tentar Novamente",
     "description": "You press this bind to restart the game instantly"
   },
   "retryDescription": {
-    "message": "Instantly have another attempt"
+    "message": "Tentar novamente instantaneamente"
   },
   "pauseLabel": {
-    "message": "Pause"
+    "message": "Pausar"
   },
   "pauseDescription": {
-    "message": "Pause the game"
+    "message": "Pausar o jogo"
   },
   "configPopupHeader": {
-    "message": "Control Configuration",
+    "message": "Configuração do controle",
     "description": "Displays as a header on a popup window when you add a control binding"
   },
   "configPopupDescription": {
-    "message": "Press the key you wish to use for this action",
+    "message": "Pressione a tecla que você deseja usar para esta ação",
     "description": "Displays on the popup when you add a control binding"
   }
 }

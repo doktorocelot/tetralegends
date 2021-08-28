@@ -3,13 +3,13 @@
     "message": "Standard"
   },
   "defaultDescription": {
-    "message": "Die Standardeinstellungen, die mit dem Spiel kommen"
+    "message": "Die Standardeinstellungen, die im Spiel vorhanden sind"
   },
   "guidelineLabel": {
     "message": "Leitlinie"
   },
   "guidelineDescription": {
-    "message": "Standardeinstellungen in den meisten Versionen gefunden"
+    "message": "Standardeinstellungen, die in den meisten Versionen zu finden sind"
   },
   "pptLabel": {
     "message": "PPT",
@@ -33,9 +33,9 @@
     "message": "Eine schnellere Voreinstellung, die etwas Kontrolle erfordert"
   },
   "proLabel": {
-    "message": "Pro"
+    "message": "Profi"
   },
   "proDescription": {
-    "message": "Eine Voreinstellung für Hypergeschwindigkeiten mit hoher Kontrolle"
+    "message": "Eine sehr schnelle Voreinstellung, die viel Kontrolle erfordert"
   }
 }

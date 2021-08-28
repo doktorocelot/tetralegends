@@ -4,7 +4,7 @@
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Chơi chế độ Marathon với cài đặt mặc định"
+    "message": "Chơi ngay chế độ Marathon với cài đặt mặc định"
   },
   "gameStylesOverline": {
     "message": "Các chế độ",
@@ -14,7 +14,7 @@
     "message": "Hiện đại"
   },
   "guidelineDescription": {
-    "message": "Phiên bản chuẩn của game, được thấy ở hầu hết tất cả các game xếp gạch hiện đại"
+    "message": "Phiên bản chuẩn của game, được thấy ở hầu hết các game xếp gạch hiện đại"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
@@ -41,7 +41,7 @@
     "message": "Độ nhạy"
   },
   "tuningDescription": {
-    "message": "Thay đổi độ nhạy của các miếng gạch khi di chuyển"
+    "message": "Thay đổi độ nhạy của gạch khi di chuyển"
   },
   "controlsLabel": {
     "message": "Điều khiển"
