@@ -309,7 +309,7 @@ export const loops = {
         game.hold.gainHoldOnPlacement = true;
         game.resize();
       }
-      if (!(input.holdingCtrl && input.holdingShift)) {
+      if (!(input.holdingShift)) {
         game.timeGoal = 30000;
       }
       game.isRaceMode = true;
@@ -589,6 +589,7 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
+      sound.playMenuSe('hardstart3');
       shown20GMessage = (settings.game.prox.startingLevel > 3) ? true : false;
       shownHoldWarning = false;
       game.lineGoal = 200;
@@ -668,7 +669,7 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 10);
+      game.stat.level = Math.max(settings.game.handheld.startingLevel, Math.floor(game.stat.line / 10));
       const SPEED_TABLE = [53, 49, 45, 41, 37, 33, 28, 22, 17, 11, 10, 9, 8, 7, 6, 6, 5, 5, 4, 4, 3];
       let levelAdd = 0;
       if (game.appends.level === '♥') {
@@ -678,18 +679,19 @@ export const loops = {
       levelUpdate(game);
     },
     onInit: (game) => {
-      game.stat.level = 0;
-      if (input.holdingCtrl && input.holdingShift) {
+      game.stat.level = settings.game.handheld.startingLevel;
+      lastLevel = parseInt(settings.game.handheld.startingLevel);
+      if (input.holdingShift) {
+        sound.add('levelup')
         game.appends.level = '♥';
       }
-      lastLevel = 0;
       if (settings.settings.skin !== 'auto') {
         game.makeSprite();
         game.piece.useSpecialI = false;
       } else {
         game.makeSprite(
             [
-              'i', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
+              'i1', 'i2', 'i3', 'i4', 'i5', 'i6',
               'l', 'o',
               'z', 't', 'j',
               's', 'white', 'black',

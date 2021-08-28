@@ -32,7 +32,7 @@
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Tùy chỉnh tính năng xoay gạch trước khi gạch xuất hiện (có thể bị tắt ở vài chế độ)"
+    "message": "Tuỳ chỉnh tính năng xoay gạch trước khi gạch xuất hiện (có thể bị tắt ở vài chế độ)"
   },
   "absoluteIrsOption": {
     "message": "Theo 1 hướng",

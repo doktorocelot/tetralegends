@@ -3,7 +3,7 @@
     "message": "Số lượng gạch trong cột \"Tiếp\""
   },
   "nextLengthDescription": {
-    "message": "Số lượng gạch người chơi sẽ thấy trong cột \"Next\""
+    "message": "Số lượng gạch người chơi sẽ thấy trong cột \"Tiếp\""
   },
   "lockdownBarLabel": {
     "message": "Thanh khoá gạch",
@@ -64,7 +64,7 @@
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc khi bạn xoay, ví dụ như \"Đôi\", \"Xoay T\""
+    "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc khi bạn xoay, ví dụ như \"Đôi\" và \"T-Spin\""
   },
   "skinLabel": {
     "message": "Trang trí",
@@ -74,7 +74,7 @@
     "message": "Lựa chọn một bộ trang trí gạch đặt làm mặc định"
   },
   "glossyOption": {
-    "message": "Bóng láng"
+    "message": "Láng mịn"
   },
   "flatOption": {
     "message": "Đơn giản"
@@ -141,15 +141,15 @@
     "description": "Please base your translation off the reference image"
   },
   "greenOption": {
-    "message": "Xanh lá",
+    "message": "Lục",
     "description": "Please base your translation off the reference image"
   },
   "lightBlueOption": {
-    "message": "Xanh biển nhạt",
+    "message": "Lam nhạt",
     "description": "Please base your translation off the reference image"
   },
   "blueOption": {
-    "message": "Xanh biển đậm",
+    "message": "Lam đậm",
     "description": "Please base your translation off the reference image"
   },
   "purpleOption": {

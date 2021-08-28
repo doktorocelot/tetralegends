@@ -27,23 +27,23 @@
     "message": "Selecione um banco de sons para usar como indicador para a próxima peça"
   },
   "morseCodeOption": {
-    "message": "Morse Code"
+    "message": "Código Morse"
   },
   "voiceOption": {
-    "message": "Voice"
+    "message": "Voz"
   },
   "voxVolLabel": {
-    "message": "Voice Volume",
+    "message": "Volume de voz",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {
-    "message": "The volume of the voice clips in percentage"
+    "message": "Volume da voz em porcentagem"
   },
   "voicebankLabel": {
-    "message": "Voicebank",
+    "message": "Pacote de vozes",
     "description": "This is to select a voice pack"
   },
   "voicebankDescription": {
-    "message": "Select a voicebank to use for in-game and menu callouts"
+    "message": "Selecione um pacote de vozes para usar na narração em jogo e no menu"
   }
 }

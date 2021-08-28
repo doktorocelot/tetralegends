@@ -1,10 +1,10 @@
 {
   "sfxLabel": {
-    "message": "Effekt Lautstärke",
+    "message": "Klangeffekt Lautstärke",
     "description": "Also known as 'SE' or 'SFX'"
   },
   "sfxDescription": {
-    "message": "Die Lautstärke der verschiedenen Soundeffekte in Prozent"
+    "message": "Die Lautstärke der verschiedenen Klangeffekte in Prozent"
   },
   "musicLabel": {
     "message": "Musik Lautstärke",
@@ -14,17 +14,17 @@
     "message": "Die Lautstärke der Musik in Prozent"
   },
   "soundbankLabel": {
-    "message": "Soundbank überschreiten"
+    "message": "Klangdatenbank Überschreibung"
   },
   "soundbankDescription": {
-    "message": "Eine andere soundbank anstatt die originale benutzen"
+    "message": "Wähle ein Klangdatenbank aus, der anstatt des Standards zu verwenden ist"
   },
   "nextSoundLabel": {
-    "message": "\"Nächstes Stück\" Indikator Soundbank",
+    "message": "Nächste Indikator Klangdatenbank",
     "description": "Select a desired set for the 'next piece' sounds"
   },
   "nextSoundDescription": {
-    "message": "Eine Soundbank für den \"\"Nächstes Stück Indikator\"\" auswählen"
+    "message": "Wähle ein Klangdatenbank aus, der als Indikator für den nächsten Teil zu verwenden ist"
   },
   "morseCodeOption": {
     "message": "Morse Code"
@@ -33,17 +33,17 @@
     "message": "Stimme"
   },
   "voxVolLabel": {
-    "message": "Lautstärke von der Stimme",
+    "message": "Stimme Lautstärke",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {
     "message": "Die Lautstärke der Stimmenclips in Prozent"
   },
   "voicebankLabel": {
-    "message": "Voicebank",
+    "message": "Stimmendatenbank",
     "description": "This is to select a voice pack"
   },
   "voicebankDescription": {
-    "message": "Wähle ein Voicebank um es in den Spiel und Menü zu benutzen"
+    "message": "Wähle ein Stimmendatenbank aus, der für In-Spiel- und Menü-Anrufe zu verwenden ist"
   }
 }

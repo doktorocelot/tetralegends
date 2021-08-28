@@ -1,10 +1,10 @@
 {
   "clearLabel": {
-    "message": "Leeren",
+    "message": "Alle löschen",
     "description": "Erase all controls"
   },
   "clearDescription": {
-    "message": "Alle Kontrollzuordnungen leeren, damit Sie einen leeren Arbeitsbereich haben"
+    "message": "Alle Tastenbelegungen löschen, damit Sie einen leeren Arbeitsbereich haben"
   },
   "resetLabel": {
     "message": "Zurücksetzen",
@@ -26,16 +26,16 @@
     "message": "Bewege ein Teil einmal nach rechts oder halte es für Autoshift"
   },
   "hardDropLabel": {
-    "message": "Harter Fall"
+    "message": "Schnelles Absetzen"
   },
   "hardDropDescription": {
-    "message": "Lege ein Teil sofort auf den Boden. (kann anders handeln oder in einigen Modusen deaktiviert werden)"
+    "message": "Setze ein Teil sofort auf den Boden ab. (kann in einigen Modi anders handeln oder deaktiviert sein)"
   },
   "softDropLabel": {
-    "message": "Weicher Fall"
+    "message": "Sanftes Absetzen"
   },
   "softDropDescription": {
-    "message": "Beschleunige den Fall eines Teils (kann in manchen Modusen anders handeln)"
+    "message": "Beschleunige den Fall eines Teils (kann in einigen Modi anders handeln)"
   },
   "rotateLeftLabel": {
     "message": "Nach links drehen",
@@ -49,20 +49,20 @@
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Ein Teil 90° mit dem Uhrzeigersinn drehen."
+    "message": "Ein Teil 90° im Uhrzeigersinn drehen."
   },
   "rotateDoubleLabel": {
     "message": "180° drehen",
     "description": "Could also be referred to as a 'double rotation'"
   },
   "rotateDoubleDescription": {
-    "message": "Ein Teil 180° drehen (kann in einigen Modusen deaktiviert werden)"
+    "message": "Ein Teil 180° drehen (kann in einigen Modi deaktiviert sein)"
   },
   "holdLabel": {
-    "message": "Halten"
+    "message": "Vorrat"
   },
   "holdDescription": {
-    "message": "Sende ein Teil an die Halte Warteschlange (kann in manchen Modus deaktiviert werden)"
+    "message": "Sende ein Teil an die Vorrat-Warteschlange (kann in einigen Modi deaktiviert sein)"
   },
   "retryLabel": {
     "message": "Neustarten",

@@ -137,6 +137,9 @@ class Settings {
       },
       prox: {
         startingLevel: 1,
+      },
+      handheld: {
+        startingLevel: 0,
       }
     };
     this.settings = {};

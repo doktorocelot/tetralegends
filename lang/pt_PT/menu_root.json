@@ -1,86 +1,86 @@
 {
   "quickLabel": {
-    "message": "Quick Play",
+    "message": "Jogo Rápido",
     "description": "Button to start a game of marathon"
   },
   "quickDescription": {
-    "message": "Jump right into a game of Marathon with the default settings"
+    "message": "Jogue Maratona com as configurações padrão"
   },
   "gameStylesOverline": {
-    "message": "Game Styles",
+    "message": "Modo de Jogo",
     "description": "Header for the various types of games (Guideline, Retro, etc)"
   },
   "guidelineLabel": {
-    "message": "Guideline"
+    "message": "Moderno"
   },
   "guidelineDescription": {
-    "message": "Standard variant of the puzzle found in most modern games"
+    "message": "A versão padrão do puzzle, encontrada na maioria dos jogos modernos"
   },
   "tetraxLabel": {
     "message": "Tetra-X"
   },
   "tetraxDescription": {
-    "message": "A custom variant of the puzzle originally designed for this game"
+    "message": "Uma versão personalizada do puzzle, criada originalmente para este jogo"
   },
   "retroLabel": {
     "message": "Retro"
   },
   "retroDescription": {
-    "message": "Classic variant of the puzzle loved by oldschool players"
+    "message": "Versão clássica do puzzle, amada por jogadores da velha-guarda"
   },
   "arcadeLabel": {
     "message": "Arcade"
   },
   "arcadeDescription": {
-    "message": "Difficult variant of the puzzle loved by hardcore players"
+    "message": "Versão mais difícil do puzzle, amada por jogadores hardcore"
   },
   "settingsOverline": {
-    "message": "Settings"
+    "message": "Configurações"
   },
   "tuningLabel": {
-    "message": "Tuning"
+    "message": "Ajustes"
   },
   "tuningDescription": {
-    "message": "Change how the game feels"
+    "message": "Muda o controle de velocidade do jogo"
   },
   "controlsLabel": {
-    "message": "Controls"
+    "message": "Controles"
   },
   "controlsDescription": {
-    "message": "Change how the game controls"
+    "message": "Muda os controles do jogo"
   },
   "audioLabel": {
-    "message": "Audio"
+    "message": "Áudio"
   },
   "audioDescription": {
-    "message": "Change how the game sounds"
+    "message": "Muda os sons do jogo"
   },
   "videoLabel": {
-    "message": "Video"
+    "message": "Vídeo"
   },
   "videoDescription": {
-    "message": "Change how the game looks"
+    "message": "Muda o visual do jogo"
   },
   "miscOverline": {
-    "message": "Misc",
+    "message": "Diversos",
     "description": "Miscellaneous, other"
   },
   "soundtrackLabel": {
-    "message": "Soundtrack"
+    "message": "Trilha sonora"
   },
   "soundtrackDescription": {
-    "message": "Listen to the original soundtrack"
+    "message": "Ouça a trilha sonora original"
   },
   "translateLabel": {
-    "message": "Translate"
+    "message": "Traduzir"
   },
   "translateDescription": {
-    "message": "Contribute translations to the game"
+    "message": "Envie traduções para o jogo"
   },
   "discordLabel": {
     "message": "Discord"
   },
   "discordDescription": {
-    "message": "Join the Discord to discuss the game, get updated and contribute ideas and translations"
+    "message": "Entre no Discord para conversar sobre o jogo, se atualizar e enviar ideias e traduções"
   }
 }

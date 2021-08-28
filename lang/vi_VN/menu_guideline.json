@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao!",
+    "message": "Vượt qua mục tiêu! Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -12,7 +12,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines at insanely high speeds"
   },
   "masterDescription": {
-    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn một tí nào, khi bạn cố gắng sống sót tốc độ chơi kinh hoàng đến lúc kết thúc.",
+    "message": "Chế độ chơi rất nhanh! Game sẽ không nhân nhượng cho bạn một tí nào khi bạn cố gắng sống sót tốc độ chơi giật gân đến hết.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "sprintLabel": {
@@ -20,7 +20,7 @@
     "description": "A guideline mode where you attempt to clear an amount of lines as quick as possible"
   },
   "sprintDescription": {
-    "message": "Đừng chần chừ! Hoàn thành mục tiêu càng nhanh càng tốt trong chế độ chơi nhanh này.",
+    "message": "Đừng chần chừ! Hoàn thành mục tiêu càng nhanh càng tốt trong chế độ có tốc độ cao này.",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "ultraLabel": {

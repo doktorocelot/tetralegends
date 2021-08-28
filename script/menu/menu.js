@@ -66,11 +66,16 @@ class Menu {
       if (menu.properties.parentSecret) {
         this.skipSecretA = true;
       }
-      if (gameHandler.game.isDead || gameHandler.game.isOver || gameHandler.game.isDead == null) {
+      if (
+        (gameHandler.game.isDead || gameHandler.game.isOver || gameHandler.game.isDead == null)
+        && !this.skipMusicChange
+      ) {
         if (this.current.properties.pgmusic) {
-          sound.killBgm();
-          sound.loadBgm([this.current.properties.pgmusic], 'menu');
-          sound.playBgm([this.current.properties.pgmusic], 'menu');
+          if (sound.bgmName !== `menu-${this.current.properties.pgmusic}`) {
+            sound.killBgm();
+            sound.loadBgm([this.current.properties.pgmusic], 'menu');
+            sound.playBgm([this.current.properties.pgmusic], 'menu');
+          }
         } else {
           if (sound.bgmName !== 'menu-menu') {
             sound.loadBgm(['menu'], 'menu');
@@ -548,6 +553,9 @@ class Menu {
           if (input.mouseLimit < 1) {
             return;
           }
+          if (!element.parentElement.parentElement.classList.contains('selected')) {
+            return
+          }
           if (!element.classList.contains('selected')) {
             sound.playMenuSe('move');
           }
@@ -715,11 +723,14 @@ class Menu {
     }
     switch (this.selectedData.action) {
       case 'submenu':
+        $(`#option-${this.selected}`).classList.add('chosen');
         this.lastSelection = this.selected;
         this.load(this.selectedData.submenu);
         sound.playMenuSe('select');
         break;
       case 'back':
+        this.select(0,false, false)
+        $(`#option-${this.selected}`).classList.add('chosen');
         this.back();
         break;
       case 'quick':
@@ -743,9 +754,12 @@ class Menu {
         this.drawSettings();
         break;
       case 'select':
+        $(`#option-${this.selected}`).classList.add('chosen');
+        this.skipMusicChange = true
         $('.select-container.selected .value-name').onclick();
         break;
       case 'settingChange':
+        $(`#option-${this.selected}`).classList.add('chosen');
         const game = (this.selectedData.settingType === 'game') ? this.selectedData.gameName : false;
         settings.changeSetting(this.selectedData.setting, this.selectedData.value, game);
         sound.playMenuSe('optionselect');
@@ -760,6 +774,7 @@ class Menu {
         this.load('controls', 'controls');
         break;
       case 'daspreset':
+        $(`#option-${this.selected}`).classList.add('chosen');
         sound.playMenuSe('optionselect');
         settings.changeSetting('DAS', this.selectedData.delay);
         settings.changeSetting('ARR', this.selectedData.rate);
@@ -787,6 +802,7 @@ class Menu {
         menu.drawSettings();
         break;
       case 'lang':
+        $(`#option-${this.selected}`).classList.add('chosen');
         sound.playMenuSe('optionselect');
         this.hideMenu();
         this.isLocked = true;
@@ -810,9 +826,14 @@ class Menu {
     if (!this.isLocked) {
       if (this.current.properties.parent !== null) {
         if (playSound) {
+          this.select(0, true, false)
+          $(`#option-${this.selected}`).classList.add('chosen');
+        }
+        if (playSound) {
           sound.playMenuSe('back');
         }
         this.useLastSelected = true;
+        this.skipMusicChange = false;
         this.load(this.current.properties.parent);
       }
     }
