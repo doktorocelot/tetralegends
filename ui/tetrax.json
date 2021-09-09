@@ -16,6 +16,14 @@
       "stringDesc": "proDescription",
       "action": "submenu",
       "submenu": "mode/prox"
+    },
+    {
+      "label": "NIGHT OF NIGHTS X",
+      "description": "This mode contains flashing lights that may make it unsuitable for people with photosensitive epilepsy or other photosensitive conditions. Player discretion is advised.",
+      "fixedText": true,
+      "secretA": true,
+      "action": "submenu",
+      "submenu": "mode/nontwo"
     }
   ]
 }

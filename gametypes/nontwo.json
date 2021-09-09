@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "width": 10,
+    "height": 20,
+    "hiddenHeight": 20,
+    "pieces": "standard",
+    "unfavored": "standardUnfavored",
+    "randomizer": "tetrax",
+    "rotationSystem": "tetrax",
+    "skin": "standard",
+    "soundbank": "standard",
+    "music": "nontwo",
+    "hasDangerBgm": true,
+    "scoreTable": "tetrax",
+    "background": "marathon.jpg"
+  },
+  "piece": {
+    "areLimit": 75,
+    "areLineLimit": 75,
+    "areLimitLineModifier": 125,
+    "spinDetectionType": "immobile"
+  },
+  "stats": [
+    "score",
+    "line",
+    "piece"
+  ]
+}

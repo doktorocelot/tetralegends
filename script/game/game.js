@@ -107,6 +107,15 @@ export default class Game {
           $('#end-message-container').classList.add('hidden');
           $('#kill-message-container').classList.add('hidden');
           $('#next-piece').classList.remove('immediate-death');
+
+          this.resetNonStuff()
+
+          if (this.type === 'nontwo') {
+            $('#lights-warning').classList.remove('hidden')
+          } else {
+            $('#lights-warning').classList.add('hidden')
+          }
+
           for (const element of document.querySelectorAll('.action-text')) {
             element.parentNode.removeChild(element);
           }
@@ -200,6 +209,7 @@ export default class Game {
     $('.game').classList.remove('paused');
   }
   pause() {
+    if (this.type === 'nontwo') return
     if (this.isPaused || this.noUpdate) {return;}
     $('#pause-label').textContent = locale.getString('ui', 'pause');
     sound.add('pause');
@@ -208,12 +218,22 @@ export default class Game {
     $('.game').classList.add('paused');
   }
   hide() {
+    if (this.type === 'nontwo') this.die()
     $('#game-container').classList.add('hidden');
     this.isVisible = false;
   }
   show() {
     $('#game-container').classList.remove('hidden');
     this.isVisible = true;
+  }
+  resetNonStuff() {
+    $('#game-container').style.transitionTimingFunction = ''
+    $('#game-container').style.transitionProperty = ''
+    $('#game-container').style.transitionDuration = ''
+    $('#game-container').style.transform = ''
+    $('#game-container').classList.remove('sil')
+    $('#stack').classList.remove('sil')
+    $('#piece').classList.remove('sil')
   }
   timestamp() {
     return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
@@ -223,6 +243,7 @@ export default class Game {
     this.isDead = true;
   }
   end(victory = false) {
+    this.resetNonStuff()
     this.isOver = true;
     $('#combo-counter-container').classList.add('hidden');
     this.stack.endAlarm();

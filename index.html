@@ -41,6 +41,10 @@
   <!-- <video autoplay muted loop id="myVideo">
     <source src="vid/DiscoLightsVidevo.mov" type="video/mp4">
   </video> -->
+  <div id="lights-warning" class="hidden">
+    <img src="img/tetrion/warning.svg" alt="">
+    Flashing Lights
+  </div>
   <div id="main">
     <div id="error-stack" class="error-stack">
     </div>
@@ -101,7 +105,7 @@
           <canvas id="particle" class="game-canvas particle-canvas"></canvas>
           <div class="garbage-counter-container" id="garbage-counter-container">
             <div class="garbage-counter" id="garbage-counter">
-            
+
             </div>
           </div>
           <div class="rotation-warning hidden" id="rotation-warning">
@@ -183,7 +187,7 @@
       </table>
     </div>
   </div>
-  
+
   <!-- <script type="module" src="locale.js"></script> -->
   <script src="lib/gamepad.min.js"></script>
   <script src="lib/howler.min.js"></script>
@@ -233,9 +237,9 @@
   </video>` + document.documentElement.innerHTML;
   enableVideo = () => {};
     }
-    
+
   </script>
-  
+
 </body>
 
 </html>
