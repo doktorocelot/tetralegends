@@ -28,11 +28,13 @@ import nesDasAre from './loop-modules/nes-das-are.js';
 import settings from '../settings.js';
 import input from '../input.js';
 import locale from '../lang.js';
+import rotateReverse from './loop-modules/rotate-reverse.js'
 let lastLevel = 0;
 let garbageTimer = 0;
 let shown20GMessage = false;
 let shownHoldWarning = false;
 let lastSeenI = 0;
+let nonEvents = [];
 const levelUpdate = (game) => {
   let returnValue = false;
   if (game.stat.level !== lastLevel) {
@@ -143,6 +145,19 @@ export const loops = {
       if (respawn) {
         respawnPiece(arg);
       }
+      // for (let i = 0; i < events.length; i++) {
+      //   const event = events[i]
+      //   if (event[0] <= game.timePassed) {
+      //     const eType = event[1]
+      //     if (eType === 'flashBg') {
+      //       console.log('flash')
+      //     }
+      //     events.splice(i, 1)
+      //     i--
+      //   } else {
+      //     break
+      //   }
+      // }
       lockFlash(arg);
       updateLasts(arg);
     },
@@ -152,6 +167,796 @@ export const loops = {
     },
     onInit: (game) => {
       game.nonTime = 333.333333333;
+      game.updateStats();
+    },
+  },
+  nontwo: {
+    update: (arg) => {
+      collapse(arg);
+      const game = gameHandler.game
+      const timePassed = game.timePassed + game.timePassedAre
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        respawnPiece(arg);
+        if (timePassed > 54830 && timePassed < 63660) {
+          rotateReverse(arg);
+        } else {
+          rotate(arg);
+        }
+        rotate180(arg);
+        shifting(arg);
+      }
+      if (game.hold.isDisabled) {
+        classicGravity(arg);
+      } else {
+        gravity(arg);
+      }
+      hyperSoftDrop(arg);
+      hardDrop(arg);
+      if (timePassed > 32000 && timePassed < 42660) {
+        const calcNum = 42660 - 32000
+        arg.piece.lockDelayLimit = Math.round(500 - ((timePassed - 32000) / calcNum) * 300)
+        $('#delay').innerHTML = `${Math.round(arg.piece.lockDelayLimit)} <b>ms</b>`;
+        $('#delay').classList.add('danger')
+      } else {
+        $('#delay').classList.remove('danger')
+        arg.piece.lockDelayLimit = 500
+      }
+      if (game.hold.isDisabled) {
+        retroLockdown(arg, false)
+      } else {
+        classicLockdown(arg);
+      }
+      if (!arg.piece.inAre) {
+        hold(arg);
+      }
+      while (
+        (((nonEvents[0][0] - 1) * 16) + (nonEvents[0][1] - 1)) * (1 / 12) * 1000
+        <= timePassed) {
+        const eType = nonEvents[0][2]
+        switch (eType) {
+        case 'flashBg':
+          resetAnimation('body', 'non-flash')
+          break;
+        case 'gravChange':
+          arg.piece.gravity = nonEvents[0][3]
+          break;
+        case 'silOn':
+          $('#game-container').classList.add('sil')
+          break;
+        case 'silOff':
+          $('#game-container').classList.remove('sil')
+          break;
+        case 'silBoardOn':
+          $('#stack').classList.add('sil')
+          break;
+        case 'silBoardOff':
+          $('#stack').classList.remove('sil')
+          break;
+        case 'silPieceOn':
+          $('#piece').classList.add('sil')
+          break;
+        case 'silPieceOff':
+          $('#piece').classList.remove('sil')
+          break;
+        case 'setFlashSpeed':
+          $('body').style.setProperty('--flash-speed', `${nonEvents[0][3]}s`)
+          break;
+        case 'transform':
+          const x = nonEvents[0][3]
+          $('#game-container').style.transform = `perspective(${x[0]}em) translateX(${x[1]}em) translateY(${x[2]}em) translateZ(${x[3]}em) rotateX(${x[4]}deg) rotateY(${x[5]}deg) rotateZ(${x[6]}deg)`
+          break;
+        case 'tranFunc':
+            $('#game-container').style.transitionTimingFunction = nonEvents[0][3]
+            break;
+        case 'tranSpeed':
+          $('#game-container').style.transitionProperty = `transform`
+          $('#game-container').style.transitionDuration = `${nonEvents[0][3]}s`
+          break;
+        case 'showMessage':
+          $('#message').innerHTML = nonEvents[0][3];
+          resetAnimation('#message', 'dissolve');
+          break;
+        case 'changeNext':
+          game.next.nextLimit = nonEvents[0][3]
+          game.next.isDirty = true
+          break;
+        case 'startRetro':
+          game.hold.isDirty = true
+          game.hold.isDisabled = true
+          game.piece.ghostIsVisible = false
+          game.next.nextLimit = 1
+          game.next.isDirty = true
+          break;
+        case 'endRetro':
+          game.hold.isDirty = true
+          game.hold.isDisabled = false
+          game.piece.ghostIsVisible = true
+          game.next.nextLimit = 6
+          game.next.isDirty = true
+          break;
+        }
+        nonEvents.shift()
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+
+    },
+    onInit: (game) => {
+      game.timeGoal = 140000
+      game.rtaLimit = true
+      game.stat.level = 1
+      const PERS = 35
+      game.hideGrid = true;
+      game.stack.updateGrid();
+      nonEvents = [
+        [1, 1, 'tranFunc', 'linear'],
+        [1, 1, 'gravChange', 16.6666666667],
+        [3, 1, 'showMessage', '<small style="font-size: .5em">Night of Nights X</small>'],
+        [5, 1, 'setFlashSpeed', 0.7],
+        [5, 1, 'flashBg'],
+        [5, 1, 'silOn'],
+        [5, 13, 'flashBg'],
+        [6, 1, 'flashBg'],
+        [6, 13, 'flashBg'],
+        [7, 1, 'flashBg'],
+        [7, 9, 'flashBg'],
+        [8, 1, 'flashBg'],
+        [8, 5, 'flashBg'],
+        [8, 9, 'flashBg'],
+        [8, 13, 'flashBg'],
+        [8, 16, 'silOff'],
+        [8, 16, 'silBoardOn'],
+        [9, 1, 'setFlashSpeed', 0.03],
+        [9, 1, 'flashBg'],
+        [9, 1, 'transform', [PERS, 0, 0, -25, 10, 10, 30]],
+        [9, 2, 'tranSpeed', 10],
+        [9, 3, 'transform', [PERS, 0, 0, 10, 0, 0, 0]],
+        [9, 3, 'flashBg'],
+        [9, 5, 'flashBg'],
+        [9, 6, 'flashBg'],
+        [9, 8, 'flashBg'],
+        [9, 10, 'flashBg'],
+        [9, 12, 'flashBg'],
+        [9, 13, 'flashBg'],
+        [9, 14, 'flashBg'],
+        [9, 15, 'flashBg'],
+        [9, 16, 'flashBg'],
+        [10, 2, 'flashBg'],
+        [10, 3, 'flashBg'],
+        [10, 5, 'flashBg'],
+        [10, 6, 'flashBg'],
+        [10, 8, 'flashBg'],
+        [10, 10, 'flashBg'],
+        [10, 12, 'flashBg'],
+        [10, 13, 'flashBg'],
+        [10, 15, 'flashBg'],
+        [11, 1, 'flashBg'],
+        [11, 3, 'flashBg'],
+        [11, 5, 'flashBg'],
+        [11, 6, 'flashBg'],
+        [11, 8, 'flashBg'],
+        [11, 10, 'flashBg'],
+        [11, 12, 'flashBg'],
+        [11, 13, 'flashBg'],
+        [11, 14, 'flashBg'],
+        [11, 15, 'flashBg'],
+        [11, 16, 'flashBg'],
+        [12, 2, 'flashBg'],
+        [12, 3, 'flashBg'],
+        [12, 5, 'flashBg'],
+        [12, 6, 'flashBg'],
+        [12, 8, 'flashBg'],
+        [12, 10, 'flashBg'],
+        [12, 12, 'flashBg'],
+        [12, 13, 'flashBg'],
+        [12, 15, 'flashBg'],
+        [13, 1, 'flashBg'],
+        [13, 3, 'flashBg'],
+        [13, 5, 'flashBg'],
+        [13, 6, 'flashBg'],
+        [13, 8, 'flashBg'],
+        [13, 10, 'flashBg'],
+        [13, 12, 'flashBg'],
+        [13, 13, 'flashBg'],
+        [13, 14, 'flashBg'],
+        [13, 15, 'flashBg'],
+        [13, 16, 'flashBg'],
+        [14, 2, 'flashBg'],
+        [14, 3, 'flashBg'],
+        [14, 5, 'flashBg'],
+        [14, 6, 'flashBg'],
+        [14, 8, 'flashBg'],
+        [14, 10, 'flashBg'],
+        [14, 12, 'flashBg'],
+        [14, 13, 'flashBg'],
+        [14, 15, 'flashBg'],
+        [15, 1, 'flashBg'],
+        [15, 3, 'flashBg'],
+        [15, 5, 'flashBg'],
+        [15, 6, 'flashBg'],
+        [15, 8, 'flashBg'],
+        [15, 10, 'flashBg'],
+        [15, 12, 'flashBg'],
+        [15, 13, 'flashBg'],
+        [15, 14, 'flashBg'],
+        [15, 15, 'flashBg'],
+        [15, 16, 'flashBg'],
+        [16, 2, 'flashBg'],
+        [16, 3, 'flashBg'],
+        [16, 5, 'flashBg'],
+        [16, 6, 'flashBg'],
+        [16, 8, 'flashBg'],
+        [16, 10, 'flashBg'],
+        [16, 12, 'flashBg'],
+        [16, 13, 'flashBg'],
+        [16, 15, 'flashBg'],
+        [16, 15, 'tranSpeed', .5],
+        [16, 15, 'tranFunc', 'cubic-bezier(0.030, 0.935, 0.050, 0.970)'],
+        [17, 1, 'setFlashSpeed', 0.5],
+        [17, 1, 'flashBg'],
+        [17, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [18, 13, 'flashBg'],
+        [18, 13, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [18, 15, 'flashBg'],
+        [18, 15, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [20, 1, 'flashBg'],
+        [20, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [21, 1, 'flashBg'],
+        [21, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [22, 1, 'flashBg'],
+        [22, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [23, 1, 'flashBg'],
+        [23, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [23, 9, 'flashBg'],
+        [23, 9, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [24, 1, 'flashBg'],
+        [24, 1, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [24, 5, 'flashBg'],
+        [24, 5, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [24, 9, 'flashBg'],
+        [24, 9, 'transform', [PERS, 0, 0, -10, Math.random() * 80 - 40, Math.random() * 80 - 40, Math.random() * 80 - 40]],
+        [24, 9, 'showMessage', '20G'],
+        [24, 9, 'gravChange', 0.0001],
+        [24, 14, 'tranSpeed', 0.05],
+
+        [25, 1, 'silBoardOff'],
+        [25, 1, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
+        [25, 1, 'setFlashSpeed', 0.15],
+        [25, 1, 'flashBg'],
+        [25, 2, 'tranSpeed', 10],
+        [25, 2, 'tranFunc', 'cubic-bezier(0.895, 0.030, 0.685, 0.220)'],
+        [25, 3, 'transform', [PERS, 0, 0, -35, 0, 0, 0]],
+        [25, 9, 'flashBg'],
+        [26, 1, 'flashBg'],
+        [26, 5, 'flashBg'],
+        [26, 9, 'flashBg'],
+        [26, 13, 'flashBg'],
+        [27, 1, 'flashBg'],
+        [27, 9, 'flashBg'],
+        [28, 1, 'flashBg'],
+        [28, 5, 'flashBg'],
+        [28, 9, 'flashBg'],
+        [28, 13, 'flashBg'],
+        [29, 1, 'flashBg'],
+        [29, 9, 'flashBg'],
+        [30, 1, 'flashBg'],
+        [30, 5, 'flashBg'],
+        [30, 9, 'flashBg'],
+        [30, 13, 'flashBg'],
+        [31, 1, 'flashBg'],
+        [31, 9, 'flashBg'],
+        [32, 1, 'flashBg'],
+        [32, 5, 'flashBg'],
+        [32, 9, 'flashBg'],
+        [32, 13, 'flashBg'],
+
+        [32, 16, 'tranSpeed', 0],
+        [33, 1, 'transform', [0, 0, 0, 0, 0, 0, 0]],
+        [33, 1, 'silPieceOn'],
+        [33, 1, 'showMessage', '1/60G'],
+        [33, 1, 'gravChange', 1000],
+        [33, 1, 'setFlashSpeed', 0.08],
+        [33, 1, 'flashBg'],
+        [33, 5, 'flashBg'],
+        [33, 9, 'flashBg'],
+        [33, 13, 'flashBg'],
+        [34, 1, 'flashBg'],
+        [34, 5, 'flashBg'],
+        [34, 9, 'flashBg'],
+        [34, 13, 'flashBg'],
+        [35, 1, 'flashBg'],
+        [35, 5, 'flashBg'],
+        [35, 9, 'flashBg'],
+        [35, 13, 'flashBg'],
+        [36, 1, 'flashBg'],
+        [36, 5, 'flashBg'],
+        [36, 9, 'flashBg'],
+        [36, 13, 'flashBg'],
+        [37, 1, 'silBoardOn'],
+        [37, 1, 'showMessage', '20G'],
+        [37, 1, 'gravChange', 0.0001],
+        [37, 1, 'setFlashSpeed', 0.04],
+        [37, 1, 'flashBg'],
+        [37, 3, 'flashBg'],
+        [37, 5, 'flashBg'],
+        [37, 7, 'flashBg'],
+        [37, 9, 'flashBg'],
+        [37, 11, 'flashBg'],
+        [37, 13, 'flashBg'],
+        [37, 15, 'flashBg'],
+        [38, 1, 'flashBg'],
+        [38, 3, 'flashBg'],
+        [38, 5, 'flashBg'],
+        [38, 7, 'flashBg'],
+        [38, 9, 'flashBg'],
+        [38, 11, 'flashBg'],
+        [38, 13, 'flashBg'],
+        [38, 15, 'flashBg'],
+        [39, 1, 'flashBg'],
+        [39, 3, 'flashBg'],
+        [39, 5, 'flashBg'],
+        [39, 7, 'flashBg'],
+        [39, 9, 'flashBg'],
+        [39, 11, 'flashBg'],
+        [39, 13, 'flashBg'],
+        [39, 15, 'flashBg'],
+        [40, 1, 'flashBg'],
+        [40, 3, 'flashBg'],
+        [40, 5, 'flashBg'],
+        [40, 7, 'flashBg'],
+        [40, 9, 'flashBg'],
+        [40, 11, 'flashBg'],
+        [40, 13, 'flashBg'],
+        [40, 13, 'tranSpeed', 3],
+        [40, 13, 'tranFunc', 'cubic-bezier(0.860, 0.000, 0.070, 1.000)'],
+        [40, 15, 'flashBg'],
+        [41, 1, 'silBoardOff'],
+        [41, 1, 'silPieceOff'],
+        [41, 1, 'transform', [PERS, 0, 0, 0, 180, 0, 0]],
+        [41, 1, 'showMessage', '1/60G'],
+        [41, 1, 'gravChange', 1000],
+        [42, 3, 'changeNext', 1],
+        [48, 10, 'tranSpeed', 0],
+        [48, 13, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
+        [48, 13, 'setFlashSpeed', 2.6],
+        [48, 13, 'flashBg'],
+        [49, 1, 'silBoardOn'],
+        [49, 1, 'showMessage', '1G'],
+        [49, 1, 'gravChange', 16.6666666667],
+        [49, 1, 'changeNext', 6],
+        [52, 13, 'setFlashSpeed', 0.08],
+        [52, 13, 'flashBg'],
+        [52, 15, 'flashBg'],
+        [55, 1, 'setFlashSpeed', 0.5],
+        [55, 1, 'flashBg'],
+        [55, 9, 'flashBg'],
+        [55, 9, 'flashBg'],
+        [56, 1, 'flashBg'],
+        [56, 5, 'flashBg'],
+        [56, 9, 'flashBg'],
+        [57, 1, 'flashBg'],
+        [61, 1, 'flashBg'],
+        [62, 1, 'flashBg'],
+        [63, 1, 'flashBg'],
+        [63, 9, 'flashBg'],
+        [64, 1, 'flashBg'],
+        [64, 5, 'flashBg'],
+        [64, 9, 'flashBg'],
+        [64, 13, 'flashBg'],
+        [65, 1, 'silBoardOff'],
+        [65, 1, 'gravChange', 0.0001],
+        [65, 1, 'showMessage', '20G'],
+        [65, 1, 'tranFunc', 'cubic-bezier(0.030, 0.935, 0.050, 0.970)'],
+        [65, 1, 'tranSpeed', 0.08],
+
+        [65, 1, 'setFlashSpeed', 0.17],
+
+        [65, 1, 'transform', [PERS, 0, 10, -20, 0, 0, 0]],
+        [65, 1, 'flashBg'],
+        [65, 3, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [65, 5, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [65, 6, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [65, 7, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [65, 9, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [65, 11, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [65, 13, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [65, 14, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [65, 15, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [65, 16, 'transform', [PERS, 0, 7, -20, 0, 0, 0]],
+        [66, 1, 'transform', [PERS, 0, 5, -20, 0, 0, 0]],
+        [66, 1, 'flashBg'],
+        [66, 3, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [66, 5, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [66, 6, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [66, 7, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [66, 8, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [66, 9, 'transform', [PERS, 0, -5, -20, 0, 0, 0]],
+        [66, 11, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [66, 13, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [66, 15, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+
+        [67, 1, 'transform', [PERS, 0, 10, -20, 0, 0, 0]],
+        [67, 1, 'flashBg'],
+        [67, 3, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [67, 5, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [67, 6, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [67, 7, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [67, 9, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [67, 11, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [67, 13, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [67, 14, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [67, 15, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [67, 16, 'transform', [PERS, 0, 7, -20, 0, 0, 0]],
+        [68, 1, 'transform', [PERS, 0, 5, -20, 0, 0, 0]],
+        [68, 1, 'flashBg'],
+        [68, 3, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [68, 5, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [68, 5, 'flashBg'],
+        [68, 6, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [68, 7, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [68, 8, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [68, 9, 'transform', [PERS, 0, -6, -20, 0, 0, 0]],
+        [68, 9, 'flashBg'],
+        [68, 11, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [68, 13, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [68, 13, 'flashBg'],
+        [68, 15, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+
+        [69, 1, 'transform', [PERS, 0, 10, -20, 0, 0, 0]],
+        [69, 1, 'flashBg'],
+        [69, 3, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [69, 5, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [69, 6, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [69, 7, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [69, 9, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [69, 11, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [69, 13, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [69, 14, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [69, 15, 'transform', [PERS, 0, 3, -20, 0, 0, 0]],
+        [69, 16, 'transform', [PERS, 0, 7, -20, 0, 0, 0]],
+        [70, 1, 'transform', [PERS, 0, 5, -20, 0, 0, 0]],
+        [70, 1, 'flashBg'],
+        [70, 3, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [70, 5, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [70, 6, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [70, 7, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [70, 8, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [70, 9, 'transform', [PERS, 0, -5, -20, 0, 0, 0]],
+        [70, 11, 'transform', [PERS, 0, -2, -20, 0, 0, 0]],
+        [70, 13, 'transform', [PERS, 0, 2, -20, 0, 0, 0]],
+        [70, 15, 'transform', [PERS, 0, 1, -20, 0, 0, 0]],
+        [70, 15, 'transform', [PERS, 0, 1, -20, 0, 0, 0]],
+
+        [71, 1, 'transform', [PERS, 0, 0, -20, 0, 0, 0]],
+        [71, 1, 'flashBg'],
+        [71, 3, 'transform', [PERS, 0, 0, -19, 0, 0, 0]],
+        [71, 3, 'flashBg'],
+        [71, 4, 'transform', [PERS, 0, 0, -18, 0, 0, 0]],
+        [71, 4, 'flashBg'],
+        [71, 7, 'transform', [PERS, 0, 0, -17, 0, 0, 0]],
+        [71, 7, 'flashBg'],
+        [71, 9, 'transform', [PERS, 0, 0, -12, 0, 0, 0]],
+        [71, 9, 'flashBg'],
+        [71, 11, 'transform', [PERS, 0, 0, -11, 0, 0, 0]],
+        [71, 11, 'flashBg'],
+        [71, 12, 'transform', [PERS, 0, 0, -10, 0, 0, 0]],
+        [71, 12, 'flashBg'],
+        [71, 15, 'transform', [PERS, 0, 0, -9, 0, 0, 0]],
+        [71, 15, 'flashBg'],
+        [72, 1, 'transform', [PERS, 0, 0, -4, 0, 0, 0]],
+        [72, 1, 'flashBg'],
+        [72, 3, 'transform', [PERS, 0, 0, -3, 0, 0, 0]],
+        [72, 3, 'flashBg'],
+        [72, 5, 'transform', [PERS, 0, 0, 2, 0, 0, 0]],
+        [72, 5, 'flashBg'],
+        [72, 7, 'transform', [PERS, 0, 0, 3, 0, 0, 0]],
+        [72, 7, 'flashBg'],
+        [72, 9, 'transform', [PERS, 0, 0, 8, 0, 0, 0]],
+        [72, 9, 'flashBg'],
+
+        [73, 1, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
+        [73, 3, 'tranSpeed', 0],
+        [73, 3, 'silOn'],
+        [73, 3, 'setFlashSpeed', 0.34],
+
+        [73, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [73, 3, 'flashBg'],
+        [73, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [73, 7, 'flashBg'],
+        [73, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [73, 11, 'flashBg'],
+        [73, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [73, 15, 'flashBg'],
+
+        [74, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [74, 3, 'flashBg'],
+        [74, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [74, 7, 'flashBg'],
+        [74, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [74, 11, 'flashBg'],
+        [74, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [74, 15, 'flashBg'],
+
+        [75, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [75, 3, 'flashBg'],
+        [75, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [75, 7, 'flashBg'],
+        [75, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [75, 11, 'flashBg'],
+        [75, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [75, 15, 'flashBg'],
+
+        [76, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [76, 3, 'flashBg'],
+        [76, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [76, 7, 'flashBg'],
+        [76, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [76, 11, 'flashBg'],
+        [76, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [76, 15, 'flashBg'],
+
+        [73, 3, 'setFlashSpeed', 0.17],
+
+        [77, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [77, 3, 'flashBg'],
+        [77, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [77, 7, 'flashBg'],
+        [77, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [77, 11, 'flashBg'],
+        [77, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [77, 15, 'flashBg'],
+
+        [78, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [78, 3, 'flashBg'],
+        [78, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [78, 7, 'flashBg'],
+        [78, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [78, 11, 'flashBg'],
+        [78, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [78, 15, 'flashBg'],
+
+        [79, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [79, 3, 'flashBg'],
+        [79, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [79, 7, 'flashBg'],
+        [79, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [79, 11, 'flashBg'],
+        [79, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [79, 15, 'flashBg'],
+
+        [80, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [80, 3, 'flashBg'],
+        [80, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [80, 7, 'flashBg'],
+        [80, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [80, 11, 'flashBg'],
+        [80, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [80, 15, 'flashBg'],
+
+        [81, 1, 'silOff'],
+        [81, 1, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
+        [81, 1, 'setFlashSpeed', 0.017],
+        [81, 1, 'flashBg'],
+        [81, 1, 'silBoardOn'],
+        [81, 5, 'flashBg'],
+        [81, 5, 'silBoardOff'],
+        [81, 5, 'silPieceOn'],
+        [81, 9, 'flashBg'],
+        [81, 9, 'silPieceOff'],
+        [81, 9, 'silBoardOn'],
+        [81, 13, 'flashBg'],
+        [81, 13, 'silBoardOff'],
+        [81, 13, 'silPieceOn'],
+
+        [82, 1, 'flashBg'],
+        [82, 1, 'silPieceOff'],
+        [82, 1, 'silBoardOn'],
+        [82, 5, 'flashBg'],
+        [82, 5, 'silBoardOff'],
+        [82, 5, 'silPieceOn'],
+        [82, 9, 'flashBg'],
+        [82, 9, 'silPieceOff'],
+        [82, 9, 'silBoardOn'],
+        [82, 13, 'flashBg'],
+        [82, 13, 'silBoardOff'],
+        [82, 13, 'silPieceOn'],
+
+        [83, 1, 'flashBg'],
+        [83, 1, 'silPieceOff'],
+        [83, 1, 'silBoardOn'],
+        [83, 5, 'flashBg'],
+        [83, 5, 'silBoardOff'],
+        [83, 5, 'silPieceOn'],
+        [83, 9, 'flashBg'],
+        [83, 9, 'silPieceOff'],
+        [83, 9, 'silBoardOn'],
+        [83, 13, 'flashBg'],
+        [83, 13, 'silBoardOff'],
+        [83, 13, 'silPieceOn'],
+
+        [84, 1, 'flashBg'],
+        [84, 1, 'silPieceOff'],
+        [84, 1, 'silBoardOn'],
+        [84, 5, 'flashBg'],
+        [84, 5, 'silBoardOff'],
+        [84, 5, 'silPieceOn'],
+        [84, 9, 'flashBg'],
+        [84, 9, 'silPieceOff'],
+        [84, 9, 'silBoardOn'],
+        [84, 13, 'flashBg'],
+        [84, 13, 'silBoardOff'],
+        [84, 13, 'silPieceOn'],
+
+        [84, 13, 'tranSpeed', .33],
+        [84, 13, 'tranFunc', 'cubic-bezier(0.030, 0.935, 0.050, 0.970)'],
+
+        [85, 1, 'flashBg'],
+        [85, 1, 'silPieceOff'],
+        [85, 1, 'silBoardOn'],
+        [85, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [85, 5, 'flashBg'],
+        [85, 5, 'silBoardOff'],
+        [85, 5, 'silPieceOn'],
+        [85, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [85, 9, 'flashBg'],
+        [85, 9, 'silPieceOff'],
+        [85, 9, 'silBoardOn'],
+        [85, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [85, 13, 'flashBg'],
+        [85, 13, 'silBoardOff'],
+        [85, 13, 'silPieceOn'],
+        [85, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+
+        [86, 1, 'flashBg'],
+        [86, 1, 'silPieceOff'],
+        [86, 1, 'silBoardOn'],
+        [86, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [86, 5, 'flashBg'],
+        [86, 5, 'silBoardOff'],
+        [86, 5, 'silPieceOn'],
+        [86, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [86, 9, 'flashBg'],
+        [86, 9, 'silPieceOff'],
+        [86, 9, 'silBoardOn'],
+        [86, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [86, 13, 'flashBg'],
+        [86, 13, 'silBoardOff'],
+        [86, 13, 'silPieceOn'],
+        [86, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+
+        [87, 1, 'flashBg'],
+        [87, 1, 'silPieceOff'],
+        [87, 1, 'silBoardOn'],
+        [87, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [87, 5, 'flashBg'],
+        [87, 5, 'silBoardOff'],
+        [87, 5, 'silPieceOn'],
+        [87, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [87, 9, 'flashBg'],
+        [87, 9, 'silPieceOff'],
+        [87, 9, 'silBoardOn'],
+        [87, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [87, 13, 'flashBg'],
+        [87, 13, 'silBoardOff'],
+        [87, 13, 'silPieceOn'],
+        [87, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+
+        [88, 1, 'flashBg'],
+        [88, 1, 'silPieceOff'],
+        [88, 1, 'silBoardOn'],
+        [88, 3, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [88, 5, 'flashBg'],
+        [88, 5, 'silBoardOff'],
+        [88, 5, 'silPieceOn'],
+        [88, 7, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [88, 9, 'flashBg'],
+        [88, 9, 'silPieceOff'],
+        [88, 9, 'silBoardOn'],
+        [88, 11, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+        [88, 13, 'flashBg'],
+        [88, 13, 'silBoardOff'],
+        [88, 13, 'silPieceOn'],
+        [88, 15, 'transform', [PERS, Math.random() * 10 - 5, Math.random() * 10 - 5, -10, 0, 0, Math.random() * 10 - 5]],
+
+        [89, 1, 'silOn'],
+        [89, 1, 'setFlashSpeed', 0.03],
+        [89, 1, 'flashBg'],
+        [89, 1, 'tranSpeed', 0],
+        [89, 1, 'silPieceOff'],
+        [89, 1, 'transform', [PERS, 0, 0, -25, 10, -10, -30]],
+        [89, 2, 'tranSpeed', 10],
+        [89, 2, 'tranFunc', 'linear'],
+        [89, 3, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
+        [89, 3, 'flashBg'],
+        [89, 5, 'flashBg'],
+        [89, 6, 'flashBg'],
+        [89, 7, 'flashBg'],
+        [89, 9, 'flashBg'],
+        [89, 11, 'flashBg'],
+        [89, 13, 'flashBg'],
+        [89, 14, 'flashBg'],
+        [89, 15, 'flashBg'],
+        [89, 16, 'flashBg'],
+
+        [90, 1, 'flashBg'],
+        [90, 3, 'flashBg'],
+        [90, 5, 'flashBg'],
+        [90, 6, 'flashBg'],
+        [90, 7, 'flashBg'],
+        [90, 8, 'flashBg'],
+        [90, 9, 'flashBg'],
+        [90, 11, 'flashBg'],
+        [90, 13, 'flashBg'],
+        [90, 15, 'flashBg'],
+
+        [91, 1, 'flashBg'],
+        [91, 3, 'flashBg'],
+        [91, 5, 'flashBg'],
+        [91, 6, 'flashBg'],
+        [91, 7, 'flashBg'],
+        [91, 9, 'flashBg'],
+        [91, 11, 'flashBg'],
+        [91, 13, 'flashBg'],
+        [91, 14, 'flashBg'],
+        [91, 15, 'flashBg'],
+        [91, 16, 'flashBg'],
+
+        [92, 1, 'flashBg'],
+        [92, 3, 'flashBg'],
+        [92, 5, 'flashBg'],
+        [92, 6, 'flashBg'],
+        [92, 7, 'flashBg'],
+        [92, 8, 'flashBg'],
+        [92, 9, 'flashBg'],
+        [92, 11, 'flashBg'],
+        [92, 13, 'flashBg'],
+        [92, 15, 'flashBg'],
+
+        [93, 1, 'flashBg'],
+        [93, 7, 'flashBg'],
+        [93, 8, 'flashBg'],
+        [93, 9, 'flashBg'],
+        [93, 11, 'flashBg'],
+        [93, 13, 'flashBg'],
+        [93, 15, 'flashBg'],
+
+        [94, 3, 'flashBg'],
+        [94, 5, 'flashBg'],
+        [94, 7, 'flashBg'],
+        [94, 9, 'flashBg'],
+        [94, 11, 'flashBg'],
+        [94, 12, 'flashBg'],
+        [94, 13, 'flashBg'],
+        [94, 15, 'flashBg'],
+
+        [95, 1, 'flashBg'],
+        [95, 3, 'flashBg'],
+        [95, 4, 'flashBg'],
+        [95, 5, 'flashBg'],
+        [95, 6, 'flashBg'],
+        [95, 7, 'flashBg'],
+        [95, 9, 'flashBg'],
+        [95, 11, 'flashBg'],
+        [95, 13, 'flashBg'],
+        [95, 15, 'flashBg'],
+
+        [96, 1, 'flashBg'],
+
+        [97, 1, 'silOff'],
+        [97, 1, 'showMessage', '1/60G'],
+        [97, 1, 'gravChange', 1000],
+        [97, 1, 'tranSpeed', 12],
+        [97, 1, 'tranFunc', 'ease-in'],
+        [97, 1, 'transform', [PERS, 0, 0, -150, 0, 0, 0]],
+        [Number.MAX_SAFE_INTEGER, 'none']
+      ]
       game.updateStats();
     },
   },

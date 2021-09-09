@@ -387,6 +387,7 @@
   */
 
 body {
+  --flash-speed: 1s;
   user-select: none;
   margin: 0;
   padding: 0;
@@ -1737,7 +1738,7 @@ progress[value]::-moz-progress-bar {
   }
 }
 
-.game .timer.hurry-up, .garbage-counter-container.danger .garbage-counter {
+.game .timer.hurry-up, .garbage-counter-container.danger .garbage-counter, #delay.danger {
   color: #f00;
   animation-name: hurry-up-timer;
   animation-duration: .4s;
@@ -2075,4 +2076,45 @@ progress[value]::-moz-progress-bar {
 .error>.url {
   font-weight: 700;
   display: inline-block;
+}
+
+@keyframes non-flash {
+  from {background-color: #8536c5
+  }
+  to {background-color: black}
+}
+
+.non-flash {
+  animation-name: non-flash;
+  animation-duration: var(--flash-speed);
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.sil {
+  filter: brightness(0);
+}
+
+#piece.sil {
+  animation-name: none;
+}
+
+#lights-warning {
+  position: absolute;
+  z-index: 9999;
+  color: #fff;
+  right: 1em;
+  bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  animation-name: pulse-darkness-light;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#lights-warning.hidden {
+  display: none;
 }
