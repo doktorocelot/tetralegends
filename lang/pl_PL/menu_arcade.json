@@ -4,10 +4,10 @@
     "description": "Used as a category name for TGM-inspired modes"
   },
   "gradesDescription": {
-    "message": "Wyzwania dla hardkorów, służące do sprawdzania twoich umiejętności."
+    "message": "Tryb Hardcore zaprojektowany do sprawdzania szczytu graczy"
   },
   "master3Label": {
-    "message": "Master 3",
+    "message": "Mistrz 3",
     "description": "Used for a mode inspired by TGM3 Master"
   },
   "master3Description": {

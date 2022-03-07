@@ -49,7 +49,7 @@
     "description": "Could also be called 'rotate clockwise'"
   },
   "rotateRightDescription": {
-    "message": "Xoay gạch 90 độ theo chiều kim đồng hồ."
+    "message": "Xoay gạch 90 độ chiều kim đồng hồ."
   },
   "rotateDoubleLabel": {
     "message": "Xoay 180 độ",

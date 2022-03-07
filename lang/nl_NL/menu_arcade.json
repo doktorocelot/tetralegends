@@ -1,16 +1,16 @@
 {
   "gradesLabel": {
-    "message": "Grades",
+    "message": "Cijfers",
     "description": "Used as a category name for TGM-inspired modes"
   },
   "gradesDescription": {
-    "message": "Hardcore modes designed to challenge the highest of players"
+    "message": "Hardcore-modi ontworpen om de hoogste spelers uit te dagen"
   },
   "master3Label": {
-    "message": "Master 3",
+    "message": "Meester 3",
     "description": "Used for a mode inspired by TGM3 Master"
   },
   "master3Description": {
-    "message": "Cool!! Play quickly and accurately to advance higher and higher!"
+    "message": "Cool! Speel snel en nauwkeurig om hoger en hoger te komen!"
   }
 }

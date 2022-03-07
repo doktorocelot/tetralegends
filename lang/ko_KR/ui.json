@@ -154,5 +154,9 @@
   "tapAnywhere": {
     "message": "화면을 누르세요",
     "description": "Indicating to tap on the touchscreen anywhere"
+  },
+  "flashingLights": {
+    "message": "Flashing Lights",
+    "description": "Used to warn the player of flashing lights"
   }
 }

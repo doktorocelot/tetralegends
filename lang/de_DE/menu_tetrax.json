@@ -14,5 +14,13 @@
   "proDescription": {
     "message": "An dieser Stelle sterben Puzzle-Meister. Die Geschwindigkeit in diesem Modus ist super schnell; blinken und du kannst sterben!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "nightOfNightsXLabel": {
+    "message": "Night of Nights X",
+    "description": "A Tetra-X mode that has crazy effects synced to Night of Nights that tries to distract the player"
+  },
+  "nightOfNightsXDescription": {
+    "message": "This mode has severe flashing lights. Try to survive the duration of Night of Nights while the game throws crazy distractions!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

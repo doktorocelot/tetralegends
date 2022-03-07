@@ -1,64 +1,64 @@
 {
   "presetsLabel": {
-    "message": "Predefinições do DAS",
+    "message": "Atraso / Predefinições de taxa",
     "description": "Could also be referred to as 'Autoshift Presets' or 'DAS Presets'"
   },
   "presetDescription": {
-    "message": "Select from a variety of different presets for the autoshift"
+    "message": "Selecione entre uma variedade de predefinições diferentes para a mudança automática"
   },
   "dasLabel": {
-    "message": "Autoshift Delay",
+    "message": "Atraso de mudança automática",
     "description": "Also known as 'DAS'"
   },
   "dasDescription": {
-    "message": "The amount of time in milliseconds before a piece will automatically shift (DAS)"
+    "message": "A quantidade de tempo em milissegundos antes de uma peça mudar automaticamente (DAS)"
   },
   "arrLabel": {
-    "message": "Autoshift Rate",
+    "message": "Taxa de mudança automática",
     "description": "Also known as 'ARR'"
   },
   "arrDescription": {
-    "message": "The amount of time in milliseconds in between each automatic shift (ARR)"
+    "message": "A quantidade de tempo em milissegundos entre cada mudança automática (ARR)"
   },
   "dasPreloadLabel": {
-    "message": "Autoshift Preload",
+    "message": "Pré-carga de mudança automática",
     "description": "This setting make it so that when you press a movement key while in Entry Delay (ARE), the DAS will fully charge and the ARR will start immediately when the next piece spawns"
   },
   "dasPreloadDescription": {
-    "message": "Automatically fully charge the autoshift when a movement key is pressed during entry delay"
+    "message": "Carregar totalmente o autoshift automaticamente quando uma tecla de movimento for pressionada durante o retardo de entrada"
   },
   "irsLabel": {
-    "message": "Initial Rotation",
+    "message": "Rotação Inicial",
     "description": "Allows the user to rotate a piece before it spawns (aka IRS)"
   },
   "irsDescription": {
-    "message": "Modifies the ability to rotate a piece before it spawns (may be disabled in some modes)"
+    "message": "Modifica a capacidade de girar uma peça antes de gerá-la (pode ser desativado em alguns modos)"
   },
   "absoluteIrsOption": {
-    "message": "Absolute",
+    "message": "Absoluto",
     "description": "As in 'absolute rotation'; it means that the rotation button pressed during IRS will correspond to that rotation from the piece's initial spawning orientation: for example, if you IRS to rotate left, and then IRS to rotate right, it will spawn the piece as if it was rotated to the right from the neutral spawning orientation"
   },
   "ihsLabel": {
-    "message": "Initial Hold",
+    "message": "Retenção inicial",
     "description": "Allows the user to hold a piece before it spawns (aka IHS)"
   },
   "ihsDescription": {
-    "message": "Modifies the ability to hold a piece before it spawns"
+    "message": "Modifica a capacidade de segurar uma peça antes que ela desova"
   },
   "tapInitOption": {
-    "message": "Tap",
+    "message": "Tocar",
     "description": "As in, you press the button once to use IRS/IHS; In IRS, it allows you to rotate a piece as if it were in play before it spawns"
   },
   "holdInitOption": {
-    "message": "Hold",
+    "message": "Segurar",
     "description": "As in, you have to have the button held at the end of ARE to use IRS/IHS"
   },
   "rotSysLabel": {
-    "message": "Rotation System Override",
+    "message": "Substituição do sistema de rotação",
     "description": "Allows the user to override the rotation system in any mode"
   },
   "rotSysDescription": {
-    "message": "Select a rotation system to use in place of the default for the mode"
+    "message": "Selecione um sistema de rotação para usar no lugar do padrão para o modo"
   },
   "originalOption": {
     "message": "Original",

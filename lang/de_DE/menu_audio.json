@@ -33,7 +33,7 @@
     "message": "Stimme"
   },
   "voxVolLabel": {
-    "message": "Stimme Lautstärke",
+    "message": "Stimmenlautstärke",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {

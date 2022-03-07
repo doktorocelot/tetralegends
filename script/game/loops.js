@@ -458,7 +458,7 @@ export const loops = {
         [32, 13, 'flashBg'],
 
         [32, 16, 'tranSpeed', 0],
-        [33, 1, 'transform', [0, 0, 0, 0, 0, 0, 0]],
+        [33, 1, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
         [33, 1, 'silPieceOn'],
         [33, 1, 'showMessage', '1/60G'],
         [33, 1, 'gravChange', 1000],
@@ -522,7 +522,7 @@ export const loops = {
         [41, 1, 'transform', [PERS, 0, 0, 0, 180, 0, 0]],
         [41, 1, 'showMessage', '1/60G'],
         [41, 1, 'gravChange', 1000],
-        [42, 3, 'changeNext', 1],
+        [42, 2.5, 'changeNext', 1],
         [48, 10, 'tranSpeed', 0],
         [48, 13, 'transform', [PERS, 0, 0, 0, 0, 0, 0]],
         [48, 13, 'setFlashSpeed', 2.6],

@@ -42,10 +42,8 @@
       "submenu": "mode/combo"
     },
     {
-      "label": "NIGHT OF NIGHTS",
-      "description": "",
-      "fixedText": true,
-      "secretA": true,
+      "string": "nightOfNightsLabel",
+      "stringDesc": "nightOfNightsDescription",
       "action": "submenu",
       "submenu": "mode/non"
     }

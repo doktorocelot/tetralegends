@@ -14,5 +14,13 @@
   "proDescription": {
     "message": "即使是大师也不能掉以轻心。在这个快速的模式中，哪怕眨眼都可能是致命的！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "nightOfNightsXLabel": {
+    "message": "Night of Nights X",
+    "description": "A Tetra-X mode that has crazy effects synced to Night of Nights that tries to distract the player"
+  },
+  "nightOfNightsXDescription": {
+    "message": "This mode has severe flashing lights. Try to survive the duration of Night of Nights while the game throws crazy distractions!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

@@ -1,6 +1,6 @@
 {
   "single": {
-    "message": "Single",
+    "message": "Simple",
     "description": "Displays in the screen when one line is cleared"
   },
   "double": {
@@ -20,7 +20,7 @@
     "description": "Displays when a spin is created but no lines are cleared. %1 is the name of the piece ('T', 'S')"
   },
   "spinsingle": {
-    "message": "%1-Spin Single",
+    "message": "%1-Spin Simple",
     "description": "Displays when a spin clears 1 line. %1 is the name of the piece ('T', 'S')"
   },
   "spindouble": {

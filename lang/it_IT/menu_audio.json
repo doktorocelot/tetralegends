@@ -33,17 +33,17 @@
     "message": "Voce"
   },
   "voxVolLabel": {
-    "message": "Voice Volume",
+    "message": "Volume voci",
     "description": "Used for any voice clip's in the game"
   },
   "voxVolDescription": {
-    "message": "The volume of the voice clips in percentage"
+    "message": "Il volume delle clip vocali in percentuale"
   },
   "voicebankLabel": {
-    "message": "Voicebank",
+    "message": "Seleziona voce",
     "description": "This is to select a voice pack"
   },
   "voicebankDescription": {
-    "message": "Select a voicebank to use for in-game and menu callouts"
+    "message": "Seleziona una voce da utilizzare nel gioco e nel menù"
   }
 }

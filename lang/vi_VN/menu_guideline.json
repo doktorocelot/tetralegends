@@ -4,7 +4,7 @@
     "description": "A guideline mode where you attempt to clear a set amount of lines (or endless) with a rising difficulty"
   },
   "marathonDescription": {
-    "message": "Vượt qua mục tiêu! Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận, càng lên level, tốc độ chơi càng cao!",
+    "message": "Vượt qua mục tiêu! Xếp gạch và lấp hàng, càng nhiều điểm càng tốt! Nhưng hãy cẩn thận; càng lên cấp, tốc độ chơi càng cao!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "masterLabel": {
@@ -45,6 +45,14 @@
   },
   "survivalDescription": {
     "message": "Hãy cẩn thận trong chế độ này! Hàng rác sẽ từ từ dâng lên ở đáy bảng chơi. Nếu bạn không thể xử lí kịp, chắc chắn bạn sẽ thua!",
+    "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
+  },
+  "nightOfNightsLabel": {
+    "message": "Night of Nights",
+    "description": "A guideline mode the pieces are locked at the bpm of Night of Nights"
+  },
+  "nightOfNightsDescription": {
+    "message": "Presto tempo! Try to keep up while the pieces lock at Night of Night's ludicrous BPM of 180!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

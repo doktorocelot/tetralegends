@@ -39,13 +39,13 @@
     "message": "Các chi tiết nhỏ"
   },
   "particlesDescription": {
-    "message": "Lựa chọn nếu bạn muốn các chi tiết nhỏ hiển thị trong game"
+    "message": "Lựa chọn hiển thị các chi tiết nhỏ trong game"
   },
   "particleLimitLabel": {
     "message": "Giới hạn"
   },
   "particleLimitDescription": {
-    "message": "Lựa chọn bao nhiêu chi tiết nhỏ sẽ hiển thị trên màn hình cùng một lúc"
+    "message": "Lựa chọn số chi tiết nhỏ sẽ hiển thị trên màn hình cùng một lúc"
   },
   "particleSizeLabel": {
     "message": "Độ lớn"
@@ -88,7 +88,7 @@
     "description": "The background grid used by the game"
   },
   "gridDescription": {
-    "message": "Lựa chọn phong cách lưới phù hợp với bạn"
+    "message": "Lựa chọn kiểu lưới"
   },
   "crossGridOption": {
     "message": "Giới hạn",
@@ -126,7 +126,7 @@
     "description": "Allows the user to override pieces colors with their own desired chices"
   },
   "colorOverrideDescription": {
-    "message": "Ghi đè màu lên các miếng gạch"
+    "message": "Ghi đè màu lên gạch"
   },
   "redOption": {
     "message": "Đỏ",
