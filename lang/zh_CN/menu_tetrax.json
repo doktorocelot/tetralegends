@@ -20,7 +20,7 @@
     "description": "A Tetra-X mode that has crazy effects synced to Night of Nights that tries to distract the player"
   },
   "nightOfNightsXDescription": {
-    "message": "This mode has severe flashing lights. Try to survive the duration of Night of Nights while the game throws crazy distractions!",
+    "message": "该模式有强烈的闪光特效。试着在各种特效的干扰下保持存活直到乐曲结束！",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

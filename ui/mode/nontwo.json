@@ -4,13 +4,12 @@
     "parentSecret": true,
     "langOverride": "mode-options",
     "game": "nontwo",
-    "pgmusic": "pg-non"
+    "pgmusic": "pg-nontwo"
   },
   "data": [
     {
-      "label": "Night of Nights X",
-      "description": "",
-      "fixedText": true,
+      "string": "nightOfNightsXLabel",
+      "langOverride": "menu_tetrax",
       "type": "header"
     }
   ]

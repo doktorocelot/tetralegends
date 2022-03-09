@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "tetraxLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "standardLabel",
       "stringDesc": "standardDescription",
       "default": true,

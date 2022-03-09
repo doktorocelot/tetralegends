@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "guidelineLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "marathonLabel",
       "stringDesc": "marathonDescription",
       "default": true,

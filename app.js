@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((test) => {
         locale.updateFonts();
         locale.updateTitle();
+        locale.updateLightWarning();
         $('#press-container').innerHTML = locale.getString('ui', 'pressKeyboardKey', ['<img src="img/ui/keyboard-enter.svg" class="press-key">']);
         $('#press-container').classList.remove('hidden');
         window.onblur = () => {

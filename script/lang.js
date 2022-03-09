@@ -1,6 +1,7 @@
 import {loadLanguage} from './loaders.js';
 import settings from './settings.js';
 import gameHandler from './game/game-handler.js';
+import $ from './shortcuts.js'
 
 class Locale {
   constructor() {
@@ -92,8 +93,15 @@ class Locale {
     settings.settings.language = locale;
     this.updateFonts();
     this.updateTitle();
+    this.updateLightWarning()
     settings.saveSettings();
   }
+
+  updateLightWarning() {
+    const str = this.getString('ui', 'flashingLights')
+    $('#lights-warning').innerHTML = `<img src="img/tetrion/warning.svg" alt=""> ${str} ${(str.toLowerCase() === 'flashing lights') ? '' : ' (Flashing Lights)'}`
+  }
+
   updateTitle() {
     switch (this.currentLanguage) {
       case 'ja_JP':

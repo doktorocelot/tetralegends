@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "tuningLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "presetsLabel",
       "stringDesc": "presetDescription",
       "action": "submenu",

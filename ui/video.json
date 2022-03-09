@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "videoLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "particleSettingsLabel",
       "stringDesc": "particleSettingsDescription",
       "action": "submenu",

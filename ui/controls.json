@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "controlsLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "clearLabel",
       "stringDesc": "clearDescription",
       "isShort": true,

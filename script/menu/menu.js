@@ -6,17 +6,13 @@ import input from '../input.js';
 import locale from '../lang.js';
 import sound from '../sound.js';
 const isSelectable = (type) => {
-  if (
-    type == null ||
+  return type == null ||
     type == 'control' ||
     type == 'setting' ||
     type == 'slider' ||
     type == 'toggle' ||
-    type == 'select'
-  ) {
-    return true;
-  }
-  return false;
+    type == 'select';
+
 };
 const getKey = (event) => {
   if (event.code === 'Backspace') {
@@ -37,7 +33,7 @@ class Menu {
     };
     this.isEnabled = false;
     this.isLocked = true;
-    this.lastSelection = 0;
+    this.lastSelection = [];
     this.useLastSelected = false;
     this.stored = {};
   }
@@ -113,12 +109,12 @@ class Menu {
       setTimeout(() => {
         this.clear();
         switch (type) {
-          case 'controls':
-            this.drawControls();
-            break;
-          default:
-            this.draw();
-            break;
+        case 'controls':
+          this.drawControls();
+          break;
+        default:
+          this.draw();
+          break;
         }
         this.showMenu();
         if (this.current.properties.vox && !this.useLastSelected) {
@@ -129,10 +125,11 @@ class Menu {
           this.isLocked = false;
         }
         if (this.useLastSelected) {
-          this.select(this.lastSelection, false, false, true);
+          this.select(this.lastSelection[this.lastSelection.length - 1], false, false, true);
+          this.lastSelection.pop()
           this.useLastSelected = false;
         }
-      }, 250);
+      }, 500);
     };
     if (menuData != null) {
       render(JSON.parse(JSON.stringify(menuData)));
@@ -389,7 +386,9 @@ class Menu {
         value.classList.add('value');
         value.onclick = () => {
           sound.playMenuSe('select');
-          this.lastSelection = this.selected;
+          $(`#option-${this.selected}`).classList.add('chosen');
+          this.skipMusicChange = true
+          this.lastSelection.push(this.selected)
           const newData = {};
           newData.properties = {
             parent: this.current.name,
@@ -587,6 +586,9 @@ class Menu {
         if (!element.classList.contains('selected')) {
           sound.playMenuSe('move');
         }
+        if (!element.parentElement.parentElement.classList.contains('selected')) {
+          return
+        }
         this.selectedControl.classList.remove('selected');
         element.classList.add('selected');
       };
@@ -725,21 +727,40 @@ class Menu {
     switch (this.selectedData.action) {
       case 'submenu':
         $(`#option-${this.selected}`).classList.add('chosen');
-        this.lastSelection = this.selected;
+        this.lastSelection.push(this.selected)
         this.load(this.selectedData.submenu);
         sound.playMenuSe('select');
         break;
       case 'back':
-        this.select(0,false, false)
-        $(`#option-${this.selected}`).classList.add('chosen');
         this.back();
         break;
       case 'quick':
-        gameHandler.newGame('marathon');
+        $(`#option-${this.selected}`).classList.add('chosen');
+        sound.killBgm()
+        this.isLocked = true;
+        this.hideMenu();
         sound.playMenuSe('select');
+        $('#menu').classList.add('slow')
+        setTimeout(() => {
+          gameHandler.newGame('marathon');
+          $(`#option-${this.selected}`).classList.remove('chosen');
+          this.showMenu();
+          $('#menu').classList.remove('slow')
+        }, 1000)
         break;
       case 'game':
-        gameHandler.newGame(this.selectedData.game);
+        sound.killBgm()
+        $(`#option-${this.selected}`).classList.add('chosen');
+        this.isLocked = true;
+        this.hideMenu();
+        $('#menu').classList.add('slow')
+        sound.playMenuSe('select');
+        setTimeout(() => {
+          gameHandler.newGame(this.selectedData.game);
+          $(`#option-${this.selected}`).classList.remove('chosen');
+          $('#menu').classList.remove('slow')
+          this.showMenu();
+        }, 1000)
         break;
       case 'control':
         this.selectedControl.onclick();
@@ -755,8 +776,7 @@ class Menu {
         this.drawSettings();
         break;
       case 'select':
-        $(`#option-${this.selected}`).classList.add('chosen');
-        this.skipMusicChange = true
+
         $('.select-container.selected .value-name').onclick();
         break;
       case 'settingChange':
@@ -827,7 +847,7 @@ class Menu {
     if (!this.isLocked) {
       if (this.current.properties.parent !== null) {
         if (playSound) {
-          this.select(0, true, false)
+          this.select(0, false, false, true)
           $(`#option-${this.selected}`).classList.add('chosen');
         }
         if (playSound) {

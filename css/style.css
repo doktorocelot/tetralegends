@@ -288,7 +288,7 @@
   --tetrion-color: #fff;
   /* --current-background: url("https://wallpaperaccess.com/full/28488.jpg"); */
   --main-font: "Roboto", sans-serif;
-  --cell-size: (2em);
+  --cell-size: 2em;
   --peek-zone: .25;
   --matrix-width: 10;
   --matrix-height-base: 20;
@@ -495,9 +495,25 @@ body {
   transition-timing-function: ease-in-out;
 }
 
+@keyframes slide-in {
+  from {transform: translateX(-1em)}
+  to {transform: translateX(0)}
+}
+
+#menu > * {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+#menu.hidden.slow {
+  transition-duration: .75s;
+}
 #menu.hidden {
+  transition-duration: .25s;
+  transition-delay: .25s;
   opacity: 0;
-  transform: translate(0, 1em);
+}
+#menu.hidden > *:not(.selected) {
+  opacity: 0;
 }
 
 .modal {
@@ -818,7 +834,7 @@ body {
 #menu>.selected.chosen {
   animation-name: menu-chosen;
   animation-duration: .07s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 4;
   animation-timing-function: linear;
   animation-direction: alternate;
 }
@@ -970,7 +986,8 @@ body {
 
 #logo-container {
   display: block;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: 60vh;
   background-image: var(--logo-image);
   background-size: contain;
@@ -1130,7 +1147,7 @@ body {
 }
 
 .stats {
-  height: calc(--matrix-height-base * 1.55);
+  height: calc(var(--matrix-height-base) * 1.55);
   display: flex;
   justify-content: flex-end;
   flex-direction: column;

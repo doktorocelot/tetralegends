@@ -5,6 +5,11 @@
   },
   "data": [
     {
+      "string": "retroLabel",
+      "langOverride": "menu_root",
+      "type": "header"
+    },
+    {
       "string": "consoleLabel",
       "stringDesc": "consoleDescription",
       "default": true,

@@ -52,7 +52,7 @@
     "description": "A guideline mode the pieces are locked at the bpm of Night of Nights"
   },
   "nightOfNightsDescription": {
-    "message": "Presto tempo! Try to keep up while the pieces lock at Night of Night's ludicrous BPM of 180!",
+    "message": "¡Presto tempo! ¡Intenta seguir el paso mientras las piezas se bloquean al absurdo BPM de 180 de Night of Nights!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

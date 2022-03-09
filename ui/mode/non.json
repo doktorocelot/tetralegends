@@ -8,9 +8,8 @@
   },
   "data": [
     {
-      "label": "Night of Nights",
-      "description": "",
-      "fixedText": true,
+      "string": "nightOfNightsLabel",
+      "langOverride": "menu_guideline",
       "type": "header"
     }
   ]

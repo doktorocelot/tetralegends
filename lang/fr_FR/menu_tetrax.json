@@ -12,7 +12,7 @@
     "description": "A Tetra-X mode where you try and clear a line goal with an intense speed"
   },
   "proDescription": {
-    "message": "C'est là que les maîtres des puzzles viennent mourir. La vitesse dans ce mode est super rapide; clignez des yeux et il se peut que vous perdiez !",
+    "message": "C'est là que les maîtres des puzzles viennent mourir. La vitesse dans ce mode est super rapide ; clignez des yeux et il se peut que vous perdiez !",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "nightOfNightsXLabel": {
@@ -20,7 +20,7 @@
     "description": "A Tetra-X mode that has crazy effects synced to Night of Nights that tries to distract the player"
   },
   "nightOfNightsXDescription": {
-    "message": "This mode has severe flashing lights. Try to survive the duration of Night of Nights while the game throws crazy distractions!",
+    "message": "Ce mode présente des effets clignotants sévères. Evitez d'y jouer si vous êtes atteint d'épilepsie photosensible. Essayez de survivre la durée de Night of Nights pendant que le jeu tente de vous distraire !",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }
