@@ -24,7 +24,7 @@
     "description": "The speed of the piece's descent, commonly referred to as 'gravity'"
   },
   "entrydelay": {
-    "message": "Thời gian tạo gạch",
+    "message": "Chờ tạo gạch",
     "description": "The amount of time in between piece placements, also known as 'ARE'"
   },
   "maxcombo": {

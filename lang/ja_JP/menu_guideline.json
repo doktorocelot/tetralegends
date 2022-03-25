@@ -48,11 +48,11 @@
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   },
   "nightOfNightsLabel": {
-    "message": "Night of Nights",
+    "message": "ナイト・オブ・ナイツ",
     "description": "A guideline mode the pieces are locked at the bpm of Night of Nights"
   },
   "nightOfNightsDescription": {
-    "message": "Presto tempo! Try to keep up while the pieces lock at Night of Night's ludicrous BPM of 180!",
+    "message": "プレストテンポ! ナイトオブナイツの180BPMに合わせたピースの固定に追い付こう!",
     "description": "Feel free to take any liberties as long you can accurately describe the mode in a way that's localized to the language."
   }
 }

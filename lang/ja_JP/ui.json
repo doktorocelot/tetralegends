@@ -156,7 +156,7 @@
     "description": "Indicating to tap on the touchscreen anywhere"
   },
   "flashingLights": {
-    "message": "Flashing Lights",
+    "message": "光の点滅",
     "description": "Used to warn the player of flashing lights"
   }
 }

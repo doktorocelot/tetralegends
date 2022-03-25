@@ -45,7 +45,7 @@
     "message": "Giới hạn"
   },
   "particleLimitDescription": {
-    "message": "Lựa chọn số chi tiết nhỏ sẽ hiển thị trên màn hình cùng một lúc"
+    "message": "Lựa chọn số chi tiết nhỏ hiển thị trên màn hình cùng lúc"
   },
   "particleSizeLabel": {
     "message": "Độ lớn"
@@ -64,7 +64,7 @@
     "description": "Text that appears when you do certain actions, 'Single', 'T-Spin' as well as displaying a combo counter"
   },
   "actionTextDescription": {
-    "message": "Hiển thị các thông báo khi bạn dọn hàng, combo, hoặc khi bạn xoay, ví dụ như \"Đôi\" và \"T-Spin\""
+    "message": "Hiển thị các thông báo khi bạn dọn hàng hoặc xoay, ví dụ như \"Đôi\" và \"T-Spin\". Cũng hiện số combo"
   },
   "skinLabel": {
     "message": "Trang trí",
